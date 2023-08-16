@@ -22,13 +22,13 @@
     <main id="login">
         <div id="loginContainer">
             <h3 id="loginTitle">Login</h3>
-            <form action="/login" method="post">
+            <form action="/login" method="post" id="loginForm">
                 <p class="loginText">CPF:</p>
-                <input type="text" name="cpf" id="cpf" placeholder="CPF">
+                <input type="text" name="cpf" id="cpf" class="loginInput" placeholder="CPF">
                 <p class="loginText">Senha:</p>
-                <input type="password" name="password" id="password" placeholder="Senha">
-                <p id="forgotPassword">Esqueceu a senha?</p>
-                <input type="submit" value="Entrar">
+                <input type="password" name="password" id="password" class="loginInput" placeholder="Senha">
+                <a href="#"><p id="forgotPassword">Esqueceu a senha?</p></a>
+                <input type="submit" value="Entrar" id="loginSubmit">
             </form>
         </div>
     </main>
