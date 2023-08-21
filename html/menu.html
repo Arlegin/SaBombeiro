@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="shortcut icon" href="./logo_noar.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script src="./main.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="headerLeft">
+            <a href="./index.html"><img src="./logo_noar.png" alt="logo_noar" id="headerLogo"></a>
+            <div class="headerText">
+                <h1>Núcleo de Operações Aéreas e Resgate</h1>
+                <h1>Associação Humanitária de Busca, Salvamento Aéreo e Resgate</h1>
+            </div>
+        </div>
+        <button id="headerMenu" class="headerMenuButton" onclick="headerMenu()">Menu</button>
+        <div id="headerMenuContainer" class="closeheaderMenu" style="display: none;">
+            <div id="headerMenuCloseContainer">
+                <button id="headerMenuClose" class="headerMenuButton" onclick="headerMenu()"><img src="./icon_close.svg"
+                        id="headerMenuCloseIcon" alt="close_icon" style="display: none;"></button>
+            </div>
+            <div id="headerMenuItems">
+                <div class="headerMenuItemsContainer" style="border-top: 1px solid #EEEEEE;">
+                    <img src="icon_dot.svg" alt="dot_icon" class="headerMenuIcon">
+                    <a href="#">Página inicial</a>
+                </div>
+                <div class="headerMenuItemsContainer">
+                    <img src="icon_dot.svg" alt="dot_icon" class="headerMenuIcon">
+                    <a href="#">Nova ocorrência</a>
+                </div>
+                <div class="headerMenuItemsContainer">
+                    <img src="icon_dot.svg" alt="dot_icon" class="headerMenuIcon">
+                    <a href="#">Histórico de ocorrências</a>
+                </div>
+                <div class="headerMenuItemsContainer">
+                    <img src="icon_dot.svg" alt="dot_icon" class="headerMenuIcon">
+                    <a href="./login.html">Sair</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main id="main">
+        <h1>Bem Vindo</h1>
+        <h1>NOME DO BOMBAS</h1>
+        <div>
+            <a href="#" class="mainButton">Nova<br>ocorrência</a>
+            <a href="#" class="mainButton">Histórico de<br>ocorrências</a>
+        </div>
+        <a href="#" class="mainButton">Estatísticas</a>
+    </main>
+    <footer></footer>
+</body>
+
+</html>
