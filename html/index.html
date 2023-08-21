@@ -20,21 +20,25 @@
             </div>
         </div>
         <button id="menu" class="menuButton" onclick="menu()">Menu</button>
-        <div id="menuContainer" style="display: block;">
+        <div id="menuContainer" class="closeMenu" style="display: none;">
             <div id="menuCloseContainer">
-                <button id="menuClose" class="menuButton"><img src="./icon_close.svg" alt="close_icon"></button>
+                <button id="menuClose" class="menuButton" onclick="menu()"><img src="./icon_close.svg" id="menuCloseIcon" alt="close_icon" style="display: none;"></button>
             </div>
             <div id="menuItems">
-                <div>
+                <div class="menuItemsContainer" style="border-top: 1px solid #EEEEEE;">
+                    <img src="icon_dot.svg" alt="dot_icon" class="menuIcon">
                     <a href="#">Página inicial</a>
                 </div>
-                <div>
-                    <a href="#">Nova<br>ocorrência</a>
+                <div class="menuItemsContainer">
+                    <img src="icon_dot.svg" alt="dot_icon" class="menuIcon">
+                    <a href="#">Nova ocorrência</a>
                 </div>
-                <div>
-                    <a href="#">Histórico de<br>ocorrências</a>
+                <div class="menuItemsContainer">
+                    <img src="icon_dot.svg" alt="dot_icon" class="menuIcon">
+                    <a href="#">Histórico de ocorrências</a>
                 </div>
-                <div>
+                <div class="menuItemsContainer">
+                    <img src="icon_dot.svg" alt="dot_icon" class="menuIcon">
                     <a href="./login.html">Login</a>
                 </div>
             </div>

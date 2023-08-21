@@ -69,16 +69,42 @@ header {
 }
 
 #menuContainer {
-    width: 30%;
+    width: 35%;
     height: 100%;
     background-color: var(--second-color);
     position: fixed;
     right: 0;
     border-left: 4px solid #EEEEEE;
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10% 10%;
+}
+
+.openMenu {
+    animation: menuOpenSlide 0.7s;
+}
+
+.closeMenu {
+    animation: menuCloseSlide 0.7s;
+}
+
+
+@keyframes menuOpenSlide {
+    from {
+        width: 0px;
+    }
+
+    to {
+        width: 35%;
+    }
+}
+
+@keyframes menuCloseSlide {
+    from {
+        width: 35%;
+    }
+
+    to {
+        width: 0px;
+    }
 }
 
 #menuCloseContainer {
@@ -105,14 +131,27 @@ header {
 }
 
 #menuItems {
+    margin-top: 5%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     width: 100%;
-    height: auto;
-    border: 1px solid black;
+    height: 30%;
+}
+
+.menuItemsContainer {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 25%;
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.menuIcon {
+    height: 50%;
+    width: auto;
 }
 
 #menuContainer a {
