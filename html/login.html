@@ -7,6 +7,7 @@
     <title>Login</title>
     <link rel="shortcut icon" href="./logo_noar.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
+    <script src="./main.js"></script>
 </head>
 
 <body>
@@ -18,7 +19,30 @@
                 <h1>Associação Humanitária de Busca, Salvamento Aéreo e Resgate</h1>
             </div>
         </div>
-        <h2 id="menu">Menu</h2>
+        <button id="menu" class="menuButton" onclick="menu()">Menu</button>
+        <div id="menuContainer" class="closeMenu" style="display: none;">
+            <div id="menuCloseContainer">
+                <button id="menuClose" class="menuButton" onclick="menu()"><img src="./icon_close.svg" id="menuCloseIcon" alt="close_icon" style="display: none;"></button>
+            </div>
+            <div id="menuItems">
+                <div class="menuItemsContainer" style="border-top: 1px solid #EEEEEE;">
+                    <img src="icon_dot.svg" alt="dot_icon" class="menuIcon">
+                    <a href="#">Página inicial</a>
+                </div>
+                <div class="menuItemsContainer">
+                    <img src="icon_dot.svg" alt="dot_icon" class="menuIcon">
+                    <a href="#">Nova ocorrência</a>
+                </div>
+                <div class="menuItemsContainer">
+                    <img src="icon_dot.svg" alt="dot_icon" class="menuIcon">
+                    <a href="#">Histórico de ocorrências</a>
+                </div>
+                <div class="menuItemsContainer">
+                    <img src="icon_dot.svg" alt="dot_icon" class="menuIcon">
+                    <a href="./login.html">Login</a>
+                </div>
+            </div>
+        </div>
     </header>
     <main id="login">
         <div id="loginContainer">
