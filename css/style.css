@@ -54,7 +54,7 @@ header {
     font-size: 13px;
 }
 
-#menu {
+#headerMenu {
     width: 10%;
     display: flex;
     align-items: center;
@@ -68,7 +68,7 @@ header {
     color: #FFFFFF;
 }
 
-#menuContainer {
+#headerMenuContainer {
     width: 35%;
     height: 100%;
     background-color: var(--second-color);
@@ -78,16 +78,16 @@ header {
     list-style: none;
 }
 
-.openMenu {
-    animation: menuOpenSlide 0.7s;
+.openheaderMenu {
+    animation: headerMenuOpenSlide 0.7s;
 }
 
-.closeMenu {
-    animation: menuCloseSlide 0.7s;
+.closeheaderMenu {
+    animation: headerMenuCloseSlide 0.7s;
 }
 
 
-@keyframes menuOpenSlide {
+@keyframes headerMenuOpenSlide {
     from {
         width: 0px;
     }
@@ -97,7 +97,7 @@ header {
     }
 }
 
-@keyframes menuCloseSlide {
+@keyframes headerMenuCloseSlide {
     from {
         width: 35%;
     }
@@ -107,7 +107,7 @@ header {
     }
 }
 
-#menuCloseContainer {
+#headerMenuCloseContainer {
     width: 100%;
     height: 6%;
     margin-top: 10%;
@@ -115,7 +115,7 @@ header {
     justify-content: end;
 }
 
-#menuClose {
+#headerMenuClose {
     width: auto;
     height: 100%;
     background: none;
@@ -125,12 +125,12 @@ header {
     align-items: center;
 }
 
-#menuClose img {
+#headerMenuClose img {
     width: auto;
     height: 100%;
 }
 
-#menuItems {
+#headerMenuItems {
     margin-top: 5%;
     display: flex;
     flex-direction: column;
@@ -141,7 +141,7 @@ header {
     height: 30%;
 }
 
-.menuItemsContainer {
+.headerMenuItemsContainer {
     display: flex;
     align-items: center;
     width: 100%;
@@ -149,12 +149,12 @@ header {
     border-bottom: 1px solid #EEEEEE;
 }
 
-.menuIcon {
+.headerMenuIcon {
     height: 50%;
     width: auto;
 }
 
-#menuContainer a {
+#headerMenuContainer a {
     display: flex;
     align-items: center;
     justify-content: center;

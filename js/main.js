@@ -1,22 +1,22 @@
-function menu() {
-    let menu = document.getElementById('menuContainer');
-    let icon = document.getElementById('menuCloseIcon')
+function headerMenu() {
+    let headerMenu = document.getElementById('headerMenuContainer');
+    let icon = document.getElementById('headerMenuCloseIcon')
 
-    if (menu.style.display === 'none') {
+    if (headerMenu.style.display === 'none') {
         setTimeout(() => {
             icon.style.display = 'block'
         }, 150);
-        menu.style.display = 'block';
-        menu.classList.remove('closeMenu');
-        menu.classList.add('openMenu');
+        headerMenu.style.display = 'block';
+        headerMenu.classList.remove('closeheaderMenu');
+        headerMenu.classList.add('openheaderMenu');
     } else {
         setTimeout(() => {
             icon.style.display = 'none'
         }, 250);
-        menu.classList.remove('openMenu');
-        menu.classList.add('closeMenu');
+        headerMenu.classList.remove('openheaderMenu');
+        headerMenu.classList.add('closeheaderMenu');
         setTimeout(() => {
-            menu.style.display = 'none';
+            headerMenu.style.display = 'none';
         }, 600);
     }
 }
