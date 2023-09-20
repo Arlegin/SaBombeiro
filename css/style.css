@@ -3,15 +3,16 @@
 :root {
     --main-color: #7878BE;
     --second-color: #33338D;
-    --bg-color: #EEEEEE;
+    --form-backgroud-color: #4C4C87;
+    --form-box-color: #1B1B60;
     --main-font: 'Inter', sans-serif;
-    --second-font: 'Fira Code', monospace;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: #FFFFFF;
 }
 
 body, html {
@@ -27,7 +28,6 @@ header {
     background-color: #1B1B60;
     display: flex;
     justify-content: space-between;
-    color: #FFFFFF;
 }
 
 .headerLeft {
@@ -65,7 +65,6 @@ header {
     margin-right: 2.5%;
     background: none;
     border: none;
-    color: #FFFFFF;
 }
 
 #headerMenuContainer {
@@ -164,7 +163,6 @@ header {
     font-family: var(--main-font);
     font-size: 16px;
     font-weight: 300;
-    color: #FFFFFF;
     text-decoration: none !important;
 }
 
@@ -173,7 +171,6 @@ header {
 main {
     width: 100%;
     height: calc(100% - 5rem);
-    background-color: var(--bg-color);
 }
 
 /* Index */
@@ -207,7 +204,6 @@ main {
     font-weight: normal;
     margin-top: 20%;
     text-decoration: none;
-    color: white;
     background-color: var(--second-color);
     width: 40%;
     height: 10%;
@@ -224,12 +220,12 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: var(--main-color);
 }
 
 #loginContainer {
     width: 90%;
     height: 70%;
-    background-color: var(--main-color);
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -273,7 +269,6 @@ main {
     font-family: var(--main-font);
     font-size: 14px;
     font-weight: bold;
-    color: black;
     text-align: end;
     text-decoration: underline;
     margin-bottom: 14%;
@@ -285,7 +280,6 @@ main {
     font-family: var(--main-font);
     font-size: 20px;
     font-weight: normal;
-    color: white;
     border-radius: 15px;
     background-color: var(--second-color);
     border: none;
@@ -316,7 +310,6 @@ main {
     font-weight: normal;
     margin-top: 12%;
     text-decoration: none;
-    color: white;
     background-color: var(--second-color);
     width: 60%;
     height: 15%;
@@ -331,3 +324,83 @@ main {
 }
 
 /* Patient Info Page */
+
+#patientInfo {
+    background-color: var(--form-backgroud-color);
+    display: flex;
+    justify-content: space-around;
+}
+
+.formBox {
+    background-color: var(--form-box-color);
+    width: 80%;
+    height: 92.5%;
+    margin-top: 5%;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.formBoxTitle {
+    width: 95%;
+    height: 12%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--main-font);
+    font-weight: normal;
+    font-size: 25px;
+    text-align: center;
+    align-self: center;
+}
+
+.arrowIcon {
+    height: 60%;
+    width: auto;
+}
+
+#returnArrow {
+    transform: rotate(.5turn);
+}
+
+.formBoxContent {
+    width: 97.5%;
+    flex-grow: 1;
+    margin-top: 3%;
+    align-self: end;
+    border: 1px solid blue;
+    display: flex;
+    flex-direction: column;
+    gap: 2%;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    border: none; /* Remove the default fieldset border */
+}
+
+.labelInput {
+    font-family: var(--main-font);
+    font-size: 20px;
+    font-weight: normal;
+}
+
+#dateInput {
+    width: 50%;
+    height: 5%;
+    color: black;
+    font-family: var(--main-font);
+    font-size: 20px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+.scroll {
+    width: 12.5%;
+    height: 92.5%;
+    margin-top: 5%;
+    border: 2px solid black;
+    border-radius: 15px;
+}

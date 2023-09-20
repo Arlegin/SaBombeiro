@@ -45,12 +45,26 @@
         </div>
     </header>
     <main id="patientInfo">
-        <div class="box">
-            <div>
-                <img src="./icon_arrow.png" alt="arrowIcon" class="arrowIcon" id="returnArrow">
-                <h1 class="">Informações do<br>Paciente</h1>
-                <img src="./icon_arrow.png" alt="arrowIcon" class="arrowIcon" id="nextArrow">
+        <div class="formBox">
+            <div class="formBoxTitle">
+                <img src="./icon_arrow.png" alt="arrowIcon" class="arrowIcon" id="returnArrow" onclick="">
+                <p class="">Informações do<br>Paciente</p>
+                <img src="./icon_arrow.png" alt="arrowIcon" class="arrowIcon" id="nextArrow" onclick="">
             </div>
+            <form class="formBoxContent">
+                <fieldset class="inputGroup">
+                    <label for="dateInput1" class="labelInput">Data:</label>
+                    <input type="date" name="date" id="dateInput1" placeholder="__ / __ / ____">
+                </fieldset>
+                <fieldset class="inputGroup">
+                    <label for="dateInput2" class="labelInput">Data:</label>
+                    <input type="date" name="date" id="dateInput2" placeholder="__ / __ / ____">
+                </fieldset>
+                <fieldset class="inputGroup">
+                    <label for="dateInput3" class="labelInput">Data:</label>
+                    <input type="date" name="date" id="dateInput3" placeholder="__ / __ / ____">
+                </fieldset>
+            </form>
         </div>
         <div class="scroll">
 
