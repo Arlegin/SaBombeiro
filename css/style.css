@@ -368,7 +368,6 @@ main {
     flex-grow: 1;
     margin-top: 3%;
     align-self: end;
-    border: 1px solid blue;
     display: flex;
     flex-direction: column;
     gap: 2%;
@@ -377,7 +376,7 @@ main {
 .inputGroup {
     display: flex;
     flex-direction: column;
-    border: none; /* Remove the default fieldset border */
+    border: none;
 }
 
 .labelInput {
