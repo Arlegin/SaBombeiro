@@ -7,7 +7,8 @@
     <title>Nova Ocorrência</title>
     <link rel="shortcut icon" href="./logo_noar.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="./main.js"></script>
 </head>
 
@@ -53,7 +54,50 @@
                 <p class="">Informações do<br>Paciente</p>
                 <img src="./icon_arrow.png" alt="arrowIcon" class="arrowIcon" id="nextArrow" onclick="">
             </div>
-            <form class="formBoxContent">
+
+            <div class="container-fluid">
+
+                <div class="row ">
+                    <div class="col-lg-10">
+
+                        <form>
+
+                            <div class="mb-3">
+                                <label for="dateInput" class="label">Data da ocorrência:</label>
+                                <input id="dateInput" class="form-control" type="date" />
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingInput" placeholder="">
+                                <label for="floatingInput" class="form-label text-dark fs-6">Hospital</label>
+                            </div>
+
+
+                            <!-- <div class="mb-3"> -->
+                            <!-- <label for="dateInput" class="form-label">Data:</label>
+                                <input type="email" class="form-control" id="dateInput" aria-describedby="emailHelp">
+                                <div id="emailHelp" class="form-text">Nós não compartilhamos seus dados pessoais com
+                                    terceiros.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label">Senha</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1">
+                            </div>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <label class="form-check-label" for="exampleCheck1">Me seleciona!</label>
+                            </div> -->
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <!-- <form class="formBoxContent">
                 <fieldset class="inputGroup">
                     <label for="dateInput" class="labelInput">Data:</label>
                     <input type="date" name="date" id="dateInput">
@@ -80,10 +124,12 @@
         </div>
         <div class="scroll">
 
-        </div>
+        </div> -->
     </main>
     <footer></footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
