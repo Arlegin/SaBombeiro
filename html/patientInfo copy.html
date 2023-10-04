@@ -78,6 +78,19 @@
     </div>
 
     <div class="container mt-3">
+        <div class="mb-2 formScroll">
+            <ul class="list-group flex-row overflow-x-auto">
+                <li class="list-group-item"><a href="#page1" class="text-light text-decoration-none">Page</a></li>
+                <li class="list-group-item"><a href="#page2" class="text-light text-decoration-none">Pads</a></li>
+                <li class="list-group-item"><a href="#page1" class="text-light text-decoration-none">Page</a></li>
+                <li class="list-group-item"><a href="#page2" class="text-light text-decoration-none">Page</a></li>
+                <li class="list-group-item"><a href="#page1" class="text-light text-decoration-none">Page</a></li>
+                <li class="list-group-item"><a href="#page2" class="text-light text-decoration-none">Page</a></li>
+                <li class="list-group-item"><a href="#page1" class="text-light text-decoration-none">Page</a></li>
+                <li class="list-group-item"><a href="#page2" class="text-light text-decoration-none">Page</a></li>
+                <!-- Add more list items as needed -->
+            </ul>
+        </div>
         <div class="card">
             <div class="card-header">
                 <div class="text-center">
@@ -114,26 +127,30 @@
                     <div class="mb-4 row">
                         <div class="col-4">
                             <label for="patientAge" class="form-label">Idade:</label>
-                            <input type="text" name="patientAge" id="patientAge" class="form-control" placeholder="Idade">
+                            <input type="text" name="patientAge" id="patientAge" class="form-control"
+                                placeholder="Idade">
                         </div>
                         <div class="col-8">
                             <label for="patientCPF" class="form-label">RG/CPF:</label>
-                            <input type="text" name="patientCPF" id="patientCPF" class="form-control" placeholder="RG/CPF">
+                            <input type="text" name="patientCPF" id="patientCPF" class="form-control"
+                                placeholder="RG/CPF">
                         </div>
                     </div>
                     <div class="mb-1">
                         <label for="companionName" class="form-label">Nome do acompanhante:</label>
                         <input type="text" name="companion" id="companionName" class="form-control text-capitalize"
-                            placeholder="Nome do paciente">
+                            placeholder="Nome do acompanhante">
                     </div>
                     <div class="mb-4 row">
                         <div class="col-4">
                             <label for="companionAge" class="form-label">Idade:</label>
-                            <input type="text" name="companionAge" id="companionAge" class="form-control" placeholder="Idade">
+                            <input type="text" name="companionAge" id="companionAge" class="form-control"
+                                placeholder="Idade">
                         </div>
                         <div class="col-8">
                             <label for="companionCPF" class="form-label">RG/CPF:</label>
-                            <input type="text" name="companionCPF" id="companionCPF" class="form-control" placeholder="RG/CPF">
+                            <input type="text" name="companionCPF" id="companionCPF" class="form-control"
+                                placeholder="RG/CPF">
                         </div>
                     </div>
                     <div class="mb-3">
@@ -143,7 +160,12 @@
                     </div>
                     <div class="mb-0">
                         <label for="responsibleInput" class="form-label">Responsável pelo preenchimento:</label>
-                        <input type="text" name="responsible" id="responsibleInput" class="form-control text-capitalize" placeholder="Responsável pelo preenchimento">                        
+                        <input type="text" name="responsible" id="responsibleInput" class="form-control text-capitalize"
+                            placeholder="Responsável pelo preenchimento">
+                    </div>
+                    <div class="d-flex justify-content-between mt-3">
+                        <button type="button" class="btn btn-light">Voltar</button>
+                        <button type="submit" class="btn btn-primary">Próximo</button>
                     </div>
                 </form>
             </div>

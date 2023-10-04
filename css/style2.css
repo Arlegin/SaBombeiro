@@ -28,3 +28,7 @@ header {
 .card {
     background-color: var(--form-box-color) !important;
 }
+
+.formScroll ul li {
+    background-color: var(--form-box-color);
+}
