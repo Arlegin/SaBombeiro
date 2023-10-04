@@ -24,3 +24,7 @@ header {
 .offcanvas {
     width: 40% !important;
 }
+
+.card {
+    background-color: var(--form-box-color) !important;
+}
