@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 :root {
-    --main-color: #7878BE;
-    --second-color: #33338D;
+    --main-color: #6666a3;
+    --second-color: #3f3fa7;
     --form-backgroud-color: #4C4C87;
     --form-box-color: #1B1B60;
     --main-font: 'Inter', sans-serif;
@@ -33,6 +33,17 @@ body {
     background-color: var(--form-box-color) !important;
 }
 
-.formScroll ul li {
+.formScroll a {
     background-color: var(--form-box-color);
+    border: 1px solid rgba(245, 245, 245, 0.815)
+}
+
+.formScroll a:hover {
+    background-color: var(--main-color);
+    border: 1px solid rgba(245, 245, 245, 0.815);
+}
+
+.active{
+    background-color: var(--second-color) !important;
+    border: 1px solid rgba(245, 245, 245, 0.815) !important;
 }
