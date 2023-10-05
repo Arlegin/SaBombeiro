@@ -4,52 +4,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bem Vindo!</title>
+    <title>Login</title>
     <link rel="shortcut icon" href="./logo_noar.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-bootstrap.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="./main.js"></script>
 </head>
 
 <body>
-    <header>
-        <div class="headerLeft">
-            <a href="./index.html"><img src="./logo_noar.png" alt="logo_noar" id="headerLogo"></a>
-            <div class="headerText">
-                <h1>Núcleo de Operações Aéreas e Resgate</h1>
-                <h1>Associação Humanitária de Busca, Salvamento Aéreo e Resgate</h1>
+    <div class="container-fluid m-0 p-0">
+        <header>
+            <nav class="navbar navbar-expand-lg d-none d-lg-block">
+                <div class="container">
+                    <a class="nav-brand mb-0 me-4" href="index.html">
+                        <img src="./logo_noar.png" alt="logo" class="img-fluid logo_noar">
+                    </a>
+                    <p class="h4">Sistema de Registro de Ocorrências</p>
+                    <ul class="navbar-nav align-items-center">
+                        <li class="nav-item ms-2 me-2">
+                            <a class="nav-link text-light text-center" href="index.html">Início</a>
+                        </li>
+                        <li class="nav-item ms-2 me-2">
+                            <a class="nav-link text-light text-center" href="login.html">Sair</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="d-lg-none">
+                <nav class="navbar">
+                    <div class="container">
+                        <a class="navbar-brand m-0" href="index.html">
+                            <img src="./logo_noar.png" alt="logo" class="img-fluid logo_noar">
+                        </a>
+                        <h5 class="text-center">Sistema de Registro<br>de Ocorrências</h5>
+                        <button class="navbar-toggler navbar-light bg-light" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasNav" style="--bs-bg-opacity: .9;">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                </nav>
+
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNav">
+                    <div class="offcanvas-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                            aria-label="Fechar"></button>
+                    </div>
+
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="index.html">Início</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="login.html">Login</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <div class="container position-absolute top-50 start-50 translate-middle">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="fw-semibold mb-5">Bem-vindo!</h1>
+                <h2 class="fw-normal mb-5">Simplifique o registro de ocorrências da equipe NOAR AHBSAR</h2>
+                <a href="./login.html" class="btn btn-primary fs-2">Login!</a>
             </div>
         </div>
-        <button id="headerMenu" class="headerMenuButton" onclick="headerMenu()">Menu</button>
-        <div id="headerMenuContainer" class="closeheaderMenu" style="display: none;">
-            <div id="headerMenuCloseContainer">
-                <button id="headerMenuClose" class="headerMenuButton" onclick="headerMenu()"><img src="./icon_close.svg" id="headerMenuCloseIcon" alt="close_icon" style="display: none;"></button>
-            </div>
-            <div id="headerMenuItems">
-                <div class="headerMenuItemsContainer" style="border-top: 1px solid #EEEEEE;">
-                    <img src="icon_dot.svg" alt="dot_icon" class="headerMenuIcon">
-                    <a href="#">Página inicial</a>
-                </div>
-                <div class="headerMenuItemsContainer">
-                    <img src="icon_dot.svg" alt="dot_icon" class="headerMenuIcon">
-                    <a href="#">Nova ocorrência</a>
-                </div>
-                <div class="headerMenuItemsContainer">
-                    <img src="icon_dot.svg" alt="dot_icon" class="headerMenuIcon">
-                    <a href="#">Histórico de ocorrências</a>
-                </div>
-                <div class="headerMenuItemsContainer">
-                    <img src="icon_dot.svg" alt="dot_icon" class="headerMenuIcon">
-                    <a href="./login.html">Login</a>
-                </div>
-            </div>
-        </div>
-    </header>
-    <main id="index">
-        <h1>Bem-vindo!</h1>
-        <h2>Simplifique o registro de ocorrências da equipe NOAR AHBSAR</h2>
-        <a href="./login.html">Entrar!</a>
-    </main>
-    <footer></footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
