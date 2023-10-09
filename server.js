@@ -47,16 +47,32 @@ connection.connect(function (err) {
 // login
 app.post('/login', (req, res) => {
   const { cpf, password } = req.body;
-  connection.query(`SELECT * FROM login WHERE cpf = '${cpf}' AND senha = '${password}'`, function (err, rows, fields) {
-    if (err) throw err;
+  connection.query(`SELECT * FROM login WHERE cpf = '${cpf}' AND senha = '${password}'`, function (err, rows) {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Internal Server Error');
+      return;
+    }
     if (rows.length > 0) {
+      session = req.session;
       req.session.loggedin = true;
       req.session.cpf = cpf;
-      req.session.id_user = Math.floor(Math.random() * 1000000);
       res.redirect('/menu.html');
     } else {
       res.redirect('/login.html?invalid');
     }
+  });
+});
+
+// Send firefighter name to client-side script
+app.get('/menu', (req, res) => {
+  connection.query(`SELECT nome FROM login WHERE cpf = '${req.session.cpf}'`, function (err, rows) {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Internal Server Error');
+      return;
+    }
+    res.status(200).json({ name: rows[0].nome });
   });
 });
 
