@@ -47,20 +47,20 @@ connection.connect(function (err) {
 // login
 app.post('/login', (req, res) => {
   const { cpf, password } = req.body;
-  connection.query(`SELECT * FROM usuario WHERE cpf = '${cpf}' AND senha = '${password}'`, function (err, rows, fields) {
+  connection.query(`SELECT * FROM login WHERE cpf = '${cpf}' AND senha = '${password}'`, function (err, rows, fields) {
     if (err) throw err;
     if (rows.length > 0) {
       req.session.loggedin = true;
       req.session.cpf = cpf;
       req.session.id_user = Math.floor(Math.random() * 1000000);
-      res.send({ status: 200, message: 'Usuário logado com sucesso!' });
+      res.redirect('/menu.html');
     } else {
-      res.send({ status: 400, message: 'Usuário ou senha inválidos!' });
+      res.redirect('/login.html?invalid');
     }
   });
 });
 
 app.listen(3700, () => {
-    console.log('Servidor rodando na porta 3700!');
-    console.log('Para reiniciar o servidor, digite "rs" e tecle "Enter"!');
-  });
+  console.log('Servidor rodando na porta 3700!');
+  console.log('Para reiniciar o servidor, digite "rs" e tecle "Enter"!');
+});
