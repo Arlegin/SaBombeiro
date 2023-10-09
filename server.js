@@ -37,28 +37,28 @@ const connection = mysql.createConnection({
   password: 'root',
   // user: 'adm',
   // password: 'adm',
-  database: ''
+  database: 'sabombeiro'
 });
 
 connection.connect(function (err) {
   console.log("Conexão com o Banco realizada com sucesso!!!")
 });
 
-
-// app.post('/register', (req, res) => {
-//     let email = req.body.email;
-//     let password = req.body.password;
-//     let name = req.body.name;
-  
-//     connection.query('INSERT INTO `kp_user` (`id_user`, `name`, `email`, `password`, `cpf`, `phone`) VALUES (NULL, ?, ?, ?, NULL, NULL)', [name, email, password], function (err, rows, fields) {
-//       if (!err) {
-//         req.session.id_user = email; // ID do usuário inserido no banco de dados
-//         res.redirect('/personalInfo.html'); // Redireciona para a página 'personalInfo.html' após o registro
-//       } else {
-//         console.log("Erro: Consulta não realizada", err);
-//       }
-//     });
-// });
+// login
+app.post('/login', (req, res) => {
+  const { cpf, password } = req.body;
+  connection.query(`SELECT * FROM usuario WHERE cpf = '${cpf}' AND senha = '${password}'`, function (err, rows, fields) {
+    if (err) throw err;
+    if (rows.length > 0) {
+      req.session.loggedin = true;
+      req.session.cpf = cpf;
+      req.session.id_user = Math.floor(Math.random() * 1000000);
+      res.send({ status: 200, message: 'Usuário logado com sucesso!' });
+    } else {
+      res.send({ status: 400, message: 'Usuário ou senha inválidos!' });
+    }
+  });
+});
 
 app.listen(3700, () => {
     console.log('Servidor rodando na porta 3700!');
