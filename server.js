@@ -64,6 +64,11 @@ app.post('/login', (req, res) => {
   });
 });
 
+app.get('/logout', (req, res) => {
+  req.session.destroy();
+  res.redirect('/login.html');
+});
+
 // Send firefighter name to client-side script
 app.get('/menu', (req, res) => {
   if (req.session.loggedin) {
@@ -74,6 +79,21 @@ app.get('/menu', (req, res) => {
         return;
       }
       res.json({ name: rows[0].nome, loggedin: true });
+    });
+  } else {
+    res.json({ loggedin: false });
+  }
+});
+
+app.get('/menuAdmin', (req, res) => {
+  if (req.session.loggedin) {
+    connection.query(`SELECT nome FROM login WHERE cpf = '${req.session.cpf}'`, function (err, rows) {
+      if (err) {
+        console.error(err);
+        res.json({ loggedin: false });
+        return;
+      }
+      res.json({ name: rows[0], loggedin: true });
     });
   } else {
     res.json({ loggedin: false });
