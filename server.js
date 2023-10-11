@@ -58,6 +58,7 @@ app.post('/login', (req, res) => {
       req.session.loggedin = true;
       req.session.cpf = cpf;
       res.redirect('/menu.html');
+      console.log(rows[0]);
     } else {
       res.redirect('/login.html?invalid');
     }
@@ -87,13 +88,18 @@ app.get('/menu', (req, res) => {
 
 app.get('/menuAdmin', (req, res) => {
   if (req.session.loggedin) {
-    connection.query(`SELECT nome FROM login WHERE cpf = '${req.session.cpf}'`, function (err, rows) {
+    connection.query(`SELECT * FROM login WHERE cpf = '${req.session.cpf}'`, function (err, rows) {
       if (err) {
         console.error(err);
         res.json({ loggedin: false });
         return;
       }
-      res.json({ name: rows[0], loggedin: true });
+      const result = {
+        name: rows[0].nome,
+        admin: rows[0].administrador,
+        loggedin: true
+      };
+      res.json(result);
     });
   } else {
     res.json({ loggedin: false });
