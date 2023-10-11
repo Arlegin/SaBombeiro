@@ -92,12 +92,11 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script>
-        // Add warning message if login or password is incorrect (login?invalid)
+        // Add warning message if login or password is incorrect
         const urlParams = new URLSearchParams(window.location.search);
-        const login = urlParams.get('login');
-        if (login == 'invalid') {
+        if (urlParams.has('invalid')) {
             const warning = document.createElement('div');
-            warning.classList.add('alert', 'alert-danger', 'text-center');
+            warning.classList.add('alert', 'text-center', 'bg-danger', 'text-light', 'fs-5');
             warning.setAttribute('role', 'alert');
             warning.innerHTML = 'Login ou senha incorretos!';
             document.querySelector('form').prepend(warning);
