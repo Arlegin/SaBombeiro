@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 09-Out-2023 às 12:39
+-- Tempo de geração: 11-Out-2023 às 14:21
 -- Versão do servidor: 8.0.21
 -- versão do PHP: 8.1.2
 
@@ -24,6 +24,64 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `emergencia_medica`
+--
+
+CREATE TABLE `emergencia_medica` (
+  `id_emergencia_medica` int NOT NULL,
+  `oq_aconteceu` varchar(200) DEFAULT NULL,
+  `aconteceu_vzs` varchar(100) DEFAULT NULL,
+  `problema_saude` varchar(100) DEFAULT NULL,
+  `hora_medicacao` time DEFAULT NULL,
+  `medicacao` varchar(100) DEFAULT NULL,
+  `alergia` varchar(100) DEFAULT NULL,
+  `hora_alimento` time DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `ferimentos`
+--
+
+CREATE TABLE `ferimentos` (
+  `id_ferimentos` int NOT NULL,
+  `local` varchar(200) DEFAULT NULL,
+  `lado` tinyint(1) DEFAULT NULL,
+  `face` tinyint(1) DEFAULT NULL,
+  `tipo` varchar(100) DEFAULT NULL,
+  `cabeca1` tinyint(1) DEFAULT NULL,
+  `cabeca2` tinyint(1) DEFAULT NULL,
+  `cabeca3` tinyint(1) DEFAULT NULL,
+  `pesco1` tinyint(1) DEFAULT NULL,
+  `pesco2` tinyint(1) DEFAULT NULL,
+  `pesco3` tinyint(1) DEFAULT NULL,
+  `torso_ant1` tinyint(1) DEFAULT NULL,
+  `torso_ant2` tinyint(1) DEFAULT NULL,
+  `torso_ant3` tinyint(1) DEFAULT NULL,
+  `torso_pos1` tinyint(1) DEFAULT NULL,
+  `torso_pos2` tinyint(1) DEFAULT NULL,
+  `torso_pos3` tinyint(1) DEFAULT NULL,
+  `genit1` tinyint(1) DEFAULT NULL,
+  `genit2` tinyint(1) DEFAULT NULL,
+  `genit3` tinyint(1) DEFAULT NULL,
+  `membro_id1` tinyint(1) DEFAULT NULL,
+  `membro_id2` tinyint(1) DEFAULT NULL,
+  `membro_id3` tinyint(1) DEFAULT NULL,
+  `membro_ie1` tinyint(1) DEFAULT NULL,
+  `membro_ie2` tinyint(1) DEFAULT NULL,
+  `membro_ie3` tinyint(1) DEFAULT NULL,
+  `membro_sd1` tinyint(1) DEFAULT NULL,
+  `membro_sd2` tinyint(1) DEFAULT NULL,
+  `membro_sd3` tinyint(1) DEFAULT NULL,
+  `membro_se1` tinyint(1) DEFAULT NULL,
+  `membro_se2` tinyint(1) DEFAULT NULL,
+  `membro_se3` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `final_info_paciente`
 --
 
@@ -37,6 +95,30 @@ CREATE TABLE `final_info_paciente` (
   `cod_ir` tinyint(1) DEFAULT NULL,
   `cod_ps` tinyint(1) DEFAULT NULL,
   `cod_sia_sus` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `gestacional`
+--
+
+CREATE TABLE `gestacional` (
+  `id_gestacional` int NOT NULL,
+  `periodo` varchar(100) DEFAULT NULL,
+  `medico` varchar(60) DEFAULT NULL,
+  `complicacao` tinyint(1) DEFAULT NULL,
+  `primeiro` tinyint(1) DEFAULT NULL,
+  `filhos` int DEFAULT NULL,
+  `contracoes` time DEFAULT NULL,
+  `duracao` varchar(30) DEFAULT NULL,
+  `intervalo` varchar(30) DEFAULT NULL,
+  `pressao` tinyint(1) DEFAULT NULL,
+  `ruptura` tinyint(1) DEFAULT NULL,
+  `inspecao` tinyint(1) DEFAULT NULL,
+  `hora_nasc` time DEFAULT NULL,
+  `sexo_bebe` tinyint(1) DEFAULT NULL,
+  `nome_bebe` varchar(60) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -70,7 +152,8 @@ CREATE TABLE `login` (
   `id_login` int NOT NULL,
   `cpf` varchar(11) NOT NULL,
   `senha` varchar(255) NOT NULL,
-  `nome` varchar(255) NOT NULL
+  `nome` varchar(255) NOT NULL,
+  `administrador` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -165,6 +248,33 @@ CREATE TABLE `sinais_e_sintomas` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `situacao_paciente`
+--
+
+CREATE TABLE `situacao_paciente` (
+  `id_situacao_paciente` int NOT NULL,
+  `deitada` tinyint(1) DEFAULT NULL,
+  `semi_deitada` tinyint(1) DEFAULT NULL,
+  `sentada` tinyint(1) DEFAULT NULL,
+  `critico` tinyint(1) DEFAULT NULL,
+  `instavel` tinyint(1) DEFAULT NULL,
+  `potencialmente_instavel` tinyint(1) DEFAULT NULL,
+  `estavel` tinyint(1) DEFAULT NULL,
+  `ciclista` tinyint(1) DEFAULT NULL,
+  `condutor_moto` tinyint(1) DEFAULT NULL,
+  `gestante` tinyint(1) DEFAULT NULL,
+  `pass_ban_frente` tinyint(1) DEFAULT NULL,
+  `pas_moto` tinyint(1) DEFAULT NULL,
+  `condutor_carro` tinyint(1) DEFAULT NULL,
+  `clinico` tinyint(1) DEFAULT NULL,
+  `trauma` tinyint(1) DEFAULT NULL,
+  `pas_bco_tras` tinyint(1) DEFAULT NULL,
+  `pedestre` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `tipo_ocorrencia_pre_hospitalar`
 --
 
@@ -193,15 +303,44 @@ CREATE TABLE `tipo_ocorrencia_pre_hospitalar` (
   `outros` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `traumas`
+--
+
+CREATE TABLE `traumas` (
+  `id_trauma` int NOT NULL,
+  `coord_trauma` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 --
 -- Índices para tabelas despejadas
 --
+
+--
+-- Índices para tabela `emergencia_medica`
+--
+ALTER TABLE `emergencia_medica`
+  ADD PRIMARY KEY (`id_emergencia_medica`);
+
+--
+-- Índices para tabela `ferimentos`
+--
+ALTER TABLE `ferimentos`
+  ADD PRIMARY KEY (`id_ferimentos`);
 
 --
 -- Índices para tabela `final_info_paciente`
 --
 ALTER TABLE `final_info_paciente`
   ADD PRIMARY KEY (`id_final_info_paciente`);
+
+--
+-- Índices para tabela `gestacional`
+--
+ALTER TABLE `gestacional`
+  ADD PRIMARY KEY (`id_gestacional`);
 
 --
 -- Índices para tabela `info_paciente`
@@ -228,14 +367,32 @@ ALTER TABLE `sinais_e_sintomas`
   ADD PRIMARY KEY (`id_sinais_e_sintomas`);
 
 --
+-- Índices para tabela `situacao_paciente`
+--
+ALTER TABLE `situacao_paciente`
+  ADD PRIMARY KEY (`id_situacao_paciente`);
+
+--
 -- Índices para tabela `tipo_ocorrencia_pre_hospitalar`
 --
 ALTER TABLE `tipo_ocorrencia_pre_hospitalar`
   ADD PRIMARY KEY (`id_tipo_ocorrencia_pre_hospitalar`);
 
 --
+-- Índices para tabela `traumas`
+--
+ALTER TABLE `traumas`
+  ADD PRIMARY KEY (`id_trauma`);
+
+--
 -- AUTO_INCREMENT de tabelas despejadas
 --
+
+--
+-- AUTO_INCREMENT de tabela `emergencia_medica`
+--
+ALTER TABLE `emergencia_medica`
+  MODIFY `id_emergencia_medica` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `final_info_paciente`
@@ -244,10 +401,22 @@ ALTER TABLE `final_info_paciente`
   MODIFY `id_final_info_paciente` int NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de tabela `gestacional`
+--
+ALTER TABLE `gestacional`
+  MODIFY `id_gestacional` int NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de tabela `info_paciente`
 --
 ALTER TABLE `info_paciente`
   MODIFY `id_info_paciente` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de tabela `login`
+--
+ALTER TABLE `login`
+  MODIFY `id_login` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `pes`
@@ -260,6 +429,24 @@ ALTER TABLE `pes`
 --
 ALTER TABLE `sinais_e_sintomas`
   MODIFY `id_sinais_e_sintomas` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `situacao_paciente`
+--
+ALTER TABLE `situacao_paciente`
+  MODIFY `id_situacao_paciente` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `tipo_ocorrencia_pre_hospitalar`
+--
+ALTER TABLE `tipo_ocorrencia_pre_hospitalar`
+  MODIFY `id_tipo_ocorrencia_pre_hospitalar` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `traumas`
+--
+ALTER TABLE `traumas`
+  MODIFY `id_trauma` int NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
