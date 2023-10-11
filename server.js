@@ -65,7 +65,6 @@ app.post('/login', (req, res) => {
 });
 
 // Send firefighter name to client-side script
-// Send firefighter name to client-side script
 app.get('/menu', (req, res) => {
   if (req.session.loggedin) {
     connection.query(`SELECT nome FROM login WHERE cpf = '${req.session.cpf}'`, function (err, rows) {
@@ -79,6 +78,21 @@ app.get('/menu', (req, res) => {
   } else {
     res.json({ loggedin: false });
   }
+});
+
+// Register new firefighter
+app.post('/register', (req, res) => {
+  const { cpf, name, password } = req.body;
+  connection.query(`INSERT INTO login (cpf, nome, senha) VALUES ('${cpf}', '${name}', '${password}')`, function (err, rows) {
+    if (err) {
+      console.error(err);
+      // Show a popup error message on the register page
+      res.redirect('/register.html?error');
+      return;
+    }
+    // Show a popup success message on the register page
+    res.redirect('/register.html?success');
+  });
 });
 
 app.listen(3700, () => {
