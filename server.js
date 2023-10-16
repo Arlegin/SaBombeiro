@@ -121,6 +121,9 @@ app.post('/register', (req, res) => {
   });
 });
 
+// app.post('/occurrence', (req, res) => {
+
+
 app.listen(3700, () => {
   console.log('Servidor rodando na porta 3700!');
   console.log('Para reiniciar o servidor, digite "rs" e tecle "Enter"!');
