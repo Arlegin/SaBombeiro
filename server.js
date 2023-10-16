@@ -121,8 +121,16 @@ app.post('/register', (req, res) => {
   });
 });
 
-// app.post('/occurrence', (req, res) => {
-
+app.post('/occurrence', function(req, res) {
+  let selectedOption = req.body.selectedOption;
+  
+  let sql = `INSERT INTO tipo_ocorrencia_pre_hospitalar (${selectedOption}) VALUES (1)`;
+  connection.query(sql, [selectedOption], function(err, result) {
+    if (err) throw err;
+    console.log("1 record inserted");
+    res.send('Record inserted successfully!');
+  });
+});
 
 app.listen(3700, () => {
   console.log('Servidor rodando na porta 3700!');
