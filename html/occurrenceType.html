@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nova Ocorrência</title>
+    <title>Tipo de Ocorrência</title>
     <link rel="shortcut icon" href="logo_noar.png" type="image/x-icon">
     <link rel="stylesheet" href="style-bootstrap.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -222,7 +222,7 @@
                     </div>
                     <div class="d-flex justify-content-between mt-4">
                         <button type="submit" class="btn btn-light" id="backBtn">Voltar</button>
-                        <button type="submit" class="btn btn-primary">Próximo</button>
+                        <button type="submit" class="btn btn-primary" id="nextBtn">Próximo</button>
                     </div>
                 </form>
             </div>
@@ -233,26 +233,33 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script>
+        const form = document.querySelector('#occurrenceForm');
+        const nextBtn = document.querySelector('#nextBtn');
         const backBtn = document.querySelector('#backBtn');
-        const form = document.querySelector('#occurrenceForm'); // replace '#myForm' with your form's id
+        let clickedButton = '';
 
-        backBtn.addEventListener('click', (event) => {
-            event.preventDefault(); // prevent the default action
+        nextBtn.addEventListener('click', () => clickedButton = 'next');
+        backBtn.addEventListener('click', () => clickedButton = 'back');
 
-            // Fetch API to submit the form data
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
             fetch('/occurrence', {
                 method: 'POST',
                 body: new FormData(form)
             })
                 .then(response => {
                     if (!response.ok) {
-                        throw new Error('Network response was not ok');
+                        throw new Error('There was a problem submitting the form. Please try again.');
                     }
-                    // After form submission is successful, redirect to patientInfo.html
-                    window.location.href = "patientInfo.html";
+                    if (clickedButton === 'next') {
+                        window.location.href = 'PES.html';
+                    } else if (clickedButton === 'back') {
+                        window.location.href = 'patientInfo.html';
+                    }
                 })
                 .catch(error => {
-                    console.error('There was a problem with the fetch operation: ', error);
+                    alert(error.message);
                 });
         });
     </script>
