@@ -141,25 +141,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <form>
-                    <!-- Form radioes:
-                        Causado por animais
-                        Com meio de tranporte
-                        Desmoronamento
-                        Emergência médica
-                        Queda de altura 2M
-                        Tentativa de suicídio
-                        Queda própria altura
-                        Afogamento
-                        Agressão
-                        Atropelamento
-                        Choque elétrico
-                        Desabamento
-                        Doméstico
-                        Esportivo
-                        Intoxicação
-                        Queda bicicleta
-                        Queda moto -->
+                <form id="occurrenceForm">
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="occurrenceRadio" id="animals">
                         <label class="form-check-label" for="animals">Causado por animais</label>
@@ -197,40 +179,39 @@
                         <label class="form-check-label" for="attack">Agressão</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="occurrenceRadio" id="">
-                        <label class="form-check-label" for=""></label>
+                        <input class="form-check-input" type="radio" name="occurrenceRadio" id="runOver">
+                        <label class="form-check-label" for="runOver">Atropelamento</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="occurrenceRadio" id="">
-                        <label class="form-check-label" for=""></label>
+                        <input class="form-check-input" type="radio" name="occurrenceRadio" id="shock">
+                        <label class="form-check-label" for="shock">Choque elétrico</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="occurrenceRadio" id="">
-                        <label class="form-check-label" for=""></label>
+                        <input class="form-check-input" type="radio" name="occurrenceRadio" id="collapse">
+                        <label class="form-check-label" for="collapse">Desabamento</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="occurrenceRadio" id="">
-                        <label class="form-check-label" for=""></label>
+                        <input class="form-check-input" type="radio" name="occurrenceRadio" id="domestic">
+                        <label class="form-check-label" for="domestic">Doméstico</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="occurrenceRadio" id="">
-                        <label class="form-check-label" for=""></label>
+                        <input class="form-check-input" type="radio" name="occurrenceRadio" id="sport">
+                        <label class="form-check-label" for="sport">Esportivo</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="occurrenceRadio" id="">
-                        <label class="form-check-label" for=""></label>
+                        <input class="form-check-input" type="radio" name="occurrenceRadio" id="toxic">
+                        <label class="form-check-label" for="toxic">Intoxicação</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="occurrenceRadio" id="">
-                        <label class="form-check-label" for=""></label>
+                        <input class="form-check-input" type="radio" name="occurrenceRadio" id="bicicle">
+                        <label class="form-check-label" for="bicycle">Queda de bicicleta</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="occurrenceRadio" id="">
-                        <label class="form-check-label" for=""></label>
+                        <input class="form-check-input" type="radio" name="occurrenceRadio" id="motorcycle">
+                        <label class="form-check-label" for="motorcycle">Queda moto</label>
                     </div>
                     <div class="d-flex justify-content-between mt-4">
-                        <button type="button" class="btn btn-light" data-bs-toggle="modal"
-                            data-bs-target="#warningModal">Voltar</button>
+                        <button type="submit" class="btn btn-light" id="backBtn">Voltar</button>
                         <button type="submit" class="btn btn-primary">Próximo</button>
                     </div>
                 </form>
@@ -238,36 +219,33 @@
         </div>
     </div>
 
-    <div class="modal fade" id="warningModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content bg-dark">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="warningModalLabel">Aviso!</h1>
-                    <button type="button" class="btn-close bg-light" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    Tem certeza que deseja sair do registro de ocorrência? Os dados inseridos serão perdidos.
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continuar</button>
-                    <button type="button" class="btn btn-primary" id="exitBtn">Sair</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-    <script>
-        const sairButton = document.querySelector('#exitBtn');
-
-        sairButton.addEventListener('click', () => {
-            window.location.href = 'menu.html';
-        });
-    </script>
+        <script>
+            const backBtn = document.querySelector('#backBtn');
+            const form = document.querySelector('#occurrenceForm'); // replace '#myForm' with your form's id
+        
+            backBtn.addEventListener('click', (event) => {
+                event.preventDefault(); // prevent the default action
+        
+                // Fetch API to submit the form data
+                fetch('/occurrence', {
+                    method: 'POST',
+                    body: new FormData(form)
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    // After form submission is successful, redirect to patientInfo.html
+                    window.location.href = "patientInfo.html";
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation: ', error);
+                });
+            });
+        </script>
 </body>
 
 </html>
