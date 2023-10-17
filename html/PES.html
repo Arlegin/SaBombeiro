@@ -145,76 +145,79 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="occurrenceCheckbox" id="animals">
-                                <label class="form-check-label" for="animals">Psiquiátrico</label>
+                                <input class="form-check-input" type="checkbox" name="PESCheckbox" id="psycho">
+                                <label class="form-check-label" for="psycho">Psiquiátrico</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="occurrenceCheckbox" id="transportation">
-                                <label class="form-check-label" for="transportation">Respiratório DPOC</label>
+                                <input class="form-check-input" type="checkbox" name="PESCheckbox" id="dpoc">
+                                <label class="form-check-label" for="dpoc">Respiratório DPOC</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="occurrenceCheckbox" id="landslide">
-                                <label class="form-check-label" for="landslide">Inalação de fumaça</label>
+                                <input class="form-check-input" type="checkbox" name="PESCheckbox" id="smoke">
+                                <label class="form-check-label" for="smoke">Inalação de fumaça</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="occurrenceCheckbox"
-                                    id="medicalEmergency">
-                                <label class="form-check-label" for="medicalEmergency">Hiperglicemia</label>
+                                <input class="form-check-input" type="checkbox" name="PESCheckbox" id="hyperglycemia">
+                                <label class="form-check-label" for="hyperglycemia">Hiperglicemia</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="occurrenceCheckbox" id="fall2m">
-                                <label class="form-check-label" for="fall2m">Hipoglicemia</label>
+                                <input class="form-check-input" type="checkbox" name="PESCheckbox" id="hypoglycemia">
+                                <label class="form-check-label" for="hypoglycemia">Hipoglicemia</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="occurrenceCheckbox" id="suicideAttempt">
-                                <label class="form-check-label" for="suicideAttempt">Parto emergencial</label>
+                                <input class="form-check-input" type="checkbox" name="PESCheckbox" id="birth">
+                                <label class="form-check-label" for="birth">Parto emergencial</label>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="occurrenceCheckbox" id="fall">
-                                <label class="form-check-label" for="fall">Gestante</label>
+                                <input class="form-check-input" type="checkbox" name="PESCheckbox" id="pregnant">
+                                <label class="form-check-label" for="pregnant">Gestante</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="occurrenceCheckbox" id="drown">
-                                <label class="form-check-label" for="drown">Hemorragia excessiva</label>
+                                <input class="form-check-input" type="checkbox" name="PESCheckbox" id="bleeding">
+                                <label class="form-check-label" for="bleeding">Hemorragia excessiva</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="occurrenceCheckbox" id="transport">
-                                <label class="form-check-label" for="attack">Transporte</label>
+                                <input class="form-check-input" type="checkbox" name="PESCheckbox" id="transport">
+                                <label class="form-check-label" for="transport">Transporte</label>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="occurrenceCheckbox" id="transportCheck">
-                                <label class="form-check-label" for="runOver">Clínico</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="occurrenceCheckbox" id="transportCheck">
-                                <label class="form-check-label" for="shock">Emergencial</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="occurrenceCheckbox" id="transportCheck">
-                                <label class="form-check-label" for="collapse">Pós-trauma</label>
+                            <div class="transportToggle" style="display: none;">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="PESCheckbox"
+                                        id="transportClinic">
+                                    <label class="form-check-label" for="transportClinic">Clínico</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="PESCheckbox"
+                                        id="transportEmergency">
+                                    <label class="form-check-label" for="transportEmergency">Emergencial</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="PESCheckbox"
+                                        id="transportTrauma">
+                                    <label class="form-check-label" for="transportTrauma">Pós-trauma</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="PESCheckbox"
+                                        id="transportAerial">
+                                    <label class="form-check-label" for="transportAerial">Aéreo</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="PESCheckbox"
+                                        id="transportSAMU">
+                                    <label class="form-check-label" for="transportSAMU">SAMU</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="PESCheckbox" id="transportNo">
+                                    <label class="form-check-label" for="transportNo">Sem remoção</label>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="occurrenceCheckbox" id="transportCheck">
-                                <label class="form-check-label" for="domestic">Aéreo</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="occurrenceCheckbox" id="transportCheck">
-                                <label class="form-check-label" for="domestic">SAMU</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="occurrenceCheckbox" id="transportCheck">
-                                <label class="form-check-label" for="sport">Sem remoção</label>
-                            </div>
+                        <div class="d-flex justify-content-between mt-4">
+                            <button type="submit" class="btn btn-light" id="backBtn">Voltar</button>
+                            <button type="submit" class="btn btn-primary">Próximo</button>
                         </div>
-                    </div>
-                    <div class="d-flex justify-content-between mt-4">
-                        <button type="submit" class="btn btn-light" id="backBtn">Voltar</button>
-                        <button type="submit" class="btn btn-primary">Próximo</button>
-                    </div>
                 </form>
             </div>
         </div>
@@ -223,49 +226,73 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-
-        <script>
-            // Get references to the elements
-            const otherInput = document.querySelector('#transportCheck');
-            const checkbox = document.querySelectorAll('input[type=checkbox][name="occurrenceCheckbox"]');
-     
-            // Hide the input field by default
-            otherInput.style.display = 'none';
-    
-            // Function to check if "Outro" is selected
-            function checkRadio() {
-                const other = document.querySelector('#other');
-                if (other.checked) {
-                    // If "Outro" is selected, show the input field
-                    otherInput.style.display = 'block';
-                } else {
-                    // If "Outro" is not selected, hide the input field
-                    otherInput.style.display = 'none';
-                }
-            }
-        </script>
-
     <script>
+        // Make a script to show the div .transportToggle inputs when the checkbox #transport is checked
+        const transport = document.querySelector('#transport');
+        const transportToggle = document.querySelector('.transportToggle');
+
+        transport.addEventListener('change', () => {
+            if (transport.checked) {
+                transportToggle.style.display = 'block';
+            } else {
+                transportToggle.style.display = 'none';
+            }
+        });
+
+        // Get references to the elements
+        const otherInput = document.querySelector('#otherInput');
+        const radios = document.querySelectorAll('input[type=checkbox][name="PESCheckbox"]');
+
+        // Hide the input field by default
+        otherInput.style.display = 'none';
+
+        // Function to check if "Outro" is selected
+        function checkRadio() {
+            const other = document.querySelector('#other');
+            if (other.checked) {
+                // If "Outro" is selected, show the input field
+                otherInput.style.display = 'block';
+            } else {
+                // If "Outro" is not selected, hide the input field
+                otherInput.style.display = 'none';
+            }
+        }
+
+        // Add an event listener to all radio buttons in the group
+        radios.forEach(function (radio) {
+            radio.addEventListener('change', checkRadio);
+        });
+
+
+        // Submit form and redirect to the next page
+        const form = document.querySelector('#occurrenceForm');
+        const nextBtn = document.querySelector('#nextBtn');
         const backBtn = document.querySelector('#backBtn');
-        const form = document.querySelector('#occurrenceForm'); // replace '#myForm' with your form's id
+        let clickedButton = '';
 
-        backBtn.addEventListener('click', (event) => {
-            event.preventDefault(); // prevent the default action
+        nextBtn.addEventListener('click', () => clickedButton = 'next');
+        backBtn.addEventListener('click', () => clickedButton = 'back');
 
-            // Fetch API to submit the form data
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
             fetch('/occurrence', {
                 method: 'POST',
                 body: new FormData(form)
             })
                 .then(response => {
                     if (!response.ok) {
-                        throw new Error('Network response was not ok');
+                        throw new Error('There was a problem submitting the form. Please try again.');
+
                     }
-                    // After form submission is successful, redirect to patientInfo.html
-                    window.location.href = "patientInfo.html";
+                    if (clickedButton === 'next') {
+                        window.location.href = 'PES.html';
+                    } else if (clickedButton === 'back') {
+                        window.location.href = 'occurrenceType.html';
+                    }
                 })
                 .catch(error => {
-                    console.error('There was a problem with the fetch operation: ', error);
+                    alert(error.message);
                 });
         });
     </script>
