@@ -121,7 +121,7 @@ app.post('/register', (req, res) => {
   });
 });
 
-// Receive form JSON data from occurrenceType.html and print it on the console
+// Receive form from occurrenceType.html and print it on the console
 app.post('/occurrence', function(req, res) {
   console.log(req.body);
   res.send('Received the data.');
