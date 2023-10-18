@@ -141,7 +141,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <form id="occurrenceForm">
+                <form id="PESForm">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-check">
@@ -250,7 +250,7 @@
         });
 
         // Print on console the form data when submitted
-        /* const form = document.querySelector('#occurrenceForm');
+        /* const form = document.querySelector('#PESForm');
 
         form.addEventListener('submit', (event) => {
             event.preventDefault();
@@ -261,37 +261,6 @@
             console.log(data);
         }); */
 
-        // Submit form and redirect to the next page
-        const form = document.querySelector('#occurrenceForm');
-        const nextBtn = document.querySelector('#nextBtn');
-        const backBtn = document.querySelector('#backBtn');
-        let clickedButton = '';
-
-        nextBtn.addEventListener('click', () => clickedButton = 'next');
-        backBtn.addEventListener('click', () => clickedButton = 'back');
-
-        form.addEventListener('submit', (event) => {
-            event.preventDefault();
-
-            fetch('/occurrence', {
-                method: 'POST',
-                body: new FormData(form)
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('There was a problem submitting the form. Please try again.');
-
-                    }
-                    if (clickedButton === 'next') {
-                        window.location.href = 'PES.html';
-                    } else if (clickedButton === 'back') {
-                        window.location.href = 'occurrenceType.html';
-                    }
-                })
-                .catch(error => {
-                    alert(error.message);
-                });
-        });
     </script>
 </body>
 
