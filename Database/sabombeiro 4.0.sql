@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 18-Out-2023 às 13:08
+-- Tempo de geração: 18-Out-2023 às 14:22
 -- Versão do servidor: 8.0.21
 -- versão do PHP: 8.1.2
 
@@ -159,6 +159,17 @@ CREATE TABLE `login` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `objetos_recolhidos`
+--
+
+CREATE TABLE `objetos_recolhidos` (
+  `id_objetos_recolhidos` int NOT NULL,
+  `objetos` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `pes`
 --
 
@@ -299,7 +310,7 @@ CREATE TABLE `tipo_ocorrencia_pre_hospitalar` (
   `queda_moto` tinyint(1) DEFAULT NULL,
   `queda_nivel_menor_2m` tinyint(1) DEFAULT NULL,
   `trabalho` tinyint(1) DEFAULT NULL,
-  `tranferencia` tinyint(1) DEFAULT NULL,
+  `transferencia` tinyint(1) DEFAULT NULL,
   `outros` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -353,6 +364,12 @@ ALTER TABLE `info_paciente`
 --
 ALTER TABLE `login`
   ADD PRIMARY KEY (`id_login`);
+
+--
+-- Índices para tabela `objetos_recolhidos`
+--
+ALTER TABLE `objetos_recolhidos`
+  ADD PRIMARY KEY (`id_objetos_recolhidos`);
 
 --
 -- Índices para tabela `pes`
@@ -423,6 +440,12 @@ ALTER TABLE `info_paciente`
 --
 ALTER TABLE `login`
   MODIFY `id_login` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `objetos_recolhidos`
+--
+ALTER TABLE `objetos_recolhidos`
+  MODIFY `id_objetos_recolhidos` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `pes`
