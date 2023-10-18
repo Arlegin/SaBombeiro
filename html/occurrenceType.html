@@ -235,9 +235,9 @@
                                 <label class="form-check-label" for="other">Outro</label>
                             </div>
                         </div>
-                        <div class="container mt-2"><input type="text" class="form-control" id="otherInput" name="otherInput"
-                                    placeholder="Digite o tipo de ocorrência"></div>
-                        
+                        <div class="container mt-2"><input type="text" class="form-control" id="otherInput"
+                                name="otherInput" placeholder="Digite o tipo de ocorrência"></div>
+
                     </div>
                     <div class="d-flex justify-content-between mt-4">
                         <button type="submit" class="btn btn-light" id="backBtn">Voltar</button>
@@ -276,37 +276,47 @@
             radio.addEventListener('change', checkRadio);
         });
 
-
-        // Submit form and redirect to the next page
-        const form = document.querySelector('#occurrenceForm');
-        const nextBtn = document.querySelector('#nextBtn');
-        const backBtn = document.querySelector('#backBtn');
-        let clickedButton = '';
-
-        nextBtn.addEventListener('click', () => clickedButton = 'next');
-        backBtn.addEventListener('click', () => clickedButton = 'back');
-
+        // Print on console the selected radio button when the form is submitted
+        /* const form = document.querySelector('#occurrenceForm');
         form.addEventListener('submit', (event) => {
             event.preventDefault();
 
+            radios.forEach(function (radio) {
+                if (radio.checked) {
+                    console.log(radio.id);
+                }
+            });
+        }); */
+
+        // Print on console the selected radio button when the form is submitted
+        /* const form2 = document.querySelector('#occurrenceForm');
+        form2.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const checkedRadio = document.querySelector('input[type=radio][name="occurrenceRadio"]:checked');
+            if (checkedRadio) {
+                console.log(checkedRadio.id);
+            } else {
+                console.log('No radio button is checked');
+            }
+        }); */
+
+        // Submit form data to the server
+        document.querySelector('form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            let selectedRadioValue = document.querySelector('input[name="occurrenceRadio"]:checked').value;
+
             fetch('/occurrence', {
                 method: 'POST',
-                body: new FormData(form)
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ occurrence: selectedRadioValue }),
             })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('There was a problem submitting the form. Please try again.');
-
-                    }
-                    if (clickedButton === 'next') {
-                        window.location.href = 'PES.html';
-                    } else if (clickedButton === 'back') {
-                        window.location.href = 'patientInfo.html';
-                    }
-                })
-                .catch(error => {
-                    alert(error.message);
-                });
+                .then(response => response.text())
+                .then(data => console.log(data))
+                .catch((error) => console.error('Error:', error));
         });
     </script>
 </body>

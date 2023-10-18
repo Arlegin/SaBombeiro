@@ -121,15 +121,10 @@ app.post('/register', (req, res) => {
   });
 });
 
+// Receive form JSON data from occurrenceType.html and print it on the console
 app.post('/occurrence', function(req, res) {
-  let selectedOption = req.body.selectedOption;
-  
-  let sql = `INSERT INTO tipo_ocorrencia_pre_hospitalar (${selectedOption}) VALUES (1)`;
-  connection.query(sql, [selectedOption], function(err, result) {
-    if (err) throw err;
-    console.log("1 record inserted");
-    res.send('Record inserted successfully!');
-  });
+  console.log(req.body);
+  res.send('Received the data.');
 });
 
 app.listen(3700, () => {
