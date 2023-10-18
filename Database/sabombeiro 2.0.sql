@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 11-Out-2023 às 14:21
+-- Tempo de geração: 18-Out-2023 às 12:26
 -- Versão do servidor: 8.0.21
 -- versão do PHP: 8.1.2
 
@@ -393,6 +393,12 @@ ALTER TABLE `traumas`
 --
 ALTER TABLE `emergencia_medica`
   MODIFY `id_emergencia_medica` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `ferimentos`
+--
+ALTER TABLE `ferimentos`
+  MODIFY `id_ferimentos` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `final_info_paciente`
