@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 18-Out-2023 às 12:26
+-- Tempo de geração: 18-Out-2023 às 13:08
 -- Versão do servidor: 8.0.21
 -- versão do PHP: 8.1.2
 
@@ -190,7 +190,7 @@ CREATE TABLE `pes` (
 
 CREATE TABLE `sinais_e_sintomas` (
   `id_sinais_e_sintomas` int NOT NULL,
-  `abdomem_sensisvelou_rigido` tinyint(1) DEFAULT NULL,
+  `abdomem_sensisvel_ou_rigido` tinyint(1) DEFAULT NULL,
   `afundamento_de_cranio` tinyint(1) DEFAULT NULL,
   `agitacao` tinyint(1) DEFAULT NULL,
   `amnesia` tinyint(1) DEFAULT NULL,
