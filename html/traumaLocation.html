@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PES</title>
+    <title>Localização dos Traumas</title>
     <link rel="shortcut icon" href="logo_noar.png" type="image/x-icon">
     <link rel="stylesheet" href="style-bootstrap.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -83,13 +83,13 @@
                 <a href="/occurrenceType.html"
                     class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Tipo
                     de Ocorrência</a>
-                <a href="#"
+                <a href="/PES.html"
                     class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center font-small active">Problemas
                     Encontrados Suspeitos</a>
                 <a href="/symptoms.html"
                     class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Sinais
                     e Sintomas</a>
-                <a href="#page2"
+                <a href="#"
                     class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Localização
                     Traumas</a>
                 <a href="#page1"
@@ -143,8 +143,18 @@
             <div class="card-body">
                 <form id="PESForm">
                     <div class="row">
-                        <img src="/body.jpg" alt="body-image">
+                        <!-- Adicione um id à imagem -->
+                        <img id="humanBody" src="/body.jpg" alt="body-image">
                     </div>
+                    <!-- Adicione um campo de seleção para o tipo de trauma -->
+                    <select id="traumaType" class="form-control mt-3 mb-3">
+                        <option value="">Selecione o tipo de trauma</option>
+                        <!-- Adicione as opções de trauma aqui -->
+                        <option value="Trauma 1">Trauma 1</option>
+                        <option value="Trauma 2">Trauma 2</option>
+                    </select>
+                    <!-- Adicione um local para exibir os resultados -->
+                    <div id="results"></div>
                     <div class="d-flex justify-content-between mt-4">
                         <button type="submit" class="btn btn-light" id="backBtn">Voltar</button>
                         <button type="submit" class="btn btn-primary" id="nextBtn">Próximo</button>
@@ -157,7 +167,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+    <!-- Adicione o código JavaScript para lidar com os cliques na imagem -->
     <script>
+        let img = document.getElementById('humanBody');
+        let results = document.getElementById('results');
+
+        img.addEventListener('click', function(e) {
+            let x = e.clientX - img.getBoundingClientRect().left;
+            let y = e.clientY - img.getBoundingClientRect().top;
+            let traumaType = document.getElementById('traumaType').value;
+
+            results.innerHTML += `Trauma: ${traumaType}, Posição: (${x}, ${y})<br>`;
+        });
     </script>
 </body>
 
