@@ -84,13 +84,13 @@
                     class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Tipo
                     de Ocorrência</a>
                 <a href="/PES.html"
-                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center font-small active">Problemas
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center font-small">Problemas
                     Encontrados Suspeitos</a>
                 <a href="/symptoms.html"
                     class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Sinais
                     e Sintomas</a>
                 <a href="#"
-                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Localização
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center active">Localização
                     Traumas</a>
                 <a href="#page1"
                     class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Descrição
@@ -142,17 +142,17 @@
             </div>
             <div class="card-body">
                 <form id="TraumaLocForm">
-                    <div class="row position-relative">
-                        <!-- Adicione um id à imagem e faça-a cobrir a div -->
-                        <img id="humanBody" src="/body.png" alt="body-image">
-                    </div>
                     <!-- Adicione um campo de seleção para o tipo de trauma -->
-                    <select id="traumaType" class="form-control mt-3 mb-3">
-                        <option value="">Selecione o tipo de trauma</option>
+                    <label for="traumaType" class="mt-1 mb-2">Selecione o tipo de trauma:</label>
+                    <select id="traumaType" class="form-control mb-3">
                         <!-- Adicione as opções de trauma aqui -->
                         <option value="Trauma 1">Trauma 1</option>
                         <option value="Trauma 2">Trauma 2</option>
                     </select>
+                    <div class="row position-relative">
+                        <!-- Adicione um id à imagem e faça-a cobrir a div -->
+                        <img id="humanBody" src="/body.png" alt="body-image">
+                    </div>
                     <!-- Adicione um local para exibir os resultados -->
                     <div id="results"></div>
                     <div class="d-flex justify-content-between mt-4">
@@ -169,10 +169,35 @@
         crossorigin="anonymous"></script>
     <!-- Adicione o código JavaScript para lidar com os cliques na imagem -->
     <script>
+        document.getElementById('nextBtn').addEventListener('click', function (e) {
+            e.preventDefault(); // Evita que o formulário seja enviado
+
+            // Supondo que 'traumas' é o objeto JSON que você deseja enviar
+            const data = traumas;
+
+            fetch('/saveData', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ data }), // Envia os dados como um objeto
+            })
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+        });
+
+
+
         let img = document.getElementById('humanBody');
         let results = document.getElementById('results');
 
-        img.addEventListener('click', function(e) {
+        // Crie um objeto para armazenar as informações
+        let traumas = [];
+
+        img.addEventListener('click', function (e) {
             let rect = img.getBoundingClientRect();
             let x = e.clientX - rect.left;
             let y = e.clientY - rect.top;
@@ -186,11 +211,18 @@
             icon.style.width = '10px';
             icon.style.height = '10px';
             icon.style.backgroundColor = 'red';
-            
+
             // Adicione o ícone à div da imagem
             img.parentElement.appendChild(icon);
 
-            results.innerHTML += `Trauma: ${traumaType}, Posição: (${x}, ${y})<br>`;
+            // Adicione as informações ao objeto
+            traumas.push({
+                type: traumaType,
+                position: { x, y }
+            });
+
+            // Exiba o objeto JSON
+            results.innerHTML = `<pre>${JSON.stringify(traumas, null, 2)}</pre>`;
         });
     </script>
 </body>
