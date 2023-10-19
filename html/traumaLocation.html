@@ -141,10 +141,10 @@
                 </div>
             </div>
             <div class="card-body">
-                <form id="PESForm">
-                    <div class="row">
-                        <!-- Adicione um id à imagem -->
-                        <img id="humanBody" src="/body.jpg" alt="body-image">
+                <form id="TraumaLocForm">
+                    <div class="row position-relative">
+                        <!-- Adicione um id à imagem e faça-a cobrir a div -->
+                        <img id="humanBody" src="/body.png" alt="body-image">
                     </div>
                     <!-- Adicione um campo de seleção para o tipo de trauma -->
                     <select id="traumaType" class="form-control mt-3 mb-3">
@@ -173,9 +173,22 @@
         let results = document.getElementById('results');
 
         img.addEventListener('click', function(e) {
-            let x = e.clientX - img.getBoundingClientRect().left;
-            let y = e.clientY - img.getBoundingClientRect().top;
+            let rect = img.getBoundingClientRect();
+            let x = e.clientX - rect.left;
+            let y = e.clientY - rect.top;
             let traumaType = document.getElementById('traumaType').value;
+
+            // Crie um novo elemento div para o ícone
+            let icon = document.createElement('div');
+            icon.style.position = 'absolute';
+            icon.style.left = `${x}px`;
+            icon.style.top = `${y}px`;
+            icon.style.width = '10px';
+            icon.style.height = '10px';
+            icon.style.backgroundColor = 'red';
+            
+            // Adicione o ícone à div da imagem
+            img.parentElement.appendChild(icon);
 
             results.innerHTML += `Trauma: ${traumaType}, Posição: (${x}, ${y})<br>`;
         });
