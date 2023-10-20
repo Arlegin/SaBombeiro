@@ -127,15 +127,16 @@ app.post('/occurrence', function(req, res) {
   res.send('Received the data.');
 });
 
-app.post('/saveData', (req, res) => {
+app.post('/trauma', (req, res) => {
   // Supondo que 'data' é o objeto JSON que você deseja armazenar
   const { data } = req.body;
 
   // Converta o objeto JSON em uma string
   const jsonData = JSON.stringify(data);
 
-  // Insira a string JSON no banco de dados
-  connection.query(`INSERT INTO ferimentos (trauma) VALUES ('${jsonData}')`, function (err, rows) {
+  // Use uma instrução SQL parametrizada para inserir os dados com segurança
+  const sql = "INSERT INTO traumas (trauma) VALUES (?)";
+  connection.query(sql, [jsonData], function (err, result) {
     if (err) {
       console.error(err);
       res.status(500).send('Internal Server Error');
