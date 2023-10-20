@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20-Out-2023 às 13:24
+-- Tempo de geração: 20-Out-2023 às 17:25
 -- Versão do servidor: 8.0.21
 -- versão do PHP: 8.1.2
 
@@ -20,6 +20,22 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `sabombeiro`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `avaliacao_cinematica`
+--
+
+CREATE TABLE `avaliacao_cinematica` (
+  `disturbido_comportamento` tinyint(1) DEFAULT NULL,
+  `encontrado_capacete` tinyint(1) DEFAULT NULL,
+  `encontrado_cinto` tinyint(1) DEFAULT NULL,
+  `para_brisas_avariado` tinyint(1) DEFAULT NULL,
+  `caminhando_cena` tinyint(1) DEFAULT NULL,
+  `painel_avariado` tinyint(1) DEFAULT NULL,
+  `volante_torcido` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -41,42 +57,18 @@ CREATE TABLE `emergencia_medica` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `ferimentos`
+-- Estrutura da tabela `ferimentos_queimaduras`
 --
 
-CREATE TABLE `ferimentos` (
-  `id_ferimentos` int NOT NULL,
-  `local` varchar(200) DEFAULT NULL,
-  `lado` tinyint(1) DEFAULT NULL,
-  `face` tinyint(1) DEFAULT NULL,
-  `tipo` varchar(100) DEFAULT NULL,
-  `cabeca1` tinyint(1) DEFAULT NULL,
-  `cabeca2` tinyint(1) DEFAULT NULL,
-  `cabeca3` tinyint(1) DEFAULT NULL,
-  `pesco1` tinyint(1) DEFAULT NULL,
-  `pesco2` tinyint(1) DEFAULT NULL,
-  `pesco3` tinyint(1) DEFAULT NULL,
-  `torso_ant1` tinyint(1) DEFAULT NULL,
-  `torso_ant2` tinyint(1) DEFAULT NULL,
-  `torso_ant3` tinyint(1) DEFAULT NULL,
-  `torso_pos1` tinyint(1) DEFAULT NULL,
-  `torso_pos2` tinyint(1) DEFAULT NULL,
-  `torso_pos3` tinyint(1) DEFAULT NULL,
-  `genit1` tinyint(1) DEFAULT NULL,
-  `genit2` tinyint(1) DEFAULT NULL,
-  `genit3` tinyint(1) DEFAULT NULL,
-  `membro_id1` tinyint(1) DEFAULT NULL,
-  `membro_id2` tinyint(1) DEFAULT NULL,
-  `membro_id3` tinyint(1) DEFAULT NULL,
-  `membro_ie1` tinyint(1) DEFAULT NULL,
-  `membro_ie2` tinyint(1) DEFAULT NULL,
-  `membro_ie3` tinyint(1) DEFAULT NULL,
-  `membro_sd1` tinyint(1) DEFAULT NULL,
-  `membro_sd2` tinyint(1) DEFAULT NULL,
-  `membro_sd3` tinyint(1) DEFAULT NULL,
-  `membro_se1` tinyint(1) DEFAULT NULL,
-  `membro_se2` tinyint(1) DEFAULT NULL,
-  `membro_se3` tinyint(1) DEFAULT NULL
+CREATE TABLE `ferimentos_queimaduras` (
+  `id_ferimentos_queimaduras` int NOT NULL,
+  `tipo` enum('ferimentos','fraturas','entorses','luxacao','contusao') DEFAULT NULL,
+  `lado` enum('direita','esquerda') DEFAULT NULL,
+  `face` enum('frontal','posterior') DEFAULT NULL,
+  `local` enum('cabeca','pescoco','ombro','braco','antebraco','mao','dedos','torax','abdomen','costa','quadril','perna','joelho','tornozelo','pe') DEFAULT NULL,
+  `1grau` enum('cabeca','pescoco','t.ant','t.pos','genit.','m.i.d','m.i.e','m.s.d','m.s.e') DEFAULT NULL,
+  `2grau` enum('cabeca','pescoco','t.ant','t.pos','genit.','m.i.d','m.i.e','m.s.d','m.s.e') DEFAULT NULL,
+  `3grau` enum('cabeca','pescoco','t.ant','t.pos','genit.','m.i.d','m.i.e','m.s.d','m.s.e') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -159,12 +151,13 @@ CREATE TABLE `login` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `objetos_recolhidos`
+-- Estrutura da tabela `objetos_recolhido_observacao`
 --
 
-CREATE TABLE `objetos_recolhidos` (
-  `id_objetos_recolhidos` int NOT NULL,
-  `objetos` varchar(255) NOT NULL
+CREATE TABLE `objetos_recolhido_observacao` (
+  `id_objetos_observacao` int NOT NULL,
+  `objetos` varchar(255) NOT NULL,
+  `observacoes` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -259,6 +252,26 @@ CREATE TABLE `sinais_e_sintomas` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `sinais_vitais`
+--
+
+CREATE TABLE `sinais_vitais` (
+  `id_sinalvital` int NOT NULL,
+  `pressao_arterial_si` int DEFAULT NULL,
+  `pressao_arterial_di` int DEFAULT NULL,
+  `pulso_bpm` int DEFAULT NULL,
+  `respiracao_mrm` int DEFAULT NULL,
+  `saturacao` int DEFAULT NULL,
+  `temperatura` decimal(4,2) DEFAULT NULL,
+  `perfusao_menor2` tinyint(1) DEFAULT NULL,
+  `glicemia_hgt` decimal(5,2) DEFAULT NULL,
+  `normal` tinyint(1) DEFAULT NULL,
+  `anormal` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `situacao_paciente`
 --
 
@@ -327,6 +340,17 @@ CREATE TABLE `tabelaglasgow` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `termo_recusa`
+--
+
+CREATE TABLE `termo_recusa` (
+  `id_termo_recusa` int NOT NULL,
+  `imagem` blob
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `tipo_ocorrencia_pre_hospitalar`
 --
 
@@ -377,10 +401,10 @@ ALTER TABLE `emergencia_medica`
   ADD PRIMARY KEY (`id_emergencia_medica`);
 
 --
--- Índices para tabela `ferimentos`
+-- Índices para tabela `ferimentos_queimaduras`
 --
-ALTER TABLE `ferimentos`
-  ADD PRIMARY KEY (`id_ferimentos`);
+ALTER TABLE `ferimentos_queimaduras`
+  ADD PRIMARY KEY (`id_ferimentos_queimaduras`);
 
 --
 -- Índices para tabela `final_info_paciente`
@@ -407,10 +431,10 @@ ALTER TABLE `login`
   ADD PRIMARY KEY (`id_login`);
 
 --
--- Índices para tabela `objetos_recolhidos`
+-- Índices para tabela `objetos_recolhido_observacao`
 --
-ALTER TABLE `objetos_recolhidos`
-  ADD PRIMARY KEY (`id_objetos_recolhidos`);
+ALTER TABLE `objetos_recolhido_observacao`
+  ADD PRIMARY KEY (`id_objetos_observacao`);
 
 --
 -- Índices para tabela `pes`
@@ -425,6 +449,12 @@ ALTER TABLE `sinais_e_sintomas`
   ADD PRIMARY KEY (`id_sinais_e_sintomas`);
 
 --
+-- Índices para tabela `sinais_vitais`
+--
+ALTER TABLE `sinais_vitais`
+  ADD PRIMARY KEY (`id_sinalvital`);
+
+--
 -- Índices para tabela `situacao_paciente`
 --
 ALTER TABLE `situacao_paciente`
@@ -435,6 +465,12 @@ ALTER TABLE `situacao_paciente`
 --
 ALTER TABLE `tabelaglasgow`
   ADD PRIMARY KEY (`id_glasgow`);
+
+--
+-- Índices para tabela `termo_recusa`
+--
+ALTER TABLE `termo_recusa`
+  ADD PRIMARY KEY (`id_termo_recusa`);
 
 --
 -- Índices para tabela `tipo_ocorrencia_pre_hospitalar`
@@ -457,12 +493,6 @@ ALTER TABLE `traumas`
 --
 ALTER TABLE `emergencia_medica`
   MODIFY `id_emergencia_medica` int NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `ferimentos`
---
-ALTER TABLE `ferimentos`
-  MODIFY `id_ferimentos` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `final_info_paciente`
@@ -489,10 +519,10 @@ ALTER TABLE `login`
   MODIFY `id_login` int NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `objetos_recolhidos`
+-- AUTO_INCREMENT de tabela `objetos_recolhido_observacao`
 --
-ALTER TABLE `objetos_recolhidos`
-  MODIFY `id_objetos_recolhidos` int NOT NULL AUTO_INCREMENT;
+ALTER TABLE `objetos_recolhido_observacao`
+  MODIFY `id_objetos_observacao` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `pes`
@@ -505,6 +535,12 @@ ALTER TABLE `pes`
 --
 ALTER TABLE `sinais_e_sintomas`
   MODIFY `id_sinais_e_sintomas` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `sinais_vitais`
+--
+ALTER TABLE `sinais_vitais`
+  MODIFY `id_sinalvital` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `situacao_paciente`
