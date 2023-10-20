@@ -196,19 +196,22 @@
                 });
         });
 
-
+        // Dimensões da imagem original
+        const imgWidth = 1264;
+        const imgHeight = 1662;
 
         let img = document.getElementById('humanBody');
         let results = document.getElementById('results');
-
-        // Crie um objeto para armazenar as informações
         let traumas = [];
 
         img.addEventListener('click', function (e) {
-            let rect = img.getBoundingClientRect();
-            let x = e.clientX - rect.left;
-            let y = e.clientY - rect.top;
+            let x = e.offsetX;  // Obtenha a coordenada x do clique na imagem
+            let y = e.offsetY;  // Obtenha a coordenada y do clique na imagem
             let traumaType = document.getElementById('traumaType').value;
+
+            // Normalização das coordenadas em relação ao tamanho da imagem original
+            const normalizedX = (x / img.width) * imgWidth;
+            const normalizedY = (y / img.height) * imgHeight;
 
             // Insira o ícone png respectivo para cada tipo de trauma
             let icon = document.createElement('img');
@@ -239,16 +242,15 @@
             // Adicione o ícone à div da imagem
             img.parentElement.appendChild(icon);
 
-            // Adicione as informações ao objeto
+            // Adicione as informações normalizadas ao objeto
             traumas.push({
                 type: traumaType,
-                position: { x, y }
+                position: { x: normalizedX, y: normalizedY }
             });
 
             // Exiba o objeto JSON
             results.innerHTML = `<pre>${JSON.stringify(traumas, null, 2)}</pre>`;
         });
-
     </script>
 </body>
 
