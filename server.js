@@ -127,6 +127,24 @@ app.post('/occurrence', function(req, res) {
   res.send('Received the data.');
 });
 
+app.post('/saveData', (req, res) => {
+  // Supondo que 'data' é o objeto JSON que você deseja armazenar
+  const { data } = req.body;
+
+  // Converta o objeto JSON em uma string
+  const jsonData = JSON.stringify(data);
+
+  // Insira a string JSON no banco de dados
+  connection.query(`INSERT INTO ferimentos (trauma) VALUES ('${jsonData}')`, function (err, rows) {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Internal Server Error');
+      return;
+    }
+    res.send('Dados salvos com sucesso!');
+  });
+});
+
 app.listen(3700, () => {
   console.log('Servidor rodando na porta 3700!');
   console.log('Para reiniciar o servidor, digite "rs" e tecle "Enter"!');
