@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 18-Out-2023 às 14:22
+-- Tempo de geração: 20-Out-2023 às 13:24
 -- Versão do servidor: 8.0.21
 -- versão do PHP: 8.1.2
 
@@ -286,6 +286,47 @@ CREATE TABLE `situacao_paciente` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `tabelaglasgow`
+--
+
+CREATE TABLE `tabelaglasgow` (
+  `espontanea_1` tinyint(1) DEFAULT NULL,
+  `comando_verbal_1` tinyint(1) DEFAULT NULL,
+  `estimulo_doloroso_1` tinyint(1) DEFAULT NULL,
+  `nenhuma_ocular` tinyint(1) DEFAULT NULL,
+  `orientado` tinyint(1) DEFAULT NULL,
+  `confuso` tinyint(1) DEFAULT NULL,
+  `palavras_inapropriadas` tinyint(1) DEFAULT NULL,
+  `palavras_incompreensiveis` tinyint(1) DEFAULT NULL,
+  `nenhuma_verbal` tinyint(1) DEFAULT NULL,
+  `obedece_comandos` tinyint(1) DEFAULT NULL,
+  `localiza_dor` tinyint(1) DEFAULT NULL,
+  `movimento_retirada` tinyint(1) DEFAULT NULL,
+  `flexao_anormal` tinyint(1) DEFAULT NULL,
+  `extensao_anormal` tinyint(1) DEFAULT NULL,
+  `nenhuma_motora` tinyint(1) DEFAULT NULL,
+  `espontanea_2` tinyint(1) DEFAULT NULL,
+  `comando_verbal_2` tinyint(1) DEFAULT NULL,
+  `estimulo_doloroso_2` tinyint(1) DEFAULT NULL,
+  `nenhuma` tinyint(1) DEFAULT NULL,
+  `palavras_e_frase_apropriadas` tinyint(1) DEFAULT NULL,
+  `palaras_inapropriadas` tinyint(1) DEFAULT NULL,
+  `choro_persistete_ou_gritos` tinyint(1) DEFAULT NULL,
+  `sons_incompreensiveis` tinyint(1) DEFAULT NULL,
+  `nenhuma_resposta_verbal` tinyint(1) DEFAULT NULL,
+  `obdece_prontamente` tinyint(1) DEFAULT NULL,
+  `localiza_dor_ou_estimulo_tatil` tinyint(1) DEFAULT NULL,
+  `retirada_do_segmento_estimulado` tinyint(1) DEFAULT NULL,
+  `flexao_anormal_decorticacao` tinyint(1) DEFAULT NULL,
+  `extensao_anormal_decerebracao` tinyint(1) DEFAULT NULL,
+  `ausencia_paralisia_flacida_hipotonia` tinyint(1) DEFAULT NULL,
+  `total` int DEFAULT NULL,
+  `id_glasgow` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `tipo_ocorrencia_pre_hospitalar`
 --
 
@@ -322,7 +363,7 @@ CREATE TABLE `tipo_ocorrencia_pre_hospitalar` (
 
 CREATE TABLE `traumas` (
   `id_trauma` int NOT NULL,
-  `coord_trauma` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL
+  `trauma` json DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -388,6 +429,12 @@ ALTER TABLE `sinais_e_sintomas`
 --
 ALTER TABLE `situacao_paciente`
   ADD PRIMARY KEY (`id_situacao_paciente`);
+
+--
+-- Índices para tabela `tabelaglasgow`
+--
+ALTER TABLE `tabelaglasgow`
+  ADD PRIMARY KEY (`id_glasgow`);
 
 --
 -- Índices para tabela `tipo_ocorrencia_pre_hospitalar`
@@ -464,6 +511,12 @@ ALTER TABLE `sinais_e_sintomas`
 --
 ALTER TABLE `situacao_paciente`
   MODIFY `id_situacao_paciente` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `tabelaglasgow`
+--
+ALTER TABLE `tabelaglasgow`
+  MODIFY `id_glasgow` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `tipo_ocorrencia_pre_hospitalar`
