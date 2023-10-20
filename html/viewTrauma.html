@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu</title>
+    <title>Localização dos Traumas</title>
     <link rel="shortcut icon" href="logo_noar.png" type="image/x-icon">
     <link rel="stylesheet" href="style-bootstrap.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -23,9 +23,6 @@
                     <ul class="navbar-nav align-items-center">
                         <li class="nav-item ms-2 me-2">
                             <a class="nav-link text-light text-center" href="menu.html">Início</a>
-                        </li>
-                        <li class="nav-item ms-2 me-2">
-                            <a class="nav-link text-light text-center" href="patientInfo.html">Nova Ocorrência</a>
                         </li>
                         <li class="nav-item ms-2 me-2">
                             <a class="nav-link text-light text-center" href="occurrenceHistory.html">Histórico de
@@ -64,9 +61,6 @@
                                 <a class="nav-link text-dark" href="menu.html">Início</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="patientInfo.html">Nova Ocorrência</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link text-dark" href="occurrenceHistory.html">Histórico de Ocorrências</a>
                             </li>
                             <li class="nav-item">
@@ -79,40 +73,23 @@
         </header>
     </div>
 
-    <div class="container position-absolute top-50 start-50 translate-middle">
-        <div class="row">
-            <div class="text-center">
-                <h1 class="fw-semibold mb-2">Bem-vindo,</h1>
-                <h1 class="fw-normal mb-5" id="fireName">NOME DO BOMBAS</h1>
-                <div class="row">
-                    <div class="mb-3">
-                        <a href="patientInfo.html" class="btn btn-primary w-50">Nova ocorrência</a>
-                    </div>
-                    <div class="mb-3">
-                        <a href="occurrenceHistory.html" class="btn btn-primary w-50">Histórico de ocorrências</a>
-                    </div>
-                    <div class="mb-3">
-                        <a href="stats.html" class="btn btn-primary w-50">Estatísticas</a>
-                    </div>
+    <div class="container mt-3">
+        <div class="card mb-2 text-light">
+            <div class="card-header">
+                <div class="text-center">
+                    <h2 class="card-title mb-0">Localização dos Traumas</h2>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="loggedModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content bg-dark">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="loggedModalLabel">Erro!</h1>
-                    <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"
-                        onclick="loginBtn()"></button>
+            <div class="card-body">
+                <div class="row position-relative">
+                    <!-- Adicione um id à imagem e faça-a cobrir a div -->
+                    <img id="humanBody" src="/body.png" alt="body-image">
                 </div>
-                <div class="modal-body">
-                    Você deve estar logado para poder ter acesso a esta página!
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" onclick="loginBtn()">Login</button>
+                <!-- Adicione um local para exibir os resultados -->
+                <div id="results"></div>
+                <div class="d-flex justify-content-between mt-4">
+                    <button type="button" class="btn btn-light" id="backBtn">Voltar</button>
+                    <button type="button" class="btn btn-primary" id="nextBtn">Próximo</button>
                 </div>
             </div>
         </div>
@@ -122,43 +99,37 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script>
-        // Redirect to login when button is clicked
-        function loginBtn() {
-            window.location.href = "login.html";
-        }
+        document.addEventListener('DOMContentLoaded', function () {
+    const imgWidth = 1264; // Largura da imagem original
+    const imgHeight = 1662; // Altura da imagem original
 
-        // Make AJAX request to server to get firefighter name
-        window.onload = function () {
-            getFirefighterName();
-        };
+    // Faça uma solicitação AJAX para obter os dados do servidor (ou utilize esses dados se já estiverem disponíveis no servidor)
+    fetchDataFromServer().then(traumas => {
+        const traumaIconsContainer = document.getElementById("results");
 
-        function getFirefighterName() {
-            const xhr = new XMLHttpRequest();
-            xhr.open('GET', '/menu');
-            xhr.onload = function () {
-                if (xhr.status === 200) {
-                    // Parse JSON response
-                    const response = JSON.parse(xhr.responseText);
+        traumas.forEach(trauma => {
+            const icon = document.createElement('img'); // Usando <img> em vez de <div>
+            icon.classList.add('icon');
+            icon.style.left = `${(trauma.position.x / imgWidth) * 100}%`;
+            icon.style.top = `${(trauma.position.y / imgHeight) * 100}%`;
+            icon.src = `/trauma_icon/${trauma.type}.png`; // Usando src para especificar a imagem
 
-                    // Check if user is logged in
-                    if (response.loggedin) {
-                        // Update HTML element with firefighter name
-                        const fireName = document.getElementById('fireName');
-                        fireName.textContent = response.name;
-                    } else {
-                        console.error("User is not logged in");
-                        var myModal = new bootstrap.Modal(document.getElementById('loggedModal'), {});
-                        myModal.show();
-                    }
-                } else {
-                    console.error(xhr.statusText);
-                }
-            };
-            xhr.onerror = function () {
-                console.error(xhr.statusText);
-            };
-            xhr.send();
-        }
+            traumaIconsContainer.appendChild(icon);
+        });
+    });
+});
+
+function fetchDataFromServer() {
+    // Simulando a solicitação AJAX. Substitua este trecho pelo método real de busca de dados do servidor.
+    return new Promise((resolve, reject) => {
+        const data = [
+            { type: "Fratura_Luxacao_Entorse", position: { x: 278.03, y: 203.22 } },
+            { type: "Queimadura_2", position: { x: 400.70, y: 926.18 } }
+        ];
+        resolve(data);
+    });
+}
+
     </script>
 </body>
 

@@ -146,6 +146,18 @@ app.post('/trauma', (req, res) => {
   });
 });
 
+app.get('/getTrauma', (req, res) => {
+  connection.query(`SELECT * FROM traumas`, function (err, rows) {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Internal Server Error');
+      return;
+    }
+    res.json(rows);
+    console.log(rows);
+  });
+});
+
 app.listen(3700, () => {
   console.log('Servidor rodando na porta 3700!');
   console.log('Para reiniciar o servidor, digite "rs" e tecle "Enter"!');
