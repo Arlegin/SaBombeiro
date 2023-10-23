@@ -159,6 +159,10 @@
                     <div class="row position-relative" id="imageContainer">
                         <img id="humanBody" src="/body.png" alt="body-image">
                     </div>
+                    <!-- Buton to undo -->
+                    <div class="d-flex justify-content-center mt-4">
+                        <button type="button" class="btn btn-light fw-bold" id="undoBtn">Desfazer</button>
+                    </div>
                     <div class="d-flex justify-content-between mt-4">
                         <button type="submit" class="btn btn-light" id="backBtn">Voltar</button>
                         <button type="submit" class="btn btn-primary" id="nextBtn">Próximo</button>
@@ -173,6 +177,16 @@
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
     <script>
+        // Undo button functionality (remove last icon)
+        document.getElementById('undoBtn').addEventListener('click', function () {
+            let img = document.getElementById('humanBody');
+            let lastIcon = img.parentElement.lastElementChild;
+
+            if (lastIcon.id !== 'humanBody') {
+                img.parentElement.removeChild(lastIcon);
+            }
+        });
+
         document.getElementById('nextBtn').addEventListener('click', function (e) {
             e.preventDefault();  // Prevent the form from submitting
 
