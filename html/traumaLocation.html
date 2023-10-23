@@ -156,8 +156,7 @@
                         <option value="Queimadura_2">Queimadura 2° grau</option>
                         <option value="Queimadura_3">Queimadura 3° grau</option>
                     </select>
-                    <div class="row position-relative">
-                        <!-- Adicione um id à imagem e faça-a cobrir a div -->
+                    <div class="row position-relative" id="imageContainer">
                         <img id="humanBody" src="/body.png" alt="body-image">
                     </div>
                     <!-- Adicione um local para exibir os resultados -->
@@ -179,9 +178,9 @@
         document.getElementById('nextBtn').addEventListener('click', function (e) {
             e.preventDefault();  // Prevent the form from submitting
 
-            html2canvas(document.getElementById('humanBody')).then(function (canvas) {
+            html2canvas(document.getElementById('imageContainer')).then(function (canvas) {
                 let imgData = canvas.toDataURL('image/png');
-
+                
                 // Send this data to your nodejs server
                 $.ajax({
                     url: '/saveTraumaLocation',
@@ -198,8 +197,6 @@
         });
 
         let img = document.getElementById('humanBody');
-        let results = document.getElementById('results');
-        let traumas = [];
 
         img.addEventListener('click', function (e) {
             let x = e.offsetX;  // Obtenha a coordenada x do clique na imagem
