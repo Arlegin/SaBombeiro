@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Display</title>
+</head>
+<body>
+    <h1>Image Display</h1>
+
+    <label for="imageId">Image ID:</label>
+    <input type="number" id="imageId" name="imageId">
+    <button onclick="fetchImage()">Fetch Image</button>
+
+    <img id="displayImage">
+
+    <script>
+        function fetchImage() {
+            let imageId = document.getElementById('imageId').value;
+
+            // Send a request to your server-side script
+            fetch(`/getTraumaLocation?id=${imageId}`)
+                .then(response => response.text())
+                .then(data => {
+                    // The server should return the Base64 encoded image data
+                    document.getElementById('displayImage').src = 'data:image/png;base64,' + data;
+                })
+                .catch(error => console.error(error));
+        }
+    </script>
+</body>
+</html>
