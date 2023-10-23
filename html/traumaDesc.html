@@ -144,9 +144,8 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="selectType">Tipo de Ocorrência</label>
-                                <select class="form-select" id="selectType"
-                                    aria-label="Floating label select example">
+                                <label for="selectLocal">Local</label>
+                                <select class="form-select" id="selectLocal" aria-label="Floating label select example">
                                     <option value="cabeca">Cabeça</option>
                                     <option value="pescoco">Pescoço</option>
                                     <option value="ombro">Ombro</option>
@@ -166,18 +165,31 @@
                             </div>
                             <div class="mb-3">
                                 <label for="selectSide">Lado</label>
-                                <select class="form-select" id="selectSide"
-                                    aria-label="Floating label select example">
+                                <select class="form-select" id="selectSide" aria-label="Floating label select example">
                                     <option value="direito">Direito</option>
                                     <option value="esquerdo">Esquerdo</option>
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <label for="selectFace">Face</label>
-                                <select class="form-select" id="selectFace"
-                                    aria-label="Floating label select example">
-                                    <option value="anterior">Anterior</option>
+                                <select class="form-select" id="selectFace" aria-label="Floating label select example">
+                                    <option value="frontal">Frontal</option>
                                     <option value="posterior">Posterior</option>
+                                </select>
                             </div>
+                            <div class="mb-3">
+                                <label for="selectType">Tipo</label>
+                                <select class="form-select" id="selectType" aria-label="Floating label select example">
+                                    <option value="ferimentos">Ferimentos</option>
+                                    <option value="fraturas">Fraturas</option>
+                                    <option value="entorses">Entorses</option>
+                                    <option value="luxacao">Luxação</option>
+                                    <option value="contusao">Contusão</option>
+                                </select>
+                            </div>
+                            <!-- Add options selected to table and JSON button -->
+                            <div class="mb-3">
+                                <button type="button" class="btn btn-primary" id="addBtn">Adicionar</button>
                         </div>
                         <div class="d-flex justify-content-between mt-4">
                             <button type="submit" class="btn btn-light" id="backBtn">Voltar</button>
