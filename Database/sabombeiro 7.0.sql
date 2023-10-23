@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20-Out-2023 às 17:25
+-- Tempo de geração: 23-Out-2023 às 14:32
 -- Versão do servidor: 8.0.21
 -- versão do PHP: 8.1.2
 
@@ -34,7 +34,8 @@ CREATE TABLE `avaliacao_cinematica` (
   `para_brisas_avariado` tinyint(1) DEFAULT NULL,
   `caminhando_cena` tinyint(1) DEFAULT NULL,
   `painel_avariado` tinyint(1) DEFAULT NULL,
-  `volante_torcido` tinyint(1) DEFAULT NULL
+  `volante_torcido` tinyint(1) DEFAULT NULL,
+  `id_avaliacao_cinematica` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -151,6 +152,60 @@ CREATE TABLE `login` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `materiais_uti_descart`
+--
+
+CREATE TABLE `materiais_uti_descart` (
+  `id_materiais_descart` int NOT NULL,
+  `ataduras_8` int DEFAULT NULL,
+  `ataduras_12` int DEFAULT NULL,
+  `ataduras_20` int DEFAULT NULL,
+  `cateter_tp_oculso` int DEFAULT NULL,
+  `comprenssa_comum` int DEFAULT NULL,
+  `kit_h` int DEFAULT NULL,
+  `kit_p` int DEFAULT NULL,
+  `kit_q` int DEFAULT NULL,
+  `luvas_descar_pares` int DEFAULT NULL,
+  `mascara_desc` int DEFAULT NULL,
+  `manta_aluminizada` int DEFAULT NULL,
+  `pas_dea` int DEFAULT NULL,
+  `sonda_aspiracao` int DEFAULT NULL,
+  `soro_fisiologico` int DEFAULT NULL,
+  `talas_pap_p` int DEFAULT NULL,
+  `talas_pap_g` int DEFAULT NULL,
+  `outros` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `materias_uti_deixados_hosp`
+--
+
+CREATE TABLE `materias_uti_deixados_hosp` (
+  `id_materiais_uti_deixados_hosp` int NOT NULL,
+  `base_do_estabiliza` int DEFAULT NULL,
+  `colar_n` int DEFAULT NULL,
+  `colar_pp` int DEFAULT NULL,
+  `colar_p` int DEFAULT NULL,
+  `colar_m` int DEFAULT NULL,
+  `colar_g` int DEFAULT NULL,
+  `colar_outros` varchar(255) DEFAULT NULL,
+  `coxin_estabiliza` int DEFAULT NULL,
+  `ked_adul` int DEFAULT NULL,
+  `ked_infa` int DEFAULT NULL,
+  `marca_rigida` int DEFAULT NULL,
+  `ttf_adul` int DEFAULT NULL,
+  `ttf_infa` int DEFAULT NULL,
+  `tirante_aranha` int DEFAULT NULL,
+  `tirante_de_cabeca` int DEFAULT NULL,
+  `canula` int DEFAULT NULL,
+  `outros` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `objetos_recolhido_observacao`
 --
 
@@ -184,6 +239,68 @@ CREATE TABLE `pes` (
   `transporte_samu` tinyint(1) DEFAULT NULL,
   `transporte_outros` varchar(255) DEFAULT NULL,
   `transporte_sem_remocao` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `procedimentos_efetuados`
+--
+
+CREATE TABLE `procedimentos_efetuados` (
+  `aspiracao` tinyint(1) DEFAULT NULL,
+  `avaliacao_inicial` tinyint(1) DEFAULT NULL,
+  `avaliacao_continuada` tinyint(1) DEFAULT NULL,
+  `chave_rautek` tinyint(1) DEFAULT NULL,
+  `canula_de_guedel` tinyint(1) DEFAULT NULL,
+  `desobstrucao_va` tinyint(1) DEFAULT NULL,
+  `emprego_dea` tinyint(1) DEFAULT NULL,
+  `gerenciamento_riscos` tinyint(1) DEFAULT NULL,
+  `limpeza_ferimento` tinyint(1) DEFAULT NULL,
+  `curativos` tinyint(1) DEFAULT NULL,
+  `compressivo` tinyint(1) DEFAULT NULL,
+  `encravamento` tinyint(1) DEFAULT NULL,
+  `ocular` tinyint(1) DEFAULT NULL,
+  `queimadura` tinyint(1) DEFAULT NULL,
+  `simples` tinyint(1) DEFAULT NULL,
+  `3_pontas` tinyint(1) DEFAULT NULL,
+  `imobilizacoes` tinyint(1) DEFAULT NULL,
+  `membro_inf_dir` tinyint(1) DEFAULT NULL,
+  `membro_inf_esq` tinyint(1) DEFAULT NULL,
+  `membro_sup_dir` tinyint(1) DEFAULT NULL,
+  `membro_sup_esq` tinyint(1) DEFAULT NULL,
+  `quadril` tinyint(1) DEFAULT NULL,
+  `cervical` tinyint(1) DEFAULT NULL,
+  `maca_sobre_rodas` tinyint(1) DEFAULT NULL,
+  `maca_rigida` tinyint(1) DEFAULT NULL,
+  `ponte` tinyint(1) DEFAULT NULL,
+  `retirado_capacete` tinyint(1) DEFAULT NULL,
+  `rcp` tinyint(1) DEFAULT NULL,
+  `rolamento_90` tinyint(1) DEFAULT NULL,
+  `rolamento_180` tinyint(1) DEFAULT NULL,
+  `tomada_decisao` tinyint(1) DEFAULT NULL,
+  `tratado_choque` tinyint(1) DEFAULT NULL,
+  `uso_canula` tinyint(1) DEFAULT NULL,
+  `uso_colar` varchar(255) DEFAULT NULL,
+  `uso_ked` tinyint(1) DEFAULT NULL,
+  `uso_ttf` tinyint(1) DEFAULT NULL,
+  `ventilacao_suporte` tinyint(1) DEFAULT NULL,
+  `oxigenioterapia_lpm` int DEFAULT NULL,
+  `reanimador_lpm` int DEFAULT NULL,
+  `meios_auxiliares` tinyint(1) DEFAULT NULL,
+  `celesc` tinyint(1) DEFAULT NULL,
+  `policia_civil` tinyint(1) DEFAULT NULL,
+  `policia_militar` tinyint(1) DEFAULT NULL,
+  `policia_pre` tinyint(1) DEFAULT NULL,
+  `policia_prf` tinyint(1) DEFAULT NULL,
+  `def_civil` tinyint(1) DEFAULT NULL,
+  `igp_pc` tinyint(1) DEFAULT NULL,
+  `samu` tinyint(1) DEFAULT NULL,
+  `outros` varchar(255) DEFAULT NULL,
+  `cit` tinyint(1) DEFAULT NULL,
+  `usa` tinyint(1) DEFAULT NULL,
+  `usb` tinyint(1) DEFAULT NULL,
+  `id_procedi_efetuados` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -345,7 +462,7 @@ CREATE TABLE `tabelaglasgow` (
 
 CREATE TABLE `termo_recusa` (
   `id_termo_recusa` int NOT NULL,
-  `imagem` blob
+  `imagem` longblob
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -387,12 +504,18 @@ CREATE TABLE `tipo_ocorrencia_pre_hospitalar` (
 
 CREATE TABLE `traumas` (
   `id_trauma` int NOT NULL,
-  `trauma` json DEFAULT NULL
+  `trauma` longblob
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Índices para tabelas despejadas
 --
+
+--
+-- Índices para tabela `avaliacao_cinematica`
+--
+ALTER TABLE `avaliacao_cinematica`
+  ADD PRIMARY KEY (`id_avaliacao_cinematica`);
 
 --
 -- Índices para tabela `emergencia_medica`
@@ -431,6 +554,18 @@ ALTER TABLE `login`
   ADD PRIMARY KEY (`id_login`);
 
 --
+-- Índices para tabela `materiais_uti_descart`
+--
+ALTER TABLE `materiais_uti_descart`
+  ADD PRIMARY KEY (`id_materiais_descart`);
+
+--
+-- Índices para tabela `materias_uti_deixados_hosp`
+--
+ALTER TABLE `materias_uti_deixados_hosp`
+  ADD PRIMARY KEY (`id_materiais_uti_deixados_hosp`);
+
+--
 -- Índices para tabela `objetos_recolhido_observacao`
 --
 ALTER TABLE `objetos_recolhido_observacao`
@@ -441,6 +576,12 @@ ALTER TABLE `objetos_recolhido_observacao`
 --
 ALTER TABLE `pes`
   ADD PRIMARY KEY (`id_pes`);
+
+--
+-- Índices para tabela `procedimentos_efetuados`
+--
+ALTER TABLE `procedimentos_efetuados`
+  ADD PRIMARY KEY (`id_procedi_efetuados`);
 
 --
 -- Índices para tabela `sinais_e_sintomas`
@@ -489,6 +630,12 @@ ALTER TABLE `traumas`
 --
 
 --
+-- AUTO_INCREMENT de tabela `avaliacao_cinematica`
+--
+ALTER TABLE `avaliacao_cinematica`
+  MODIFY `id_avaliacao_cinematica` int NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de tabela `emergencia_medica`
 --
 ALTER TABLE `emergencia_medica`
@@ -529,6 +676,12 @@ ALTER TABLE `objetos_recolhido_observacao`
 --
 ALTER TABLE `pes`
   MODIFY `id_pes` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `procedimentos_efetuados`
+--
+ALTER TABLE `procedimentos_efetuados`
+  MODIFY `id_procedi_efetuados` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `sinais_e_sintomas`
