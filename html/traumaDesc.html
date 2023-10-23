@@ -142,86 +142,89 @@
             <div class="card-body">
                 <form id="PESForm">
                     <div class="row">
-<div class="col">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="psiquiatrico" id="psycho">
-                            <label class="form-check-label" for="psycho">Psiquiátrico</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="respiratorio_dpoc" id="dpoc">
-                            <label class="form-check-label" for="dpoc">Respiratório DPOC</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="respiratorio_inalacao_fumaca"
-                                id="smoke">
-                            <label class="form-check-label" for="smoke">Inalação de fumaça</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="diabetes_hiperglicemia"
-                                id="hyperglycemia">
-                            <label class="form-check-label" for="hyperglycemia">Hiperglicemia</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="diabetes_hipoglicemia"
-                                id="hypoglycemia">
-                            <label class="form-check-label" for="hypoglycemia">Hipoglicemia</label>
-                        </div>
-
-
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="obstetrico_parto_emergencial"
-                                id="birth">
-                            <label class="form-check-label" for="birth">Parto emergencial</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="obstetrico_gestante" id="pregnant">
-                            <label class="form-check-label" for="pregnant">Gestante</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="obstetrico_hemor_excessiva"
-                                id="bleeding">
-                            <label class="form-check-label" for="bleeding">Hemorragia excessiva</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="PESCheckbox" id="transport">
-                            <label class="form-check-label" for="transport">Transporte</label>
-                        </div>
-                        <div class="col-md-6 ms-4 mt-1 transportToggle" style="display: none;">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="transporte_clinico"
-                                            id="transportClinic">
-                                        <label class="form-check-label" for="transportClinic">Clínico</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="transporte_emergencial"
-                                            id="transportEmergency">
-                                        <label class="form-check-label" for="transportEmergency">Emergencial</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="transporte_pos_trauma"
-                                            id="transportTrauma">
-                                        <label class="form-check-label" for="transportTrauma">Pós-trauma</label>
+                        <div class="d-flex flex-column align-items-center">
+                            <div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="psiquiatrico" id="psycho">
+                                    <label class="form-check-label" for="psycho">Psiquiátrico</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="respiratorio_dpoc" id="dpoc">
+                                    <label class="form-check-label" for="dpoc">Respiratório DPOC</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="respiratorio_inalacao_fumaca"
+                                        id="smoke">
+                                    <label class="form-check-label" for="smoke">Inalação de fumaça</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="diabetes_hiperglicemia"
+                                        id="hyperglycemia">
+                                    <label class="form-check-label" for="hyperglycemia">Hiperglicemia</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="diabetes_hipoglicemia"
+                                        id="hypoglycemia">
+                                    <label class="form-check-label" for="hypoglycemia">Hipoglicemia</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="obstetrico_parto_emergencial"
+                                        id="birth">
+                                    <label class="form-check-label" for="birth">Parto emergencial</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="obstetrico_gestante"
+                                        id="pregnant">
+                                    <label class="form-check-label" for="pregnant">Gestante</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="obstetrico_hemor_excessiva"
+                                        id="bleeding">
+                                    <label class="form-check-label" for="bleeding">Hemorragia excessiva</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="PESCheckbox" id="transport">
+                                    <label class="form-check-label" for="transport">Transporte</label>
+                                </div>
+                                <div class="col-md-6 ms-4 mt-1 transportToggle" style="display: none;">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox"
+                                                    name="transporte_clinico" id="transportClinic">
+                                                <label class="form-check-label" for="transportClinic">Clínico</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox"
+                                                    name="transporte_emergencial" id="transportEmergency">
+                                                <label class="form-check-label"
+                                                    for="transportEmergency">Emergencial</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox"
+                                                    name="transporte_pos_trauma" id="transportTrauma">
+                                                <label class="form-check-label" for="transportTrauma">Pós-trauma</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="transporte_aereo"
+                                                    id="transportAerial">
+                                                <label class="form-check-label" for="transportAerial">Aéreo</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="transporte_samu"
+                                                    id="transportSAMU">
+                                                <label class="form-check-label" for="transportSAMU">SAMU</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox"
+                                                    name="transporte_sem_remocao" id="transportNo">
+                                                <label class="form-check-label" for="transportNo">Sem remoção</label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="transporte_aereo"
-                                            id="transportAerial">
-                                        <label class="form-check-label" for="transportAerial">Aéreo</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="transporte_samu"
-                                            id="transportSAMU">
-                                        <label class="form-check-label" for="transportSAMU">SAMU</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="transporte_sem_remocao"
-                                            id="transportNo">
-                                        <label class="form-check-label" for="transportNo">Sem remoção</label>
-                                    </div>
-                                </div></div>
                             </div>
                         </div>
                     </div>
