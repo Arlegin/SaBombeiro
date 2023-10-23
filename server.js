@@ -5,11 +5,7 @@ const express = require('express');
 const mysql = require('mysql2');
 const app = express();
 const cors = require('cors');
-const multer  = require('multer');
-
-// Configura o armazenamento do multer
-var storage = multer.memoryStorage()
-var upload = multer({ storage: storage })
+const fs = require('fs');
 
 app.use(cors()); // Habilita o CORS para permitir solicitações de diferentes origens
 app.use(express.static('css')); // Serve arquivos estáticos da pasta 'css'
@@ -25,8 +21,8 @@ app.use(sessions({
 }));
 
 app.use(cookieParser()); // Analisa cookies recebidos nas requisições
-app.use(express.json({ limit: '50mb' }));
-app.use(express.urlencoded({ limit: '50mb', extended: true }));
+app.use(express.json({limit: '50mb'})); // Analisa dados enviados no formato JSON
+app.use(express.urlencoded({limit: '50mb', extended: true })); // Analisa dados enviados por formulários HTML
 
 app.use((req, res, next) => {
   // Qual site tem permissão de realizar a conexão, no exemplo abaixo está o "*" indicando que qualquer site pode fazer a conexão
@@ -163,18 +159,35 @@ app.get('/getTrauma', (req, res) => {
   });
 });
 
-app.post('/save_image', upload.single('image'), function (req, res, next) {
-  // req.file é o arquivo 'image'
-  // req.body conterá os campos de texto, se houver
+app.post('/saveTraumaLocation', (req, res) => {
+  let imgData = req.body.imgData;
+  let base64Data = imgData.replace(/^data:image\/png;base64,/, "");
 
-  let imgData = req.file.buffer.toString('base64');
-
-  // Insira a imagem no banco de dados
-  connection.query('INSERT INTO images SET ?', {image: imgData}, function (error, results, fields) {
-    if (error) throw error;
-    res.send('Image saved successfully!');
+  // Assuming you have a table `images` with a column `data` of type LONGBLOB
+  connection.query('INSERT INTO images (data) VALUES (?)', [base64Data], function(err, results) {
+      if(err) {
+          console.error(err);
+          res.status(500).send('Internal Server Error');
+          return;
+      }
+      console.log('Image saved successfully');
+      res.send('Image saved successfully');
   });
-})
+});
+
+app.get('/getTraumaLocation', (req, res) => {
+  let id = req.query.id;
+
+  connection.query(`SELECT * FROM images WHERE id_images = ${id}`, function (err, rows) {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Internal Server Error');
+      return;
+    }
+    res.send(rows[0].data);
+    console.log(rows);
+  });
+});
 
 app.listen(3700, () => {
   console.log('Servidor rodando na porta 3700!');
