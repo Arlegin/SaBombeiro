@@ -5,6 +5,11 @@ const express = require('express');
 const mysql = require('mysql2');
 const app = express();
 const cors = require('cors');
+const multer  = require('multer');
+
+// Configura o armazenamento do multer
+var storage = multer.memoryStorage()
+var upload = multer({ storage: storage })
 
 app.use(cors()); // Habilita o CORS para permitir solicitações de diferentes origens
 app.use(express.static('css')); // Serve arquivos estáticos da pasta 'css'
@@ -20,8 +25,8 @@ app.use(sessions({
 }));
 
 app.use(cookieParser()); // Analisa cookies recebidos nas requisições
-app.use(express.json()); // Analisa o corpo da requisição como JSON
-app.use(express.urlencoded({ extended: true })); // Analisa o corpo da requisição codificado em URL
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
 app.use((req, res, next) => {
   // Qual site tem permissão de realizar a conexão, no exemplo abaixo está o "*" indicando que qualquer site pode fazer a conexão
@@ -157,6 +162,19 @@ app.get('/getTrauma', (req, res) => {
     console.log(rows);
   });
 });
+
+app.post('/save_image', upload.single('image'), function (req, res, next) {
+  // req.file é o arquivo 'image'
+  // req.body conterá os campos de texto, se houver
+
+  let imgData = req.file.buffer.toString('base64');
+
+  // Insira a imagem no banco de dados
+  connection.query('INSERT INTO images SET ?', {image: imgData}, function (error, results, fields) {
+    if (error) throw error;
+    res.send('Image saved successfully!');
+  });
+})
 
 app.listen(3700, () => {
   console.log('Servidor rodando na porta 3700!');
