@@ -191,15 +191,15 @@
                                 <!-- Button to add options selected to table and JSON -->
                                 <button type="button" class="btn btn-primary" id="addBtn">Adicionar</button>
                             </div>
-                            <div class="traumaTable">
-                                <table class="table table-striped table-hover table-light text-center table-borderless" id="traumaDescTable">
+                            <div class=" table-responsive traumaTable">
+                                <table class="table table-sm table-hover table-light table-striped text-center" id="traumaDescTable">
                                     <thead>
                                         <tr>
                                             <th scope="col">Local</th>
                                             <th scope="col">Lado</th>
                                             <th scope="col">Face</th>
                                             <th scope="col">Tipo</th>
-                                            <th scope="col">Ações</th>
+                                            <!-- <th scope="col">Ações</th> -->
                                         </tr>
                                     </thead>
                                     <tbody class="table-group-divider">
@@ -225,18 +225,60 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script>
-        // Script to show the div .transportToggle inputs when the checkbox #transport is checked
-        const transport = document.querySelector('#transport');
-        const transportToggle = document.querySelector('.transportToggle');
-        const transportCheckboxes = transportToggle.querySelectorAll('input[type="checkbox"]');
+        // Script to add options selected to table and JSON
+        const addBtn = document.querySelector('#addBtn');
+        const traumaDescTable = document.querySelector('tbody');
+        const traumaDescForm = document.querySelector('#traumaDescForm');
 
-        transport.addEventListener('change', () => {
-            if (transport.checked) {
-                transportToggle.style.display = 'block';
-            } else {
-                transportToggle.style.display = 'none';
-                transportCheckboxes.forEach(checkbox => checkbox.checked = false);
-            }
+        addBtn.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            const selectLocal = document.querySelector('#selectLocal');
+            const selectSide = document.querySelector('#selectSide');
+            const selectFace = document.querySelector('#selectFace');
+            const selectType = document.querySelector('#selectType');
+
+            const local = selectLocal.options[selectLocal.selectedIndex].text;
+            const side = selectSide.options[selectSide.selectedIndex].text;
+            const face = selectFace.options[selectFace.selectedIndex].text;
+            const type = selectType.options[selectType.selectedIndex].text;
+
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${local}</td>
+                <td>${side}</td>
+                <td>${face}</td>
+                <td>${type}</td>
+                
+            `;
+// <td>
+    // <button type="button" class="btn btn-danger btn-sm deleteBtn">Excluir</button>
+    //             </td>
+            traumaDescTable.appendChild(row);
+
+            // Delete row from table
+            const deleteBtn = document.querySelectorAll('.deleteBtn');
+
+            deleteBtn.forEach((btn) => {
+                btn.addEventListener('click', (event) => {
+                    event.preventDefault();
+
+                    const row = event.target.parentElement.parentElement;
+                    row.remove();
+                });
+            });
+
+            // Add options selected to JSON
+            const data = {
+                local: local,
+                side: side,
+                face: face,
+                type: type
+            };
+
+            const dataJSON = JSON.stringify(data);
+
+            console.log(dataJSON);
         });
 
         // Print on console the form data when submitted
