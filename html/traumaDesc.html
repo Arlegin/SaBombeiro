@@ -136,7 +136,7 @@
         <div class="card mb-2 text-light">
             <div class="card-header">
                 <div class="text-center">
-                    <h2 class="card-title mb-0">Problemas Encontrados Suspeitos</h2>
+                    <h2 class="card-title mb-0">Descrição dos traumas</h2>
                 </div>
             </div>
             <div class="card-body">
@@ -187,14 +187,35 @@
                                     <option value="contusao">Contusão</option>
                                 </select>
                             </div>
-                            <!-- Add options selected to table and JSON button -->
                             <div class="mb-3">
+                                <!-- Button to add options selected to table and JSON -->
                                 <button type="button" class="btn btn-primary" id="addBtn">Adicionar</button>
+                            </div>
+                            <div class="traumaTable">
+                                <table class="table table-striped table-hover table-light text-center table-borderless" id="traumaDescTable">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Local</th>
+                                            <th scope="col">Lado</th>
+                                            <th scope="col">Face</th>
+                                            <th scope="col">Tipo</th>
+                                            <th scope="col">Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="table-group-divider">
+                                        <!-- Table rows created dynamically -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
                         </div>
                         <div class="d-flex justify-content-between mt-4">
                             <button type="submit" class="btn btn-light" id="backBtn">Voltar</button>
                             <button type="submit" class="btn btn-primary" id="nextBtn">Próximo</button>
                         </div>
+                    </div>
                 </form>
             </div>
         </div>
