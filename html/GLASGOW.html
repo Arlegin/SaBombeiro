@@ -141,27 +141,61 @@
             </div>
             <div class="card-body">
                 <form id="GlasgowForm"> <!-- Maior de 5 anos -->
-                    <div class="row border bg-info bg-opacity-10 border border-info rounded">
-                        <div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="GlasgowRadio" id="espontanea_1"
+                    <div class="row border bg-info bg-opacity-10 border border-info rounded-top">
+                        <div class="col-4 text-center d-flex align-items-center justify-content-center border-right-dark">
+                            <h5>Abertura Ocular</h5>
+                        </div>
+                        <div class="col-8 mt-2 mb-2">
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="radio" name="glasgowOcular" id="espontanea_1"
                                     value="4">
                                 <label class="form-check-label" for="espontanea_1">Espontânea</label>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="GlasgowRadio" id="comando_verbal_1"
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="radio" name="glasgowOcular" id="comando_verbal_1"
                                     value="3">
                                 <label class="form-check-label" for="comando_verbal_1">Comando Verbal</label>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="GlasgowRadio"
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="radio" name="glasgowOcular"
                                     id="estimulo_doloroso_1" value="2">
                                 <label class="form-check-label" for="estimulo_doloroso_1">Estímulo Doloroso</label>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="GlasgowRadio" id="nenhuma_ocular"
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="radio" name="glasgowOcular" id="nenhuma_ocular"
                                     value="1">
                                 <label class="form-check-label" for="nenhuma_ocular">Nenhuma</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row border bg-light bg-opacity-10 border border-light">
+                        <div class="col-4 text-center d-flex align-items-center justify-content-center border-right-dark">
+                            <h5>Resposta Verbal</h5>
+                        </div>
+                        <div class="col-8">
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="radio" name="glasgowVerbal" id="orientado"
+                                    value="5">
+                                <label class="form-check-label" for="orientado">Orientado</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="radio" name="glasgowVerbal" id="confuso"
+                                    value="4">
+                                <label class="form-check-label" for="confuso">Confuso</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="radio" name="glasgowVerbal"
+                                    id="palavras_inapropriadas" value="3">
+                                <label class="form-check-label" for="palavras_inapropriadas">Palavras Inapropriadas</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="radio" name="glasgowVerbal" id="palavras_incompreensiveis"
+                                    value="2">
+                                <label class="form-check-label" for="palavras_incompreensiveis">Palavras Incompreensíveis</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="radio" name="glasgowVerbal" id="nenhuma_verbal" value="1">
+                                <label class="form-check-label" for="nenhuma_verbal">Nenhuma</label>
                             </div>
                         </div>
                     </div>
