@@ -1,4 +1,4 @@
-!<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -140,102 +140,64 @@
                 </div>
             </div>
             <div class="card-body">
-                <form id="occurrenceForm">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="occurrenceRadio" id="animals" value="causado_por_animais">
-                                <label class="form-check-label" for="animals">Causado por animais</label>
+                <form id="GlasgowForm"> <!-- Maior de 5 anos -->
+                    <div class="row border bg-info bg-opacity-10 border border-info rounded-top">
+                        <div class="col-4 text-center d-flex align-items-center justify-content-center border-right-dark">
+                            <h5>Abertura Ocular</h5>
+                        </div>
+                        <div class="col-8 mt-2 mb-2">
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="radio" name="glasgowOcular" id="espontanea_1"
+                                    value="4">
+                                <label class="form-check-label" for="espontanea_1">Espontânea</label>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="occurrenceRadio" id="transportation" value="com_meio_de_transporte">
-                                <label class="form-check-label" for="transportation">Com meio de transporte</label>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="radio" name="glasgowOcular" id="comando_verbal_1"
+                                    value="3">
+                                <label class="form-check-label" for="comando_verbal_1">Comando Verbal</label>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="occurrenceRadio" id="landslide" value="desmoronamento_deslizamento">
-                                <label class="form-check-label" for="landslide">Desmoronamento</label>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="radio" name="glasgowOcular"
+                                    id="estimulo_doloroso_1" value="2">
+                                <label class="form-check-label" for="estimulo_doloroso_1">Estímulo Doloroso</label>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="occurrenceRadio" id="medicalEmergency" value="emergencia_medica">
-                                <label class="form-check-label" for="medicalEmergency">Emergência médica</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="occurrenceRadio" id="fall2m" value="queda_de_altura_2m">
-                                <label class="form-check-label" for="fall2m">Queda de altura 2M</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="occurrenceRadio" id="suicideAttempt" value="tentativa_de_suicidio">
-                                <label class="form-check-label" for="suicideAttempt">Tentativa de suicídio</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="occurrenceRadio" id="fall" value="queda_propria_altura">
-                                <label class="form-check-label" for="fall">Queda da própria altura</label>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="radio" name="glasgowOcular" id="nenhuma_ocular"
+                                    value="1">
+                                <label class="form-check-label" for="nenhuma_ocular">Nenhuma</label>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="occurrenceRadio" id="drown" value="afogamento">
-                                <label class="form-check-label" for="drown">Afogamento</label>
+                    </div>
+                    <div class="row border bg-light bg-opacity-10 border border-light">
+                        <div class="col-4 text-center d-flex align-items-center justify-content-center border-right-dark">
+                            <h5>Resposta Verbal</h5>
+                        </div>
+                        <div class="col-8">
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="radio" name="glasgowVerbal" id="orientado"
+                                    value="5">
+                                <label class="form-check-label" for="orientado">Orientado</label>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="occurrenceRadio" id="attack" value="agressao">
-                                <label class="form-check-label" for="attack">Agressão</label>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="radio" name="glasgowVerbal" id="confuso"
+                                    value="4">
+                                <label class="form-check-label" for="confuso">Confuso</label>
                             </div>
-
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="occurrenceRadio" id="runOver" value="atropelamento">
-                                <label class="form-check-label" for="runOver">Atropelamento</label>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="radio" name="glasgowVerbal"
+                                    id="palavras_inapropriadas" value="3">
+                                <label class="form-check-label" for="palavras_inapropriadas">Palavras Inapropriadas</label>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="occurrenceRadio" id="shock" value="choque_eletrico">
-                                <label class="form-check-label" for="shock">Choque elétrico</label>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="radio" name="glasgowVerbal" id="palavras_incompreensiveis"
+                                    value="2">
+                                <label class="form-check-label" for="palavras_incompreensiveis">Palavras Incompreensíveis</label>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="occurrenceRadio" id="collapse" value="desabamento">
-                                <label class="form-check-label" for="collapse">Desabamento</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="occurrenceRadio" id="domestic" value="domestico">
-                                <label class="form-check-label" for="domestic">Doméstico</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="occurrenceRadio" id="sport" value="esportivo">
-                                <label class="form-check-label" for="sport">Esportivo</label>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="radio" name="glasgowVerbal" id="nenhuma_verbal" value="1">
+                                <label class="form-check-label" for="nenhuma_verbal">Nenhuma</label>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="occurrenceRadio" id="toxic" value="intoxicacao">
-                                <label class="form-check-label" for="toxic">Intoxicação</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="occurrenceRadio" id="bicicle" value="queda_bicicleta">
-                                <label class="form-check-label" for="bicycle">Queda de bicicleta</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="occurrenceRadio" id="motorcycle" value="queda_moto">
-                                <label class="form-check-label" for="motorcycle">Queda moto</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="occurrenceRadio" id="fallLevel" value="queda_nivel_menor_2m">
-                                <label class="form-check-label" for="fallLevel">Queda Nível &lt;2M</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="occurrenceRadio" id="job" value="trabalho">
-                                <label class="form-check-label" for="job">Trabalho</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="occurrenceRadio" id="transfer" value="transferencia">
-                                <label class="form-check-label" for="transfer">Transferência</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="occurrenceRadio" id="other" value="outros">
-                                <label class="form-check-label" for="other">Outro</label>
-                            </div>
-                        </div>
-                        <div class="container mt-2"><input type="text" class="form-control" id="otherInput"
-                                name="otherInput" placeholder="Digite o tipo de ocorrência"></div>
-
                     </div>
                     <div class="d-flex justify-content-between mt-4">
                         <button type="submit" class="btn btn-light" id="backBtn">Voltar</button>
