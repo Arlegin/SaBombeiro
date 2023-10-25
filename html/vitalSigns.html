@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinais Vitais</title>
+    <link rel="shortcut icon" href="logo_noar.png" type="image/x-icon">
+    <link rel="stylesheet" href="style-bootstrap.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body class="text-light">
+    <div class="container-fluid m-0 p-0">
+        <header>
+            <nav class="navbar navbar-expand-lg d-none d-lg-block">
+                <div class="container">
+                    <a class="nav-brand mb-0 me-4" href="index.html">
+                        <img src="logo_noar.png" alt="logo" class="img-fluid logo_noar">
+                    </a>
+                    <p class="h4">Sistema de Registro de Ocorrências</p>
+                    <ul class="navbar-nav align-items-center">
+                        <li class="nav-item ms-2 me-2">
+                            <a class="nav-link text-light text-center" href="menu.html">Início</a>
+                        </li>
+                        <li class="nav-item ms-2 me-2">
+                            <a class="nav-link text-light text-center" href="occurrenceHistory.html">Histórico de
+                                Ocorrências</a>
+                        </li>
+                        <li class="nav-item ms-2 me-2">
+                            <a class="nav-link text-light text-center" href="login.html">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="d-lg-none">
+                <nav class="navbar">
+                    <div class="container">
+                        <a class="navbar-brand m-0" href="index.html">
+                            <img src="logo_noar.png" alt="logo" class="img-fluid logo_noar">
+                        </a>
+                        <h5 class="text-center">Sistema de Registro<br>de Ocorrências</h5>
+                        <button class="navbar-toggler navbar-light bg-light" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasNav" style="--bs-bg-opacity: .9;">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                </nav>
+
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNav">
+                    <div class="offcanvas-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                            aria-label="Fechar"></button>
+                    </div>
+
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="menu.html">Início</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="occurrenceHistory.html">Histórico de Ocorrências</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="login.html">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <div class="container mt-3">
+        <div class="mb-2 formScroll">
+            <div class="list-group list-group-horizontal overflow-x-auto text-center">
+                <a href="#"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Informações
+                    do Paciente</a>
+                <a href="/occurrenceType.html"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Tipo
+                    de Ocorrência</a>
+                <a href="/PES.html"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center font-small">Problemas
+                    Encontrados Suspeitos</a>
+                <a href="/symptoms.html"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Sinais
+                    e Sintomas</a>
+                <a href="#page2"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Localização
+                    Traumas</a>
+                <a href="#page1"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Descrição
+                    Traumas</a>
+                <a href="#page2"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">GLASGOW</a>
+                <a href="#page2"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center active">Sinais
+                    Vitais</a>
+                <a href="#page2"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Situação
+                    Paciente</a>
+                <a href="#page2"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Procedimentos
+                    Efetuados</a>
+                <a href="#page2"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center font-small">Anamnese
+                    Emergência
+                    Médica</a>
+                <a href="#page2"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Anamnese
+                    Gestacional</a>
+                <a href="#page2"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center font-small">Materiais
+                    Deixados
+                    Hospital</a>
+                <a href="#page2"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center font-small">Materiais
+                    Descartáveis
+                    Utilizados</a>
+                <a href="#page2"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Observações
+                </a>
+                <a href="#page2"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Termo
+                    Recusa
+                </a>
+                <a href="#page2"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Avaliação
+                    Cinemática
+                </a>
+            </div>
+        </div>
+        <div class="card mb-2 text-light">
+            <div class="card-header">
+                <div class="text-center">
+                    <h2 class="card-title mb-0">Sinais Vitais</h2>
+                </div>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="dateInput" class="form-label">Pressão Arterial:</label>
+                        <input type="text" name="bloodPressure" id="bloodInput" class="form-control">
+                        <p>x</p>
+                        <input type="text" name="bloodPressure" id="bloodInput" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="hospitalInput" class="form-label">Hospital:</label>
+                        <input type="text" name="hospital" id="hospitalInput" class="form-control text-capitalize"
+                            placeholder="Nome do hospital">
+                    </div>
+                    <div class="mb-3" id="sexInput">
+                        <label class="form-label me-2">Sexo:</label>
+                        <div class="form-check-inline">
+                            <input class="form-check-input" type="radio" name="sex" id="mascInput" value="m">
+                            <label class="form-check-label" for="mascInput">Masc.</label>
+                        </div>
+                        <div class="form-check-inline">
+                            <input class="form-check-input" type="radio" name="sex" id="femInput" value="f">
+                            <label class="form-check-label" for="femInput">Fem.</label>
+                        </div>
+                    </div>
+                    <div class="mb-1">
+                        <label for="patientName" class="form-label">Nome do paciente:</label>
+                        <input type="text" name="patient" id="patientName" class="form-control text-capitalize"
+                            placeholder="Nome do paciente">
+                    </div>
+                    <div class="mb-4 row">
+                        <div class="col-4">
+                            <label for="patientAge" class="form-label">Idade:</label>
+                            <input type="text" name="patientAge" id="patientAge" class="form-control"
+                                placeholder="Idade">
+                        </div>
+                        <div class="col-8">
+                            <label for="patientCPF" class="form-label">RG/CPF:</label>
+                            <input type="text" name="patientCPF" id="patientCPF" class="form-control"
+                                placeholder="RG/CPF">
+                        </div>
+                    </div>
+                    <div class="mb-1">
+                        <label for="companionName" class="form-label">Nome do acompanhante:</label>
+                        <input type="text" name="companion" id="companionName" class="form-control text-capitalize"
+                            placeholder="Nome do acompanhante">
+                    </div>
+                    <div class="mb-4 row">
+                        <div class="col-4">
+                            <label for="companionAge" class="form-label">Idade:</label>
+                            <input type="text" name="companionAge" id="companionAge" class="form-control"
+                                placeholder="Idade">
+                        </div>
+                        <div class="col-8">
+                            <label for="companionCPF" class="form-label">RG/CPF:</label>
+                            <input type="text" name="companionCPF" id="companionCPF" class="form-control"
+                                placeholder="RG/CPF">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="occurencyLocation" class="form-label">Local da ocorrência:</label>
+                        <input type="text" name="occurencyLocation" id="occurencyLocation" class="form-control"
+                            placeholder="Local da ocorrência">
+                    </div>
+                    <div class="mb-0">
+                        <label for="responsibleInput" class="form-label">Responsável pelo preenchimento:</label>
+                        <input type="text" name="responsible" id="responsibleInput" class="form-control text-capitalize"
+                            placeholder="Responsável pelo preenchimento">
+                    </div>
+                    <div class="d-flex justify-content-between mt-4">
+                        <button type="button" class="btn btn-light" data-bs-toggle="modal"
+                            data-bs-target="#warningModal">Voltar</button>
+                        <button type="submit" class="btn btn-primary">Próximo</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="warningModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="warningModalLabel">Aviso!</h1>
+                    <button type="button" class="btn-close bg-light" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Tem certeza que deseja sair do registro de ocorrência? Os dados inseridos serão perdidos.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continuar</button>
+                    <button type="button" class="btn btn-primary" id="exitBtn">Sair</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script>
+        const sairButton = document.querySelector('#exitBtn');
+
+        sairButton.addEventListener('click', () => {
+            window.location.href = 'menu.html';
+        });
+    </script>
+</body>
+
+</html>
