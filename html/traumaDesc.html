@@ -255,6 +255,7 @@
                                         <!-- Table rows created dynamically -->
                                     </tbody>
                                 </table>
+                            </div>
                         </div>
                         <div class="d-flex justify-content-between mt-4">
                             <button type="submit" class="btn btn-light" id="backBtn">Voltar</button>
@@ -273,7 +274,7 @@
         // Script to add options selected to table and JSON
         const addBtn = document.querySelector('#addBtn');
         const delBtn = document.querySelector('#removeBtn');
-        const traumaDescTable = document.querySelector('tbody');
+        const traumaDescTable = document.querySelector('#traumaDescTable tbody');
         const traumaDescForm = document.querySelector('#traumaDescForm');
 
         addBtn.addEventListener('click', (event) => {
@@ -319,6 +320,56 @@
             event.preventDefault();
 
             traumaDescTable.deleteRow(-1);
+
+            // Remove last option selected from JSON
+            const options = JSON.parse(localStorage.getItem('options')) || [];
+            options.pop();
+            localStorage.setItem('options', JSON.stringify(options));
+
+            console.log(options);
+        });
+
+        // Script to add burn options selected to table and JSON
+        const addBtnBurn = document.querySelector('#addBtnBurn');
+        const delBtnBurn = document.querySelector('#removeBtnBurn');
+        const burnDescTable = document.querySelector('#burnDescTable tbody');
+        const burnDescForm = document.querySelector('#burnDescForm');
+
+        addBtnBurn.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            const selectBurn = document.querySelector('#selectBurn');
+            const selectBurnLocal = document.querySelector('#selectBurnLocal');
+
+            const burn = selectBurn.options[selectBurn.selectedIndex].text;
+            const burnLocal = selectBurnLocal.options[selectBurnLocal.selectedIndex].text;
+
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${burn}</td>
+                <td>${burnLocal}</td>
+                
+            `;
+            burnDescTable.appendChild(row);
+
+            // Add table options to JSON
+            const data = {
+                burn: burn,
+                burnLocal: burnLocal
+            };
+
+            const options = JSON.parse(localStorage.getItem('options')) || [];
+            options.push(data);
+            localStorage.setItem('options', JSON.stringify(options));
+
+            console.log(options);
+        });
+
+        // Script to remove last burn option selected from table
+        delBtnBurn.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            burnDescTable.deleteRow(-1);
 
             // Remove last option selected from JSON
             const options = JSON.parse(localStorage.getItem('options')) || [];
