@@ -187,9 +187,10 @@
                                     <option value="contusao">Contusão</option>
                                 </select>
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3 d-flex justify-content-between">
                                 <!-- Button to add options selected to table and JSON -->
                                 <button type="button" class="btn btn-primary" id="addBtn">Adicionar</button>
+                                <button type="button" class="btn btn-danger" id="removeBtn">Remover</button>
                             </div>
                             <div class=" table-responsive traumaTable">
                                 <table class="table table-sm table-hover table-light table-striped text-center" id="traumaDescTable">
@@ -227,6 +228,7 @@
     <script>
         // Script to add options selected to table and JSON
         const addBtn = document.querySelector('#addBtn');
+        const delBtn = document.querySelector('#removeBtn');
         const traumaDescTable = document.querySelector('tbody');
         const traumaDescForm = document.querySelector('#traumaDescForm');
 
@@ -251,24 +253,9 @@
                 <td>${type}</td>
                 
             `;
-// <td>
-    // <button type="button" class="btn btn-danger btn-sm deleteBtn">Excluir</button>
-    //             </td>
             traumaDescTable.appendChild(row);
 
-            // Delete row from table
-            const deleteBtn = document.querySelectorAll('.deleteBtn');
-
-            deleteBtn.forEach((btn) => {
-                btn.addEventListener('click', (event) => {
-                    event.preventDefault();
-
-                    const row = event.target.parentElement.parentElement;
-                    row.remove();
-                });
-            });
-
-            // Add options selected to JSON
+            // Add table options to JSON
             const data = {
                 local: local,
                 side: side,
@@ -276,9 +263,25 @@
                 type: type
             };
 
-            const dataJSON = JSON.stringify(data);
+            const options = JSON.parse(localStorage.getItem('options')) || [];
+            options.push(data);
+            localStorage.setItem('options', JSON.stringify(options));
 
-            console.log(dataJSON);
+            console.log(options);
+        });
+
+        // Script to remove last option selected from table
+        delBtn.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            traumaDescTable.deleteRow(-1);
+
+            // Remove last option selected from JSON
+            const options = JSON.parse(localStorage.getItem('options')) || [];
+            options.pop();
+            localStorage.setItem('options', JSON.stringify(options));
+
+            console.log(options);
         });
 
         // Print on console the form data when submitted
