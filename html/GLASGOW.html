@@ -142,7 +142,7 @@
             <div class="card-body">
                 <form id="GlasgowForm"> <!-- Maior de 5 anos -->
                     <div class="row justify-content-around">
-                        <div class="col-5">
+                        <div class="col-5" id="above5">
                             <h3 class="text-center">Maiores de 5 anos</h3>
                             <div class="row border bg-info bg-opacity-10 border border-info rounded-top">
                                 <div
@@ -256,7 +256,7 @@
                             </div>
                         </div>
 
-                        <div class="col-5">
+                        <div class="col-5" id="below5">
                             <h3 class="text-center">Menores de 5 anos</h3>
                             <div class="row border bg-info bg-opacity-10 border border-info rounded-top">
                                 <div
@@ -382,7 +382,7 @@
         crossorigin="anonymous"></script>
     <script>
         // Get the total sum of the selected radio buttons
-        const radios = document.querySelectorAll('input[type=radio][name^="glasgow"]');
+        const radios = document.querySelectorAll('#above5 input[type=radio]');
         let totalSum = 0;
 
         radios.forEach(function (radio) {
@@ -393,51 +393,24 @@
                         totalSum += parseInt(radio.value);
                     }
                 });
-                document.getElementById('totalSum').innerHTML = totalSum;
+                document.getElementById('totalSum_1').innerHTML = totalSum;
             });
         });
 
-        // Print on console the selected radio button when the form is submitted
-        /* const form = document.querySelector('#occurrenceForm');
-        form.addEventListener('submit', (event) => {
-            event.preventDefault();
+        // Get the total sum2 of the selected radio buttons2
+        const radios2 = document.querySelectorAll('#below5 input[type=radio]');
+        let totalSum2 = 0;
 
-            radios.forEach(function (radio) {
-                if (radio.checked) {
-                    console.log(radio.id);
-                }
+        radios2.forEach(function (radio) {
+            radio.addEventListener('change', function () {
+                totalSum2 = 0;
+                radios2.forEach(function (radio) {
+                    if (radio.checked) {
+                        totalSum2 += parseInt(radio.value);
+                    }
+                });
+                document.getElementById('totalSum_2').innerHTML = totalSum2;
             });
-        }); */
-
-        // Print on console the selected radio button when the form is submitted
-        /* const form2 = document.querySelector('#occurrenceForm');
-        form2.addEventListener('submit', (event) => {
-            event.preventDefault();
-
-            const checkedRadio = document.querySelector('input[type=radio][name="occurrenceRadio"]:checked');
-            if (checkedRadio) {
-                console.log(checkedRadio.id);
-            } else {
-                console.log('No radio button is checked');
-            }
-        }); */
-
-        // Submit form data to the server
-        document.querySelector('form').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            let selectedRadioValue = document.querySelector('input[name="occurrenceRadio"]:checked').value;
-
-            fetch('/occurrence', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ occurrence: selectedRadioValue }),
-            })
-                .then(response => response.text())
-                .then(data => console.log(data))
-                .catch((error) => console.error('Error:', error));
         });
     </script>
 </body>
