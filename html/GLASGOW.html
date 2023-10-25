@@ -4,12 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Localização dos Traumas</title>
+    <title>GLASGOW</title>
     <link rel="shortcut icon" href="logo_noar.png" type="image/x-icon">
     <link rel="stylesheet" href="style-bootstrap.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body class="text-light">
@@ -80,7 +79,7 @@
                 <a href="/patientInfo.html"
                     class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Informações
                     do Paciente</a>
-                <a href="/occurrenceType.html"
+                <a href="#"
                     class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Tipo
                     de Ocorrência</a>
                 <a href="/PES.html"
@@ -89,14 +88,14 @@
                 <a href="/symptoms.html"
                     class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Sinais
                     e Sintomas</a>
-                <a href="#"
-                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center active">Localização
+                <a href="#page2"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Localização
                     Traumas</a>
                 <a href="#page1"
                     class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Descrição
                     Traumas</a>
                 <a href="#page2"
-                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">GLASGOW</a>
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center active">GLASGOW</a>
                 <a href="#page2"
                     class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Sinais
                     Vitais</a>
@@ -137,31 +136,68 @@
         <div class="card mb-2 text-light">
             <div class="card-header">
                 <div class="text-center">
-                    <h2 class="card-title mb-0">Localização dos Traumas</h2>
+                    <h2 class="card-title mb-0">GLASGOW</h2>
                 </div>
             </div>
             <div class="card-body">
-                <form id="TraumaLocForm">
-                    <!-- Adicione um campo de seleção para o tipo de trauma -->
-                    <label for="traumaType" class="mt-1 mb-2">Selecione o tipo de trauma:</label>
-                    <select id="traumaType" class="form-control mb-3">
-                        <!-- Adicione as opções de trauma aqui -->
-                        <option value="Fratura_Luxacao_Entorse">Fraturas/Luxações/Entorses</option>
-                        <option value="Ferimentos_diversos">Ferimentos diversos</option>
-                        <option value="Hemorragia">Hemorragia</option>
-                        <option value="Evisceracao">Evisceração</option>
-                        <option value="FAB_FAF">FAB/FAF</option>
-                        <option value="Amputacao">Amputação</option>
-                        <option value="Queimadura_1">Queimadura 1° grau</option>
-                        <option value="Queimadura_2">Queimadura 2° grau</option>
-                        <option value="Queimadura_3">Queimadura 3° grau</option>
-                    </select>
-                    <div class="row position-relative" id="imageContainer">
-                        <img id="humanBody" src="/body.png" alt="body-image">
+                <form id="GlasgowForm"> <!-- Maior de 5 anos -->
+                    <div class="row border bg-info bg-opacity-10 border border-info rounded-top">
+                        <div class="col-4 text-center d-flex align-items-center justify-content-center border-right-dark">
+                            <h5>Abertura Ocular</h5>
+                        </div>
+                        <div class="col-8 mt-2 mb-2">
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="radio" name="glasgowOcular" id="espontanea_1"
+                                    value="4">
+                                <label class="form-check-label" for="espontanea_1">Espontânea</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="radio" name="glasgowOcular" id="comando_verbal_1"
+                                    value="3">
+                                <label class="form-check-label" for="comando_verbal_1">Comando Verbal</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="radio" name="glasgowOcular"
+                                    id="estimulo_doloroso_1" value="2">
+                                <label class="form-check-label" for="estimulo_doloroso_1">Estímulo Doloroso</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="radio" name="glasgowOcular" id="nenhuma_ocular"
+                                    value="1">
+                                <label class="form-check-label" for="nenhuma_ocular">Nenhuma</label>
+                            </div>
+                        </div>
                     </div>
-                    <!-- Buton to undo -->
-                    <div class="d-flex justify-content-center mt-4">
-                        <button type="button" class="btn btn-light fw-bold" id="undoBtn">Desfazer</button>
+                    <div class="row border bg-light bg-opacity-10 border border-light">
+                        <div class="col-4 text-center d-flex align-items-center justify-content-center border-right-dark">
+                            <h5>Resposta Verbal</h5>
+                        </div>
+                        <div class="col-8">
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="radio" name="glasgowVerbal" id="orientado"
+                                    value="5">
+                                <label class="form-check-label" for="orientado">Orientado</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="radio" name="glasgowVerbal" id="confuso"
+                                    value="4">
+                                <label class="form-check-label" for="confuso">Confuso</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="radio" name="glasgowVerbal"
+                                    id="palavras_inapropriadas" value="3">
+                                <label class="form-check-label" for="palavras_inapropriadas">Palavras Inapropriadas</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="radio" name="glasgowVerbal" id="palavras_incompreensiveis"
+                                    value="2">
+                                <label class="form-check-label" for="palavras_incompreensiveis">Palavras Incompreensíveis</label>
+                            </div>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="radio" name="glasgowVerbal" id="nenhuma_verbal" value="1">
+                                <label class="form-check-label" for="nenhuma_verbal">Nenhuma</label>
+                            </div>
+                        </div>
                     </div>
                     <div class="d-flex justify-content-between mt-4">
                         <button type="submit" class="btn btn-light" id="backBtn">Voltar</button>
@@ -175,80 +211,72 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
     <script>
-        // Undo button functionality (remove last icon)
-        document.getElementById('undoBtn').addEventListener('click', function () {
-            let img = document.getElementById('humanBody');
-            let lastIcon = img.parentElement.lastElementChild;
+        // Get references to the elements
+        const otherInput = document.querySelector('#otherInput');
+        const radios = document.querySelectorAll('input[type=radio][name="occurrenceRadio"]');
 
-            if (lastIcon.id !== 'humanBody') {
-                img.parentElement.removeChild(lastIcon);
-            }
-        });
+        // Hide the input field by default
+        otherInput.style.display = 'none';
 
-        document.getElementById('nextBtn').addEventListener('click', function (e) {
-            e.preventDefault();  // Prevent the form from submitting
-
-            html2canvas(document.getElementById('imageContainer')).then(function (canvas) {
-                // Scale the canvas
-                let scaledCanvas = document.createElement('canvas');
-                scaledCanvas.width = 632;
-                scaledCanvas.height = 831;
-                scaledCanvas.getContext('2d').drawImage(canvas, 0, 0, 632, 831);
-
-                let imgData = scaledCanvas.toDataURL('image/png');
-
-                // Send this data to your nodejs server
-                $.ajax({
-                    url: '/saveTraumaLocation',
-                    type: 'post',
-                    data: {
-                        imgData: imgData
-                    },
-                    success: function (response) {
-                        // Log the response from your nodejs server here
-                        console.log(response);
-                    }
-                });
-            });
-        });
-
-        let img = document.getElementById('humanBody');
-
-        img.addEventListener('click', function (e) {
-            let x = e.offsetX;  // Obtenha a coordenada x do clique na imagem
-            let y = e.offsetY;  // Obtenha a coordenada y do clique na imagem
-            let traumaType = document.getElementById('traumaType').value;
-
-            // Insira o ícone png respectivo para cada tipo de trauma
-            let icon = document.createElement('img');
-            icon.src = `/trauma_icon/${traumaType}.png`;
-            icon.style.position = 'absolute';
-
-            // Calcule o centro do ícone
-            let iconWidth, iconHeight;
-            if (window.matchMedia("(max-width: 600px)").matches) {
-                // Tamanho do ícone para dispositivo móvel
-                iconWidth = 30;
-                iconHeight = 30;  // Mantenha o mesmo tamanho para largura e altura
+        // Function to check if "Outro" is selected
+        function checkRadio() {
+            const other = document.querySelector('#other');
+            if (other.checked) {
+                // If "Outro" is selected, show the input field
+                otherInput.style.display = 'block';
             } else {
-                // Tamanho do ícone para PC
-                iconWidth = 50;
-                iconHeight = 50;  // Mantenha o mesmo tamanho para largura e altura
+                // If "Outro" is not selected, hide the input field
+                otherInput.style.display = 'none';
             }
+        }
 
-            icon.style.left = `${x - iconWidth / 2}px`;
-            icon.style.top = `${y - iconHeight / 2}px`;
+        // Add an event listener to all radio buttons in the group
+        radios.forEach(function (radio) {
+            radio.addEventListener('change', checkRadio);
+        });
 
-            icon.style.width = `${iconWidth}px`;
-            icon.style.height = `${iconHeight}px`;
+        // Print on console the selected radio button when the form is submitted
+        /* const form = document.querySelector('#occurrenceForm');
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
 
-            // Remova o padding que pode estar causando distorção
-            icon.style.padding = '0';
+            radios.forEach(function (radio) {
+                if (radio.checked) {
+                    console.log(radio.id);
+                }
+            });
+        }); */
 
-            // Adicione o ícone à div da imagem
-            img.parentElement.appendChild(icon);
+        // Print on console the selected radio button when the form is submitted
+        /* const form2 = document.querySelector('#occurrenceForm');
+        form2.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const checkedRadio = document.querySelector('input[type=radio][name="occurrenceRadio"]:checked');
+            if (checkedRadio) {
+                console.log(checkedRadio.id);
+            } else {
+                console.log('No radio button is checked');
+            }
+        }); */
+
+        // Submit form data to the server
+        document.querySelector('form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            let selectedRadioValue = document.querySelector('input[name="occurrenceRadio"]:checked').value;
+
+            fetch('/occurrence', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ occurrence: selectedRadioValue }),
+            })
+                .then(response => response.text())
+                .then(data => console.log(data))
+                .catch((error) => console.error('Error:', error));
         });
     </script>
 </body>

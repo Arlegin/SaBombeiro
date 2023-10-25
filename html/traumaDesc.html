@@ -136,101 +136,132 @@
         <div class="card mb-2 text-light">
             <div class="card-header">
                 <div class="text-center">
-                    <h2 class="card-title mb-0">Problemas Encontrados Suspeitos</h2>
+                    <h2 class="card-title mb-0">Descrição dos traumas</h2>
                 </div>
             </div>
             <div class="card-body">
-                <form id="PESForm">
+                <form id="traumaDescForm">
                     <div class="row">
-                        <div class="d-flex flex-column align-items-center">
-                            <div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="psiquiatrico" id="psycho">
-                                    <label class="form-check-label" for="psycho">Psiquiátrico</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="respiratorio_dpoc" id="dpoc">
-                                    <label class="form-check-label" for="dpoc">Respiratório DPOC</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="respiratorio_inalacao_fumaca"
-                                        id="smoke">
-                                    <label class="form-check-label" for="smoke">Inalação de fumaça</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="diabetes_hiperglicemia"
-                                        id="hyperglycemia">
-                                    <label class="form-check-label" for="hyperglycemia">Hiperglicemia</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="diabetes_hipoglicemia"
-                                        id="hypoglycemia">
-                                    <label class="form-check-label" for="hypoglycemia">Hipoglicemia</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="obstetrico_parto_emergencial"
-                                        id="birth">
-                                    <label class="form-check-label" for="birth">Parto emergencial</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="obstetrico_gestante"
-                                        id="pregnant">
-                                    <label class="form-check-label" for="pregnant">Gestante</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="obstetrico_hemor_excessiva"
-                                        id="bleeding">
-                                    <label class="form-check-label" for="bleeding">Hemorragia excessiva</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="PESCheckbox" id="transport">
-                                    <label class="form-check-label" for="transport">Transporte</label>
-                                </div>
-                                <div class="col-md-6 ms-4 mt-1 transportToggle" style="display: none;">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox"
-                                                    name="transporte_clinico" id="transportClinic">
-                                                <label class="form-check-label" for="transportClinic">Clínico</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox"
-                                                    name="transporte_emergencial" id="transportEmergency">
-                                                <label class="form-check-label"
-                                                    for="transportEmergency">Emergencial</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox"
-                                                    name="transporte_pos_trauma" id="transportTrauma">
-                                                <label class="form-check-label" for="transportTrauma">Pós-trauma</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="transporte_aereo"
-                                                    id="transportAerial">
-                                                <label class="form-check-label" for="transportAerial">Aéreo</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" name="transporte_samu"
-                                                    id="transportSAMU">
-                                                <label class="form-check-label" for="transportSAMU">SAMU</label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox"
-                                                    name="transporte_sem_remocao" id="transportNo">
-                                                <label class="form-check-label" for="transportNo">Sem remoção</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <h2 class="text-center">Traumas</h2>
+                                <label for="selectLocal">Local</label>
+                                <select class="form-select" id="selectLocal" aria-label="Floating label select example">
+                                    <option value="cabeca">Cabeça</option>
+                                    <option value="pescoco">Pescoço</option>
+                                    <option value="ombro">Ombro</option>
+                                    <option value="braco">Braço</option>
+                                    <option value="antrebaco">Antebraço</option>
+                                    <option value="mao">Mão</option>
+                                    <option value="dedos">Dedos</option>
+                                    <option value="torax">Tórax</option>
+                                    <option value="adbomen">Abdômen</option>
+                                    <option value="costas">Costas</option>
+                                    <option value="quadril">Quadril</option>
+                                    <option value="perna">Perna</option>
+                                    <option value="joelho">Joelho</option>
+                                    <option value="tornozelo">Tornozelo</option>
+                                    <option value="pe">Pé</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="selectSide">Lado</label>
+                                <select class="form-select" id="selectSide" aria-label="Floating label select example">
+                                    <option value="direito">Direito</option>
+                                    <option value="esquerdo">Esquerdo</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="selectFace">Face</label>
+                                <select class="form-select" id="selectFace" aria-label="Floating label select example">
+                                    <option value="frontal">Frontal</option>
+                                    <option value="posterior">Posterior</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="selectType">Tipo</label>
+                                <select class="form-select" id="selectType" aria-label="Floating label select example">
+                                    <option value="ferimentos">Ferimentos</option>
+                                    <option value="fraturas">Fraturas</option>
+                                    <option value="entorses">Entorses</option>
+                                    <option value="luxacao">Luxação</option>
+                                    <option value="contusao">Contusão</option>
+                                </select>
+                            </div>
+                            <div class="mb-3 d-flex justify-content-between">
+                                <!-- Button to add options selected to table and JSON -->
+                                <button type="button" class="btn btn-primary" id="addBtn">Adicionar</button>
+                                <button type="button" class="btn btn-danger" id="removeBtn">Remover</button>
+                            </div>
+                            <div class=" table-responsive traumaTable">
+                                <table class="table table-sm table-hover table-light table-striped text-center"
+                                    id="traumaDescTable">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Local</th>
+                                            <th scope="col">Lado</th>
+                                            <th scope="col">Face</th>
+                                            <th scope="col">Tipo</th>
+                                            <!-- <th scope="col">Ações</th> -->
+                                        </tr>
+                                    </thead>
+                                    <tbody class="table-group-divider">
+                                        <!-- Table rows created dynamically -->
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-                    </div>
-                    <div class="d-flex justify-content-between mt-4">
-                        <button type="submit" class="btn btn-light" id="backBtn">Voltar</button>
-                        <button type="submit" class="btn btn-primary" id="nextBtn">Próximo</button>
+                        <div class="col-md-6">
+                            <hr class="border border-light border-3 d-block d-md-none">
+                            <!-- Título da sessão -->
+                            <h2 class="text-center">Queimaduras</h2>
+                            <label for="selectBurn">Tipo</label>
+                            <select class="form-select" id="selectBurn" aria-label="Floating label select example">
+                                <option value="1grau">1º Grau</option>
+                                <option value="2grau">2º Grau</option>
+                                <option value="3grau">3º Grau</option>
+                            </select>
+                            <div class="mt-3 mb-3">
+                                <label for="selectBurnLocal">Local</label>
+                                <select class="form-select" id="selectBurnLocal"
+                                    aria-label="Floating label select example">
+                                    <!-- Options: 'cabeca','pescoco','t. ant','t.pos','genit.','m.i.d','m.i.e','m.s.d','m.s.e' -->
+                                    <option value="cabeca">Cabeça</option>
+                                    <option value="pescoco">Pescoço</option>
+                                    <option value="t. ant">Torso Anterior</option>
+                                    <option value="t.pos">Torso Posterior</option>
+                                    <option value="genit.">Genitália</option>
+                                    <option value="m.i.d">Membro Inferior Direito</option>
+                                    <option value="m.i.e">Membro Inferior Esquerdo</option>
+                                    <option value="m.s.d">Membro Superior Direito</option>
+                                    <option value="m.s.e">Membro Superior Esquerdo</option>
+                                </select>
+                            </div>
+                            <div class="mb-3 d-flex justify-content-between">
+                                <!-- Button to add options selected to table and JSON -->
+                                <button type="button" class="btn btn-primary" id="addBtnBurn">Adicionar</button>
+                                <button type="button" class="btn btn-danger" id="removeBtnBurn">Remover</button>
+                            </div>
+                            <div class=" table-responsive burnTable">
+                                <table class="table table-sm table-hover table-light table-striped text-center"
+                                    id="burnDescTable">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Tipo</th>
+                                            <th scope="col">Local</th>
+                                            <!-- <th scope="col">Ações</th> -->
+                                        </tr>
+                                    </thead>
+                                    <tbody class="table-group-divider">
+                                        <!-- Table rows created dynamically -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between mt-4">
+                            <button type="submit" class="btn btn-light" id="backBtn">Voltar</button>
+                            <button type="submit" class="btn btn-primary" id="nextBtn">Próximo</button>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -241,18 +272,112 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script>
-        // Script to show the div .transportToggle inputs when the checkbox #transport is checked
-        const transport = document.querySelector('#transport');
-        const transportToggle = document.querySelector('.transportToggle');
-        const transportCheckboxes = transportToggle.querySelectorAll('input[type="checkbox"]');
+        // Script to add options selected to table and JSON
+        const addBtn = document.querySelector('#addBtn');
+        const delBtn = document.querySelector('#removeBtn');
+        const traumaDescTable = document.querySelector('#traumaDescTable tbody');
+        const traumaDescForm = document.querySelector('#traumaDescForm');
 
-        transport.addEventListener('change', () => {
-            if (transport.checked) {
-                transportToggle.style.display = 'block';
-            } else {
-                transportToggle.style.display = 'none';
-                transportCheckboxes.forEach(checkbox => checkbox.checked = false);
-            }
+        addBtn.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            const selectLocal = document.querySelector('#selectLocal');
+            const selectSide = document.querySelector('#selectSide');
+            const selectFace = document.querySelector('#selectFace');
+            const selectType = document.querySelector('#selectType');
+
+            const local = selectLocal.options[selectLocal.selectedIndex].text;
+            const side = selectSide.options[selectSide.selectedIndex].text;
+            const face = selectFace.options[selectFace.selectedIndex].text;
+            const type = selectType.options[selectType.selectedIndex].text;
+
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${local}</td>
+                <td>${side}</td>
+                <td>${face}</td>
+                <td>${type}</td>
+                
+            `;
+            traumaDescTable.appendChild(row);
+
+            // Add table options to JSON
+            const data = {
+                local: local,
+                side: side,
+                face: face,
+                type: type
+            };
+
+            const options = JSON.parse(localStorage.getItem('options')) || [];
+            options.push(data);
+            localStorage.setItem('options', JSON.stringify(options));
+
+            console.log(options);
+        });
+
+        // Script to remove last option selected from table
+        delBtn.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            traumaDescTable.deleteRow(-1);
+
+            // Remove last option selected from JSON
+            const options = JSON.parse(localStorage.getItem('options')) || [];
+            options.pop();
+            localStorage.setItem('options', JSON.stringify(options));
+
+            console.log(options);
+        });
+
+        // Script to add burn options selected to table and JSON
+        const addBtnBurn = document.querySelector('#addBtnBurn');
+        const delBtnBurn = document.querySelector('#removeBtnBurn');
+        const burnDescTable = document.querySelector('#burnDescTable tbody');
+        const burnDescForm = document.querySelector('#burnDescForm');
+
+        addBtnBurn.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            const selectBurn = document.querySelector('#selectBurn');
+            const selectBurnLocal = document.querySelector('#selectBurnLocal');
+
+            const burn = selectBurn.options[selectBurn.selectedIndex].text;
+            const burnLocal = selectBurnLocal.options[selectBurnLocal.selectedIndex].text;
+
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${burn}</td>
+                <td>${burnLocal}</td>
+                
+            `;
+            burnDescTable.appendChild(row);
+
+            // Add table options to JSON
+            const data = {
+                burn: burn,
+                burnLocal: burnLocal
+            };
+
+            const options = JSON.parse(localStorage.getItem('options')) || [];
+            options.push(data);
+            localStorage.setItem('options', JSON.stringify(options));
+
+            console.log(options);
+        });
+
+        // Script to remove last burn option selected from table
+        delBtnBurn.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            burnDescTable.deleteRow(-1);
+
+            // Remove last option selected from JSON
+            const options = JSON.parse(localStorage.getItem('options')) || [];
+            options.pop();
+            localStorage.setItem('options', JSON.stringify(options));
+
+            console.log(options);
         });
 
         // Print on console the form data when submitted

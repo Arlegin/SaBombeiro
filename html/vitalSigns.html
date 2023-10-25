@@ -4,12 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Localização dos Traumas</title>
+    <title>Sinais Vitais</title>
     <link rel="shortcut icon" href="logo_noar.png" type="image/x-icon">
     <link rel="stylesheet" href="style-bootstrap.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body class="text-light">
@@ -77,7 +76,7 @@
     <div class="container mt-3">
         <div class="mb-2 formScroll">
             <div class="list-group list-group-horizontal overflow-x-auto text-center">
-                <a href="/patientInfo.html"
+                <a href="#"
                     class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Informações
                     do Paciente</a>
                 <a href="/occurrenceType.html"
@@ -89,8 +88,8 @@
                 <a href="/symptoms.html"
                     class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Sinais
                     e Sintomas</a>
-                <a href="#"
-                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center active">Localização
+                <a href="#page2"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Localização
                     Traumas</a>
                 <a href="#page1"
                     class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Descrição
@@ -98,7 +97,7 @@
                 <a href="#page2"
                     class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">GLASGOW</a>
                 <a href="#page2"
-                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Sinais
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center active">Sinais
                     Vitais</a>
                 <a href="#page2"
                     class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Situação
@@ -137,37 +136,103 @@
         <div class="card mb-2 text-light">
             <div class="card-header">
                 <div class="text-center">
-                    <h2 class="card-title mb-0">Localização dos Traumas</h2>
+                    <h2 class="card-title mb-0">Sinais Vitais</h2>
                 </div>
             </div>
             <div class="card-body">
-                <form id="TraumaLocForm">
-                    <!-- Adicione um campo de seleção para o tipo de trauma -->
-                    <label for="traumaType" class="mt-1 mb-2">Selecione o tipo de trauma:</label>
-                    <select id="traumaType" class="form-control mb-3">
-                        <!-- Adicione as opções de trauma aqui -->
-                        <option value="Fratura_Luxacao_Entorse">Fraturas/Luxações/Entorses</option>
-                        <option value="Ferimentos_diversos">Ferimentos diversos</option>
-                        <option value="Hemorragia">Hemorragia</option>
-                        <option value="Evisceracao">Evisceração</option>
-                        <option value="FAB_FAF">FAB/FAF</option>
-                        <option value="Amputacao">Amputação</option>
-                        <option value="Queimadura_1">Queimadura 1° grau</option>
-                        <option value="Queimadura_2">Queimadura 2° grau</option>
-                        <option value="Queimadura_3">Queimadura 3° grau</option>
-                    </select>
-                    <div class="row position-relative" id="imageContainer">
-                        <img id="humanBody" src="/body.png" alt="body-image">
+                <form>
+                    <div class="mb-3 d-flex align-items-center">
+                        <label for="dateInput" class="form-label me-2">Pressão Arterial:</label>
+                        <input type="text" name="bloodPressure" id="bloodInput" class="form-control me-2">
+                        <h1 class="me-2">x</h1>
+                        <input type="text" name="bloodPressure" id="bloodInput" class="form-control">
                     </div>
-                    <!-- Buton to undo -->
-                    <div class="d-flex justify-content-center mt-4">
-                        <button type="button" class="btn btn-light fw-bold" id="undoBtn">Desfazer</button>
+                    <div class="mb-3">
+                        <label for="hospitalInput" class="form-label">Hospital:</label>
+                        <input type="text" name="hospital" id="hospitalInput" class="form-control text-capitalize"
+                            placeholder="Nome do hospital">
+                    </div>
+                    <div class="mb-3" id="sexInput">
+                        <label class="form-label me-2">Sexo:</label>
+                        <div class="form-check-inline">
+                            <input class="form-check-input" type="radio" name="sex" id="mascInput" value="m">
+                            <label class="form-check-label" for="mascInput">Masc.</label>
+                        </div>
+                        <div class="form-check-inline">
+                            <input class="form-check-input" type="radio" name="sex" id="femInput" value="f">
+                            <label class="form-check-label" for="femInput">Fem.</label>
+                        </div>
+                    </div>
+                    <div class="mb-1">
+                        <label for="patientName" class="form-label">Nome do paciente:</label>
+                        <input type="text" name="patient" id="patientName" class="form-control text-capitalize"
+                            placeholder="Nome do paciente">
+                    </div>
+                    <div class="mb-4 row">
+                        <div class="col-4">
+                            <label for="patientAge" class="form-label">Idade:</label>
+                            <input type="text" name="patientAge" id="patientAge" class="form-control"
+                                placeholder="Idade">
+                        </div>
+                        <div class="col-8">
+                            <label for="patientCPF" class="form-label">RG/CPF:</label>
+                            <input type="text" name="patientCPF" id="patientCPF" class="form-control"
+                                placeholder="RG/CPF">
+                        </div>
+                    </div>
+                    <div class="mb-1">
+                        <label for="companionName" class="form-label">Nome do acompanhante:</label>
+                        <input type="text" name="companion" id="companionName" class="form-control text-capitalize"
+                            placeholder="Nome do acompanhante">
+                    </div>
+                    <div class="mb-4 row">
+                        <div class="col-4">
+                            <label for="companionAge" class="form-label">Idade:</label>
+                            <input type="text" name="companionAge" id="companionAge" class="form-control"
+                                placeholder="Idade">
+                        </div>
+                        <div class="col-8">
+                            <label for="companionCPF" class="form-label">RG/CPF:</label>
+                            <input type="text" name="companionCPF" id="companionCPF" class="form-control"
+                                placeholder="RG/CPF">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="occurencyLocation" class="form-label">Local da ocorrência:</label>
+                        <input type="text" name="occurencyLocation" id="occurencyLocation" class="form-control"
+                            placeholder="Local da ocorrência">
+                    </div>
+                    <div class="mb-0">
+                        <label for="responsibleInput" class="form-label">Responsável pelo preenchimento:</label>
+                        <input type="text" name="responsible" id="responsibleInput" class="form-control text-capitalize"
+                            placeholder="Responsável pelo preenchimento">
                     </div>
                     <div class="d-flex justify-content-between mt-4">
-                        <button type="submit" class="btn btn-light" id="backBtn">Voltar</button>
-                        <button type="submit" class="btn btn-primary" id="nextBtn">Próximo</button>
+                        <button type="button" class="btn btn-light" data-bs-toggle="modal"
+                            data-bs-target="#warningModal">Voltar</button>
+                        <button type="submit" class="btn btn-primary">Próximo</button>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="warningModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content bg-dark">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="warningModalLabel">Aviso!</h1>
+                    <button type="button" class="btn-close bg-light" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Tem certeza que deseja sair do registro de ocorrência? Os dados inseridos serão perdidos.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continuar</button>
+                    <button type="button" class="btn btn-primary" id="exitBtn">Sair</button>
+                </div>
             </div>
         </div>
     </div>
@@ -175,80 +240,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
     <script>
-        // Undo button functionality (remove last icon)
-        document.getElementById('undoBtn').addEventListener('click', function () {
-            let img = document.getElementById('humanBody');
-            let lastIcon = img.parentElement.lastElementChild;
+        const sairButton = document.querySelector('#exitBtn');
 
-            if (lastIcon.id !== 'humanBody') {
-                img.parentElement.removeChild(lastIcon);
-            }
-        });
-
-        document.getElementById('nextBtn').addEventListener('click', function (e) {
-            e.preventDefault();  // Prevent the form from submitting
-
-            html2canvas(document.getElementById('imageContainer')).then(function (canvas) {
-                // Scale the canvas
-                let scaledCanvas = document.createElement('canvas');
-                scaledCanvas.width = 632;
-                scaledCanvas.height = 831;
-                scaledCanvas.getContext('2d').drawImage(canvas, 0, 0, 632, 831);
-
-                let imgData = scaledCanvas.toDataURL('image/png');
-
-                // Send this data to your nodejs server
-                $.ajax({
-                    url: '/saveTraumaLocation',
-                    type: 'post',
-                    data: {
-                        imgData: imgData
-                    },
-                    success: function (response) {
-                        // Log the response from your nodejs server here
-                        console.log(response);
-                    }
-                });
-            });
-        });
-
-        let img = document.getElementById('humanBody');
-
-        img.addEventListener('click', function (e) {
-            let x = e.offsetX;  // Obtenha a coordenada x do clique na imagem
-            let y = e.offsetY;  // Obtenha a coordenada y do clique na imagem
-            let traumaType = document.getElementById('traumaType').value;
-
-            // Insira o ícone png respectivo para cada tipo de trauma
-            let icon = document.createElement('img');
-            icon.src = `/trauma_icon/${traumaType}.png`;
-            icon.style.position = 'absolute';
-
-            // Calcule o centro do ícone
-            let iconWidth, iconHeight;
-            if (window.matchMedia("(max-width: 600px)").matches) {
-                // Tamanho do ícone para dispositivo móvel
-                iconWidth = 30;
-                iconHeight = 30;  // Mantenha o mesmo tamanho para largura e altura
-            } else {
-                // Tamanho do ícone para PC
-                iconWidth = 50;
-                iconHeight = 50;  // Mantenha o mesmo tamanho para largura e altura
-            }
-
-            icon.style.left = `${x - iconWidth / 2}px`;
-            icon.style.top = `${y - iconHeight / 2}px`;
-
-            icon.style.width = `${iconWidth}px`;
-            icon.style.height = `${iconHeight}px`;
-
-            // Remova o padding que pode estar causando distorção
-            icon.style.padding = '0';
-
-            // Adicione o ícone à div da imagem
-            img.parentElement.appendChild(icon);
+        sairButton.addEventListener('click', () => {
+            window.location.href = 'menu.html';
         });
     </script>
 </body>
