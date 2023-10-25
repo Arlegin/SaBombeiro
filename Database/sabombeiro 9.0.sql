@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23-Out-2023 às 14:32
+-- Tempo de geração: 25-Out-2023 às 14:44
 -- Versão do servidor: 8.0.21
 -- versão do PHP: 8.1.2
 
@@ -28,14 +28,14 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `avaliacao_cinematica` (
+  `id_avaliacao_cinematica` int NOT NULL,
   `disturbido_comportamento` tinyint(1) DEFAULT NULL,
   `encontrado_capacete` tinyint(1) DEFAULT NULL,
   `encontrado_cinto` tinyint(1) DEFAULT NULL,
   `para_brisas_avariado` tinyint(1) DEFAULT NULL,
   `caminhando_cena` tinyint(1) DEFAULT NULL,
   `painel_avariado` tinyint(1) DEFAULT NULL,
-  `volante_torcido` tinyint(1) DEFAULT NULL,
-  `id_avaliacao_cinematica` int NOT NULL
+  `volante_torcido` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -213,6 +213,35 @@ CREATE TABLE `objetos_recolhido_observacao` (
   `id_objetos_observacao` int NOT NULL,
   `objetos` varchar(255) NOT NULL,
   `observacoes` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `ocorrencia_verificacao`
+--
+
+CREATE TABLE `ocorrencia_verificacao` (
+  `id_ocorre_verifi` int NOT NULL,
+  `fk_avaliacao_cinematica` int DEFAULT NULL,
+  `fk_emergencia_medica` int DEFAULT NULL,
+  `fk_ferimentos_queimaduras` int DEFAULT NULL,
+  `fk_final_info_paciente` int DEFAULT NULL,
+  `fk_gestacional` int DEFAULT NULL,
+  `fk_info_paciente` int DEFAULT NULL,
+  `fk_login` int DEFAULT NULL,
+  `fk_materiais_uti_descart` int DEFAULT NULL,
+  `fk_materiais_uti_deixados_hosp` int DEFAULT NULL,
+  `fk_objetos_recolhido_observacao` int DEFAULT NULL,
+  `fk_pes` int DEFAULT NULL,
+  `fk_procedimentos_efetuados` int DEFAULT NULL,
+  `fk_sinais_e_sintomas` int DEFAULT NULL,
+  `fk_sinais_vitais` int DEFAULT NULL,
+  `fk_situacao_paciente` int DEFAULT NULL,
+  `fk_tabelaglasgow` int DEFAULT NULL,
+  `fk_termo_recusa` int DEFAULT NULL,
+  `fk_tipo_ocorrencia_pre_hospitalar` int DEFAULT NULL,
+  `fk_traumas` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -572,6 +601,13 @@ ALTER TABLE `objetos_recolhido_observacao`
   ADD PRIMARY KEY (`id_objetos_observacao`);
 
 --
+-- Índices para tabela `ocorrencia_verificacao`
+--
+ALTER TABLE `ocorrencia_verificacao`
+  ADD PRIMARY KEY (`id_ocorre_verifi`),
+  ADD KEY `fk_avaliacao_cinematica` (`fk_avaliacao_cinematica`);
+
+--
 -- Índices para tabela `pes`
 --
 ALTER TABLE `pes`
@@ -672,6 +708,12 @@ ALTER TABLE `objetos_recolhido_observacao`
   MODIFY `id_objetos_observacao` int NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de tabela `ocorrencia_verificacao`
+--
+ALTER TABLE `ocorrencia_verificacao`
+  MODIFY `id_ocorre_verifi` int NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de tabela `pes`
 --
 ALTER TABLE `pes`
@@ -718,6 +760,16 @@ ALTER TABLE `tipo_ocorrencia_pre_hospitalar`
 --
 ALTER TABLE `traumas`
   MODIFY `id_trauma` int NOT NULL AUTO_INCREMENT;
+
+--
+-- Restrições para despejos de tabelas
+--
+
+--
+-- Limitadores para a tabela `ocorrencia_verificacao`
+--
+ALTER TABLE `ocorrencia_verificacao`
+  ADD CONSTRAINT `fk_avaliacao_cinematica` FOREIGN KEY (`fk_avaliacao_cinematica`) REFERENCES `avaliacao_cinematica` (`id_avaliacao_cinematica`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
