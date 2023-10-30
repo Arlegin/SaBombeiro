@@ -150,35 +150,47 @@
                                     style="height: 100px;"></textarea>
                                 <label for="whatHappened">O que aconteceu?</label>
                             </div>
-                            <div class="mb-3 d-flex">
-                                <div class="form-check col-3">
+                            <div class="mb-3 d-md-flex">
+                                <div class="form-check col-md-3">
                                     <input class="form-check-input" type="checkbox" id="happenedBefore">
                                     <label class="form-check-label" for="happenedBefore">Aconteceu outras vezes</label>
                                 </div>
-                                <div class="mb-3 col-9 d-none" id="howLongContainer">
+                                <div class="mb-3 col-md-9 d-none" id="howLongContainer">
                                     <label for="howLong">A quanto tempo aconteceu?</label>
                                     <input type="text" class="form-control" placeholder="Digite aqui..." id="howLong">
                                 </div>
                             </div>
-                            <div class="mb-3 d-flex">
-                                <div class="form-check col-3">
+                            <div class="mb-3 d-md-flex">
+                                <div class="form-check col-md-3">
                                     <input class="form-check-input" type="checkbox" id="healthProblem">
                                     <label class="form-check-label" for="healthProblem">Possui algum problema de
                                         saúde</label>
                                 </div>
-                                <div class="mb-3 col-9 d-none" id="whichContainer">
-                                    <label for="which">Quais:</label>
-                                    <input type="text" class="form-control" placeholder="Digite aqui..." id="which">
+                                <div class="mb-3 col-md-9 d-none" id="healthContainer">
+                                    <label for="whichHealth">Quais:</label>
+                                    <input type="text" class="form-control" placeholder="Digite aqui..." id="whichHealth">
                                 </div>
                             </div>
-                            <div class="mb-3 d-flex">
-                                <div class="form-check col-3">
+                            <div class="mb-3 d-md-flex">
+                                <div class="form-check col-md-3">
                                     <input class="form-check-input" type="checkbox" id="medication">
                                     <label class="form-check-label" for="medication">Faz uso de medicação</label>
                                 </div>
-                                <div class="mb-3 col-9 d-none" id="timeContainer">
+                                <div class="mb-3 col-md-9 d-none" id="medicationContainer">
                                     <label for="time">Horário da última medicação:</label>
-                                    <input type="text" class="form-control" placeholder="HH:MM" id="time">
+                                    <input type="text" class="form-control mb-2" placeholder="HH:MM" id="time">
+                                    <label for="medicationName">Quais:</label>
+                                    <input type="text" class="form-control" placeholder="Digite aqui..." id="medicationName">
+                                </div>
+                            </div>
+                            <div class="mb-3 d-md-flex">
+                                <div class="form-check col-md-3">
+                                    <input class="form-check-input" type="checkbox" id="allergy">
+                                    <label class="form-check-label" for="allergy">Possui algum tipo de alergia</label>
+                                </div>
+                                <div class="mb-3 col-md-9 d-none" id="allergyContainer">
+                                    <label for="whichAllergy">Quais:</label>
+                                    <input type="text" class="form-control" placeholder="Digite aqui..." id="whichAllergy">
                                 </div>
                             </div>
                         </div>
@@ -197,37 +209,45 @@
     <script>
         const happenedBefore = document.getElementById('happenedBefore');
         const howLong = document.getElementById('howLongContainer');
+        const howLongInput = document.getElementById('howLong');
 
         happenedBefore.addEventListener('change', () => {
             if (happenedBefore.checked) {
                 howLong.classList.remove('d-none');
             } else {
                 howLong.classList.add('d-none');
+                howLongInput.value = '';
             }
         });
 
         const healthProblem = document.getElementById('healthProblem');
-        const which = document.getElementById('whichContainer');
+        const healthContainer = document.getElementById('healthContainer');
+        const whichHealth = document.getElementById('whichHealth');
 
         healthProblem.addEventListener('change', () => {
             if (healthProblem.checked) {
-                which.classList.remove('d-none');
+                healthContainer.classList.remove('d-none');
             } else {
-                which.classList.add('d-none');
+                healthContainer.classList.add('d-none');
+                whichHealth.value = '';
             }
         });
 
         const medication = document.getElementById('medication');
-        const time = document.getElementById('timeContainer');
+        const medicationContainer = document.getElementById('medicationContainer');
         const timeInput = document.getElementById('time');
+        const medicationName = document.getElementById('medicationName');
 
         medication.addEventListener('change', () => {
             if (medication.checked) {
-                time.classList.remove('d-none');
+                medicationContainer.classList.remove('d-none');
             } else {
-                time.classList.add('d-none');
+                medicationContainer.classList.add('d-none');
+                timeInput.value = '';
+                medicationName.value = '';
             }
         });
+        
         // JQuery mask for time input (XX:XX format & 23:59 max value)
         $(document).ready(function () {
             $('#time').mask('AB:CD', {
@@ -245,6 +265,19 @@
                     else if (t.length === 4 && +t.slice(2) > 59) field.val(t.slice(0, 2) + ':' + t[2]);
                 }
             });
+        });
+
+        const allergy = document.getElementById('allergy');
+        const allergyContainer = document.getElementById('allergyContainer');
+        const whichAllergy = document.getElementById('whichAllergy');
+
+        allergy.addEventListener('change', () => {
+            if (allergy.checked) {
+                allergyContainer.classList.remove('d-none');
+            } else {
+                allergyContainer.classList.add('d-none');
+                whichAllergy.value = '';
+            }
         });
     </script>
 </body>
