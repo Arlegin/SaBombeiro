@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procedimentos Efetuados</title>
+    <link rel="shortcut icon" href="logo_noar.png" type="image/x-icon">
+    <link rel="stylesheet" href="style-bootstrap.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body class="text-light">
+    <div class="container-fluid m-0 p-0">
+        <header>
+            <nav class="navbar navbar-expand-lg d-none d-lg-block">
+                <div class="container">
+                    <a class="nav-brand mb-0 me-4" href="index.html">
+                        <img src="logo_noar.png" alt="logo" class="img-fluid logo_noar">
+                    </a>
+                    <p class="h4">Sistema de Registro de Ocorrências</p>
+                    <ul class="navbar-nav align-items-center">
+                        <li class="nav-item ms-2 me-2">
+                            <a class="nav-link text-light text-center" href="menu.html">Início</a>
+                        </li>
+                        <li class="nav-item ms-2 me-2">
+                            <a class="nav-link text-light text-center" href="occurrenceHistory.html">Histórico de
+                                Ocorrências</a>
+                        </li>
+                        <li class="nav-item ms-2 me-2">
+                            <a class="nav-link text-light text-center" href="login.html">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="d-lg-none">
+                <nav class="navbar">
+                    <div class="container">
+                        <a class="navbar-brand m-0" href="index.html">
+                            <img src="logo_noar.png" alt="logo" class="img-fluid logo_noar">
+                        </a>
+                        <h5 class="text-center">Sistema de Registro<br>de Ocorrências</h5>
+                        <button class="navbar-toggler navbar-light bg-light" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasNav" style="--bs-bg-opacity: .9;">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                </nav>
+
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNav">
+                    <div class="offcanvas-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                            aria-label="Fechar"></button>
+                    </div>
+
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="menu.html">Início</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="occurrenceHistory.html">Histórico de Ocorrências</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="login.html">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <div class="container mt-3">
+        <div class="mb-2 formScroll">
+            <div class="list-group list-group-horizontal overflow-x-auto text-center">
+                <a href="/patientInfo.html"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Informações
+                    do Paciente</a>
+                <a href="#"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Tipo
+                    de Ocorrência</a>
+                <a href="/PES.html"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center font-small">Problemas
+                    Encontrados Suspeitos</a>
+                <a href="/symptoms.html"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Sinais
+                    e Sintomas</a>
+                <a href="#page2"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Localização
+                    Traumas</a>
+                <a href="#page1"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Descrição
+                    Traumas</a>
+                <a href="#page2"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">GLASGOW</a>
+                <a href="#page2"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Sinais
+                    Vitais</a>
+                <a href="#page2"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Situação
+                    Paciente</a>
+                <a href="#page2"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center active">Procedimentos
+                    Efetuados</a>
+                <a href="#page2"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center font-small">Anamnese
+                    Emergência
+                    Médica</a>
+                <a href="#page2"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Anamnese
+                    Gestacional</a>
+                <a href="#page2"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center font-small">Materiais
+                    Deixados
+                    Hospital</a>
+                <a href="#page2"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center font-small">Materiais
+                    Descartáveis
+                    Utilizados</a>
+                <a href="#page2"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Observações
+                </a>
+                <a href="#page2"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Termo
+                    Recusa
+                </a>
+                <a href="#page2"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Avaliação
+                    Cinemática
+                </a>
+            </div>
+        </div>
+        <div class="card mb-2 text-light">
+            <div class="card-header">
+                <div class="text-center">
+                    <h2 class="card-title mb-0">Procedimentos Efetuados</h2>
+                </div>
+            </div>
+            <div class="card-body">
+                <form id="occurrenceForm">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="animals" value="causado_por_animais">
+                                <label class="form-check-label" for="animals">Aspiração</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="transportation" value="com_meio_de_transporte">
+                                <label class="form-check-label" for="transportation">Avaliação inicial</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="landslide" value="desmoronamento_deslizamento">
+                                <label class="form-check-label" for="landslide">Avaliação dirigida</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="medicalEmergency" value="emergencia_medica">
+                                <label class="form-check-label" for="medicalEmergency">Avaliação continuada</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="fall2m" value="queda_de_altura_2m">
+                                <label class="form-check-label" for="fall2m">Chave de Rautek</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="suicideAttempt" value="tentativa_de_suicidio">
+                                <label class="form-check-label" for="suicideAttempt">Cânula de Guedel</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="fall" value="queda_propria_altura">
+                                <label class="form-check-label" for="fall">Desobstrução de V.A.</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="fall" value="queda_propria_altura">
+                                <label class="form-check-label" for="fall">Emprego do D.E.A.</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="fall" value="queda_propria_altura">
+                                <label class="form-check-label" for="fall">Gerenciamento de riscos</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="fall" value="queda_propria_altura">
+                                <label class="form-check-label" for="fall">Limpeza de ferimento</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="fall" value="queda_propria_altura">
+                                <label class="form-check-label" for="fall">Curativos</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="fall" value="queda_propria_altura">
+                                <label class="form-check-label" for="fall">Compressivo</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="fall" value="queda_propria_altura">
+                                <label class="form-check-label" for="fall">Encravamento</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="fall" value="queda_propria_altura">
+                                <label class="form-check-label" for="fall">Ocular</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="fall" value="queda_propria_altura">
+                                <label class="form-check-label" for="fall">Queimadura</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="fall" value="queda_propria_altura">
+                                <label class="form-check-label" for="fall">Simples</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="fall" value="queda_propria_altura">
+                                <label class="form-check-label" for="fall">3 pontas</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="drown" value="afogamento">
+                                <label class="form-check-label" for="drown">Imobilizações</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="attack" value="agressao">
+                                <label class="form-check-label" for="attack">Membro inf. dir.</label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="runOver" value="atropelamento">
+                                <label class="form-check-label" for="runOver">Membro inf. esq.</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="shock" value="choque_eletrico">
+                                <label class="form-check-label" for="shock">Membro sup. dir.</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="collapse" value="desabamento">
+                                <label class="form-check-label" for="collapse">Membro sup. esq.</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="domestic" value="domestico">
+                                <label class="form-check-label" for="domestic">Quadril</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="sport" value="esportivo">
+                                <label class="form-check-label" for="sport">Cervical</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="sport" value="esportivo">
+                                <label class="form-check-label" for="sport">Maca sobre rodas</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="sport" value="esportivo">
+                                <label class="form-check-label" for="sport">Maca rígida</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="sport" value="esportivo">
+                                <label class="form-check-label" for="sport">Ponte</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="sport" value="esportivo">
+                                <label class="form-check-label" for="sport">Retirado capacete</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="sport" value="esportivo">
+                                <label class="form-check-label" for="sport">R.C.P.</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="sport" value="esportivo">
+                                <label class="form-check-label" for="sport">Rolamento 90°</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="sport" value="esportivo">
+                                <label class="form-check-label" for="sport">Rolamento 180°</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="sport" value="esportivo">
+                                <label class="form-check-label" for="sport">Tomada decisão</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="sport" value="esportivo">
+                                <label class="form-check-label" for="sport">Tratado choque</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="sport" value="esportivo">
+                                <label class="form-check-label" for="sport">Uso de cânula</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="toxic" value="intoxicacao">
+                                <label class="form-check-label" for="toxic">Uso colar</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="bicicle" value="queda_bicicleta">
+                                <label class="form-check-label" for="bicycle">Uso KED</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="motorcycle" value="queda_moto">
+                                <label class="form-check-label" for="motorcycle">Uso TTF</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="fallLevel" value="queda_nivel_menor_2m">
+                                <label class="form-check-label" for="fallLevel">Ventilação suporte</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="job" value="trabalho">
+                                <label class="form-check-label" for="job">Oxigenioterapia</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="transfer" value="transferencia">
+                                <label class="form-check-label" for="transfer">Reanimador</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="transfer" value="transferencia">
+                                <label class="form-check-label" for="transfer">Meios auxiliares</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="transfer" value="transferencia">
+                                <label class="form-check-label" for="transfer">CELESC</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="transfer" value="transferencia">
+                                <label class="form-check-label" for="transfer">Defesa Civil</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="transfer" value="transferencia">
+                                <label class="form-check-label" for="transfer">IGP/PC</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="transfer" value="transferencia">
+                                <label class="form-check-label" for="transfer">SAMU USA</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="transfer" value="transferencia">
+                                <label class="form-check-label" for="transfer">SAMU USB</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="transfer" value="transferencia">
+                                <label class="form-check-label" for="transfer">CIT</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="transfer" value="transferencia">
+                                <label class="form-check-label" for="transfer">Polícia Civil</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="transfer" value="transferencia">
+                                <label class="form-check-label" for="transfer">Polícia Militar</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="transfer" value="transferencia">
+                                <label class="form-check-label" for="transfer">Polícia Rodoviária Estadual</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="transfer" value="transferencia">
+                                <label class="form-check-label" for="transfer">Polícia Rodoviária Federal</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="other" value="outros">
+                                <label class="form-check-label" for="other">Outro</label>
+                            </div>
+                        </div>
+                        <div class="container mt-2"><input type="text" class="form-control" id="otherInput"
+                                name="otherInput" placeholder="Digite o tipo de ocorrência"></div>
+
+                    </div>
+                    <div class="d-flex justify-content-between mt-4">
+                        <button type="submit" class="btn btn-light" id="backBtn">Voltar</button>
+                        <button type="submit" class="btn btn-primary" id="nextBtn">Próximo</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script>
+        // Get references to the elements
+        const otherInput = document.querySelector('#otherInput');
+        const Checkboxs = document.querySelectorAll('input[type=Checkbox][name="occurrenceCheckbox"]');
+
+        // Hide the input field by default
+        otherInput.style.display = 'none';
+
+        // Function to check if "Outro" is selected
+        function checkCheckbox() {
+            const other = document.querySelector('#other');
+            if (other.checked) {
+                // If "Outro" is selected, show the input field
+                otherInput.style.display = 'block';
+            } else {
+                // If "Outro" is not selected, hide the input field
+                otherInput.style.display = 'none';
+            }
+        }
+
+        // Add an event listener to all Checkbox buttons in the group
+        Checkboxs.forEach(function (Checkbox) {
+            Checkbox.addEventListener('change', checkCheckbox);
+        });
+
+        // Print on console the selected Checkbox button when the form is submitted
+        /* const form = document.querySelector('#occurrenceForm');
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            Checkboxs.forEach(function (Checkbox) {
+                if (Checkbox.checked) {
+                    console.log(Checkbox.id);
+                }
+            });
+        }); */
+
+        // Print on console the selected Checkbox button when the form is submitted
+        /* const form2 = document.querySelector('#occurrenceForm');
+        form2.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const checkedCheckbox = document.querySelector('input[type=Checkbox][name="occurrenceCheckbox"]:checked');
+            if (checkedCheckbox) {
+                console.log(checkedCheckbox.id);
+            } else {
+                console.log('No Checkbox button is checked');
+            }
+        }); */
+
+        // Submit form data to the server
+        document.querySelector('form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            let selectedCheckboxValue = document.querySelector('input[name="occurrenceCheckbox"]:checked').value;
+
+            fetch('/occurrence', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ occurrence: selectedCheckboxValue }),
+            })
+                .then(response => response.text())
+                .then(data => console.log(data))
+                .catch((error) => console.error('Error:', error));
+        });
+    </script>
+</body>
+
+</html>
