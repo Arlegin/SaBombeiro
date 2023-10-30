@@ -285,9 +285,11 @@
                         </div>
                         <div class="col-md-4">
                             <div class="form-check">
-                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="toxic" value="intoxicacao">
+                                <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="colar" value="uso_colar">
                                 <label class="form-check-label" for="toxic">Uso colar</label>
                             </div>
+                            <div class="container mt-1 mb-2"><input type="text" class="form-control" id="colarInput"
+                                name="colarInput" placeholder="Digite o tamanho do colar"></div>
                             <div class="form-check">
                                 <input class="form-check-input" type="Checkbox" name="occurrenceCheckbox" id="bicicle" value="queda_bicicleta">
                                 <label class="form-check-label" for="bicycle">Uso KED</label>
@@ -398,30 +400,6 @@
             Checkbox.addEventListener('change', checkCheckbox);
         });
 
-        // Print on console the selected Checkbox button when the form is submitted
-        /* const form = document.querySelector('#occurrenceForm');
-        form.addEventListener('submit', (event) => {
-            event.preventDefault();
-
-            Checkboxs.forEach(function (Checkbox) {
-                if (Checkbox.checked) {
-                    console.log(Checkbox.id);
-                }
-            });
-        }); */
-
-        // Print on console the selected Checkbox button when the form is submitted
-        /* const form2 = document.querySelector('#occurrenceForm');
-        form2.addEventListener('submit', (event) => {
-            event.preventDefault();
-
-            const checkedCheckbox = document.querySelector('input[type=Checkbox][name="occurrenceCheckbox"]:checked');
-            if (checkedCheckbox) {
-                console.log(checkedCheckbox.id);
-            } else {
-                console.log('No Checkbox button is checked');
-            }
-        }); */
 
         // Submit form data to the server
         document.querySelector('form').addEventListener('submit', function (e) {
