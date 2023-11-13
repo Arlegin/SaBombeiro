@@ -142,30 +142,141 @@
             <div class="card-body">
                 <form id="hospitalMaterialForm">
                     <div class="row">
-                        <div class="col-md-4">
-                            <div class="d-flex justify-content-between">
+                        <div class="col-md-6">
+                            <div class="d-flex gap-5 justify-content-end mb-2 d-none d-md-flex">
+                                <label>Tamanho</label>
+                                <label>Quantidade</label>
+                            </div>
+                            <div class="d-flex gap-4 justify-content-end mb-2 d-flex d-md-none">
+                                <label>Tamanho</label>
+                                <label>Quant.</label>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
                                 <div class="form-check">
                                     <input class="form-check-input" type="Checkbox" id="baseEstabilizador">
                                     <label class="form-check-label" for="baseEstabilizador">Base do
-                                        estabilizador</label>
+                                        estabiliza.</label>
                                 </div>
-                                <div class="baseEstabilizadorContainer d-none">
-                                    <select class="form-select" aria-label="Tamanho" id="baseEstabilizadorSize">
+                                <div class="baseEstabilizadorContainer d-none justify-content-end" style="width: 45%;">
+                                    <input type="number" class="form-control" placeholder="Quantidade"
+                                        id="baseEstabilizadorQuantity" value="1" min="1" style="width: 40%;">
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="Checkbox" id="colar">
+                                    <label class="form-check-label" for="colar">Colar</label>
+                                </div>
+                                <div class="colarContainer d-none justify-content-between" style="width: 45%;">
+                                    <select class="form-select" aria-label="Tamanho" id="colarSize" style="width: 55%;">
                                         <option value="PP">PP</option>
                                         <option value="P">P</option>
                                         <option value="M">M</option>
                                         <option value="G">G</option>
                                         <option value="GG">GG</option>
                                     </select>
-                                    
+                                    <input type="number" class="form-control" placeholder="Quantidade"
+                                        id="colarQuantity" value="1" min="1" style="width: 40%;">
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="Checkbox" id="coximEstabilizador">
+                                    <label class="form-check-label" for="coximEstabilizador">Coxins do
+                                        estabiliza.</label>
+                                </div>
+                                <div class="coximEstabilizadorContainer d-none justify-content-end" style="width: 40%;">
+                                    <input type="number" class="form-control" placeholder="Quantidade"
+                                        id="coximEstabilizadorQuantity" value="1" min="1" style="width: 45%;">
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="Checkbox" id="KED">
+                                    <label class="form-check-label" for="KED">KED</label>
+                                </div>
+                                <div class="KEDContainer d-none justify-content-between" style="width: 45%;">
+                                    <select class="form-select" aria-label="Tamanho" id="KEDSize" style="width: 55%;">
+                                        <option value="Infantil">Infantil</option>
+                                        <option value="Adulto">Adulto</option>
+                                    </select>
+                                    <input type="number" class="form-control" placeholder="Quantidade" id="KEDQuantity"
+                                        value="1" min="1" style="width: 40%;">
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="Checkbox" id="macaRigida">
+                                    <label class="form-check-label" for="macaRigida">Maca rígida</label>
+                                </div>
+                                <div class="macaRigidaContainer d-none justify-content-end" style="width: 45%;">
+                                    <input type="number" class="form-control" placeholder="Quantidade"
+                                        id="macaRigidaQuantity" value="1" min="1" style="width: 40%;">
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-check">
-                                <input class="form-check-input" type="Checkbox" name="" id="" value="">
-                                <label class="form-check-label" for=""></label>
+                            <div class="d-flex gap-5 justify-content-end mb-2 d-none d-md-flex">
+                                <label>Tamanho</label>
+                                <label>Quantidade</label>
                             </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="Checkbox" id="TTF">
+                                    <label class="form-check-label" for="TTF">T.T.F.</label>
+                                </div>
+                                <div class="TTFContainer d-none justify-content-between" style="width: 45%;">
+                                    <select class="form-select" aria-label="Tamanho" id="TTFSize" style="width: 55%;">
+                                        <option value="Infantil">Infantil</option>
+                                        <option value="Adulto">Adulto</option>
+                                    </select>
+                                    <input type="number" class="form-control" placeholder="Quantidade" id="TTFQuantity"
+                                        value="1" min="1" style="width: 40%;">
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="Checkbox" id="tiranteAranha">
+                                    <label class="form-check-label" for="tiranteAranha">Tirante aranha</label>
+                                </div>
+                                <div class="tiranteAranhaContainer d-none justify-content-end" style="width: 45%;">
+                                    <input type="number" class="form-control" placeholder="Quantidade"
+                                        id="tiranteAranhaQuantity" value="1" min="1" style="width: 40%;">
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="Checkbox" id="tiranteCabeca">
+                                    <label class="form-check-label" for="tiranteCabeca">Tirante cabeça</label>
+                                </div>
+                                <div class="tiranteCabecaContainer d-none justify-content-end" style="width: 45%;">
+                                    <input type="number" class="form-control" placeholder="Quantidade"
+                                        id="tiranteCabecaQuantity" value="1" min="1" style="width: 40%;">
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="Checkbox" id="canula">
+                                    <label class="form-check-label" for="canula">Cânula</label>
+                                </div>
+                                <div class="canulaContainer d-none justify-content-end" style="width: 45%;">
+                                    <input type="number" class="form-control" placeholder="Quantidade"
+                                        id="canulaQuantity" value="1" min="1" style="width: 40%;">
+                                </div>
+                            </div>
+                            <div class=" justify-content-between mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="Checkbox" id="other">
+                                    <label class="form-check-label" for="other">Outros</label>
+                                </div>
+                                <div class="otherContainer d-none justify-content-between mt-2">
+                                    <input type="text" class="form-control" placeholder="Outros" id="otherName"
+                                        style="width: 70%;">
+                                    <input type="number" class="form-control" placeholder="Quantidade"
+                                        id="otherQuantity" value="1" min="1" style="width: 20%;">
+                                </div>
+                            </div>
+
                         </div>
                         <div class="d-flex justify-content-between mt-4">
                             <button type="submit" class="btn btn-light" id="backBtn">Voltar</button>
@@ -180,17 +291,31 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script>
-        const hospitalMaterialForm = document.getElementById('hospitalMaterialForm');
-        const baseEstabilizador = document.getElementById('baseEstabilizador');
-        const baseEstabilizadorContainer = document.querySelector('.baseEstabilizadorContainer');
+        function addChangeListener(id, containerClass) {
+            const element = document.getElementById(id);
+            const container = document.querySelector('.' + containerClass);
 
-        baseEstabilizador.addEventListener('change', () => {
-            if (baseEstabilizador.checked) {
-                baseEstabilizadorContainer.classList.remove('d-none');
-            } else {
-                baseEstabilizadorContainer.classList.add('d-none');
-            }
-        });
+            element.addEventListener('change', () => {
+                if (element.checked) {
+                    container.classList.remove('d-none');
+                    container.classList.add('d-flex');
+                } else {
+                    container.classList.add('d-none');
+                    container.classList.remove('d-flex');
+                }
+            });
+        }
+
+        addChangeListener('baseEstabilizador', 'baseEstabilizadorContainer');
+        addChangeListener('colar', 'colarContainer');
+        addChangeListener('coximEstabilizador', 'coximEstabilizadorContainer');
+        addChangeListener('KED', 'KEDContainer');
+        addChangeListener('macaRigida', 'macaRigidaContainer');
+        addChangeListener('TTF', 'TTFContainer');
+        addChangeListener('tiranteAranha', 'tiranteAranhaContainer');
+        addChangeListener('tiranteCabeca', 'tiranteCabecaContainer');
+        addChangeListener('canula', 'canulaContainer');
+        addChangeListener('other', 'otherContainer');        
     </script>
 </body>
 
