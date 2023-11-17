@@ -152,29 +152,35 @@
                                 <label class="form-check-label" for="dpoc">Respiratório DPOC</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="respiratorio_inalacao_fumaca" id="smoke">
+                                <input class="form-check-input" type="checkbox" name="respiratorio_inalacao_fumaca"
+                                    id="smoke">
                                 <label class="form-check-label" for="smoke">Inalação de fumaça</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="diabetes_hiperglicemia" id="hyperglycemia">
+                                <input class="form-check-input" type="checkbox" name="diabetes_hiperglicemia"
+                                    id="hyperglycemia">
                                 <label class="form-check-label" for="hyperglycemia">Hiperglicemia</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="diabetes_hipoglicemia" id="hypoglycemia">
+                                <input class="form-check-input" type="checkbox" name="diabetes_hipoglicemia"
+                                    id="hypoglycemia">
                                 <label class="form-check-label" for="hypoglycemia">Hipoglicemia</label>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="obstetrico_parto_emergencial" id="birth">
+                                <input class="form-check-input" type="checkbox" name="obstetrico_parto_emergencial"
+                                    id="birth">
                                 <label class="form-check-label" for="birth">Parto emergencial</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="obstetrico_gestante" id="pregnant">
+                                <input class="form-check-input" type="checkbox" name="obstetrico_gestante"
+                                    id="pregnant">
                                 <label class="form-check-label" for="pregnant">Gestante</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="obstetrico_hemor_excessiva" id="bleeding">
+                                <input class="form-check-input" type="checkbox" name="obstetrico_hemor_excessiva"
+                                    id="bleeding">
                                 <label class="form-check-label" for="bleeding">Hemorragia excessiva</label>
                             </div>
                             <div class="form-check">
@@ -190,8 +196,8 @@
                                             <label class="form-check-label" for="transportClinic">Clínico</label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="transporte_emergencial"
-                                                id="transportEmergency">
+                                            <input class="form-check-input" type="checkbox"
+                                                name="transporte_emergencial" id="transportEmergency">
                                             <label class="form-check-label" for="transportEmergency">Emergencial</label>
                                         </div>
                                         <div class="form-check">
@@ -212,8 +218,8 @@
                                             <label class="form-check-label" for="transportSAMU">SAMU</label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="transporte_sem_remocao"
-                                                id="transportNo">
+                                            <input class="form-check-input" type="checkbox"
+                                                name="transporte_sem_remocao" id="transportNo">
                                             <label class="form-check-label" for="transportNo">Sem remoção</label>
                                         </div>
                                     </div>
@@ -226,6 +232,20 @@
                         <button type="submit" class="btn btn-primary" id="nextBtn">Próximo</button>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="btn btn-sm position-fixed bottom-0 end-1 p-0" id="liveToastBtn"></button>
+    <div class="toast-container position-fixed bottom-0 end-0 p-2">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <img src="chinese_leader.png" class="rounded me-2" id="china2">
+                <strong class="me-auto">Mao Tsé-Tung|毛澤東</strong>
+                <small>04/06/1989</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body" id="china">
+                Glória ao <a href="https://www.gov.cn/">Partido Comunista Chinês!</a>
             </div>
         </div>
     </div>
@@ -259,6 +279,178 @@
 
             console.log(data);
         }); */
+
+        // NOTICE!!! Initially embedded in our docs this JavaScript
+        // file contains elements that can help you create reproducible
+        // use cases in StackBlitz for instance.
+        // In a real project please adapt this content to your needs.
+        // ++++++++++++++++++++++++++++++++++++++++++
+
+        /*!
+         * JavaScript for Bootstrap's docs (https://getbootstrap.com/)
+         * Copyright 2011-2023 The Bootstrap Authors
+         * Licensed under the Creative Commons Attribution 3.0 Unported License.
+         * For details, see https://creativecommons.org/licenses/by/3.0/.
+         */
+
+        /* global bootstrap: false */
+
+        (() => {
+            'use strict'
+
+            // --------
+            // Tooltips
+            // --------
+            // Instantiate all tooltips in a docs or StackBlitz
+            document.querySelectorAll('[data-bs-toggle="tooltip"]')
+                .forEach(tooltip => {
+                    new bootstrap.Tooltip(tooltip)
+                })
+
+            // --------
+            // Popovers
+            // --------
+            // Instantiate all popovers in docs or StackBlitz
+            document.querySelectorAll('[data-bs-toggle="popover"]')
+                .forEach(popover => {
+                    new bootstrap.Popover(popover)
+                })
+
+            // -------------------------------
+            // Toasts
+            // -------------------------------
+            // Used by 'Placement' example in docs or StackBlitz
+            const toastPlacement = document.getElementById('toastPlacement')
+            if (toastPlacement) {
+                document.getElementById('selectToastPlacement').addEventListener('change', function () {
+                    if (!toastPlacement.dataset.originalClass) {
+                        toastPlacement.dataset.originalClass = toastPlacement.className
+                    }
+
+                    toastPlacement.className = `${toastPlacement.dataset.originalClass} ${this.value}`
+                })
+            }
+
+            // Instantiate all toasts in docs pages only
+            document.querySelectorAll('.bd-example .toast')
+                .forEach(toastNode => {
+                    const toast = new bootstrap.Toast(toastNode, {
+                        autohide: false
+                    })
+
+                    toast.show()
+                })
+
+            // Instantiate all toasts in docs pages only
+            // js-docs-start live-toast
+            const toastTrigger = document.getElementById('liveToastBtn')
+            const toastLiveExample = document.getElementById('liveToast')
+
+            if (toastTrigger) {
+                const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+                toastTrigger.addEventListener('click', () => {
+                    toastBootstrap.show()
+                })
+            }
+            // js-docs-end live-toast
+
+            // -------------------------------
+            // Alerts
+            // -------------------------------
+            // Used in 'Show live alert' example in docs or StackBlitz
+
+            // js-docs-start live-alert
+            const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+            const appendAlert = (message, type) => {
+                const wrapper = document.createElement('div')
+                wrapper.innerHTML = [
+                    `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+                    `   <div>${message}</div>`,
+                    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+                    '</div>'
+                ].join('')
+
+                alertPlaceholder.append(wrapper)
+            }
+
+            const alertTrigger = document.getElementById('liveAlertBtn')
+            if (alertTrigger) {
+                alertTrigger.addEventListener('click', () => {
+                    appendAlert('Nice, you triggered this alert message!', 'success')
+                })
+            }
+            // js-docs-end live-alert
+
+            // --------
+            // Carousels
+            // --------
+            // Instantiate all non-autoplaying carousels in docs or StackBlitz
+            document.querySelectorAll('.carousel:not([data-bs-ride="carousel"])')
+                .forEach(carousel => {
+                    bootstrap.Carousel.getOrCreateInstance(carousel)
+                })
+
+            // -------------------------------
+            // Checks & Radios
+            // -------------------------------
+            // Indeterminate checkbox example in docs and StackBlitz
+            document.querySelectorAll('.bd-example-indeterminate [type="checkbox"]')
+                .forEach(checkbox => {
+                    if (checkbox.id.includes('Indeterminate')) {
+                        checkbox.indeterminate = true
+                    }
+                })
+
+            // -------------------------------
+            // Links
+            // -------------------------------
+            // Disable empty links in docs examples only
+            document.querySelectorAll('.bd-content [href="#"]')
+                .forEach(link => {
+                    link.addEventListener('click', event => {
+                        event.preventDefault()
+                    })
+                })
+
+            // -------------------------------
+            // Modal
+            // -------------------------------
+            // Modal 'Varying modal content' example in docs and StackBlitz
+            // js-docs-start varying-modal-content
+            const exampleModal = document.getElementById('exampleModal')
+            if (exampleModal) {
+                exampleModal.addEventListener('show.bs.modal', event => {
+                    // Button that triggered the modal
+                    const button = event.relatedTarget
+                    // Extract info from data-bs-* attributes
+                    const recipient = button.getAttribute('data-bs-whatever')
+                    // If necessary, you could initiate an Ajax request here
+                    // and then do the updating in a callback.
+
+                    // Update the modal's content.
+                    const modalTitle = exampleModal.querySelector('.modal-title')
+                    const modalBodyInput = exampleModal.querySelector('.modal-body input')
+
+                    modalTitle.textContent = `New message to ${recipient}`
+                    modalBodyInput.value = recipient
+                })
+            }
+            // js-docs-end varying-modal-content
+
+            // -------------------------------
+            // Offcanvas
+            // -------------------------------
+            // 'Offcanvas components' example in docs only
+            const myOffcanvas = document.querySelectorAll('.bd-example-offcanvas .offcanvas')
+            if (myOffcanvas) {
+                myOffcanvas.forEach(offcanvas => {
+                    offcanvas.addEventListener('show.bs.offcanvas', event => {
+                        event.preventDefault()
+                    }, false)
+                })
+            }
+        })()
+
 
     </script>
 </body>
