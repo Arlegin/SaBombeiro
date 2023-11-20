@@ -54,17 +54,3 @@ body {
 .border-right-dark {    
     border-right: 3px solid rgba(0, 0, 0, 0.5);
 }
-
-#liveToastBtn {
-color: #fff;
-}
-
-#china {
-color: black;
-}
-
-#china2 {
-    height: 3.4rem;
-    width: 3.4rem;
-}
-
