@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materiais deixados no hospital</title>
+    <link rel="shortcut icon" href="logo_noar.png" type="image/x-icon">
+    <link rel="stylesheet" href="style-bootstrap.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body class="text-light">
+    <div class="container-fluid m-0 p-0">
+        <header>
+            <nav class="navbar navbar-expand-lg d-none d-lg-block">
+                <div class="container">
+                    <a class="nav-brand mb-0 me-4" href="index.html">
+                        <img src="logo_noar.png" alt="logo" class="img-fluid logo_noar">
+                    </a>
+                    <p class="h4">Sistema de Registro de Ocorrências</p>
+                    <ul class="navbar-nav align-items-center">
+                        <li class="nav-item ms-2 me-2">
+                            <a class="nav-link text-light text-center" href="menu.html">Início</a>
+                        </li>
+                        <li class="nav-item ms-2 me-2">
+                            <a class="nav-link text-light text-center" href="occurrenceHistory.html">Histórico de
+                                Ocorrências</a>
+                        </li>
+                        <li class="nav-item ms-2 me-2">
+                            <a class="nav-link text-light text-center" href="login.html">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="d-lg-none">
+                <nav class="navbar">
+                    <div class="container">
+                        <a class="navbar-brand m-0" href="index.html">
+                            <img src="logo_noar.png" alt="logo" class="img-fluid logo_noar">
+                        </a>
+                        <h5 class="text-center">Sistema de Registro<br>de Ocorrências</h5>
+                        <button class="navbar-toggler navbar-light bg-light" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasNav" style="--bs-bg-opacity: .9;">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                </nav>
+
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNav">
+                    <div class="offcanvas-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                            aria-label="Fechar"></button>
+                    </div>
+
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="menu.html">Início</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="occurrenceHistory.html">Histórico de Ocorrências</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="login.html">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <div class="container mt-3">
+        <div class="mb-2 formScroll">
+            <div class="list-group list-group-horizontal overflow-x-auto text-center">
+                <a href="/patientInfo.html"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Informações
+                    do Paciente</a>
+                <a href="/occurrenceType.html"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Tipo
+                    de Ocorrência</a>
+                <a href="/PES.html"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center font-small">Problemas
+                    Encontrados Suspeitos</a>
+                <a href="/symptoms.html"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Sinais
+                    e Sintomas</a>
+                <a href="/traumaLocation.html"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Localização
+                    Traumas</a>
+                <a href="/traumaDesc.html"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Descrição
+                    Traumas</a>
+                <a href="/GLASGOW.html"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">GLASGOW</a>
+                <a href="/vitalSigns.html"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Sinais
+                    Vitais</a>
+                <a href="/patientSituation.html"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Situação
+                    Paciente</a>
+                <a href="/proceduresDone.html"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Procedimentos
+                    Efetuados</a>
+                <a href="/medicalAnamnesis.html"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center font-small">Anamnese
+                    Emergência
+                    Médica</a>
+                <a href="/birthAnamnesis.html"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Anamnese
+                    Gestacional</a>
+                <a href="/hospitalMaterial.html"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center font-small">Materiais
+                    Deixados
+                    Hospital</a>
+                <a href="#page2"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center font-small active">Materiais
+                    Descartáveis
+                    Utilizados</a>
+                <a href="#page2"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Observações
+                </a>
+                <a href="#page2"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Termo
+                    Recusa
+                </a>
+                <a href="#page2"
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Avaliação
+                    Cinemática
+                </a>
+            </div>
+        </div>
+        <div class="card mb-2 text-light">
+            <div class="card-header">
+                <div class="text-center">
+                    <h2 class="card-title mb-0">Materiais Descartáveis Utilizados</h2>
+                </div>
+            </div>
+            <div class="card-body">
+                <form id="hospitalMaterialForm">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="d-flex gap-5 justify-content-end mb-2 d-none d-md-flex">
+                                <label>Tamanho</label>
+                                <label>Quantidade</label>
+                            </div>
+                            <div class="d-flex gap-4 justify-content-end mb-2 d-flex d-md-none">
+                                <label>Tamanho</label>
+                                <label>Quant.</label>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="Checkbox" id="ataduras">
+                                    <label class="form-check-label" for="ataduras">Ataduras</label>
+                                </div>
+                                <div class="atadurasContainer d-none justify-content-between" style="width: 45%;">
+                                    <select class="form-select" aria-label="Tamanho" id="atadurasSize"
+                                        style="width: 55%;">
+                                        <option value="8">8</option>
+                                        <option value="12">12</option>
+                                        <option value="20">20</option>
+                                    </select>
+                                    <input type="number" class="form-control" placeholder="Quantidade"
+                                        id="atadurasQuantity" value="1" min="1" style="width: 40%;">
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="Checkbox" id="cateter">
+                                    <label class="form-check-label" for="cateter">Catéter TP. óculos</label>
+                                </div>
+                                <div class="cateterContainer d-none justify-content-end" style="width: 45%;">
+                                    <input type="number" class="form-control" placeholder="Quantidade"
+                                        id="cateterQuantity" value="1" min="1" style="width: 40%;">
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="Checkbox" id="compressaComum">
+                                    <label class="form-check-label" for="compressaComum">Compressa comum</label>
+                                </div>
+                                <div class="compressaComumContainer d-none justify-content-end" style="width: 40%;">
+                                    <input type="number" class="form-control" placeholder="Quantidade"
+                                        id="compressaComumQuantity" value="1" min="1" style="width: 45%;">
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="Checkbox" id="kits">
+                                    <label class="form-check-label" for="kits">KITs</label>
+                                </div>
+                                <div class="kitsContainer d-none justify-content-between" style="width: 45%;">
+                                    <select class="form-select" aria-label="Tamanho" id="kitsSize" style="width: 55%;">
+                                        <option value="H">H</option>
+                                        <option value="P">P</option>
+                                        <option value="Q">Q</option>
+                                    </select>
+                                    <input type="number" class="form-control" placeholder="Quantidade" id="kitsQuantity"
+                                        value="1" min="1" style="width: 40%;">
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="Checkbox" id="luvas">
+                                    <label class="form-check-label" for="luvas">Luvas (pares)</label>
+                                </div>
+                                <div class="luvasContainer d-none justify-content-end" style="width: 45%;">
+                                    <input type="number" class="form-control" placeholder="Quantidade"
+                                        id="luvasQuantity" value="1" min="1" style="width: 40%;">
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="Checkbox" id="mascara">
+                                    <label class="form-check-label" for="mascara">Máscara</label>
+                                </div>
+                                <div class="mascaraContainer d-none justify-content-end" style="width: 45%;">
+                                    <input type="number" class="form-control" placeholder="Quantidade" id="mascaraQuantity"
+                                        value="1" min="1" style="width: 40%;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex gap-5 justify-content-end mb-2 d-none d-md-flex">
+                                <label>Tamanho</label>
+                                <label>Quantidade</label>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="Checkbox" id="mantaAluminizada">
+                                    <label class="form-check-label" for="mantaAluminizada">Manta aluminizada</label>
+                                </div>
+                                <div class="mantaAluminizadaContainer d-none justify-content-end" style="width: 45%;">
+                                    <input type="number" class="form-control" placeholder="Quantidade"
+                                        id="mantaAluminizadaQuantity" value="1" min="1" style="width: 40%;">
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="Checkbox" id="pasDEA">
+                                    <label class="form-check-label" for="pasDEA">Pás do DEA</label>
+                                </div>
+                                <div class="pasDEAContainer d-none justify-content-end" style="width: 45%;">
+                                    <input type="number" class="form-control" placeholder="Quantidade"
+                                        id="pasDEAQuantity" value="1" min="1" style="width: 40%;">
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="Checkbox" id="sondaAsp">
+                                    <label class="form-check-label" for="sondaAsp">Sonda de aspiração</label>
+                                </div>
+                                <div class="sondaAspContainer d-none justify-content-end" style="width: 45%;">
+                                    <input type="number" class="form-control" placeholder="Quantidade"
+                                        id="sondaAspQuantity" value="1" min="1" style="width: 40%;">
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="Checkbox" id="soro">
+                                    <label class="form-check-label" for="soro">Soro fisiológico</label>
+                                </div>
+                                <div class="soroContainer d-none justify-content-end" style="width: 45%;">
+                                    <input type="number" class="form-control" placeholder="Quantidade"
+                                        id="soroQuantity" value="1" min="1" style="width: 40%;">
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="Checkbox" id="talas">
+                                    <label class="form-check-label" for="talas">Talas PAP</label>
+                                </div>
+                                <div class="talasContainer d-none justify-content-between" style="width: 45%;">
+                                    <select class="form-select" aria-label="Tamanho" id="talasSize" style="width: 55%;">
+                                        <option value="P">P</option>
+                                        <option value="G">G</option>
+                                    </select>
+                                    <input type="number" class="form-control" placeholder="Quantidade" id="talasQuantity"
+                                        value="1" min="1" style="width: 40%;">
+                                </div>
+                            </div>
+                            <div class=" justify-content-between mb-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="Checkbox" id="other">
+                                    <label class="form-check-label" for="other">Outros</label>
+                                </div>
+                                <div class="otherContainer d-none justify-content-between mt-2">
+                                    <input type="text" class="form-control" placeholder="Outros" id="otherName"
+                                        style="width: 70%;">
+                                    <input type="number" class="form-control" placeholder="Quantidade"
+                                        id="otherQuantity" value="1" min="1" style="width: 20%;">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="d-flex justify-content-between mt-4">
+                            <button type="submit" class="btn btn-light" id="backBtn">Voltar</button>
+                            <button type="submit" class="btn btn-primary" id="nextBtn">Próximo</button>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script>
+        function addChangeListener(id, containerClass) {
+            const element = document.getElementById(id);
+            const container = document.querySelector('.' + containerClass);
+
+            element.addEventListener('change', () => {
+                if (element.checked) {
+                    container.classList.remove('d-none');
+                    container.classList.add('d-flex');
+                } else {
+                    container.classList.add('d-none');
+                    container.classList.remove('d-flex');
+                }
+            });
+        }
+
+        addChangeListener('ataduras', 'atadurasContainer');
+        addChangeListener('cateter', 'cateterContainer');
+        addChangeListener('compressaComum', 'compressaComumContainer');
+        addChangeListener('kits', 'kitsContainer');
+        addChangeListener('luvas', 'luvasContainer');
+        addChangeListener('mascara', 'mascaraContainer');
+        addChangeListener('mantaAluminizada', 'mantaAluminizadaContainer');
+        addChangeListener('pasDEA', 'pasDEAContainer');
+        addChangeListener('sondaAsp', 'sondaAspContainer');
+        addChangeListener('soro', 'soroContainer');
+        addChangeListener('talas', 'talasContainer');
+        addChangeListener('other', 'otherContainer');        
+    </script>
+</body>
+
+</html>
