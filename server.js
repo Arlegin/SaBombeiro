@@ -189,6 +189,15 @@ app.get('/getTraumaLocation', (req, res) => {
   });
 });
 
+app.post('/form', function (req, res) {
+  let data = req.body;
+  console.log(data);
+
+  // Aqui você pode inserir 'data' no seu banco de dados
+
+  res.json({ message: 'Dados recebidos!' });
+});
+
 app.listen(3700, () => {
   console.log('Servidor rodando na porta 3700!');
   console.log('Para reiniciar o servidor, digite "rs" e tecle "Enter"!');
