@@ -101,11 +101,26 @@
         function sendReport() {
             let storedData = JSON.parse(localStorage.getItem('formData'));
 
-            // Aqui você pode enviar 'storedData' para o servidor
+            // Envia 'storedData' para o servidor
+            fetch('/form', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(storedData)
+            }).then(response => response.json())
+                .then(data => {
+                    // Imprime os dados do JSON no console
+                    console.log(data);
 
-            // Após o envio bem-sucedido dos dados, limpe o 'localStorage'
-            localStorage.removeItem('formData');
+                    // Após o envio bem-sucedido dos dados, limpe o 'localStorage'
+                    localStorage.removeItem('formData');
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
         }
+
     </script>
 </body>
 
