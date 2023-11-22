@@ -99,8 +99,12 @@
         crossorigin="anonymous"></script>
     <script>
         function sendReport() {
-            // Code to send the report to the server
-            // Add your implementation here
+            let storedData = JSON.parse(localStorage.getItem('formData'));
+
+            // Aqui você pode enviar 'storedData' para o servidor
+
+            // Após o envio bem-sucedido dos dados, limpe o 'localStorage'
+            localStorage.removeItem('formData');
         }
     </script>
 </body>

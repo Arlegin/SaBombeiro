@@ -274,47 +274,63 @@
             radio.addEventListener('change', checkRadio);
         });
 
-        // Print on console the selected radio button when the form is submitted
-        /* const form = document.querySelector('#occurrenceForm');
-        form.addEventListener('submit', (event) => {
-            event.preventDefault();
+       
 
-            radios.forEach(function (radio) {
-                if (radio.checked) {
-                    console.log(radio.id);
+        function collectFormData(formId) {
+            const form = document.getElementById(formId);
+            const inputs = form.querySelectorAll('input, textarea');
+            let data = {};
+
+            inputs.forEach(input => {
+                if (input.type === 'checkbox') {
+                    data[input.id] = input.checked;
+                } else {
+                    data[input.id] = input.value;
                 }
             });
-        }); */
 
-        // Print on console the selected radio button when the form is submitted
-        /* const form2 = document.querySelector('#occurrenceForm');
-        form2.addEventListener('submit', (event) => {
+            return data;
+        }
+
+        document.getElementById('occurrenceForm').addEventListener('submit', function (event) {
             event.preventDefault();
 
-            const checkedRadio = document.querySelector('input[type=radio][name="occurrenceRadio"]:checked');
-            if (checkedRadio) {
-                console.log(checkedRadio.id);
-            } else {
-                console.log('No radio button is checked');
-            }
-        }); */
+            let data = collectFormData('occurrenceForm');
 
-        // Submit form data to the server
-        document.querySelector('form').addEventListener('submit', function (e) {
-            e.preventDefault();
+            // Armazena os dados do formulário no localStorage
+            localStorage.setItem('formData', JSON.stringify(data));
 
-            let selectedRadioValue = document.querySelector('input[name="occurrenceRadio"]:checked').value;
+            // Redireciona para a próxima página
+            window.location.href = 'occurrenceType.html';
+        });
 
-            fetch('/occurrence', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ occurrence: selectedRadioValue }),
-            })
-                .then(response => response.text())
-                .then(data => console.log(data))
-                .catch((error) => console.error('Error:', error));
+        // Quando você estiver pronto para enviar os dados para o servidor, você pode recuperar os dados do localStorage
+        let storedData = JSON.parse(localStorage.getItem('formData'));
+
+        // Agora você pode enviar 'storedData' para o servidor
+
+
+        function fillFormData(formId) {
+            const form = document.getElementById(formId);
+            const inputs = form.querySelectorAll('input, textarea');
+
+            // Recupera os dados do localStorage
+            let storedData = JSON.parse(localStorage.getItem('formData'));
+
+            inputs.forEach(input => {
+                if (storedData && storedData.hasOwnProperty(input.id)) {
+                    if (input.type === 'checkbox') {
+                        input.checked = storedData[input.id];
+                    } else {
+                        input.value = storedData[input.id];
+                    }
+                }
+            });
+        }
+
+        // Chama a função quando a página é carregada
+        document.addEventListener('DOMContentLoaded', function () {
+            fillFormData('occurrenceForm');
         });
     </script>
 </body>
