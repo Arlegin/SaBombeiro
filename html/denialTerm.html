@@ -147,8 +147,9 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">Faça upload do termo de recusa:</label>
-                                <input class="form-control" type="file" id="formFile" accept=".png, .jpg, .jpeg, capture=camera">
-                            </div>                            
+                                <input class="form-control" type="file" id="formFile"
+                                    accept=".png, .jpg, .jpeg, capture=camera">
+                            </div>
                         </div>
                         <div class="d-flex justify-content-between mt-3">
                             <button type="submit" class="btn btn-light" id="backBtn">Voltar</button>
@@ -163,6 +164,27 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script>
+        function collectFormData(formId) {
+            const form = document.getElementById('denialTermForm');
+            const inputs = form.querySelectorAll('input, textarea');
+            let data = {};
+
+            inputs.forEach(input => {
+                if (input.type === 'checkbox') {
+                    data[input.id] = input.checked;
+                } else if (input.type === 'file') {
+                    let reader = new FileReader();
+                    reader.onload = function (e) {
+                        data[input.id] = e.target.result;
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                } else {
+                    data[input.id] = input.value;
+                }
+            });
+
+            return data;
+        }
     </script>
 </body>
 
