@@ -177,21 +177,58 @@
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
     <script>
-        // Undo button functionality (remove last icon)
-        document.getElementById('undoBtn').addEventListener('click', function () {
-            let img = document.getElementById('humanBody');
-            let lastIcon = img.parentElement.lastElementChild;
+        function storeTraumaIcon(x, y, traumaType) {
+            let traumaIcons = JSON.parse(localStorage.getItem('traumaIcons')) || [];
+            traumaIcons.push({ x, y, traumaType });
+            localStorage.setItem('traumaIcons', JSON.stringify(traumaIcons));
+        }
 
-            if (lastIcon.id !== 'humanBody') {
-                img.parentElement.removeChild(lastIcon);
+        function removeLastTraumaIcon() {
+            let traumaIcons = JSON.parse(localStorage.getItem('traumaIcons')) || [];
+            if (traumaIcons.length > 0) {
+                traumaIcons.pop();
+                localStorage.setItem('traumaIcons', JSON.stringify(traumaIcons));
+
+                // Remove o último ícone da imagem
+                let imageContainer = document.getElementById('imageContainer');
+                let lastIcon = imageContainer.lastElementChild;
+                if (lastIcon.tagName === 'IMG') {
+                    imageContainer.removeChild(lastIcon);
+                }
             }
+        }
+
+        function recreateTraumaImage() {
+            let traumaIcons = JSON.parse(localStorage.getItem('traumaIcons')) || [];
+            traumaIcons.forEach(icon => {
+                createTraumaIcon(icon.x, icon.y, icon.traumaType);
+            });
+        }
+
+        function createTraumaIcon(x, y, traumaType) {
+            let icon = document.createElement('img');
+            icon.src = `/trauma_icon/${traumaType}.png`;
+            icon.style.position = 'absolute';
+            let iconWidth = 50;
+            let iconHeight = 50;
+            icon.style.left = `${x - iconWidth / 2}px`;
+            icon.style.top = `${y - iconHeight / 2}px`;
+            icon.style.width = `${iconWidth}px`;
+            icon.style.height = `${iconHeight}px`;
+            icon.style.padding = '0';
+            document.getElementById('imageContainer').appendChild(icon);
+        }
+
+        document.addEventListener('DOMContentLoaded', recreateTraumaImage);
+
+        document.getElementById('undoBtn').addEventListener('click', function () {
+            removeLastTraumaIcon();
         });
 
         document.getElementById('nextBtn').addEventListener('click', function (e) {
-            e.preventDefault();  // Prevent the form from submitting
+            e.preventDefault();
 
             html2canvas(document.getElementById('imageContainer')).then(function (canvas) {
-                // Scale the canvas
                 let scaledCanvas = document.createElement('canvas');
                 scaledCanvas.width = 632;
                 scaledCanvas.height = 831;
@@ -199,56 +236,19 @@
 
                 let imgData = scaledCanvas.toDataURL('image/png');
 
-                // Send this data to your nodejs server
-                $.ajax({
-                    url: '/saveTraumaLocation',
-                    type: 'post',
-                    data: {
-                        imgData: imgData
-                    },
-                    success: function (response) {
-                        // Log the response from your nodejs server here
-                        console.log(response);
-                    }
-                });
+                // Armazena a imagem no localStorage
+                localStorage.setItem('traumaImage', imgData);
             });
         });
 
         let img = document.getElementById('humanBody');
-
         img.addEventListener('click', function (e) {
-            let x = e.offsetX;  // Obtenha a coordenada x do clique na imagem
-            let y = e.offsetY;  // Obtenha a coordenada y do clique na imagem
+            let x = e.offsetX;
+            let y = e.offsetY;
             let traumaType = document.getElementById('traumaType').value;
 
-            // Insira o ícone png respectivo para cada tipo de trauma
-            let icon = document.createElement('img');
-            icon.src = `/trauma_icon/${traumaType}.png`;
-            icon.style.position = 'absolute';
-
-            // Calcule o centro do ícone
-            let iconWidth, iconHeight;
-            if (window.matchMedia("(max-width: 600px)").matches) {
-                // Tamanho do ícone para dispositivo móvel
-                iconWidth = 30;
-                iconHeight = 30;  // Mantenha o mesmo tamanho para largura e altura
-            } else {
-                // Tamanho do ícone para PC
-                iconWidth = 50;
-                iconHeight = 50;  // Mantenha o mesmo tamanho para largura e altura
-            }
-
-            icon.style.left = `${x - iconWidth / 2}px`;
-            icon.style.top = `${y - iconHeight / 2}px`;
-
-            icon.style.width = `${iconWidth}px`;
-            icon.style.height = `${iconHeight}px`;
-
-            // Remova o padding que pode estar causando distorção
-            icon.style.padding = '0';
-
-            // Adicione o ícone à div da imagem
-            img.parentElement.appendChild(icon);
+            storeTraumaIcon(x, y, traumaType);
+            createTraumaIcon(x, y, traumaType);
         });
     </script>
 </body>
