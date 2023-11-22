@@ -80,7 +80,12 @@ app.get('/menu', (req, res) => {
         res.json({ loggedin: false });
         return;
       }
-      res.json({ name: rows[0].nome, loggedin: true });
+      const result = {
+        name: rows[0].nome,
+        admin: rows[0].administrador,
+        loggedin: true
+      };
+      res.json(result);
     });
   } else {
     res.json({ loggedin: false });
@@ -122,81 +127,47 @@ app.post('/register', (req, res) => {
   });
 });
 
-// Receive form from occurrenceType.html and print it on the console
-app.post('/occurrence', function(req, res) {
-  console.log(req.body);
-  res.send('Received the data.');
-});
-
-app.post('/trauma', (req, res) => {
-  // Supondo que 'data' é o objeto JSON que você deseja armazenar
-  const { data } = req.body;
-
-  // Converta o objeto JSON em uma string
-  const jsonData = JSON.stringify(data);
-
-  // Use uma instrução SQL parametrizada para inserir os dados com segurança
-  const sql = "INSERT INTO traumas (trauma) VALUES (?)";
-  connection.query(sql, [jsonData], function (err, result) {
-    if (err) {
-      console.error(err);
-      res.status(500).send('Internal Server Error');
-      return;
-    }
-    res.send('Dados salvos com sucesso!');
-  });
-});
-
-app.get('/getTrauma', (req, res) => {
-  connection.query(`SELECT * FROM traumas`, function (err, rows) {
-    if (err) {
-      console.error(err);
-      res.status(500).send('Internal Server Error');
-      return;
-    }
-    res.json(rows);
-    console.log(rows);
-  });
-});
-
-app.post('/saveTraumaLocation', (req, res) => {
-  let imgData = req.body.imgData;
-  let base64Data = imgData.replace(/^data:image\/png;base64,/, "");
-
-  // Assuming you have a table `images` with a column `data` of type LONGBLOB
-  connection.query('INSERT INTO images (data) VALUES (?)', [base64Data], function(err, results) {
-      if(err) {
-          console.error(err);
-          res.status(500).send('Internal Server Error');
-          return;
-      }
-      console.log('Image saved successfully');
-      res.send('Image saved successfully');
-  });
-});
-
-app.get('/getTraumaLocation', (req, res) => {
-  let id = req.query.id;
-
-  connection.query(`SELECT * FROM images WHERE id_images = ${id}`, function (err, rows) {
-    if (err) {
-      console.error(err);
-      res.status(500).send('Internal Server Error');
-      return;
-    }
-    res.send(rows[0].data);
-    console.log(rows);
-  });
-});
-
+// Recebe o JSON do site
 app.post('/form', function (req, res) {
   let data = req.body;
   console.log(data);
 
   // Aqui você pode inserir 'data' no seu banco de dados
+  // Por exemplo, para inserir os dados do formulário patientInfoForm, você pode usar o código:
+
+  // Cria uma variável com os valores do JSON
+  let patientInfoForm = [
+    data.patientInfoForm.data,
+    data.patientInfoForm.sexo,
+    data.patientInfoForm.nome_do_hospital,
+    data.patientInfoForm.nome_do_paciente,
+    data.patientInfoForm.idade_paciente,
+    data.patientInfoForm.rg_cpf_paciente,
+    data.patientInfoForm.telefone_paciente,
+    data.patientInfoForm.acompanhante,
+    data.patientInfoForm.idade_acompanhante,
+    data.patientInfoForm.local_da_ocorrencia,
+    data.patientInfoForm.responsavel_preenchimento
+  ];
+
+  // Cria uma variável com o comando SQL
+  let sql = 'INSERT INTO info_paciente (data, sexo, nome_do_hospital, nome_do_paciente, idade_paciente, rg_cpf_paciente, telefone_paciente, acompanhante, idade_acompanhante, local_da_ocorrencia, responsavel_preenchimento) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+
+  // Executa o comando SQL no banco de dados
+  connection.query(sql, patientInfoForm, function (err, result) {
+    if (err) {
+      console.error('Erro ao inserir: ' + err);
+      return;
+    }
+
+    console.log('Dados inseridos com sucesso na tabela info_paciente');
+  });
+
+  // Você pode repetir esse processo para os outros formulários que você tem no seu site, mudando os nomes das tabelas e das colunas de acordo com o seu banco de dados.
 
   res.json({ message: 'Dados recebidos!' });
 });
+
 
 app.listen(3700, () => {
   console.log('Servidor rodando na porta 3700!');

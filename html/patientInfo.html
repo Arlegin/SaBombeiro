@@ -143,7 +143,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <form id="patientInfoForm">
+                <form id="info_paciente">
                     <div class="mb-3">
                         <label for="dateInput" class="form-label">Data:</label>
                         <input type="date" name="date" id="dateInput" class="form-control">
@@ -240,10 +240,10 @@
             localStorage.setItem('formData', JSON.stringify(formData));
         }
 
-        document.getElementById('patientInfoForm').addEventListener('submit', function (event) {
+        document.getElementById('info_paciente').addEventListener('submit', function (event) {
             event.preventDefault();
 
-            collectFormData('patientInfoForm');
+            collectFormData('info_paciente');
 
             // Redireciona para a próxima página
             window.location.href = 'occurrenceType.html';
@@ -271,7 +271,7 @@
 
         // Chama a função quando a página é carregada
         document.addEventListener('DOMContentLoaded', function () {
-            fillFormData('patientInfoForm');
+            fillFormData('info_paciente');
         });
     </script>
 </body>
