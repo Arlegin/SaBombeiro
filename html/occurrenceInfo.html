@@ -77,7 +77,8 @@
         <div class="mb-2 formScroll">
             <div class="list-group list-group-horizontal overflow-x-auto text-center">
                 <a href="/menu.html"
-                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center active">Informações Ocorrência</a>
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center active">Informações
+                    Ocorrência</a>
                 <a href="/patientInfo.html"
                     class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Informações
                     do Paciente</a>
@@ -142,7 +143,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <form id="patientInfoForm">
+                <form id="occurrenceInfoForm">
                     <div class="mb-3">
                         <label for="dateInput" class="form-label">Número USB:</label>
                         <input type="number" name="usbNumber" id="usbNumber" class="form-control"
@@ -152,7 +153,7 @@
                         <label for="dateInput" class="form-label">Número da ocorrência:</label>
                         <input type="number" name="occurrenceNumber" id="occurrenceNumber" class="form-control"
                             placeholder="Número da ocorrência">
-                            <!-- Add script based on the day -->
+                        <!-- Add script based on the day -->
                     </div>
                     <div class="mb-3">
                         <label for="dateInput" class="form-label">DESP.:</label>
@@ -214,7 +215,69 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script>
-        
+        const sairButton = document.querySelector('#exitBtn');
+
+        sairButton.addEventListener('click', () => {
+            window.location.href = 'menu.html';
+        });
+
+
+        function collectFormData(formId) {
+            const form = document.getElementById(formId);
+            const inputs = form.querySelectorAll('input, textarea, select');
+            let data = {};
+
+            inputs.forEach(input => {
+                if (input.type === 'checkbox' || input.type === 'radio') {
+                    data[input.id] = input.checked;
+                } else {
+                    data[input.id] = input.value;
+                }
+            });
+
+            // Recupera o objeto JSON existente ou cria um novo se não existir
+            let formData = JSON.parse(localStorage.getItem('formData')) || {};
+
+            // Adiciona os dados do formulário atual ao objeto JSON
+            formData[formId] = data;
+
+            // Armazena o objeto JSON atualizado no localStorage
+            localStorage.setItem('formData', JSON.stringify(formData));
+        }
+
+        document.getElementById('occurrenceInfoForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            collectFormData('occurrenceInfoForm');
+
+            // Redireciona para a próxima página
+            window.location.href = 'patientInfo.html';
+        });
+
+
+        function fillFormData(formId) {
+            const form = document.getElementById(formId);
+            const inputs = form.querySelectorAll('input, textarea, select');
+
+            // Recupera os dados do localStorage
+            let formData = JSON.parse(localStorage.getItem('formData')) || {};
+            let storedData = formData[formId];
+
+            inputs.forEach(input => {
+                if (storedData && storedData.hasOwnProperty(input.id)) {
+                    if (input.type === 'checkbox' || input.type === 'radio') {
+                        input.checked = storedData[input.id];
+                    } else {
+                        input.value = storedData[input.id];
+                    }
+                }
+            });
+        }
+
+        // Chama a função quando a página é carregada
+        document.addEventListener('DOMContentLoaded', function () {
+            fillFormData('occurrenceInfoForm');
+        });
     </script>
 </body>
 
