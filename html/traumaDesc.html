@@ -380,50 +380,51 @@
             console.log(options);
         });
 
+
         function collectFormData(formId) {
             const form = document.getElementById(formId);
-            const inputs = form.querySelectorAll('input, textarea');
+            const inputs = form.querySelectorAll('input, textarea, select');
             let data = {};
 
             inputs.forEach(input => {
-                if (input.type === 'checkbox') {
+                if (input.type === 'checkbox' || input.type === 'radio') {
                     data[input.id] = input.checked;
                 } else {
                     data[input.id] = input.value;
                 }
             });
 
-            return data;
+            // Recupera o objeto JSON existente ou cria um novo se não existir
+            let formData = JSON.parse(localStorage.getItem('formData')) || {};
+
+            // Adiciona os dados do formulário atual ao objeto JSON
+            formData[formId] = data;
+
+            // Armazena o objeto JSON atualizado no localStorage
+            localStorage.setItem('formData', JSON.stringify(formData));
         }
 
         document.getElementById('traumaDescForm').addEventListener('submit', function (event) {
             event.preventDefault();
 
-            let data = collectFormData('traumaDescForm');
-
-            // Armazena os dados do formulário no localStorage
-            localStorage.setItem('formData', JSON.stringify(data));
+            collectFormData('traumaDescForm');
 
             // Redireciona para a próxima página
-            window.location.href = 'occurrenceType.html';
+            window.location.href = 'GLASGOW.html';
         });
-
-        // Quando você estiver pronto para enviar os dados para o servidor, você pode recuperar os dados do localStorage
-        let storedData = JSON.parse(localStorage.getItem('formData'));
-
-        // Agora você pode enviar 'storedData' para o servidor
 
 
         function fillFormData(formId) {
             const form = document.getElementById(formId);
-            const inputs = form.querySelectorAll('input, textarea');
+            const inputs = form.querySelectorAll('input, textarea, select');
 
             // Recupera os dados do localStorage
-            let storedData = JSON.parse(localStorage.getItem('formData'));
+            let formData = JSON.parse(localStorage.getItem('formData')) || {};
+            let storedData = formData[formId];
 
             inputs.forEach(input => {
                 if (storedData && storedData.hasOwnProperty(input.id)) {
-                    if (input.type === 'checkbox') {
+                    if (input.type === 'checkbox' || input.type === 'radio') {
                         input.checked = storedData[input.id];
                     } else {
                         input.value = storedData[input.id];

@@ -34,10 +34,10 @@ app.use((req, res, next) => {
 
 const connection = mysql.createConnection({
   host: '127.0.0.1',
-  user: 'root',
-  password: 'root',
-  // user: 'adm',
-  // password: 'adm',
+  // user: 'root',
+  // password: 'root',
+  user: 'adm',
+  password: 'adm',
   database: 'sabombeiro'
 });
 

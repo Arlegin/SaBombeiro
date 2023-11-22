@@ -165,7 +165,7 @@
         crossorigin="anonymous"></script>
     <script>
         function collectFormData(formId) {
-            const form = document.getElementById('denialTermForm');
+            const form = document.getElementById(formId);
             const inputs = form.querySelectorAll('input, textarea');
             let data = {};
 
@@ -183,8 +183,24 @@
                 }
             });
 
-            return data;
+            // Recupera o objeto JSON existente ou cria um novo se não existir
+            let formData = JSON.parse(localStorage.getItem('formData')) || {};
+
+            // Adiciona os dados do formulário atual ao objeto JSON
+            formData[formId] = data;
+
+            // Armazena o objeto JSON atualizado no localStorage
+            localStorage.setItem('formData', JSON.stringify(formData));
         }
+
+        document.getElementById('denialTermForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            collectFormData('denialTermForm');
+
+            window.location.href = '/cinematic.html';
+        });
+
     </script>
 </body>
 
