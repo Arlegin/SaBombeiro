@@ -51,6 +51,8 @@ const User = mongoose.model('usuarios', new mongoose.Schema({
   administrador: Boolean
 }));
 
+const Ocorrencia = mongoose.model('ocorrencias', new mongoose.Schema({}, { strict: false }));
+
 app.post('/login', (req, res) => {
   const { cpf, password } = req.body;
   console.log(cpf, password);
@@ -118,6 +120,22 @@ app.post('/register', (req, res) => {
   }).catch(err => {
     console.error(err);
     res.redirect('/register.html?error');
+  });
+});
+
+app.post('/form', (req, res) => {
+  // Os dados serão enviados no corpo da requisição
+  const data = req.body;
+
+  // Crie uma nova ocorrência com os dados recebidos
+  const newOcorrencia = new Ocorrencia(data);
+
+  // Salve a nova ocorrência no banco de dados
+  newOcorrencia.save().then(() => {
+    res.status(200).send('Ocorrência criada com sucesso!');
+  }).catch(err => {
+    console.error(err);
+    res.status(500).send('Erro ao criar a ocorrência');
   });
 });
 
