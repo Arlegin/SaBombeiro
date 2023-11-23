@@ -139,7 +139,7 @@
         <div class="card mb-2 text-light">
             <div class="card-header">
                 <div class="text-center">
-                    <h2 class="card-title mb-0">Procedimentos Efetuados</h2>
+                    <h2 class="card-title mb-0">Avaliação da Cinemática</h2>
                 </div>
             </div>
             <div class="card-body">
@@ -152,28 +152,28 @@
                                 <label class="form-check-label" for="behavior">Distúrbio de comportamento</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="Checkbox" name="cinematicCheckbox"
-                                    id="helmet" value="encontrado_capacete">
+                                <input class="form-check-input" type="Checkbox" name="cinematicCheckbox" id="helmet"
+                                    value="encontrado_capacete">
                                 <label class="form-check-label" for="helmet">Encontrado de capacete</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="Checkbox" name="cinematicCheckbox"
-                                    id="seatbelt" value="encontrado_cinto">
+                                <input class="form-check-input" type="Checkbox" name="cinematicCheckbox" id="seatbelt"
+                                    value="encontrado_cinto">
                                 <label class="form-check-label" for="seatbelt">Encontrado de cinto</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="Checkbox" name="cinematicCheckbox"
-                                    id="windshield" value="para_brisas_avariado">
+                                <input class="form-check-input" type="Checkbox" name="cinematicCheckbox" id="windshield"
+                                    value="para_brisas_avariado">
                                 <label class="form-check-label" for="windshield">Para-brisas avariado</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="Checkbox" name="cinematicCheckbox"
-                                    id="walking" value="caminhando_cena">
+                                <input class="form-check-input" type="Checkbox" name="cinematicCheckbox" id="walking"
+                                    value="caminhando_cena">
                                 <label class="form-check-label" for="walking">Caminhando na cena</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="Checkbox" name="cinematicCheckbox"
-                                    id="pannel" value="painel_avariado">
+                                <input class="form-check-input" type="Checkbox" name="cinematicCheckbox" id="pannel"
+                                    value="painel_avariado">
                                 <label class="form-check-label" for="pannel">Painel avariado</label>
                             </div>
                             <div class="form-check">
@@ -223,10 +223,7 @@
 
             collectFormData('cinematicForm');
 
-            // Redireciona para a próxima página
-            window.location.href = 'sendForm.html';
         });
-
 
         function fillFormData(formId) {
             const form = document.getElementById(formId);
@@ -249,7 +246,16 @@
 
         // Chama a função quando a página é carregada
         document.addEventListener('DOMContentLoaded', function () {
+
             fillFormData('cinematicForm');
+
+            document.getElementById('backBtn').addEventListener('click', function () {
+                window.location.href = 'denialTerm.html';
+            });
+
+            document.getElementById('nextBtn').addEventListener('click', function () {
+                window.location.href = 'sendForm.html';
+            });
         });
     </script>
 </body>

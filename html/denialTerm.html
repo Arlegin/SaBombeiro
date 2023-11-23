@@ -126,10 +126,10 @@
                     Descartáveis
                     Utilizados</a>
                 <a href="/obs.html"
-                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center active">Observações
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Observações
                 </a>
                 <a href="/denialTerm.html"
-                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center">Termo
+                    class="list-group-item list-group-item-action text-light d-flex align-items-center justify-content-center active">Termo
                     Recusa
                 </a>
                 <a href="/cinematic.html"
@@ -141,7 +141,7 @@
         <div class="card mb-2 text-light">
             <div class="card-header">
                 <div class="text-center">
-                    <h2 class="card-title mb-0">Observações e Objetos Recolhidos</h2>
+                    <h2 class="card-title mb-0">Termo de Recusa</h2>
                 </div>
             </div>
             <div class="card-body">
@@ -176,11 +176,13 @@
                 if (input.type === 'checkbox') {
                     data[input.id] = input.checked;
                 } else if (input.type === 'file') {
-                    let reader = new FileReader();
-                    reader.onload = function (e) {
-                        data[input.id] = e.target.result;
+                    if (input.files.length > 0) { // Adicione esta linha
+                        let reader = new FileReader();
+                        reader.onload = function (e) {
+                            data[input.id] = e.target.result;
+                        }
+                        reader.readAsDataURL(input.files[0]);
                     }
-                    reader.readAsDataURL(input.files[0]);
                 } else {
                     data[input.id] = input.value;
                 }
