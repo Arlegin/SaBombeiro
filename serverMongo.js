@@ -60,7 +60,11 @@ app.post('/login', (req, res) => {
     if (user && user.senha === password) {
       req.session.loggedin = true;
       req.session.cpf = cpf;
-      res.redirect('/menu.html');
+      if (user.administrador) {
+        res.redirect('/menuAdmin.html');
+      } else {
+        res.redirect('/menu.html');
+      }
       console.log(user);
     } else {
       res.redirect('/login.html?invalid');
@@ -68,7 +72,7 @@ app.post('/login', (req, res) => {
   }).catch(err => {
     console.error(err);
     res.status(500).send('Internal Server Error');
-  });  
+  });
 });
 
 app.get('/logout', (req, res) => {
@@ -114,7 +118,7 @@ app.get('/menuAdmin', (req, res) => {
 
 app.post('/register', (req, res) => {
   const { cpf, name, password } = req.body;
-  const newUser = new User({ cpf: cpf, nome: name, senha: password });
+  const newUser = new User({ cpf: cpf, nome: name, senha: password, administrador: false });
   newUser.save().then(() => {
     res.redirect('/register.html?success');
   }).catch(err => {
