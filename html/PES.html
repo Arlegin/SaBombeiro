@@ -285,9 +285,6 @@
             event.preventDefault();
 
             collectFormData('PESForm');
-
-            // Redireciona para a próxima página
-            window.location.href = 'symptoms.html';
         });
 
 
@@ -312,7 +309,16 @@
 
         // Chama a função quando a página é carregada
         document.addEventListener('DOMContentLoaded', function () {
+
             fillFormData('PESForm');
+
+            document.getElementById('backBtn').addEventListener('click', function () {
+                window.location.href = 'occurrenceType.html';
+            });
+
+            document.getElementById('nextBtn').addEventListener('click', function () {
+                window.location.href = 'symptoms.html';
+            });
         });
     </script>
 </body>

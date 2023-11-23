@@ -207,13 +207,13 @@
                                 <!-- normal/anormal inputs -->
                                 <div class="col d-flex justify-content-center gap-5">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="normal/anormal"
-                                            id="normal" value="0">
+                                        <input class="form-check-input" type="radio" name="normal/anormal" id="normal"
+                                            value="0">
                                         <label class="form-check-label fs-5" for="normal">Normal</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="normal/anormal"
-                                            id="anormal" value="1">
+                                        <input class="form-check-input" type="radio" name="normal/anormal" id="anormal"
+                                            value="1">
                                         <label class="form-check-label fs-5" for="anormal">Anormal</label>
                                     </div>
                                 </div>
@@ -280,9 +280,6 @@
             event.preventDefault();
 
             collectFormData('vitalSignsForm');
-
-            // Redireciona para a próxima página
-            window.location.href = 'patientSituation.html';
         });
 
 
@@ -307,7 +304,16 @@
 
         // Chama a função quando a página é carregada
         document.addEventListener('DOMContentLoaded', function () {
+
             fillFormData('vitalSignsForm');
+
+            document.getElementById('backBtn').addEventListener('click', function () {
+                window.location.href = 'GLASGOW.html';
+            });
+
+            document.getElementById('nextBtn').addEventListener('click', function () {
+                window.location.href = 'patientSituation.html';
+            });
         });
     </script>
 </body>

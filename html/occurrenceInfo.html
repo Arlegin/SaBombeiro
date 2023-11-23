@@ -249,9 +249,6 @@
             event.preventDefault();
 
             collectFormData('occurrenceInfoForm');
-
-            // Redireciona para a próxima página
-            window.location.href = 'patientInfo.html';
         });
 
 
@@ -276,7 +273,12 @@
 
         // Chama a função quando a página é carregada
         document.addEventListener('DOMContentLoaded', function () {
+
             fillFormData('occurrenceInfoForm');
+
+            document.getElementById('nextBtn').addEventListener('click', function () {
+                window.location.href = 'patientInfo.html';
+            });
         });
     </script>
 </body>

@@ -199,9 +199,6 @@
             event.preventDefault();
 
             collectFormData('obsForm');
-
-            // Redireciona para a próxima página
-            window.location.href = 'denialTerm.html';
         });
 
 
@@ -226,7 +223,16 @@
 
         // Chama a função quando a página é carregada
         document.addEventListener('DOMContentLoaded', function () {
+
             fillFormData('obsForm');
+
+            document.getElementById('backBtn').addEventListener('click', function () {
+                window.location.href = 'oneWayMaterial.html';
+            });
+
+            document.getElementById('nextBtn').addEventListener('click', function () {
+                window.location.href = 'denialTerm.html';
+            });
         });
     </script>
 </body>

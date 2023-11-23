@@ -234,7 +234,8 @@
                                         </div>
                                     </div>
                                     <label for="babyName">Nome do bebê</label>
-                                    <input type="text" class="form-control time" placeholder="Digite aqui..." id="babyName">
+                                    <input type="text" class="form-control time" placeholder="Digite aqui..."
+                                        id="babyName">
                                 </div>
                             </div>
                         </div>
@@ -337,9 +338,6 @@
             event.preventDefault();
 
             collectFormData('birthAnamnesisForm');
-
-            // Redireciona para a próxima página
-            window.location.href = 'hospitalMaterial.html';
         });
 
 
@@ -364,7 +362,16 @@
 
         // Chama a função quando a página é carregada
         document.addEventListener('DOMContentLoaded', function () {
+
             fillFormData('birthAnamnesisForm');
+
+            document.getElementById('backBtn').addEventListener('click', function () {
+                window.location.href = 'medicalAnamnesis.html';
+            });
+
+            document.getElementById('nextBtn').addEventListener('click', function () {
+                window.location.href = 'hospitalMaterial.html';
+            });
         });
     </script>
 </body>

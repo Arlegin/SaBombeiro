@@ -154,8 +154,8 @@
                                     <label class="form-check-label" for="animals">Deitada</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="occurrenceRadio1"
-                                        id="semiLay" value="semi_deitada">
+                                    <input class="form-check-input" type="radio" name="occurrenceRadio1" id="semiLay"
+                                        value="semi_deitada">
                                     <label class="form-check-label" for="transportation">Semi-deitada</label>
                                 </div>
                                 <div class="form-check">
@@ -178,8 +178,8 @@
                                 </div>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="occurrenceRadio2" id="potentiallyUnstable"
-                                        value="potencialmente_instavel">
+                                    <input class="form-check-input" type="radio" name="occurrenceRadio2"
+                                        id="potentiallyUnstable" value="potencialmente_instavel">
                                     <label class="form-check-label" for="runOver">Potencialmente instável</label>
                                 </div>
                                 <div class="form-check">
@@ -208,13 +208,13 @@
                                     <label class="form-check-label" for="motorcycle">Gestante</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="occurrenceRadio3" id="frontSeatPassenger"
-                                        value="pass_ban_frente">
+                                    <input class="form-check-input" type="radio" name="occurrenceRadio3"
+                                        id="frontSeatPassenger" value="pass_ban_frente">
                                     <label class="form-check-label" for="fallLevel">Pass. banco frente</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="occurrenceRadio3" id="motorbikePassenger"
-                                        value="pass_moto">
+                                    <input class="form-check-input" type="radio" name="occurrenceRadio3"
+                                        id="motorbikePassenger" value="pass_moto">
                                     <label class="form-check-label" for="job">Pass. moto</label>
                                 </div>
                                 <div class="form-check">
@@ -233,8 +233,8 @@
                                     <label class="form-check-label" for="other">Trauma</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="occurrenceRadio3" id="backSeatPassenger"
-                                        value="pas_bco_tras">
+                                    <input class="form-check-input" type="radio" name="occurrenceRadio3"
+                                        id="backSeatPassenger" value="pas_bco_tras">
                                     <label class="form-check-label" for="other">Pass. banco trás</label>
                                 </div>
                                 <div class="form-check">
@@ -305,9 +305,6 @@
             event.preventDefault();
 
             collectFormData('patientSituationForm');
-
-            // Redireciona para a próxima página
-            window.location.href = 'proceduresDone.html';
         });
 
 
@@ -332,7 +329,16 @@
 
         // Chama a função quando a página é carregada
         document.addEventListener('DOMContentLoaded', function () {
+
             fillFormData('patientSituationForm');
+
+            document.getElementById('backBtn').addEventListener('click', function () {
+                window.location.href = 'vitalSigns.html';
+            });
+
+            document.getElementById('nextBtn').addEventListener('click', function () {
+                window.location.href = 'proceduresDone.html';
+            });
         });
     </script>
 </body>

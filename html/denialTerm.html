@@ -202,8 +202,20 @@
             event.preventDefault();
 
             collectFormData('denialTermForm');
+        });
 
-            window.location.href = '/cinematic.html';
+        // Chama a função quando a página é carregada
+        document.addEventListener('DOMContentLoaded', function () {
+
+            fillFormData('denialTermForm');
+
+            document.getElementById('backBtn').addEventListener('click', function () {
+                window.location.href = 'obs.html';
+            });
+
+            document.getElementById('nextBtn').addEventListener('click', function () {
+                window.location.href = 'cinematic.html';
+            });
         });
     </script>
 </body>
