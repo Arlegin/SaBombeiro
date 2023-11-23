@@ -176,6 +176,11 @@
             };
             xhr.send();
         }
+
+        document.addEventListener("DOMContentLoaded", function (event) {
+            // Chamar a função que deleta os dados
+            localStorage.removeItem('formData');
+        });
     </script>
 </body>
 

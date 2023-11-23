@@ -258,26 +258,6 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script>
-
-        // Submit form data to the server
-        document.querySelector('form').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            let selectedRadioValue = document.querySelector('input[name="occurrenceRadio"]:checked').value;
-
-            fetch('/occurrence', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ occurrence: selectedRadioValue }),
-            })
-                .then(response => response.text())
-                .then(data => console.log(data))
-                .catch((error) => console.error('Error:', error));
-        });
-
-
         function collectFormData(formId) {
             const form = document.getElementById(formId);
             const inputs = form.querySelectorAll('input, textarea, select');
@@ -326,6 +306,11 @@
                 }
             });
         }
+
+        window.addEventListener("beforeunload", function (event) {
+            // Chamar a função que salva os dados
+            collectFormData('patientSituationForm');
+        });
 
         // Chama a função quando a página é carregada
         document.addEventListener('DOMContentLoaded', function () {

@@ -433,6 +433,11 @@
             });
         }
 
+        window.addEventListener("beforeunload", function (event) {
+            // Chamar a função que salva os dados
+            collectFormData('traumaDescForm');
+        });
+
         // Chama a função quando a página é carregada
         document.addEventListener('DOMContentLoaded', function () {
 

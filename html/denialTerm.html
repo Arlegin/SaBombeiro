@@ -204,6 +204,11 @@
             collectFormData('denialTermForm');
         });
 
+        window.addEventListener("beforeunload", function (event) {
+            // Chamar a função que salva os dados
+            collectFormData('denialTermForm');
+        });
+
         // Chama a função quando a página é carregada
         document.addEventListener('DOMContentLoaded', function () {
 
