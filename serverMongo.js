@@ -123,7 +123,7 @@ app.post('/register', (req, res) => {
     res.redirect('/register.html?success');
   }).catch(err => {
     console.error(err);
-    res.redirect('/register.html?error:'+err);
+    res.redirect('/register.html?error:' + err);
   });
 });
 
@@ -142,6 +142,24 @@ app.post('/form', (req, res) => {
     res.status(500).send('Erro ao criar a ocorrência');
   });
 });
+
+// Criar uma rota para /api/usuarios
+app.get('/api/usuarios', (req, res) => {
+  // Buscar o usuário no banco de dados pelo cpf
+  User.findOne({ cpf: req.session.cpf }).then(user => {
+    // Criar um objeto com o nome do usuário
+    let usuario = {
+      name: user.nome
+    };
+    // Enviar o objeto como resposta em formato JSON
+    res.json(usuario);
+  }).catch(err => {
+    // Tratar o erro
+    console.error(err);
+    res.status(500).send('Erro ao buscar o usuário');
+  });
+});
+
 
 app.listen(3700, () => {
   console.log('Serivor rodando na porta 3700!');

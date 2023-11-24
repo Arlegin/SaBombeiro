@@ -240,6 +240,17 @@
             document.getElementById('companionAge').value = age;
         });
 
+        // Receive name from server and fill responsible input
+        fetch('/api/usuarios')
+            .then(response => response.json())
+            .then(data => {
+                const responsibleInput = document.getElementById('responsibleInput');
+                responsibleInput.value = data.name;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
         function collectFormData(formId) {
             const form = document.getElementById(formId);
             const inputs = form.querySelectorAll('input, textarea, select');
@@ -307,6 +318,35 @@
                 window.location.href = 'occurrenceType.html';
             });
         });
+
+        // Função que é executada quando a página é carregada
+        window.onload = function () {
+            // Selecionar o elemento input pelo id
+            var input = document.getElementById("dateInput");
+
+            // Criar um objeto Date com a data atual
+            var hoje = new Date();
+
+            // Obter o ano, mês e dia do objeto Date
+            var ano = hoje.getFullYear();
+            var mes = hoje.getMonth() + 1; // O mês começa em 0, então precisa somar 1
+            var dia = hoje.getDate();
+
+            // Adicionar um zero à esquerda se o mês ou o dia tiverem apenas um dígito
+            if (mes < 10) {
+                mes = "0" + mes;
+            }
+            if (dia < 10) {
+                dia = "0" + dia;
+            }
+
+            // Formatar a data no padrão YYYY-MM-DD
+            var dataFormatada = ano + "-" + mes + "-" + dia;
+
+            // Atribuir a data formatada ao valor do input
+            input.value = dataFormatada;
+        };
+
     </script>
 </body>
 
