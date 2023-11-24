@@ -127,9 +127,26 @@ app.post('/register', (req, res) => {
   });
 });
 
+let dailyId = 0;
+let currentDay = new Date().getDate();
+
 app.post('/form', (req, res) => {
+  // Verifique se o dia atual mudou
+  const today = new Date().getDate();
+  if (today !== currentDay) {
+    // Se o dia mudou, reinicie o dailyId e atualize o currentDay
+    dailyId = 0;
+    currentDay = today;
+  }
+
+  // Incremente o dailyId
+  dailyId++;
+
   // Os dados serão enviados no corpo da requisição
   const data = req.body;
+
+  // Adicione o dailyId ao JSON
+  data.dailyId = dailyId;
 
   // Crie uma nova ocorrência com os dados recebidos
   const newOcorrencia = new Ocorrencia(data);
