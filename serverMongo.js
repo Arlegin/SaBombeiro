@@ -123,7 +123,7 @@ app.post('/register', (req, res) => {
     res.redirect('/register.html?success');
   }).catch(err => {
     console.error(err);
-    res.redirect('/register.html?error');
+    res.redirect('/register.html?error:'+err);
   });
 });
 
