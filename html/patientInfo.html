@@ -217,6 +217,29 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script>
+        // Only accept 11 numbers in CPF input
+        document.getElementById('patientCPF').addEventListener('input', function () {
+            let cpf = document.getElementById('patientCPF').value;
+            cpf = cpf.replace(/\D/g, '');
+            document.getElementById('patientCPF').value = cpf;
+            if (cpf.length > 11) {
+                document.getElementById('patientCPF').value = cpf.slice(0, 11);
+            }
+        });
+
+        // Only accept numbers in age inputs
+        document.getElementById('patientAge').addEventListener('input', function () {
+            let age = document.getElementById('patientAge').value;
+            age = age.replace(/\D/g, '');
+            document.getElementById('patientAge').value = age;
+        });
+
+        document.getElementById('companionAge').addEventListener('input', function () {
+            let age = document.getElementById('companionAge').value;
+            age = age.replace(/\D/g, '');
+            document.getElementById('companionAge').value = age;
+        });
+
         function collectFormData(formId) {
             const form = document.getElementById(formId);
             const inputs = form.querySelectorAll('input, textarea, select');

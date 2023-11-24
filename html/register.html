@@ -119,6 +119,16 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script>
+        // Only accept 11 numbers in CPF input
+        document.getElementById('cpf').addEventListener('input', function () {
+            let cpf = document.getElementById('cpf').value;
+            cpf = cpf.replace(/\D/g, '');
+            document.getElementById('cpf').value = cpf;
+            if (cpf.length > 11) {
+                document.getElementById('cpf').value = cpf.slice(0, 11);
+            }
+        });
+
         // Redirect to login when button is clicked
         function menuBtn() {
             window.location.href = "menuAdmin.html";
