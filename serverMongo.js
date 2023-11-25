@@ -55,7 +55,6 @@ const Ocorrencia = mongoose.model('ocorrencias', new mongoose.Schema({}, { stric
 
 app.post('/login', (req, res) => {
   const { cpf, password } = req.body;
-  console.log(cpf, password);
   User.findOne({ cpf: cpf }).then(user => {
     if (user && user.senha === password) {
       req.session.loggedin = true;
@@ -65,7 +64,6 @@ app.post('/login', (req, res) => {
       } else {
         res.redirect('/menu.html');
       }
-      console.log(user);
     } else {
       res.redirect('/login.html?invalid');
     }

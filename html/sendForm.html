@@ -86,7 +86,7 @@
                     <p>Deseja editar ou enviar o relatório?</p>
                     <div class="d-flex justify-content-center gap-5">
                         <button class="btn btn-primary"
-                            onclick="window.location.href='patientInfo.html'">Editar</button>
+                            onclick="window.location.href='occurrenceInfo.html'">Editar</button>
                         <button class="btn btn-success" onclick="sendReport()">Enviar</button>
                     </div>
                 </div>
@@ -99,6 +99,7 @@
         crossorigin="anonymous"></script>
     <script>
         function sendReport() {
+            console.log(localStorage.getItem('formData'))
             let storedData = JSON.parse(localStorage.getItem('formData'));
 
             // Envia 'storedData' para o servidor
@@ -108,17 +109,18 @@
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(storedData)
-            }).then(response => response.json())
-                .then(data => {
-                    // Imprime os dados do JSON no console
-                    console.log(data);
-
-                    // Após o envio bem-sucedido dos dados, limpe o 'localStorage'
-                    localStorage.removeItem('formData');
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
+            }).then(response => {
+                if (response.headers.get('content-type').includes('application/json')) {
+                    return response.json();
+                } else {
+                    return response.text();
+                }
+            }).then(data => {
+                console.log(data);
+                localStorage.removeItem('formData');
+            }).catch((error) => {
+                console.error('Error:', error);
+            });
         }
     </script>
 </body>
