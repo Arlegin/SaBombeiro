@@ -97,16 +97,17 @@
         crossorigin="anonymous"></script>
     <script>
         function sendReport() {
-            console.log(localStorage.getItem('formData'))
-            let storedData = JSON.parse(localStorage.getItem('formData'));
+            // Recupera os dados do formulário e da imagem do localStorage
+            let formData = JSON.parse(localStorage.getItem('formData')) || {};
+            console.log('Stored Data:', formData);  // Imprime os dados recuperados do localStorage
 
-            // Envia 'storedData' para o servidor
+            // Envia 'formData' para o servidor
             fetch('/form', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(storedData)
+                body: JSON.stringify(formData)
             }).then(response => {
                 if (response.headers.get('content-type').includes('application/json')) {
                     return response.json();
@@ -115,11 +116,13 @@
                 }
             }).then(data => {
                 window.location.href = 'menu.html';
-                localStorage.removeItem('formData');
+                // Limpa todo o localStorage
+                localStorage.clear();
             }).catch((error) => {
                 console.error('Error:', error);
             });
         }
+
 
         function imageLogin() {
             // Verify if the user is logged in

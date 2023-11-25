@@ -226,29 +226,27 @@
             removeLastTraumaIcon();
         });
 
-        document.getElementById('nextBtn').addEventListener('click', function (e) {
+        document.getElementById('nextBtn').addEventListener('click', async function (e) {
             e.preventDefault();
 
-            html2canvas(document.getElementById('imageContainer')).then(function (canvas) {
-                let scaledCanvas = document.createElement('canvas');
-                scaledCanvas.width = 632;
-                scaledCanvas.height = 831;
-                scaledCanvas.getContext('2d').drawImage(canvas, 0, 0, 632, 831);
+            let canvas = await html2canvas(document.getElementById('imageContainer'));
+            let imgData = canvas.toDataURL('image/png');
 
-                let imgData = scaledCanvas.toDataURL('image/png');
+            // Recupera o objeto JSON existente ou cria um novo se não existir
+            let formData = JSON.parse(localStorage.getItem('formData')) || {};
 
-                // Recupera o objeto JSON existente ou cria um novo se não existir
-                let formData = JSON.parse(localStorage.getItem('formData')) || {};
+            // Adiciona a imagem ao objeto JSON
+            formData['traumaImage'] = imgData;
 
-                // Adiciona a imagem ao objeto JSON
-                formData['traumaImage'] = imgData;
+            // Armazena o objeto JSON atualizado no localStorage
+            localStorage.setItem('formData', JSON.stringify(formData));
 
-                // Armazena o objeto JSON atualizado no localStorage
-                localStorage.setItem('formData', JSON.stringify(formData));
-            });
+            console.log('Stored Data:', formData);  // Imprime os dados armazenados no localStorage
 
+            // Navega para a próxima página
             window.location.href = 'traumaDesc.html';
         });
+
 
         let img = document.getElementById('humanBody');
         img.addEventListener('click', function (e) {
