@@ -59,6 +59,7 @@ app.post('/login', (req, res) => {
     if (user && user.senha === password) {
       req.session.loggedin = true;
       req.session.cpf = cpf;
+      req.session.name = user.nome;
       if (user.administrador) {
         res.redirect('/menuAdmin.html');
       } else {
@@ -79,24 +80,6 @@ app.get('/logout', (req, res) => {
 });
 
 app.get('/menu', (req, res) => {
-  if (req.session.loggedin) {
-    User.findOne({ cpf: req.session.cpf }).then(user => {
-      const result = {
-        name: user.nome,
-        admin: user.administrador,
-        loggedin: true
-      };
-      res.json(result);
-    }).catch(err => {
-      console.error(err);
-      res.json({ loggedin: false });
-    });
-  } else {
-    res.json({ loggedin: false });
-  }
-});
-
-app.get('/menuAdmin', (req, res) => {
   if (req.session.loggedin) {
     User.findOne({ cpf: req.session.cpf }).then(user => {
       const result = {
@@ -145,6 +128,10 @@ app.post('/form', (req, res) => {
 
   // Adicione o dailyId ao JSON
   data.dailyId = dailyId;
+
+  // Adicione o cpf e nome do usuário ao JSON
+  data.cpfUser = req.session.cpf;
+  data.nomeUser = req.session.name;
 
   // Crie uma nova ocorrência com os dados recebidos
   const newOcorrencia = new Ocorrencia(data);

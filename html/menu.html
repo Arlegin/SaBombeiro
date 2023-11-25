@@ -139,6 +139,10 @@
 
                     // Check if user is logged in
                     if (response.loggedin) {
+                        if (response.admin = 1) {
+                            // Redirect to admin menu
+                            window.location.href = "menuAdmin.html";
+                        }
                         // Update HTML element with firefighter name
                         const fireName = document.getElementById('fireName');
                         fireName.textContent = response.name;

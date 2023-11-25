@@ -140,7 +140,7 @@
 
         function getFirefighterName() {
             const xhr = new XMLHttpRequest();
-            xhr.open('GET', '/menuAdmin');
+            xhr.open('GET', '/menu');
             xhr.onload = function () {
                 if (xhr.status === 200) {
                     // Parse JSON response
