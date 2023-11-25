@@ -53,6 +53,10 @@ const User = mongoose.model('usuarios', new mongoose.Schema({
 
 const Ocorrencia = mongoose.model('ocorrencias', new mongoose.Schema({}, { strict: false }));
 
+app.get('/checkLogin', (req, res) => {
+  res.json({ loggedin: req.session.loggedin });
+});
+
 app.post('/login', (req, res) => {
   const { cpf, password } = req.body;
   User.findOne({ cpf: cpf }).then(user => {
@@ -162,6 +166,15 @@ app.get('/api/usuarios', (req, res) => {
   });
 });
 
+app.get('/occurrenceHistory', async (req, res) => {
+  try {
+    const ocorrencias = await Ocorrencia.find({}, '_id dailyId info_paciente.dateInput');
+    res.json(ocorrencias);
+    console.log(ocorrencias);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
 
 app.listen(3700, () => {
   console.log('Serivor rodando na porta 3700!');
