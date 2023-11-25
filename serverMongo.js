@@ -176,6 +176,17 @@ app.get('/occurrenceHistory', async (req, res) => {
   }
 });
 
+// Get all occurrence data and send to occurrence.html
+app.get('/occurrence', async (req, res) => {
+  try {
+    const ocorrencias = await Ocorrencia.find({}, '-_id');
+    console.log(ocorrencias);
+    res.json(ocorrencias);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
 app.listen(3700, () => {
   console.log('Serivor rodando na porta 3700!');
 });

@@ -86,20 +86,11 @@
     <div class="container position-absolute top-50 start-50 translate-middle">
         <div class="row">
             <div class="text-center">
-                <h1 class="fs-1">Histórico de Ocorrências</h1>
-                <!-- Table with the occurrence history -->
-                <table class="table table-dark table-striped table-hover mt-5">
-                    <thead>
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">ID Dia</th>
-                            <th scope="col">Data</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Table rows are generated dynamically -->
-                    </tbody>
-                </table>
+                <h1 class="fs-5">Ocorrência:</h1>
+                <p class="fs-5" id="occurrenceId"></p>
+            </div>
+            <div class="JSON">
+
             </div>
         </div>
     </div>
@@ -127,41 +118,41 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script>
-        window.addEventListener('load', function () {
-            // Primeira função
-            fetch('/occurrenceHistory')
-                .then(response => response.json())
-                .then(data => {
-                    const tbody = document.querySelector('tbody');
-                    data.forEach((item, i) => {
-                        const tr = document.createElement('tr');
-                        tr.style.cursor = 'pointer';
-                        tr.style.textAlign = 'center';
-                        tr.addEventListener('click', () => {
-                            window.location.href = `/occurrence.html?id=${item._id}`;
-                        });
-                        // Formata a data para o formato brasileiro
-                        const date = new Date(item.info_paciente.dateInput);
-                        const day = date.getDate().toString().padStart(2, '0');
-                        const month = (date.getMonth() + 1).toString().padStart(2, '0');
-                        const year = date.getFullYear();
-                        item.info_paciente.dateInput = `${day}/${month}/${year}`;
+        // seleciona a div com class="JSON"
+        var container = document.querySelector('.JSON');
 
-                        tr.innerHTML = `
-                        <td>
-                            ${item._id.substring(0, 12)}<br>
-                            ${item._id.substring(12)}
-                        </td>
-                        <td class="align-middle">${item.dailyId}</td>
-                        <td class="align-middle">${item.info_paciente.dateInput}</td>
-                `;
-                        tbody.appendChild(tr);
-                    });
-                    // Chama a segunda função depois que a primeira função terminar
-                    isLoggedIn();
-                })
-                .catch(error => console.error(error));
-        });
+        // obtém os dados JSON da rota
+        fetch('/occurrence')
+            .then(response => response.json())
+            .then(data => {
+                // cria um elemento pre
+                var pre = document.createElement('pre');
+                // converte o objeto JSON em uma string formatada
+                var json = JSON.stringify(data, null, 2);
+                // define o conteúdo do pre com a string JSON
+                pre.innerHTML = json;
+                // anexa o pre ao container
+                container.appendChild(pre);
+            })
+            .catch(error => {
+                // trata o erro, se houver
+                console.error(error);
+            });
+
+
+
+        // Get the occurrence id from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const occurrenceId = urlParams.get('id');
+
+        // Insert the occurrence id into the page
+        document.getElementById('occurrenceId').innerHTML = occurrenceId;
+
+
+        // When the page loads, check if the user is logged in
+        window.onload = function () {
+            isLoggedIn();
+        }
 
         function isLoggedIn() {
             fetch('/checkLogin')
