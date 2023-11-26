@@ -28,8 +28,8 @@
                                 Ocorrências</a>
                         </li>
                         <form action="/logout" method="GET">
-                                <button type="submit" class="btn btn-primary">Logout</button>
-                            </form>
+                            <button type="submit" class="btn btn-primary">Logout</button>
+                        </form>
                     </ul>
                 </div>
             </nav>
@@ -143,7 +143,7 @@
             <div class="card-body">
                 <form id="GlasgowForm"> <!-- Maior de 5 anos -->
                     <div class="row justify-content-around">
-                        <div class="col-5" id="above5">
+                        <div class="col-5 d-none" id="above5">
                             <h3 class="text-center">Maiores de 5 anos</h3>
                             <div class="row border bg-info bg-opacity-10 border border-info rounded-top">
                                 <div
@@ -251,13 +251,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="mt-3 d-flex gap-1">
-                                <h3>Total:</h3>
-                                <h3 id="totalSum_1">0</h3>
-                            </div>
                         </div>
 
-                        <div class="col-5" id="below5">
+                        <div class="col-5 d-none" id="below5">
                             <h3 class="text-center">Menores de 5 anos</h3>
                             <div class="row border bg-info bg-opacity-10 border border-info rounded-top">
                                 <div
@@ -372,11 +368,10 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="mt-3 d-flex gap-1">
-                                <h3>Total:</h3>
-                                <h3 id="totalSum_2">0</h3>
-                            </div>
+                        </div>
+                        <div class="mt-3 d-flex gap-1 justify-content-center">
+                            <h3>Total:</h3>
+                            <h3 id="totalSum">0</h3>
                         </div>
                     </div>
                     <div class="d-flex justify-content-between mt-3">
@@ -392,8 +387,33 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script>
-        // Get the total sum of the selected radio buttons
-        const radios = document.querySelectorAll('#above5 input[type=radio]');
+        // Only show Glasgow > 5 years old if localstorage patientAge (inside info_paciente object) is > 5
+        document.addEventListener('DOMContentLoaded', function () {
+            let patientAge = localStorage.getItem('formData');
+            patientAge = JSON.parse(patientAge);
+            if (patientAge ?.info_paciente?.patientAge === undefined) {
+                patientAge = 0;
+            } else {
+                patientAge = patientAge.info_paciente.patientAge;
+            }
+
+            if (patientAge > 5) {
+                document.getElementById('above5').classList.remove('d-none');
+                // Clean the below 5 years old Glasgow from page
+                document.getElementById('below5').querySelectorAll('input[type=radio]').forEach(function (radio) {
+                    radio.checked = false;
+                });
+            } else {
+                document.getElementById('below5').classList.remove('d-none');
+                // Clean the above 5 years old Glasgow from page
+                document.getElementById('above5').querySelectorAll('input[type=radio]').forEach(function (radio) {
+                    radio.checked = false;
+                });
+            }
+        });
+
+        // Get the total sum of the selected radio buttons.
+        const radios = document.querySelectorAll('input[type=radio]');
         let totalSum = 0;
 
         radios.forEach(function (radio) {
@@ -404,30 +424,16 @@
                         totalSum += parseInt(radio.value);
                     }
                 });
-                document.getElementById('totalSum_1').innerHTML = totalSum;
+                document.getElementById('totalSum').innerHTML = totalSum;
             });
         });
-
-        // Get the total sum2 of the selected radio buttons2
-        const radios2 = document.querySelectorAll('#below5 input[type=radio]');
-        let totalSum2 = 0;
-
-        radios2.forEach(function (radio) {
-            radio.addEventListener('change', function () {
-                totalSum2 = 0;
-                radios2.forEach(function (radio) {
-                    if (radio.checked) {
-                        totalSum2 += parseInt(radio.value);
-                    }
-                });
-                document.getElementById('totalSum_2').innerHTML = totalSum2;
-            });
-        });
-
-
+        
         function collectFormData(formId) {
             const form = document.getElementById(formId);
             const inputs = form.querySelectorAll('input, textarea, select');
+            const totalSumSave = document.getElementById('totalSum').innerHTML;
+            console.log(totalSumSave);
+
             let data = {};
 
             inputs.forEach(input => {
@@ -437,6 +443,8 @@
                     data[input.id] = input.value;
                 }
             });
+
+            data['totalSum'] = totalSumSave;
 
             // Recupera o objeto JSON existente ou cria um novo se não existir
             let formData = JSON.parse(localStorage.getItem('formData')) || {};
@@ -450,10 +458,8 @@
 
         document.getElementById('GlasgowForm').addEventListener('submit', function (event) {
             event.preventDefault();
-
             collectFormData('GlasgowForm');
         });
-
 
         function fillFormData(formId) {
             const form = document.getElementById(formId);
