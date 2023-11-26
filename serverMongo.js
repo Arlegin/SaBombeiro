@@ -177,23 +177,23 @@ app.get('/occurrenceHistory', async (req, res) => {
 });
 
 // Get all occurrence data and send to occurrence.html
-app.get('/occurrence', async (req, res) => {
+app.get('/occurrence/:id', async (req, res) => {
   try {
-    const ocorrencias = await Ocorrencia.find({}, '-_id');
-    console.log(ocorrencias);
-    res.json(ocorrencias);
+    const id = req.params.id;
+    const ocorrencia = await Ocorrencia.findById(id);
+    
+    if (!ocorrencia) {
+      res.status(404).json({ error: 'Ocorrência não encontrada' });
+      return;
+    }
+
+    res.json(ocorrencia);
   } catch (err) {
     res.status(500).send(err);
   }
 });
 
+
 app.listen(3700, () => {
   console.log('Serivor rodando na porta 3700!');
 });
-
-
-
-
-
-
-

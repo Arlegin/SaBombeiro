@@ -83,14 +83,336 @@
         <a href="menu.html" class="btn btn-primary">Voltar</a>
     </div>
 
-    <div class="container position-absolute top-50 start-50 translate-middle">
+    <div class="container">
         <div class="row">
             <div class="text-center">
                 <h1 class="fs-5">Ocorrência:</h1>
                 <p class="fs-5" id="occurrenceId"></p>
             </div>
-            <div class="JSON">
 
+            <div class="occurrenceData">
+                <!-- Dados da ocorrência -->
+                <h3 id="occurrence">Informações da Ocorrência</h3>
+                <p id="usbNumber">Número USB</p>
+                <p id="desp">DESP</p>
+                <p id="arrivalTime">Hora de chegada</p>
+                <p id="kmFinal">KM final</p>
+                <p id="siaSUS">SIA/SUS</p>
+                <p id="codIR">Cód. IR</p>
+                <p id="codPS">Cód PS</p>
+
+                <!-- Dados do paciente -->
+                <h3 id="info_paciente">Informações do Paciente</h3>
+                <p id="dateInput">Data</p>
+                <p id="hospitalInput">Hospital</p>
+                <p id="mascInput">Sexo masc</p>
+                <p id="femInput">Sexo fem</p>
+                <p id="patientName">Nome do paciente</p>
+                <p id="patientAge">Idade do paciente</p>
+                <p id="patientCPF">RG/CPF do paciente</p>
+                <p id="companionName">Nome do acompanhante</p>
+                <p id="companionAge">Idade do acompanhante</p>
+                <p id="occurencyLocation">Local da ocorrência</p>
+                <p id="responsibleInput">Responsável pelo preenchimento</p>
+
+                <!-- Tipo de ocorrência -->
+                <h3 id="occurrenceForm">Tipo de Ocorrência</h3>
+                <p id="animals">Causado por animais</p>
+                <p id="transportation">Com meio de transporte</p>
+                <p id="landslide">Desmoronamento</p>
+                <p id="medicalEmergency">Emergência médica</p>
+                <p id="fall2m">Queda de altura 2M</p>
+                <p id="suicideAttempt">Tentativa de suicídio</p>
+                <p id="fall">Queda da própria altura</p>
+                <p id="drown">Afogamento</p>
+                <p id="attack">Agressão</p>
+                <p id="runOver">Atropelamento</p>
+                <p id="shock">Choque elétrico</p>
+                <p id="collapse">Desabamento</p>
+                <p id="domestic">Doméstico</p>
+                <p id="sport">Esportivo</p>
+                <p id="toxic">Intoxicação</p>
+                <p id="bicicle">Queda de bicicleta</p>
+                <p id="motorcycle">Queda moto</p>
+                <p id="fallLevel">Queda nível &lt;2M</p>
+                <p id="job">Trabalho</p>
+                <p id="transfer">Transferência</p>
+                <p id="otherInput occurrence">Outros</p>
+
+                <!-- PESForm -->
+                <h3 id="PESForm">Problemas Encontrados Suspeitos</h3>
+                <p id="psycho">Psiquiátrico</p>
+                <p id="dpoc">Respiratório DPOC</p>
+                <p id="smoke">Inalação de fumaça</p>
+                <p id="hyperglycemia">Hiperglicemia</p>
+                <p id="hypoglycemia">Hipoglicemia</p>
+                <p id="birth">Parto emergencial</p>
+                <p id="pregnant">Gestante</p>
+                <p id="bleeding">Hemorragia excessiva</p>
+                <p id="transport">Transporte</p>
+                <p id="transportClinic">Clínico</p>
+                <p id="transportEmergency">Emergencial</p>
+                <p id="transportTrauma">Pós-trauma</p>
+                <p id="transportAerial">Aéreo</p>
+                <p id="transportSAMU">SAMU</p>
+                <p id="transportNo">Sem remoção</p>
+
+                <!-- symptomsForm -->
+                <h3 id="symptomsForm">Sinais e Sintomas</h3>
+                <p id="abdomem_sensisvel_ou_rigido">Abdômen Sensível ou Rígido</p>
+                <p id="afundamento_de_cranio">Afundamento de Crânio</p>
+                <p id="agitacao">Agitação</p>
+                <p id="amnesia">Amnésia</p>
+                <p id="angina_de_peito">Angina de Peito</p>
+                <p id="apneia">Apneia</p>
+                <p id="bradicardia">Braducardia</p>
+                <p id="bradipneia">Bradipneia</p>
+                <p id="bronco_aspirando">Bronco Aspirando</p>
+                <p id="cefaleia">Cefaleia</p>
+                <p id="cianose_labios">Cianose nos Lábios</p>
+                <p id="cianose_extremidade">Cianose nas Extremidades</p>
+                <p id="convulsao">Convulsão</p>
+                <p id="decorticacao">Decorticação</p>
+                <p id="deformidade">Deformidade</p>
+                <p id="descerebracao">Descerebração</p>
+                <p id="desmaio">Desmaio</p>
+                <p id="desvio_de_traqueia">Desvio de Traqueia</p>
+                <p id="dispneia">Dispneia</p>
+                <p id="dor_local">Dor Local</p>
+                <p id="edema_generalizado">Edema Generalizado</p>
+                <p id="edema_localizado">Edema Localizado</p>
+                <p id="enfisema_subcutaneo">Enfisema Subcutâneo</p>
+                <p id="estase_de_jugular">Estase de Jugular</p>
+                <p id="face_palida">Face Pálida</p>
+                <p id="hemorragia_interna">Hemorragia Interna</p>
+                <p id="hemorragia_externa">Hemorragia Externa</p>
+                <p id="hipertensao">Hipertensão</p>
+                <p id="hipotensao">Hipotensão</p>
+                <p id="nauseas_e_vomitos">Náuseas e Vômitos</p>
+                <p id="nasoragia">Nasorragia</p>
+                <p id="obito">Óbito</p>
+                <p id="otorreia">Otorreia</p>
+                <p id="otorragia">Otorragia</p>
+                <p id="o_v_a_c_e">O.V.A.C.E</p>
+                <p id="parada_cardiaca">Parada Cardíaca</p>
+                <p id="parada_respiratoria">Parada Respiratória</p>
+                <p id="priaprismo">Priaprismo</p>
+                <p id="prurido_na_pele">Prurido na Pele</p>
+                <p id="pupilas_reagente">Pupilas Reagente</p>
+                <p id="pupilas_n_reagente">Pupilas Não Reagente</p>
+                <p id="pupilas_anisocoria">Anisocoria das Pupilas</p>
+                <p id="pupilas_isocoria">Isocoria das Pupilas</p>
+                <p id="pupilas_midriase">Midríase das Pupilas</p>
+                <p id="pupilas_miose">Miose das Pupilas</p>
+                <p id="sede">Sede</p>
+                <p id="sinal_de_battle">Sinal de Battle</p>
+                <p id="sinal_de_guaxinim">Sinal de Guaxinim</p>
+                <p id="sudorese">Sudorese</p>
+                <p id="taquipneia">Taquipneia</p>
+                <p id="taquicardia">Taquicardia</p>
+                <p id="tontura">Tontura</p>
+                <p id="outrosTextArea">Outros</p>
+
+                <!-- Trauma loc -->
+
+                <!-- Trauma desc -->
+
+                <!-- Glasgow -->
+
+                <!-- vitalSignsForm -->
+                <h3 id="vitalSignsForm">Sinais Vitais</h3>
+                <p id="bloodPressure">Pressão Arterial</p>
+                <p id="pulse">Pulso (b.c.p.m)</p>
+                <p id="breathing">Respiração (m.r.m)</p>
+                <p id="saturation">Saturação (%)</p>
+                <p id="hgt">HGT</p>
+                <p id="temperature">Temperatura (C°)</p>
+                <p id="perfusion">Perfusão</p>
+                <p id="perfusao_maior">> 2 seg.</p>
+                <p id="perfusao_menor">&lt; 2 seg.</p>
+                <p id="normal/anormal">Normal</p>
+                <p id="normal">Normal</p>
+                <p id="anormal">Anormal</p>
+
+                <!-- patientSituationForm -->
+                <h3 id="patientSituationForm">Situação do Paciente</h3>
+                <p id="lay">Deitada</p>
+                <p id="semiLay">Semi-deitada</p>
+                <p id="sitting">Sentada</p>
+                <p id="critical">Crítico</p>
+                <p id="unstable">Instável</p>
+                <p id="potentiallyUnstable">Potencialmente instável</p>
+                <p id="stable">Estável</p>
+                <p id="cyclist">Ciclista</p>
+                <p id="bicycle">Condutor moto</p>
+                <p id="pregnant">Gestante</p>
+                <p id="frontSeatPassenger">Pass. banco frente</p>
+                <p id="motorbikePassenger">Pass. moto</p>
+                <p id="carDriver">Condutor carro</p>
+                <p id="clinical">Clínico</p>
+                <p id="trauma">Trauma</p>
+                <p id="backSeatPassenger">Pass. banco trás</p>
+                <p id="pedestrian">Pedestre</p>
+
+                <!-- proceduresForm -->
+                <h3 id="proceduresForm">Procedimentos Efetuados</h3>
+                <p id="aspiration">Aspiração</p>
+                <p id="initialValuation">Avaliação inicial</p>
+                <p id="directedValuation">Avaliação dirigida</p>
+                <p id="continuedValuation">Avaliação continuada</p>
+                <p id="rautek">Chave de Rautek</p>
+                <p id="guedel">Cânula de Guedel</p>
+                <p id="unclogRespiratory">Desobstrução de V.A.</p>
+                <p id="dea">Emprego do D.E.A.</p>
+                <p id="riskManagement">Gerenciamento de riscos</p>
+                <p id="injuryCleaning">Limpeza de ferimento</p>
+                <p id="dressings">Curativos</p>
+                <p id="compressive">Compressivo</p>
+                <p id="jam">Encravamento</p>
+                <p id="ocular">Ocular</p>
+                <p id="burn">Queimadura</p>
+                <p id="simple">Simples</p>
+                <p id="3Point">3 pontas</p>
+                <p id="immobilization">Imobilizações</p>
+                <p id="rightBottomLimb">Membro inf. dir.</p>
+                <p id="leftBottomLimb">Membro inf. esq.</p>
+                <p id="rightUpperLimb">Membro sup. dir.</p>
+                <p id="leftUpperLimb">Membro sup. esq.</p>
+                <p id="hip">Quadril</p>
+                <p id="cervical">Cervical</p>
+                <p id="wheelStretcher">Maca sobre rodas</p>
+                <p id="stretcher">Maca rígida</p>
+                <p id="bridge">Ponte</p>
+                <p id="helmetRemoval">Retirado capacete</p>
+                <p id="cpr">R.C.P.</p>
+                <p id="90DegreeRoll">Rolamento 90°</p>
+                <p id="180DegreeRoll">Rolamento 180°</p>
+                <p id="decisionTake">Tomada decisão</p>
+                <p id="shockTreatment">Tratado choque</p>
+                <p id="cannula">Uso de cânula</p>
+                <p id="colar">Uso colar</p>
+                <p id="colarInput">Uso colar</p>
+                <p id="ked">Uso KED</p>
+                <p id="ttf">Uso TTF</p>
+                <p id="ventilationSup">Ventilação suporte</p>
+                <p id="oxigenInput">Oxigenioterapia</p>
+                <p id="resuscitationInput">Reanimador</p>
+                <p id="auxiliary">Meios auxiliares</p>
+                <p id="celesc">CELESC</p>
+                <p id="defesaCivil">Defesa Civil</p>
+                <p id="igpPC">IGP/PC</p>
+                <p id="samuUsa">SAMU USA</p>
+                <p id="samuUsb">SAMU USB</p>
+                <p id="cit">CIT</p>
+                <p id="policiaCivil">Polícia Civil</p>
+                <p id="policiaMilitar">Polícia Militar</p>
+                <p id="pre">Polícia Rodoviária Estadual</p>
+                <p id="prf">Polícia Rodoviária Federal</p>
+                <p id="otherInput procedures">Outros</p>
+
+                <!-- medicalAnamnesisForm -->
+                <h3 id="medicalAnamnesisForm">Anamnese de Emergência Médica</h3>
+                <p id="whatHappened">O que aconteceu</p>
+                <p id="happenedBefore">Aconteceu outras vezes</p>
+                <p id="howLong">Há quanto tempo</p>
+                <p id="healthProblem">Possui problema de saúde</p>
+                <p id="whichHealth">Quais problemas de saúde</p>
+                <p id="medication">Faz uso de medicação</p>
+                <p id="medicationTime">Horário da última medicação</p>
+                <p id="medicationName">Nome da medicação</p>
+                <p id="allergy">Possui alergia</p>
+                <p id="whichAllergy">Qual alergia</p>
+                <p id="eat">Ingeriu alimento ou líquido ≥ 6 horas</p>
+                <p id="eatTime">Quando ingeriu</p>
+
+                <!-- birthAnamnesisForm -->
+                <p id="period">Período de gestação</p>
+                <p id="pre-natal">Fez pré-natal</p>
+                <p id="docName">Nome do médico</p>
+                <p id="complication">Há possibilidade de complicação</p>
+                <p id="firstSon">Não é o primeiro filho</p>
+                <p id="numberSons">Número de filhos</p>
+                <p id="contractionHour">Que horas iniciaram as contrações</p>
+                <p id="contractionDuration">Duração das contrações</p>
+                <p id="contractionGap">Intervalo das contrações</p>
+                <p id="hipTension">Sente pressão na região do quadril ou vontade de evacuar</p>
+                <p id="bagBreak">Houve ruptura da bolsa</p>
+                <p id="visualInpection">Feita inspeção visual</p>
+                <p id="birthComplete">Parto realizado</p>
+                <p id="masc">Sexo masc</p>
+                <p id="fem">Sexo fem</p>
+                <p id="babyName">Nome do bebê</p>
+
+                <!-- Materiais Deixados no Hospital -->
+                <h3 id="hospitalMaterialForm">Materiais Deixados no Hospital</h3>
+                <p id="baseEstabilizador">Base do estabilizador</p>
+                <p id="baseEstabilizadorQuantity">Quantidade da base</p>
+                <p id="colar">Colar</p>
+                <p id="colarSize">Tamanho colar</p>
+                <p id="colarQuantity">Quantidade colar</p>
+                <p id="coximEstabilizador">Coxins do estabilizador</p>
+                <p id="coximEstabilizadorQuantity">Quantidade coxins</p>
+                <p id="KED">KED</p>
+                <p id="KEDSize">Tamanho KED</p>
+                <p id="KEDQuantity">Quantidade KED</p>
+                <p id="macaRigida">Maca rígida</p>
+                <p id="macaRigidaQuantity">Quantidade maca</p>
+                <p id="TTF">TTF</p>
+                <p id="TTFSize">Tamanho TTF</p>
+                <p id="TTFQuantity">Quantidade TTF</p>
+                <p id="tiranteAranha">Tirante aranha</p>
+                <p id="tiranteAranhaQuantity">Quantidade aranha</p>
+                <p id="tiranteCabeca">Tirante cabeça</p>
+                <p id="tiranteCabecaQuantity">Quantidade cabeça</p>
+                <p id="canula">Cânula</p>
+                <p id="canulaQuantity">Quantidade cânula</p>
+                <p id="otherName hospital">Outro</p>
+                <p id="otherQuantity hospital">Quantidade outro</p>
+
+                <!-- Materiais descartáveis utilizados -->
+                <h3 id="oneWayMaterialForm">Materiais Descartáveis Utilizados</h3>
+                <p id="ataduras">Ataduras</p>
+                <p id="atadurasSize">Tamanho Ataduras</p>
+                <p id="atadurasQuantity">Quantidade Ataduras</p>
+                <p id="cateter">Catéter TP. óculos</p>
+                <p id="cateterQuantity">Quantidade Catéter TP. óculos</p>
+                <p id="compressaComum">Compressa comum</p>
+                <p id="compressaComumQuantity">Quantidade Compressa comum</p>
+                <p id="kits">KITs</p>
+                <p id="kitsSize">Tamanho KITs</p>
+                <p id="kitsQuantity">Quantidade KITs</p>
+                <p id="luvas">Luvas (pares)</p>
+                <p id="luvasQuantity">Quantidade Luvas (pares)</p>
+                <p id="mascara">Máscara</p>
+                <p id="mascaraQuantity">Quantidade Máscara</p>
+                <p id="mantaAluminizada">Manta aluminizada</p>
+                <p id="mantaAluminizadaQuantity">Quantidade Manta aluminizada</p>
+                <p id="pasDEA">Pás do DEA</p>
+                <p id="pasDEAQuantity">Quantidade Pás do DEA</p>
+                <p id="sondaAsp">Sonda de aspiração</p>
+                <p id="sondaAspQuantity">Quantidade Sonda de aspiração</p>
+                <p id="soro">Soro fisiológico</p>
+                <p id="soroQuantity">Quantidade Soro fisiológico</p>
+                <p id="talas">Talas PAP</p>
+                <p id="talasSize">Tamanho Talas PAP</p>
+                <p id="talasQuantity">Quantidade Talas PAP</p>
+                <p id="otherName">Outro</p>
+                <p id="otherQuantity">Quantidade outro</p>
+
+                <!-- Observações e Objetos recolhidos -->
+                <h3 id="obsForm">Observações e Objetos Recolhidos</h3>
+                <p id="obs">Observações</p>
+                <p id="objects">Objetos recolhidos</p>
+
+                <!-- Avaliação da cinemática -->
+                <h3 id="cinematicForm">Avaliação da Cinemática</h3>
+                <p id="behavior">Distúrbio de comportamento</p>
+                <p id="helmet">Encontrado de capacete</p>
+                <p id="seatbelt">Encontrado de cinto</p>
+                <p id="windshield">Para-brisas avariado</p>
+                <p id="walking">Caminhando na cena</p>
+                <p id="pannel">Painel avariado</p>
+                <p id="steeringWheel">Volante torcido</p>
             </div>
         </div>
     </div>
@@ -118,26 +440,55 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script>
-        // seleciona a div com class="JSON"
-        var container = document.querySelector('.JSON');
+        document.addEventListener("DOMContentLoaded", function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const occurrenceId = urlParams.get('id');
 
-        // obtém os dados JSON da rota
-        fetch('/occurrence')
-            .then(response => response.json())
-            .then(data => {
-                // cria um elemento pre
-                var pre = document.createElement('pre');
-                // converte o objeto JSON em uma string formatada
-                var json = JSON.stringify(data, null, 2);
-                // define o conteúdo do pre com a string JSON
-                pre.innerHTML = json;
-                // anexa o pre ao container
-                container.appendChild(pre);
-            })
-            .catch(error => {
-                // trata o erro, se houver
-                console.error(error);
-            });
+    if (!occurrenceId) {
+        console.error('ID da ocorrência não encontrado na URL.');
+        return;
+    }
+
+    // Faz uma requisição à API para obter os dados do JSON
+    fetch(`/occurrence/${occurrenceId}`)
+        .then((response) => response.json())
+        .then((data) => {
+            // Itera sobre as chaves do JSON
+            for (let key in data) {
+                // Obtém o valor associado à chave
+                let value = data[key];
+
+                // Seleciona o elemento HTML pelo ID correspondente ao nome da chave
+                let element = document.getElementById(key);
+
+                // Se o elemento existir, atualiza o conteúdo com o valor
+                if (element) {
+                    // Se a chave não for um objeto, atualiza o conteúdo diretamente
+                    if (typeof value === "object") {
+                        // Trata cada subchave
+                        for (let subKey in value) {
+                            // Obtém o valor da subchave
+                            let subValue = value[subKey];
+
+                            // Seleciona o elemento HTML pelo ID correspondente à subchave
+                            let subElement = document.getElementById(subKey);
+
+                            // Se o elemento existir, atualiza o conteúdo com o valor
+                            if (subElement) {
+                                // Adiciona o texto após os ":"
+                                subElement.innerText += ': ' + subValue;
+                            }
+                        }
+                    } else {
+                        // Adiciona o texto após os ":"
+                        element.innerText += ': ' + value;
+                    }
+                }
+            }
+        })
+        .catch((error) => console.error("Erro na requisição:", error));
+});
+
 
 
 
