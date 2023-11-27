@@ -193,6 +193,22 @@ app.get('/occurrence/:id', async (req, res) => {
   }
 });
 
+// Get image from Database and send to occurrence.html
+app.get('/getImage/:id', async (req, res) => {
+  try {
+    const id = req.params.id;
+    const ocorrencia = await Ocorrencia.findById(id);
+    
+    if (!ocorrencia) {
+      res.status(404).json({ error: 'Ocorrência não encontrada' });
+      return;
+    }
+
+    res.send(ocorrencia.traumaImage);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
 
 app.listen(3700, () => {
   console.log('Serivor rodando na porta 3700!');
