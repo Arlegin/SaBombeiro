@@ -64,7 +64,8 @@ app.post('/login', (req, res) => {
       req.session.loggedin = true;
       req.session.cpf = cpf;
       req.session.name = user.nome;
-      if (user.administrador) {
+      console.log(user);
+      if (user.administrador === true) {
         res.redirect('/menuAdmin.html');
       } else {
         res.redirect('/menu.html');

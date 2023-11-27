@@ -28,8 +28,8 @@
                                 Ocorrências</a>
                         </li>
                         <form action="/logout" method="GET">
-                                <button type="submit" class="btn btn-primary">Logout</button>
-                            </form>
+                            <button type="submit" class="btn btn-primary">Logout</button>
+                        </form>
                     </ul>
                 </div>
             </nav>
@@ -379,7 +379,17 @@
             fillFormData('hospitalMaterialForm');
 
             document.getElementById('backBtn').addEventListener('click', function () {
-                window.location.href = 'birthAnamnesis.html';
+                // Skip birthAnamnesis.html page if 'mascInput' inside 'info_paciente' is checked in localStorage
+                let formData = JSON.parse(localStorage.getItem('formData')) || {};
+                let storedData = formData['patientInfoForm'];
+                let mascInput = storedData['mascInput'];
+
+                if (mascInput === true) {
+                    window.location.href = 'medicalAnamnesis.html';
+                } else {
+                    // window.location.href = 'birthAnamnesis.html';
+                    console.log()
+                }
             });
 
             document.getElementById('nextBtn').addEventListener('click', function () {
