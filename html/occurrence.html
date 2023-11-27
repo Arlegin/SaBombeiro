@@ -441,56 +441,92 @@
         crossorigin="anonymous"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-    const urlParams = new URLSearchParams(window.location.search);
-    const occurrenceId = urlParams.get('id');
+            const urlParams = new URLSearchParams(window.location.search);
+            const occurrenceId = urlParams.get('id');
 
-    if (!occurrenceId) {
-        console.error('ID da ocorrência não encontrado na URL.');
-        return;
-    }
+            if (!occurrenceId) {
+                console.error('ID da ocorrência não encontrado na URL.');
+                return;
+            }
 
-    // Faz uma requisição à API para obter os dados do JSON
-    fetch(`/occurrence/${occurrenceId}`)
-        .then((response) => response.json())
-        .then((data) => {
-            // Itera sobre as chaves do JSON
-            for (let key in data) {
-                // Obtém o valor associado à chave
-                let value = data[key];
+            // Faz uma requisição à API para obter os dados do JSON
+            fetch(`/occurrence/${occurrenceId}`)
+                .then((response) => response.json())
+                .then((data) => {
+                    // Itera sobre as chaves do JSON
+                    for (let key in data) {
+                        // Obtém o valor associado à chave
+                        let value = data[key];
 
-                // Seleciona o elemento HTML pelo ID correspondente ao nome da chave
-                let element = document.getElementById(key);
+                        // Seleciona o elemento HTML pelo ID correspondente ao nome da chave
+                        let element = document.getElementById(key);
 
-                // Se o elemento existir, atualiza o conteúdo com o valor
-                if (element) {
-                    // Se a chave não for um objeto, atualiza o conteúdo diretamente
-                    if (typeof value === "object") {
-                        // Trata cada subchave
-                        for (let subKey in value) {
-                            // Obtém o valor da subchave
-                            let subValue = value[subKey];
+                        // Se o elemento existir, atualiza o conteúdo com o valor
+                        if (element) {
+                            // Se a chave não for um objeto, atualiza o conteúdo diretamente
+                            if (typeof value === "object") {
+                                // Trata cada subchave
+                                for (let subKey in value) {
+                                    // Obtém o valor da subchave
+                                    let subValue = value[subKey];
 
-                            // Seleciona o elemento HTML pelo ID correspondente à subchave
-                            let subElement = document.getElementById(subKey);
+                                    // Seleciona o elemento HTML pelo ID correspondente à subchave
+                                    let subElement = document.getElementById(subKey);
 
-                            // Se o elemento existir, atualiza o conteúdo com o valor
-                            if (subElement) {
+                                    // Se o elemento existir, atualiza o conteúdo com o valor
+                                    if (subElement) {
+                                        // Adiciona o texto após os ":"
+                                        subElement.innerText += ': ' + subValue;
+                                    }
+                                }
+                            } else {
                                 // Adiciona o texto após os ":"
-                                subElement.innerText += ': ' + subValue;
+                                element.innerText += ': ' + value;
                             }
                         }
-                    } else {
-                        // Adiciona o texto após os ":"
-                        element.innerText += ': ' + value;
+                    }
+                })
+                .catch((error) => console.error("Erro na requisição:", error));
+
+            // Chamar a função que deleta os dados
+            // Wait for the fetch to complete
+            setTimeout(prettier, 200);
+        });
+
+        // Function to delete <p> inside 'occurrenceData' elements that doesn't have a ":" in any part of the text
+        // Or have 'false' in any part of the text
+        function prettier() {
+            // Seleciona todos os elementos <p> dentro de 'occurrenceData'
+            var elements = document.querySelectorAll('.occurrenceData p');
+            for (var i = elements.length - 1; i >= 0; i--) {
+                var textContent = elements[i].innerText.trim();
+
+                // Verifica se o texto não contém informações dos dados do banco
+                if (!textContent.includes(':') || textContent.includes('false')) {
+                    elements[i].remove();
+                } else {
+                    // Verifica se existe texto após os ":"
+                    var textAfter = textContent.split(':')[1];
+                    if (textAfter == '') {
+                        elements[i].remove();
                     }
                 }
+
+                // Verifica se o texto após os ":" é "true"
+                if (textContent.includes(': true')) {
+                    elements[i].innerText = textContent.replace(': true', ': Sim');
+                }
             }
-        })
-        .catch((error) => console.error("Erro na requisição:", error));
-});
-
-
-
+            // Verificar se existe algum <p> abaixo dos <h3> antes do próximo <h3>
+            // Se não existir, deletar o <h3> dentro de 'occurrenceData'
+            var h3 = document.querySelectorAll('.occurrenceData h3');
+            for (var i = h3.length - 1; i >= 0; i--) {
+                var nextElement = h3[i].nextElementSibling;
+                if (nextElement == null || nextElement.tagName == 'H3') {
+                    h3[i].remove();
+                }
+            }
+        }
 
         // Get the occurrence id from the URL
         const urlParams = new URLSearchParams(window.location.search);
