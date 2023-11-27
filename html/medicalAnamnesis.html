@@ -393,6 +393,15 @@
                 alert('Erro de conexão!');
             });
         }
+        
+        // Get the active link
+        const activeLink = document.querySelector('.list-group-item.active');
+
+        // Scroll to the active link
+        if (activeLink) {
+            activeLink.scrollIntoView({ behavior: 'smooth', inline: 'center' });
+        }
+
     </script>
 </body>
 
