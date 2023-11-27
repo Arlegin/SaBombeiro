@@ -250,6 +250,22 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script>
+        // Skip this page if 'mascInput' inside 'info_paciente' is checked in localStorage
+        document.addEventListener('DOMContentLoaded', function () {
+            let mascInput = localStorage.getItem('formData');
+            mascInput = JSON.parse(mascInput);
+            if (mascInput ?.info_paciente?.mascInput === undefined) {
+                mascInput = false;
+            } else {
+                mascInput = mascInput.info_paciente.mascInput;
+            }
+
+            if (mascInput === true) {
+                window.location.href = 'hospitalMaterial.html';
+            }
+        });
+
+
         const preNatal = document.getElementById('pre-natal');
         const docNameContainer = document.getElementById('docNameContainer');
         const docName = document.getElementById('docName');
