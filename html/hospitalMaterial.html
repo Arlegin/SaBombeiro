@@ -379,16 +379,18 @@
             fillFormData('hospitalMaterialForm');
 
             document.getElementById('backBtn').addEventListener('click', function () {
-                // Skip birthAnamnesis.html page if 'mascInput' inside 'info_paciente' is checked in localStorage
-                let formData = JSON.parse(localStorage.getItem('formData')) || {};
-                let storedData = formData['patientInfoForm'];
-                let mascInput = storedData['mascInput'];
+                let mascInput = localStorage.getItem('formData');
+                mascInput = JSON.parse(mascInput);
+                if (mascInput?.info_paciente?.mascInput === undefined) {
+                    mascInput = false;
+                } else {
+                    mascInput = mascInput.info_paciente.mascInput;
+                }
 
                 if (mascInput === true) {
                     window.location.href = 'medicalAnamnesis.html';
                 } else {
-                    // window.location.href = 'birthAnamnesis.html';
-                    console.log()
+                    window.location.href = 'birthAnamnesis.html';
                 }
             });
 
