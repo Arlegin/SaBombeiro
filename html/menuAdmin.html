@@ -148,7 +148,7 @@
                     // Check if user is logged in
                     if (response.loggedin) {
                         // Check if user has Admin privileges
-                        if (response.administrador === false) {
+                        if (response.admin === false) {
                             console.error("User does not have Admin privileges");
                             var myModal = new bootstrap.Modal(document.getElementById('loggedModal'), {});
                             myModal.show();
