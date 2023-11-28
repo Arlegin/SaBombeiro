@@ -409,7 +409,7 @@
                 <!-- Denial Term -->
                 <h3 class="mt-5" id="denialForm">Termo de Recusa</h3>
                 <div id="buttonContainer">
-                    <button type="button" class="btn btn-primary" id="downloadBtn">Baixar</button>
+                    <a class="btn btn-primary" id="downloadBtn">Baixar</a>
                 </div>
 
                 <!-- Avaliação da cinemática -->
@@ -448,7 +448,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script>
-        document.getElementById('downloadBtn').addEventListener('click', function () {
+        function downloadBtn() {
             fetch(`/occurrence/${occurrenceId}`)
                 .then((response) => response.json())
                 .then((data) => {
@@ -458,23 +458,17 @@
                         const fileName = data.file.fileName;
                         const file = data.file.file;
 
-                        console.log(fileName);
-                        console.log(file);
+                        // console.log(fileName);
+                        // console.log(file);
 
                         // Cria um elemento de link invisível
-                        const link = document.createElement('a');
-                        link.style.display = 'none';
-                        document.body.appendChild(link);
+                        const link = document.getElementById('downloadBtn');
+                        // link.style.display = 'none';
+                        // document.body.appendChild(link);
 
                         // Define as propriedades do link para download
                         link.href = file; // Use the file as it is, because it already is a DataURL
                         link.download = fileName;
-
-                        // Clica no link para iniciar o download
-                        link.click();
-
-                        // Remove o link após o download
-                        document.body.removeChild(link);
                     } else {
                         // Se não existir, exibe uma mensagem de erro ao lado do botão
                         const downloadBtn = document.getElementById('downloadBtn');
@@ -482,10 +476,10 @@
                     }
                 })
                 .catch((error) => console.error("Erro na requisição:", error));
-        });
+        }
 
 
-        document.addEventListener("DOMContentLoaded", function () {
+        function getOccurrence() {
             const urlParams = new URLSearchParams(window.location.search);
             const occurrenceId = urlParams.get('id');
 
@@ -541,7 +535,7 @@
                     const img = document.querySelector('#traumaImage'); // Selecione o elemento de imagem
                     img.src = data; // Defina o src para a imagem base64
                 });
-        });
+        }
 
         // Function to delete <p> inside 'occurrenceData' elements that doesn't have a ":" in any part of the text
         // Or have 'false' in any part of the text
@@ -597,7 +591,9 @@
 
         // When the page loads, check if the user is logged in
         window.onload = function () {
+            getOccurrence();
             isLoggedIn();
+            downloadBtn();
         }
 
         function isLoggedIn() {
