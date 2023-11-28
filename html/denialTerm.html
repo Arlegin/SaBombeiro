@@ -181,18 +181,26 @@
         };
 
 
+        // Função para salvar o arquivo no localStorage dentro de 'formData'
         document.getElementById('formFile').addEventListener('change', function () {
+            const file = this.files[0];
+            const fileName = file.name;
             const reader = new FileReader();
-            reader.onload = function () {
-                const base64String = reader.result.replace('data:', '').replace(/^.+,/, '');
-                // Inserir o arquivo e seu nome no localStorage dentro do objeto 'file', que está dentro do objeto 'formData'
-                localStorage.setItem('formData', JSON.stringify({
-                    fileName: document.getElementById('formFile').files[0].name,
-                    file: base64String
-                }));
-            }
-            reader.readAsDataURL(this.files[0]);
-        }, false);
+            reader.addEventListener('load', function () {
+                // Recupera o objeto 'formData' existente ou cria um novo se não existir
+                const formData = JSON.parse(localStorage.getItem('formData')) || {};
+                // Adiciona o novo arquivo ao objeto 'formData'
+                formData.file = {
+                    fileName: fileName,
+                    file: reader.result,
+                };
+                // Armazena o objeto 'formData' atualizado no localStorage
+                localStorage.setItem('formData', JSON.stringify(formData));
+            });
+            reader.readAsDataURL(file);
+            // console.log(localStorage.getItem('formData'));
+        });
+
 
         // Chama a função quando a página é carregada
         document.addEventListener('DOMContentLoaded', function () {
@@ -201,17 +209,19 @@
             if (localStorage.getItem('formData')) {
                 // Se existir, pega o arquivo e exibe o nome
                 const formData = JSON.parse(localStorage.getItem('formData'));
-                const fileName = JSON.parse(localStorage.getItem('fileName'));
-                document.getElementById('fileNameDisplay').innerHTML = 'Aviso! Um arquivo já foi selecionado: ' + formData.fileName;
+                const fileName = formData.file.fileName;
+                document.getElementById('fileNameDisplay').innerHTML = 'Aviso! Um arquivo já foi selecionado: ' + formData.file.fileName;
             }
+        });
 
-            document.getElementById('backBtn').addEventListener('click', function () {
-                window.location.href = 'obs.html';
-            });
+        document.getElementById('backBtn').addEventListener('click', function () {
+            event.preventDefault();
+            window.location.href = 'obs.html';
+        });
 
-            document.getElementById('nextBtn').addEventListener('click', function () {
-                window.location.href = 'cinematic.html';
-            });
+        document.getElementById('nextBtn').addEventListener('click', function () {
+            event.preventDefault();
+            window.location.href = 'cinematic.html';
         });
 
         function imageLogin() {
@@ -237,7 +247,6 @@
         if (activeLink) {
             activeLink.scrollIntoView({ behavior: 'smooth', inline: 'center' });
         }
-
     </script>
 </body>
 
