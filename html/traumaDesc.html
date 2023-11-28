@@ -427,51 +427,33 @@
             collectTableData(tablesData, 'traumaDescForm');
         });
 
+        // Função para carregar os dados das tabelas do localStorage e preencher as tabelas
+        function loadTableData() {
+            // Função para carregar dados de uma tabela específica
+            function loadTable(tableId, tableName) {
+                const tableData = JSON.parse(localStorage.getItem(tableId)) || [];
+                const table = document.querySelector(`#${tableId} tbody`);
 
-        function fillTableData(tableId, tableName, formId) {
-            // Recupera os dados do localStorage
-            let formData = JSON.parse(localStorage.getItem('formData')) || {};
-            let storedData = formData[formId];
+                // Limpa a tabela antes de preenchê-la
+                table.innerHTML = '';
 
-            // Se houver dados armazenados para a tabela
-            if (storedData && storedData.hasOwnProperty(formId) && storedData[formId].hasOwnProperty(tableName)) {
-                const tableData = storedData[formId][tableName];
-
-                // Obtém as colunas da tabela
-                const headers = Array.from(document.querySelectorAll(`#${tableId} thead th`)).map(header => header.textContent);
-
-                // Limpa a tabela antes de preenchê-la novamente
-                clearTable(tableId);
-
-                // Preenche a tabela com os dados armazenados
-                tableData.forEach(rowData => {
-                    console.log('rowData:', rowData); // Adicione este log
+                // Preenche a tabela com os dados do localStorage
+                tableData.forEach(data => {
                     const row = document.createElement('tr');
-
-                    headers.forEach(header => {
+                    Object.values(data).forEach(value => {
                         const cell = document.createElement('td');
-                        cell.textContent = rowData[header];
+                        cell.textContent = value;
                         row.appendChild(cell);
                     });
-
-                    document.getElementById(tableId).querySelector('tbody').appendChild(row);
+                    table.appendChild(row);
                 });
-                console.log(`Tabela ${tableId} preenchida com sucesso.`);
-            } else {
-                console.log(`Nenhum dado encontrado para a tabela ${tableId}.`);
-                console.log(storedData);
             }
+
+            // Carrega dados para cada tabela especificada
+            Object.entries(tablesData).forEach(([tableId, tableName]) => {
+                loadTable(tableId, tableName);
+            });
         }
-
-
-        // Função para limpar a tabela
-        function clearTable(tableId) {
-            const tableBody = document.getElementById(tableId).querySelector('tbody');
-            tableBody.innerHTML = ''; // Remove todas as linhas da tabela
-            console.log(`Tabela ${tableId} limpa.`);
-        }
-
-
 
         window.addEventListener("beforeunload", function (event) {
             // Chamar a função que salva os dados
@@ -480,11 +462,8 @@
 
         // Chama a função quando a página é carregada
         document.addEventListener('DOMContentLoaded', function () {
-            console.log('Chamando fillTableData para traumaDescTable');
-            fillTableData('traumaDescTable', 'traumaDesc', 'traumaDescForm');
-            console.log('Chamando fillTableData para burnDescTable');
-            fillTableData('burnDescTable', 'burnDesc', 'traumaDescForm');
 
+            loadTableData();
 
             document.getElementById('backBtn').addEventListener('click', function () {
                 window.location.href = 'traumaLocation.html';
@@ -518,7 +497,6 @@
         if (activeLink) {
             activeLink.scrollIntoView({ behavior: 'smooth', inline: 'center' });
         }
-
     </script>
 </body>
 
