@@ -409,7 +409,7 @@
                 <!-- Denial Term -->
                 <h3 class="mt-5" id="denialForm">Termo de Recusa</h3>
                 <div id="buttonContainer">
-                    <a class="btn btn-primary" id="downloadBtn">Baixar</a>
+                    <a class="btn btn-primary" id="downloadBtn" onclick="downloadBtn()">Baixar</a>
                 </div>
 
                 <!-- Avaliação da cinemática -->
@@ -453,7 +453,8 @@
                 .then((response) => response.json())
                 .then((data) => {
                     // Verifica se existe um arquivo no objeto JSON
-                    if (data) {
+                    if (data.file != null && data.file != undefined) {
+                        console.log(data.file);
                         // Se existir, pega o arquivo e o nome
                         const fileName = data.file.fileName;
                         const file = data.file.file;
@@ -470,9 +471,14 @@
                         link.href = file; // Use the file as it is, because it already is a DataURL
                         link.download = fileName;
                     } else {
-                        // Se não existir, exibe uma mensagem de erro ao lado do botão
+                        // Se não existir, exibe uma mensagem de erro abaixo do botão
                         const downloadBtn = document.getElementById('downloadBtn');
-                        downloadBtn.insertAdjacentHTML('afterend', '<p class="text-danger fw-bold">Não há arquivo para download.</p>');
+                        const buttonContainer = document.getElementById('buttonContainer');
+                        const errorMessage = document.createElement('p');
+                        errorMessage.classList.add('text-danger');
+                        errorMessage.classList.add('fw-bold');
+                        errorMessage.innerText = 'Não há arquivo para download.';
+                        buttonContainer.appendChild(errorMessage);
                     }
                 })
                 .catch((error) => console.error("Erro na requisição:", error));
@@ -533,6 +539,10 @@
                 .then(response => response.text())
                 .then(data => {
                     const img = document.querySelector('#traumaImage'); // Selecione o elemento de imagem
+                    if (!data) {
+                        img.remove();
+                        return;
+                    }
                     img.src = data; // Defina o src para a imagem base64
                 });
         }
