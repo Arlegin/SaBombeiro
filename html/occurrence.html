@@ -218,6 +218,40 @@
                 <img id="traumaImage" alt="Trauma Image" class="mb-3">
 
                 <!-- Trauma desc -->
+                <h3 class="mt-5" id="traumaDescForm">Descrição dos Traumas</h3>
+                <!-- Tabela igual traumaDesc.html -->
+                <div class=" table-responsive traumaTable">
+                    <table class="table table-sm table-hover table-light table-striped text-center"
+                        id="traumaDescTable">
+                        <thead>
+                            <tr>
+                                <th scope="col">Local</th>
+                                <th scope="col">Lado</th>
+                                <th scope="col">Face</th>
+                                <th scope="col">Tipo</th>
+                                <!-- <th scope="col">Ações</th> -->
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                            <!-- Table rows created dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class=" table-responsive burnTable">
+                    <table class="table table-sm table-hover table-light table-striped text-center"
+                        id="burnDescTable">
+                        <thead>
+                            <tr>
+                                <th scope="col">Tipo</th>
+                                <th scope="col">Local</th>
+                                <!-- <th scope="col">Ações</th> -->
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
+                            <!-- Table rows created dynamically -->
+                        </tbody>
+                    </table>
+                </div>
 
                 <!-- Glasgow -->
 
@@ -448,6 +482,43 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script>
+        function getTraumaDesc() {
+            fetch(`/occurrence/${occurrenceId}`)
+                .then((response) => response.json())
+                .then((data) => {
+                    // Verifica se existe 'traumaDescForm'
+                    if (data.traumaDescForm != null && data.traumaDescForm != undefined) {
+                        const traumaDescForm = data.traumaDescForm;
+                        // Verifica se existe algum objeto dentro de 'traumaDescForm'
+                        if (traumaDescForm.length > 0) {
+                            // Insere na tabela os dados de cada objeto
+                            for (let i = 0; i < traumaDescForm.length; i++) {
+                                const traumaDesc = traumaDescForm[i];
+                                const table = document.getElementById('descTable');
+                                const row = document.createElement('tr');
+                                row.classList.add('table-group-divider');
+                                row.innerHTML = `
+                                    <td>${traumaDesc.local}</td>
+                                    <td>${traumaDesc.side}</td>
+                                    <td>${traumaDesc.face}</td>
+                                    <td>${traumaDesc.type}</td>
+                                `;
+                                table.appendChild(row);
+                            }
+                        } else {
+                            // Se não existir, remove a tabela
+                            const table = document.querySelector('.table-group-divider');
+                            // table.remove();
+                        }
+                    } else {
+                        // Se não existir, remove a tabela
+                        const table = document.querySelector('.table-group-divider');
+                        // table.remove();
+                    }
+                })
+                .catch((error) => console.error("Erro na requisição:", error));
+        }
+
         function downloadBtn() {
             fetch(`/occurrence/${occurrenceId}`)
                 .then((response) => response.json())
@@ -530,9 +601,6 @@
                 })
                 .catch((error) => console.error("Erro na requisição:", error));
 
-            // Chamar a função que deleta os dados
-            // Wait for the fetch to complete
-            setTimeout(prettier, 200);
 
             // Get image from the database
             fetch(`/getImage/${occurrenceId}`)
@@ -604,6 +672,8 @@
             getOccurrence();
             isLoggedIn();
             downloadBtn();
+            getTraumaDesc();
+            // setTimeout(prettier, 200);
         }
 
         function isLoggedIn() {

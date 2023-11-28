@@ -28,8 +28,8 @@
                                 Ocorrências</a>
                         </li>
                         <form action="/logout" method="GET">
-                                <button type="submit" class="btn btn-primary">Logout</button>
-                            </form>
+                            <button type="submit" class="btn btn-primary">Logout</button>
+                        </form>
                     </ul>
                 </div>
             </nav>
@@ -203,7 +203,6 @@
                                             <th scope="col">Lado</th>
                                             <th scope="col">Face</th>
                                             <th scope="col">Tipo</th>
-                                            <!-- <th scope="col">Ações</th> -->
                                         </tr>
                                     </thead>
                                     <tbody class="table-group-divider">
@@ -250,7 +249,6 @@
                                         <tr>
                                             <th scope="col">Tipo</th>
                                             <th scope="col">Local</th>
-                                            <!-- <th scope="col">Ações</th> -->
                                         </tr>
                                     </thead>
                                     <tbody class="table-group-divider">
@@ -310,11 +308,11 @@
                 type: type
             };
 
-            const options = JSON.parse(localStorage.getItem('options')) || [];
-            options.push(data);
-            localStorage.setItem('options', JSON.stringify(options));
+            const traumaTable = JSON.parse(localStorage.getItem('traumaTable')) || [];
+            traumaTable.push(data);
+            localStorage.setItem('traumaTable', JSON.stringify(traumaTable));
 
-            console.log(options);
+            console.log(traumaTable);
         });
 
         // Script to remove last option selected from table
@@ -324,11 +322,9 @@
             traumaDescTable.deleteRow(-1);
 
             // Remove last option selected from JSON
-            const options = JSON.parse(localStorage.getItem('options')) || [];
-            options.pop();
-            localStorage.setItem('options', JSON.stringify(options));
-
-            console.log(options);
+            const traumaTable = JSON.parse(localStorage.getItem('traumaTable')) || [];
+            traumaTable.pop();
+            localStorage.setItem('traumaTable', JSON.stringify(traumaTable));
         });
 
         // Script to add burn options selected to table and JSON
@@ -354,17 +350,15 @@
             `;
             burnDescTable.appendChild(row);
 
-            // Add table options to JSON
             const data = {
                 burn: burn,
                 burnLocal: burnLocal
             };
 
-            const options = JSON.parse(localStorage.getItem('options')) || [];
-            options.push(data);
-            localStorage.setItem('options', JSON.stringify(options));
-
-            console.log(options);
+            const burnTable = JSON.parse(localStorage.getItem('burnTable')) || [];
+            burnTable.push(data);
+            localStorage.setItem('burnTable', JSON.stringify(burnTable));
+            console.log(localStorage.getItem('formData'));
         });
 
         // Script to remove last burn option selected from table
@@ -374,72 +368,123 @@
             burnDescTable.deleteRow(-1);
 
             // Remove last option selected from JSON
-            const options = JSON.parse(localStorage.getItem('options')) || [];
-            options.pop();
-            localStorage.setItem('options', JSON.stringify(options));
+            const burnTable = JSON.parse(localStorage.getItem('burnTable')) || [];
+            burnTable.pop();
+            localStorage.setItem('burnTable', JSON.stringify(burnTable));
 
-            console.log(options);
+            console.log(burnTable);
         });
 
 
-        function collectFormData(formId) {
-            const form = document.getElementById(formId);
-            const inputs = form.querySelectorAll('input, textarea, select');
-            let data = {};
+        function collectTableData(tablesData, formId) {
+            // If tables are associated with the form, store their data separately
+            if (tablesData && Object.keys(tablesData).length > 0) {
+                // Initialize an object to store table data
+                let formData = JSON.parse(localStorage.getItem('formData')) || {};
+                formData[formId] = formData[formId] || {};
 
-            inputs.forEach(input => {
-                if (input.type === 'checkbox' || input.type === 'radio') {
-                    data[input.id] = input.checked;
-                } else {
-                    data[input.id] = input.value;
-                }
-            });
+                // Iterate over each table in tablesData
+                Object.entries(tablesData).forEach(([tableId, tableName]) => {
+                    const tableRows = document.querySelectorAll(`#${tableId} tbody tr`);
+                    let tableData = [];
 
-            // Recupera o objeto JSON existente ou cria um novo se não existir
-            let formData = JSON.parse(localStorage.getItem('formData')) || {};
+                    // Get the column names (headers) of the table
+                    const headers = Array.from(document.querySelectorAll(`#${tableId} thead th`)).map(header => header.textContent);
 
-            // Adiciona os dados do formulário atual ao objeto JSON
-            formData[formId] = data;
+                    tableRows.forEach(row => {
+                        const cells = row.querySelectorAll('td');
+                        let rowData = {};
 
-            // Armazena o objeto JSON atualizado no localStorage
-            localStorage.setItem('formData', JSON.stringify(formData));
+                        cells.forEach((cell, index) => {
+                            // Use the column name as the key
+                            rowData[headers[index]] = cell.textContent;
+                        });
+
+                        tableData.push(rowData);
+                    });
+
+                    // Store table data separately in localStorage
+                    localStorage.setItem(tableId, JSON.stringify(tableData));
+
+                    // Add the table data to the formData object
+                    formData[formId][tableName] = tableData;
+                });
+
+                // Store the updated formData object in localStorage
+                localStorage.setItem('formData', JSON.stringify(formData));
+            }
         }
+
+
+        const tablesData = {
+            'traumaDescTable': 'traumaDesc',
+            'burnDescTable': 'burnDesc'
+        };
 
         document.getElementById('traumaDescForm').addEventListener('submit', function (event) {
             event.preventDefault();
 
-            collectFormData('traumaDescForm');
+            collectTableData(tablesData, 'traumaDescForm');
         });
 
 
-        function fillFormData(formId) {
-            const form = document.getElementById(formId);
-            const inputs = form.querySelectorAll('input, textarea, select');
-
+        function fillTableData(tableId, tableName, formId) {
             // Recupera os dados do localStorage
             let formData = JSON.parse(localStorage.getItem('formData')) || {};
             let storedData = formData[formId];
 
-            inputs.forEach(input => {
-                if (storedData && storedData.hasOwnProperty(input.id)) {
-                    if (input.type === 'checkbox' || input.type === 'radio') {
-                        input.checked = storedData[input.id];
-                    } else {
-                        input.value = storedData[input.id];
-                    }
-                }
-            });
+            // Se houver dados armazenados para a tabela
+            if (storedData && storedData.hasOwnProperty(formId) && storedData[formId].hasOwnProperty(tableName)) {
+                const tableData = storedData[formId][tableName];
+
+                // Obtém as colunas da tabela
+                const headers = Array.from(document.querySelectorAll(`#${tableId} thead th`)).map(header => header.textContent);
+
+                // Limpa a tabela antes de preenchê-la novamente
+                clearTable(tableId);
+
+                // Preenche a tabela com os dados armazenados
+                tableData.forEach(rowData => {
+                    console.log('rowData:', rowData); // Adicione este log
+                    const row = document.createElement('tr');
+
+                    headers.forEach(header => {
+                        const cell = document.createElement('td');
+                        cell.textContent = rowData[header];
+                        row.appendChild(cell);
+                    });
+
+                    document.getElementById(tableId).querySelector('tbody').appendChild(row);
+                });
+                console.log(`Tabela ${tableId} preenchida com sucesso.`);
+            } else {
+                console.log(`Nenhum dado encontrado para a tabela ${tableId}.`);
+                console.log(storedData);
+            }
         }
+
+
+        // Função para limpar a tabela
+        function clearTable(tableId) {
+            const tableBody = document.getElementById(tableId).querySelector('tbody');
+            tableBody.innerHTML = ''; // Remove todas as linhas da tabela
+            console.log(`Tabela ${tableId} limpa.`);
+        }
+
+
 
         window.addEventListener("beforeunload", function (event) {
             // Chamar a função que salva os dados
-            collectFormData('traumaDescForm');
+            collectTableData(tablesData, 'traumaDescForm');
         });
 
         // Chama a função quando a página é carregada
         document.addEventListener('DOMContentLoaded', function () {
+            console.log('Chamando fillTableData para traumaDescTable');
+            fillTableData('traumaDescTable', 'traumaDesc', 'traumaDescForm');
+            console.log('Chamando fillTableData para burnDescTable');
+            fillTableData('burnDescTable', 'burnDesc', 'traumaDescForm');
 
-            fillFormData('traumaDescForm');
 
             document.getElementById('backBtn').addEventListener('click', function () {
                 window.location.href = 'traumaLocation.html';
@@ -465,7 +510,7 @@
                 alert('Erro de conexão!');
             });
         }
-        
+
         // Get the active link
         const activeLink = document.querySelector('.list-group-item.active');
 
