@@ -218,7 +218,7 @@
                 <img id="traumaImage" alt="Trauma Image" class="mb-3">
 
                 <!-- Trauma desc -->
-                <h3 class="mt-5" id="traumaDescForm">Descrição dos Traumas</h3>
+                <h3 class="mt-5" id="traumaDescTitle">Descrição dos Traumas</h3>
                 <!-- Tabela igual traumaDesc.html -->
                 <div class=" table-responsive traumaTable">
                     <table class="table table-sm table-hover table-light table-striped text-center"
@@ -237,9 +237,9 @@
                         </tbody>
                     </table>
                 </div>
+                <h3 class="mt-5" id="burnTitle">Queimaduras</h3>
                 <div class=" table-responsive burnTable">
-                    <table class="table table-sm table-hover table-light table-striped text-center"
-                        id="burnDescTable">
+                    <table class="table table-sm table-hover table-light table-striped text-center" id="burnDescTable">
                         <thead>
                             <tr>
                                 <th scope="col">Tipo</th>
@@ -486,34 +486,63 @@
             fetch(`/occurrence/${occurrenceId}`)
                 .then((response) => response.json())
                 .then((data) => {
-                    // Verifica se existe 'traumaDescForm'
+                    // Verifica se existe um arquivo no objeto JSON
                     if (data.traumaDescForm != null && data.traumaDescForm != undefined) {
                         const traumaDescForm = data.traumaDescForm;
-                        // Verifica se existe algum objeto dentro de 'traumaDescForm'
-                        if (traumaDescForm.length > 0) {
-                            // Insere na tabela os dados de cada objeto
-                            for (let i = 0; i < traumaDescForm.length; i++) {
-                                const traumaDesc = traumaDescForm[i];
-                                const table = document.getElementById('descTable');
+
+                        // Verifica se existe alguma tabele dentro do traumaDescForm
+                        if (traumaDescForm.traumaDesc != null && traumaDescForm.traumaDesc != undefined) {
+                            // Coleta os dados da tabela e preenche a respectiva tabela na página
+                            const traumaDescTable = document.querySelector('#traumaDescTable tbody');
+                            const traumaDesc = traumaDescForm.traumaDesc;
+                            for (let i = 0; i < traumaDesc.length; i++) {
                                 const row = document.createElement('tr');
-                                row.classList.add('table-group-divider');
                                 row.innerHTML = `
-                                    <td>${traumaDesc.local}</td>
-                                    <td>${traumaDesc.side}</td>
-                                    <td>${traumaDesc.face}</td>
-                                    <td>${traumaDesc.type}</td>
+                                    <td>${traumaDesc[i].Local}</td>
+                                    <td>${traumaDesc[i].Lado}</td>
+                                    <td>${traumaDesc[i].Face}</td>
+                                    <td>${traumaDesc[i].Tipo}</td>
                                 `;
-                                table.appendChild(row);
+
+                                traumaDescTable.appendChild(row);
                             }
                         } else {
-                            // Se não existir, remove a tabela
-                            const table = document.querySelector('.table-group-divider');
-                            // table.remove();
+                            // Se não existir, remove a tabela e o título
+                            const traumaDescTable = document.querySelector('#traumaDescTable');
+                            const traumaDescTitle = document.querySelector('#traumaDescTitle');
+                            traumaDescTable.remove();
+                            traumaDescTitle.remove();
+                        }
+
+                        // Mesmo código, outra tabela
+                        if (traumaDescForm.burnDesc != null && traumaDescForm.burnDesc != undefined) {
+                            const burnDescTable = document.querySelector('#burnDescTable tbody');
+                            const burnDesc = traumaDescForm.burnDesc;
+                            for (let i = 0; i < burnDesc.length; i++) {
+                                const row = document.createElement('tr');
+                                row.innerHTML = `
+                                    <td>${burnDesc[i].Tipo}</td>
+                                    <td>${burnDesc[i].Local}</td>
+                                `;
+
+                                burnDescTable.appendChild(row);
+                            }
+                        } else {
+                            const burnDescTable = document.querySelector('#burnDescTable');
+                            const burnTitle = document.querySelector('#burnTitle');
+                            burnDescTable.remove();
+                            burnTitle.remove();
                         }
                     } else {
-                        // Se não existir, remove a tabela
-                        const table = document.querySelector('.table-group-divider');
-                        // table.remove();
+                        // Se não existir, remove ambas tabelas
+                        const traumaDescTable = document.querySelector('#traumaDescTable');
+                        const burnDescTable = document.querySelector('#burnDescTable');
+                        const traumaDescTitle = document.querySelector('#traumaDescTitle');
+                        const burnTitle = document.querySelector('#burnTitle');
+                        traumaDescTable.remove();
+                        burnDescTable.remove();
+                        traumaDescTitle.remove();
+                        burnTitle.remove();
                     }
                 })
                 .catch((error) => console.error("Erro na requisição:", error));
@@ -673,7 +702,7 @@
             isLoggedIn();
             downloadBtn();
             getTraumaDesc();
-            // setTimeout(prettier, 200);
+            setTimeout(prettier, 200);
         }
 
         function isLoggedIn() {
