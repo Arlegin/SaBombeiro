@@ -29,8 +29,8 @@
                                 Ocorrências</a>
                         </li>
                         <form action="/logout" method="GET">
-                                <button type="submit" class="btn btn-primary">Logout</button>
-                            </form>
+                            <button type="submit" class="btn btn-primary">Logout</button>
+                        </form>
                     </ul>
                 </div>
             </nav>
@@ -157,6 +157,98 @@
                         <option value="Queimadura_2">Queimadura 2° grau</option>
                         <option value="Queimadura_3">Queimadura 3° grau</option>
                     </select>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="table-responsive table-container">
+                                    <table class="table text-center text-break w-100">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Ícone</th>
+                                                <th scope="col">Significado</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row"><img src="trauma_icon/Amputacao.png" alt="Amputação"
+                                                        class="img-small"></th>
+                                                <td>Amputação</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row"><img src="trauma_icon/Evisceracao.png" alt="Amputação"
+                                                        class="img-small"></th>
+                                                <td>Evisceração</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row"><img src="trauma_icon/FAB_FAF.png" alt="Amputação"
+                                                        class="img-small"></th>
+                                                <td>FAB/FAF</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="table-responsive table-container">
+                                    <table class="table text-center text-break w-100">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Ícone</th>
+                                                <th scope="col">Significado</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row"><img src="trauma_icon/Ferimentos_diversos.png"
+                                                        alt="Amputação" class="img-small"></th>
+                                                <td>Ferimentos diversos</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row"><img src="trauma_icon/Fratura_Luxacao_Entorse.png"
+                                                        alt="Amputação" class="img-small"></th>
+                                                <td>Fratura/Luxação/Entorse</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row"><img src="trauma_icon/Hemorragia.png" alt="Amputação"
+                                                        class="img-small"></th>
+                                                <td>Hemorragia</td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="table-responsive table-container">
+                                    <table class="table text-center text-break w-100">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Ícone</th>
+                                                <th scope="col">Significado</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row"><img src="trauma_icon/Queimadura_1.png" alt="Amputação"
+                                                        class="img-small"></th>
+                                                <td>Queimadura 1° grau</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row"><img src="trauma_icon/Queimadura_2.png" alt="Amputação"
+                                                        class="img-small"></th>
+                                                <td>Queimadura 2° grau</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row"><img src="trauma_icon/Queimadura_3.png" alt="Amputação"
+                                                        class="img-small"></th>
+                                                <td>Queimadura 3° grau</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row position-relative" id="imageContainer">
                         <img id="humanBody" src="/body.png" alt="body-image">
                     </div>
@@ -272,7 +364,7 @@
                 alert('Erro de conexão!');
             });
         }
-        
+
         // Get the active link
         const activeLink = document.querySelector('.list-group-item.active');
 
