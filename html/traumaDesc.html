@@ -311,8 +311,6 @@
             const traumaTable = JSON.parse(localStorage.getItem('traumaTable')) || [];
             traumaTable.push(data);
             localStorage.setItem('traumaTable', JSON.stringify(traumaTable));
-
-            console.log(traumaTable);
         });
 
         // Script to remove last option selected from table
@@ -358,7 +356,6 @@
             const burnTable = JSON.parse(localStorage.getItem('burnTable')) || [];
             burnTable.push(data);
             localStorage.setItem('burnTable', JSON.stringify(burnTable));
-            console.log(localStorage.getItem('formData'));
         });
 
         // Script to remove last burn option selected from table
@@ -371,8 +368,6 @@
             const burnTable = JSON.parse(localStorage.getItem('burnTable')) || [];
             burnTable.pop();
             localStorage.setItem('burnTable', JSON.stringify(burnTable));
-
-            console.log(burnTable);
         });
 
 
