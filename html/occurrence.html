@@ -254,6 +254,53 @@
                 </div>
 
                 <!-- Glasgow -->
+                <h3 class="mt-5" id="glasgowForm">GLASGOW</h3>
+                <h5 id="below">Menor de 5 anos</h5>
+                <h6 id="belowOcular">Abertura Ocular</h6>
+                <p id="espontanea_2">Espontânea</p>
+                <p id="comando_verbal_2">Comando Verbal</p>
+                <p id="estimulo_doloroso_2">Estímulo doloroso</p>
+                <p id="nenhuma">Nenhuma</p>
+
+                <h6 id="belowVerbal">Resposta Verbal</h6>
+                <p id="palavras_e_frase_apropriadas">Palavras e Frases Apropriadas</p>
+                <p id="palavras_inapropriadas">Palavras Inapropriadas</p>
+                <p id="choro_persistete_ou_gritos">Choro Persistente ou Gritos</p>
+                <p id="sons_incompreensiveis">Sons Incompreensíveis</p>
+                <p id="nenhuma_resposta_verbal">Nenhuma Resposta Verbal</p>
+
+                <h6 id="belowMotor">Resposta Motora</h6>
+                <p id="obdece_prontamente">Obedece Prontamente</p>
+                <p id="localiza_dor_ou_estimulo_tatil">Localiza Dor ou Estímulo Tátil</p>
+                <p id="retirada_do_segmento_estimulado">Retirada do Segmento Estimulado</p>
+                <p id="flexao_anormal_decorticacao">Flexão Anormal (Decorticação)</p>
+                <p id="extensao_anormal_decerebracao">Extensão Anormal (Descerebração)</p>
+                <p id="ausencia_paralisia_flacida_hipotonia">Ausência (Paralisia Flácida, Hipotônia)</p>
+
+                <h5 id="above">Maior de 5 anos</h5>
+                <h6 id="aboveOcular">Abertura Ocular</h6>
+                <p id="espontanea_1">Espontânea</p>
+                <p id="comando_verbal_1">Comando Verbal</p>
+                <p id="estimulo_doloroso_1">Estímulo doloroso</p>
+                <p id="nenhuma_ocular_1">Nenhuma</p>
+
+                <h6 id="aboveVerbal">Resposta Verbal</h6>
+                <p id="orientado_1">Orientado</p>
+                <p id="confuso_1">Confuso</p>
+                <p id="palavras_inapropriadas_1">Palavras Inapropriadas</p>
+                <p id="palavras_incompreensiveis_1">Palavras Incompreensíveis</p>
+                <p id="nenhuma_verbal_1">Nenhuma</p>
+
+                <h6 id="aboveMotor">Resposta Motora</h6>
+                <p id="obdece_comandos_1">Obedece Comandos</p>
+                <p id="localiza_dor_1">Localiza Dor</p>
+                <p id="movimento_retirada_1">Movimento Retirada</p>
+                <p id="flexao_anormal_1">Flexão Anormal</p>
+                <p id="extensao_anormal_1">Extensão Anormal</p>
+                <p id="nenhuma_motora_1">Nenhuma</p>
+
+                <p id="totalSum">Total: 14</p>
+
 
                 <!-- vitalSignsForm -->
                 <h3 class="mt-5" id="vitalSignsForm">Sinais Vitais</h3>
@@ -482,6 +529,18 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script>
+        function getGlasgow() {
+            fetch(`/occurrence/${occurrenceId}`)
+            .then((response) => response.json())
+            .then((data) => {
+                // Verifica se existe no objeto JSON
+                if (data.GlasgowForm != null && data.GlasgowForm != undefined) {
+                    // Insere os dados nos respectivos <p> da página
+                    
+                }
+            })
+        }
+
         function getTraumaDesc() {
             fetch(`/occurrence/${occurrenceId}`)
                 .then((response) => response.json())
@@ -702,6 +761,7 @@
             isLoggedIn();
             downloadBtn();
             getTraumaDesc();
+            getGlasgow();
             setTimeout(prettier, 200);
         }
 
