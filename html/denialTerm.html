@@ -153,6 +153,7 @@
                                 <p class="mb-0">Formatos aceitos: .png, .jpg, .jpeg</p>
                                 <p id="maxFile">Tamanho máximo: 4MB</p>
                             </div>
+                            <p id="fileNameDisplay"></p>
                         </div>
                         <div class="d-flex justify-content-between mt-3">
                             <button type="submit" class="btn btn-light" id="backBtn">Voltar</button>
@@ -179,81 +180,48 @@
             };
         };
 
-        window.onload = function () {
-            var formData = JSON.parse(localStorage.getItem('formData')) || {};
-            var data = formData['denialTermForm'];
-            if (data) {
-                var form = document.getElementById('denialTermForm');
-                var inputs = form.querySelectorAll('input, textarea');
-                inputs.forEach(input => {
-                    if (data[input.id] !== undefined) {
-                        if (input.type === 'checkbox') {
-                            input.checked = data[input.id];
-                        } else if (input.type === 'file') {
-                            // Infelizmente, por razões de segurança, os navegadores não permitem definir programaticamente o valor de um input do tipo 'file'
-                        } else {
-                            input.value = data[input.id];
-                        }
-                    }
-                });
-            }
-        };
 
-
-        function collectFormData(formId) {
-            const form = document.getElementById(formId);
-            const inputs = form.querySelectorAll('input, textarea');
-            let data = {};
-
-            inputs.forEach(input => {
-                if (input.type === 'checkbox') {
-                    data[input.id] = input.checked;
-                } else if (input.type === 'file') {
-                    if (input.files.length > 0) { // Adicione esta linha
-                        let reader = new FileReader();
-                        reader.onload = function (e) {
-                            data[input.id] = e.target.result;
-                        }
-                        reader.readAsDataURL(input.files[0]);
-                    }
-                } else {
-                    data[input.id] = input.value;
-                }
+        // Função para salvar o arquivo no localStorage dentro de 'formData'
+        document.getElementById('formFile').addEventListener('change', function () {
+            const file = this.files[0];
+            const fileName = file.name;
+            const reader = new FileReader();
+            reader.addEventListener('load', function () {
+                // Recupera o objeto 'formData' existente ou cria um novo se não existir
+                const formData = JSON.parse(localStorage.getItem('formData')) || {};
+                // Adiciona o novo arquivo ao objeto 'formData'
+                formData.file = {
+                    fileName: fileName,
+                    file: reader.result,
+                };
+                // Armazena o objeto 'formData' atualizado no localStorage
+                localStorage.setItem('formData', JSON.stringify(formData));
             });
-
-            // Recupera o objeto JSON existente ou cria um novo se não existir
-            let formData = JSON.parse(localStorage.getItem('formData')) || {};
-
-            // Adiciona os dados do formulário atual ao objeto JSON
-            formData[formId] = data;
-
-            // Armazena o objeto JSON atualizado no localStorage
-            localStorage.setItem('formData', JSON.stringify(formData));
-        }
-
-        document.getElementById('denialTermForm').addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            collectFormData('denialTermForm');
+            reader.readAsDataURL(file);
+            // console.log(localStorage.getItem('formData'));
         });
 
-        window.addEventListener("beforeunload", function (event) {
-            // Chamar a função que salva os dados
-            collectFormData('denialTermForm');
-        });
 
         // Chama a função quando a página é carregada
         document.addEventListener('DOMContentLoaded', function () {
 
-            fillFormData('denialTermForm');
+            // Verifica se existe um arquivo no localStorage
+            if (localStorage.getItem('formData')) {
+                // Se existir, pega o arquivo e exibe o nome
+                const formData = JSON.parse(localStorage.getItem('formData'));
+                const fileName = formData.file.fileName;
+                document.getElementById('fileNameDisplay').innerHTML = 'Aviso! Um arquivo já foi selecionado: ' + formData.file.fileName;
+            }
+        });
 
-            document.getElementById('backBtn').addEventListener('click', function () {
-                window.location.href = 'obs.html';
-            });
+        document.getElementById('backBtn').addEventListener('click', function () {
+            event.preventDefault();
+            window.location.href = 'obs.html';
+        });
 
-            document.getElementById('nextBtn').addEventListener('click', function () {
-                window.location.href = 'cinematic.html';
-            });
+        document.getElementById('nextBtn').addEventListener('click', function () {
+            event.preventDefault();
+            window.location.href = 'cinematic.html';
         });
 
         function imageLogin() {
@@ -279,7 +247,6 @@
         if (activeLink) {
             activeLink.scrollIntoView({ behavior: 'smooth', inline: 'center' });
         }
-
     </script>
 </body>
 

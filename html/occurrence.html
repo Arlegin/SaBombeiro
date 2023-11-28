@@ -24,7 +24,7 @@
                             <a class="nav-link text-light text-center" href="menu.html">Início</a>
                         </li>
                         <li class="nav-item ms-2 me-2">
-                            <a class="nav-link text-light text-center" href="patientInfo.html">Nova Ocorrência</a>
+                            <a class="nav-link text-light text-center" href="occurrenceInfo.html">Nova Ocorrência</a>
                         </li>
                         <li class="nav-item ms-2 me-2">
                             <a class="nav-link text-light text-center" href="occurrenceHistory.html">Histórico de
@@ -64,7 +64,7 @@
                                 <a class="nav-link text-dark" href="menu.html">Início</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="patientInfo.html">Nova Ocorrência</a>
+                                <a class="nav-link text-dark" href="occurrenceInfo.html">Nova Ocorrência</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-dark" href="occurrenceHistory.html">Histórico de Ocorrências</a>
@@ -406,6 +406,12 @@
                 <p id="obs">Observações</p>
                 <p id="objects">Objetos recolhidos</p>
 
+                <!-- Denial Term -->
+                <h3 class="mt-5" id="denialForm">Termo de Recusa</h3>
+                <div id="buttonContainer">
+                    <a class="btn btn-primary" id="downloadBtn">Baixar</a>
+                </div>
+
                 <!-- Avaliação da cinemática -->
                 <h3 class="mt-5" id="cinematicForm">Avaliação da Cinemática</h3>
                 <p id="behavior">Distúrbio de comportamento</p>
@@ -442,7 +448,38 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        function downloadBtn() {
+            fetch(`/occurrence/${occurrenceId}`)
+                .then((response) => response.json())
+                .then((data) => {
+                    // Verifica se existe um arquivo no objeto JSON
+                    if (data) {
+                        // Se existir, pega o arquivo e o nome
+                        const fileName = data.file.fileName;
+                        const file = data.file.file;
+
+                        // console.log(fileName);
+                        // console.log(file);
+
+                        // Cria um elemento de link invisível
+                        const link = document.getElementById('downloadBtn');
+                        // link.style.display = 'none';
+                        // document.body.appendChild(link);
+
+                        // Define as propriedades do link para download
+                        link.href = file; // Use the file as it is, because it already is a DataURL
+                        link.download = fileName;
+                    } else {
+                        // Se não existir, exibe uma mensagem de erro ao lado do botão
+                        const downloadBtn = document.getElementById('downloadBtn');
+                        downloadBtn.insertAdjacentHTML('afterend', '<p class="text-danger fw-bold">Não há arquivo para download.</p>');
+                    }
+                })
+                .catch((error) => console.error("Erro na requisição:", error));
+        }
+
+
+        function getOccurrence() {
             const urlParams = new URLSearchParams(window.location.search);
             const occurrenceId = urlParams.get('id');
 
@@ -495,11 +532,10 @@
             fetch(`/getImage/${occurrenceId}`)
                 .then(response => response.text())
                 .then(data => {
-                    console.log(data); // Prints base64 string
                     const img = document.querySelector('#traumaImage'); // Selecione o elemento de imagem
                     img.src = data; // Defina o src para a imagem base64
                 });
-        });
+        }
 
         // Function to delete <p> inside 'occurrenceData' elements that doesn't have a ":" in any part of the text
         // Or have 'false' in any part of the text
@@ -534,6 +570,15 @@
                     h3[i].remove();
                 }
             }
+
+            // Adicionar classe 'mb-5' para o último elemento da página (caso não seja o botão de download)
+            var lastElement = document.querySelector('.occurrenceData').lastElementChild;
+            if (lastElement.tagName != 'BUTTON') {
+                lastElement.classList.add('mb-5');
+            } else {
+                // Adiciona classe 'mt-5' para a div que contém o botão de download
+                document.getElementById('buttonContainer').classList.add('mt-5');
+            }
         }
 
         // Get the occurrence id from the URL
@@ -546,7 +591,9 @@
 
         // When the page loads, check if the user is logged in
         window.onload = function () {
+            getOccurrence();
             isLoggedIn();
+            downloadBtn();
         }
 
         function isLoggedIn() {
