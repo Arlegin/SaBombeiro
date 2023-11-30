@@ -92,418 +92,527 @@
 
             <div class="occurrenceData">
                 <!-- Dados da ocorrência -->
-                <h3 class="mt-5" id="occurrence">Informações da Ocorrência</h3>
-                <p id="usbNumber">Número USB</p>
-                <p id="desp">DESP</p>
-                <p id="arrivalTime">Hora de chegada</p>
-                <p id="kmFinal">KM final</p>
-                <p id="siaSUS">SIA/SUS</p>
-                <p id="codIR">Cód. IR</p>
-                <p id="codPS">Cód PS</p>
+                <div id="occurrenceInfo">
+                    <h3 class="mt-5" id="occurrence">Informações da Ocorrência</h3>
+                    <p id="usbNumber">Número USB</p>
+                    <p id="desp">DESP</p>
+                    <p id="arrivalTime">Hora de chegada</p>
+                    <p id="kmFinal">KM final</p>
+                    <p id="siaSUS">SIA/SUS</p>
+                    <p id="codIR">Cód. IR</p>
+                    <p id="codPS">Cód PS</p>
+                </div>
 
                 <!-- Dados do paciente -->
-                <h3 class="mt-5" id="info_paciente">Informações do Paciente</h3>
-                <p id="dateInput">Data</p>
-                <p id="hospitalInput">Hospital</p>
-                <p id="mascInput">Sexo masc</p>
-                <p id="femInput">Sexo fem</p>
-                <p id="patientName">Nome do paciente</p>
-                <p id="patientAge">Idade do paciente</p>
-                <p id="patientCPF">RG/CPF do paciente</p>
-                <p id="companionName">Nome do acompanhante</p>
-                <p id="companionAge">Idade do acompanhante</p>
-                <p id="occurencyLocation">Local da ocorrência</p>
-                <p id="responsibleInput">Responsável pelo preenchimento</p>
+                <div id="patientInfo">
+                    <h3 class="mt-5" id="info_paciente">Informações do Paciente</h3>
+                    <p id="dateInput">Data</p>
+                    <p id="hospitalInput">Hospital</p>
+                    <p id="mascInput">Sexo masc</p>
+                    <p id="femInput">Sexo fem</p>
+                    <p id="patientName">Nome do paciente</p>
+                    <p id="patientAge">Idade do paciente</p>
+                    <p id="patientCPF">RG/CPF do paciente</p>
+                    <p id="companionName">Nome do acompanhante</p>
+                    <p id="companionAge">Idade do acompanhante</p>
+                    <p id="occurencyLocation">Local da ocorrência</p>
+                    <p id="responsibleInput">Responsável pelo preenchimento</p>
+                </div>
 
                 <!-- Tipo de ocorrência -->
-                <h3 class="mt-5" id="occurrenceForm">Tipo de Ocorrência</h3>
-                <p id="animals">Causado por animais</p>
-                <p id="transportation">Com meio de transporte</p>
-                <p id="landslide">Desmoronamento</p>
-                <p id="medicalEmergency">Emergência médica</p>
-                <p id="fall2m">Queda de altura 2M</p>
-                <p id="suicideAttempt">Tentativa de suicídio</p>
-                <p id="fall">Queda da própria altura</p>
-                <p id="drown">Afogamento</p>
-                <p id="attack">Agressão</p>
-                <p id="runOver">Atropelamento</p>
-                <p id="shock">Choque elétrico</p>
-                <p id="collapse">Desabamento</p>
-                <p id="domestic">Doméstico</p>
-                <p id="sport">Esportivo</p>
-                <p id="toxic">Intoxicação</p>
-                <p id="bicicle">Queda de bicicleta</p>
-                <p id="motorcycle">Queda moto</p>
-                <p id="fallLevel">Queda nível &lt;2M</p>
-                <p id="job">Trabalho</p>
-                <p id="transfer">Transferência</p>
-                <p id="otherInput occurrence">Outros</p>
+                <div id="occurrenceType">
+                    <h3 class="mt-5" id="occurrenceForm">Tipo de Ocorrência</h3>
+                    <p id="animals">Causado por animais</p>
+                    <p id="transportation">Com meio de transporte</p>
+                    <p id="landslide">Desmoronamento</p>
+                    <p id="medicalEmergency">Emergência médica</p>
+                    <p id="fall2m">Queda de altura 2M</p>
+                    <p id="suicideAttempt">Tentativa de suicídio</p>
+                    <p id="fall">Queda da própria altura</p>
+                    <p id="drown">Afogamento</p>
+                    <p id="attack">Agressão</p>
+                    <p id="runOver">Atropelamento</p>
+                    <p id="shock">Choque elétrico</p>
+                    <p id="collapse">Desabamento</p>
+                    <p id="domestic">Doméstico</p>
+                    <p id="sport">Esportivo</p>
+                    <p id="toxic">Intoxicação</p>
+                    <p id="bicicle">Queda de bicicleta</p>
+                    <p id="motorcycle">Queda moto</p>
+                    <p id="fallLevel">Queda nível &lt;2M</p>
+                    <p id="job">Trabalho</p>
+                    <p id="transfer">Transferência</p>
+                    <p id="otherInput occurrence">Outros</p>
+                </div>
 
                 <!-- PESForm -->
-                <h3 class="mt-5" id="PESForm">Problemas Encontrados Suspeitos</h3>
-                <p id="psycho">Psiquiátrico</p>
-                <p id="dpoc">Respiratório DPOC</p>
-                <p id="smoke">Inalação de fumaça</p>
-                <p id="hyperglycemia">Hiperglicemia</p>
-                <p id="hypoglycemia">Hipoglicemia</p>
-                <p id="birth">Parto emergencial</p>
-                <p id="pregnant">Gestante</p>
-                <p id="bleeding">Hemorragia excessiva</p>
-                <p id="transport">Transporte</p>
-                <p id="transportClinic">Clínico</p>
-                <p id="transportEmergency">Emergencial</p>
-                <p id="transportTrauma">Pós-trauma</p>
-                <p id="transportAerial">Aéreo</p>
-                <p id="transportSAMU">SAMU</p>
-                <p id="transportNo">Sem remoção</p>
+                <div id="PES">
+                    <h3 class="mt-5" id="PESForm">Problemas Encontrados Suspeitos</h3>
+                    <p id="psycho">Psiquiátrico</p>
+                    <p id="dpoc">Respiratório DPOC</p>
+                    <p id="smoke">Inalação de fumaça</p>
+                    <p id="hyperglycemia">Hiperglicemia</p>
+                    <p id="hypoglycemia">Hipoglicemia</p>
+                    <p id="birth">Parto emergencial</p>
+                    <p id="pregnant">Gestante</p>
+                    <p id="bleeding">Hemorragia excessiva</p>
+                    <p id="transport">Transporte</p>
+                    <p id="transportClinic">Clínico</p>
+                    <p id="transportEmergency">Emergencial</p>
+                    <p id="transportTrauma">Pós-trauma</p>
+                    <p id="transportAerial">Aéreo</p>
+                    <p id="transportSAMU">SAMU</p>
+                    <p id="transportNo">Sem remoção</p>
+                </div>
 
                 <!-- symptomsForm -->
-                <h3 class="mt-5" id="symptomsForm">Sinais e Sintomas</h3>
-                <p id="abdomem_sensisvel_ou_rigido">Abdômen Sensível ou Rígido</p>
-                <p id="afundamento_de_cranio">Afundamento de Crânio</p>
-                <p id="agitacao">Agitação</p>
-                <p id="amnesia">Amnésia</p>
-                <p id="angina_de_peito">Angina de Peito</p>
-                <p id="apneia">Apneia</p>
-                <p id="bradicardia">Braducardia</p>
-                <p id="bradipneia">Bradipneia</p>
-                <p id="bronco_aspirando">Bronco Aspirando</p>
-                <p id="cefaleia">Cefaleia</p>
-                <p id="cianose_labios">Cianose nos Lábios</p>
-                <p id="cianose_extremidade">Cianose nas Extremidades</p>
-                <p id="convulsao">Convulsão</p>
-                <p id="decorticacao">Decorticação</p>
-                <p id="deformidade">Deformidade</p>
-                <p id="descerebracao">Descerebração</p>
-                <p id="desmaio">Desmaio</p>
-                <p id="desvio_de_traqueia">Desvio de Traqueia</p>
-                <p id="dispneia">Dispneia</p>
-                <p id="dor_local">Dor Local</p>
-                <p id="edema_generalizado">Edema Generalizado</p>
-                <p id="edema_localizado">Edema Localizado</p>
-                <p id="enfisema_subcutaneo">Enfisema Subcutâneo</p>
-                <p id="estase_de_jugular">Estase de Jugular</p>
-                <p id="face_palida">Face Pálida</p>
-                <p id="hemorragia_interna">Hemorragia Interna</p>
-                <p id="hemorragia_externa">Hemorragia Externa</p>
-                <p id="hipertensao">Hipertensão</p>
-                <p id="hipotensao">Hipotensão</p>
-                <p id="nauseas_e_vomitos">Náuseas e Vômitos</p>
-                <p id="nasoragia">Nasorragia</p>
-                <p id="obito">Óbito</p>
-                <p id="otorreia">Otorreia</p>
-                <p id="otorragia">Otorragia</p>
-                <p id="o_v_a_c_e">O.V.A.C.E</p>
-                <p id="parada_cardiaca">Parada Cardíaca</p>
-                <p id="parada_respiratoria">Parada Respiratória</p>
-                <p id="priaprismo">Priaprismo</p>
-                <p id="prurido_na_pele">Prurido na Pele</p>
-                <p id="pupilas_reagente">Pupilas Reagente</p>
-                <p id="pupilas_n_reagente">Pupilas Não Reagente</p>
-                <p id="pupilas_anisocoria">Anisocoria das Pupilas</p>
-                <p id="pupilas_isocoria">Isocoria das Pupilas</p>
-                <p id="pupilas_midriase">Midríase das Pupilas</p>
-                <p id="pupilas_miose">Miose das Pupilas</p>
-                <p id="sede">Sede</p>
-                <p id="sinal_de_battle">Sinal de Battle</p>
-                <p id="sinal_de_guaxinim">Sinal de Guaxinim</p>
-                <p id="sudorese">Sudorese</p>
-                <p id="taquipneia">Taquipneia</p>
-                <p id="taquicardia">Taquicardia</p>
-                <p id="tontura">Tontura</p>
-                <p id="outrosTextArea">Outros</p>
+                <div id="symptoms">
+                    <h3 class="mt-5" id="symptomsForm">Sinais e Sintomas</h3>
+                    <p id="abdomem_sensisvel_ou_rigido">Abdômen Sensível ou Rígido</p>
+                    <p id="afundamento_de_cranio">Afundamento de Crânio</p>
+                    <p id="agitacao">Agitação</p>
+                    <p id="amnesia">Amnésia</p>
+                    <p id="angina_de_peito">Angina de Peito</p>
+                    <p id="apneia">Apneia</p>
+                    <p id="bradicardia">Braducardia</p>
+                    <p id="bradipneia">Bradipneia</p>
+                    <p id="bronco_aspirando">Bronco Aspirando</p>
+                    <p id="cefaleia">Cefaleia</p>
+                    <p id="cianose_labios">Cianose nos Lábios</p>
+                    <p id="cianose_extremidade">Cianose nas Extremidades</p>
+                    <p id="convulsao">Convulsão</p>
+                    <p id="decorticacao">Decorticação</p>
+                    <p id="deformidade">Deformidade</p>
+                    <p id="descerebracao">Descerebração</p>
+                    <p id="desmaio">Desmaio</p>
+                    <p id="desvio_de_traqueia">Desvio de Traqueia</p>
+                    <p id="dispneia">Dispneia</p>
+                    <p id="dor_local">Dor Local</p>
+                    <p id="edema_generalizado">Edema Generalizado</p>
+                    <p id="edema_localizado">Edema Localizado</p>
+                    <p id="enfisema_subcutaneo">Enfisema Subcutâneo</p>
+                    <p id="estase_de_jugular">Estase de Jugular</p>
+                    <p id="face_palida">Face Pálida</p>
+                    <p id="hemorragia_interna">Hemorragia Interna</p>
+                    <p id="hemorragia_externa">Hemorragia Externa</p>
+                    <p id="hipertensao">Hipertensão</p>
+                    <p id="hipotensao">Hipotensão</p>
+                    <p id="nauseas_e_vomitos">Náuseas e Vômitos</p>
+                    <p id="nasoragia">Nasorragia</p>
+                    <p id="obito">Óbito</p>
+                    <p id="otorreia">Otorreia</p>
+                    <p id="otorragia">Otorragia</p>
+                    <p id="o_v_a_c_e">O.V.A.C.E</p>
+                    <p id="parada_cardiaca">Parada Cardíaca</p>
+                    <p id="parada_respiratoria">Parada Respiratória</p>
+                    <p id="priaprismo">Priaprismo</p>
+                    <p id="prurido_na_pele">Prurido na Pele</p>
+                    <p id="pupilas_reagente">Pupilas Reagente</p>
+                    <p id="pupilas_n_reagente">Pupilas Não Reagente</p>
+                    <p id="pupilas_anisocoria">Anisocoria das Pupilas</p>
+                    <p id="pupilas_isocoria">Isocoria das Pupilas</p>
+                    <p id="pupilas_midriase">Midríase das Pupilas</p>
+                    <p id="pupilas_miose">Miose das Pupilas</p>
+                    <p id="sede">Sede</p>
+                    <p id="sinal_de_battle">Sinal de Battle</p>
+                    <p id="sinal_de_guaxinim">Sinal de Guaxinim</p>
+                    <p id="sudorese">Sudorese</p>
+                    <p id="taquipneia">Taquipneia</p>
+                    <p id="taquicardia">Taquicardia</p>
+                    <p id="tontura">Tontura</p>
+                    <p id="outrosTextArea">Outros</p>
+                </div>
 
                 <!-- Trauma loc -->
-                <h3 class="mt-5" id="traumaLocForm">Localização dos Traumas</h3>
-                <img id="traumaImage" alt="Trauma Image" class="mb-3">
-
-                <!-- Trauma desc -->
-                <h3 class="mt-5" id="traumaDescTitle">Descrição dos Traumas</h3>
-                <!-- Tabela igual traumaDesc.html -->
-                <div class=" table-responsive traumaTable">
-                    <table class="table table-sm table-hover table-light table-striped text-center"
-                        id="traumaDescTable">
-                        <thead>
-                            <tr>
-                                <th scope="col">Local</th>
-                                <th scope="col">Lado</th>
-                                <th scope="col">Face</th>
-                                <th scope="col">Tipo</th>
-                                <!-- <th scope="col">Ações</th> -->
-                            </tr>
-                        </thead>
-                        <tbody class="table-group-divider">
-                            <!-- Table rows created dynamically -->
-                        </tbody>
-                    </table>
+                <div id="traumaLocation">
+                    <h3 class="mt-5" id="traumaLocForm">Localização dos Traumas</h3>
+                    <img id="traumaImage" alt="Trauma Image" class="mb-3 img-fluid">
+                    <div class="container mt-3">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="table-responsive table-container">
+                                    <table class="table text-center text-break w-100">
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row"><img src="trauma_icon/Amputacao.png" alt="Amputação"
+                                                        class="img-small"></th>
+                                                <td class="small">Amputação</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row"><img src="trauma_icon/Evisceracao.png" alt="Amputação"
+                                                        class="img-small"></th>
+                                                <td class="small">Evisceração</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row"><img src="trauma_icon/FAB_FAF.png" alt="Amputação"
+                                                        class="img-small"></th>
+                                                <td class="small">FAB/FAF</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="table-responsive table-container">
+                                    <table class="table text-center text-break w-100">
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row"><img src="trauma_icon/Ferimentos_diversos.png"
+                                                        alt="Amputação" class="img-small"></th>
+                                                <td class="small">Ferimentos diversos</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row"><img src="trauma_icon/Fratura_Luxacao_Entorse.png"
+                                                        alt="Amputação" class="img-small"></th>
+                                                <td class="small">Fratura/Luxação/Entorse</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row"><img src="trauma_icon/Hemorragia.png" alt="Amputação"
+                                                        class="img-small"></th>
+                                                <td class="small">Hemorragia</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="table-responsive table-container">
+                                    <table class="table text-center text-break w-100">
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row"><img src="trauma_icon/Queimadura_1.png" alt="Amputação"
+                                                        class="img-small"></th>
+                                                <td class="small">Queimadura 1° grau</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row"><img src="trauma_icon/Queimadura_2.png" alt="Amputação"
+                                                        class="img-small"></th>
+                                                <td class="small">Queimadura 2° grau</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row"><img src="trauma_icon/Queimadura_3.png" alt="Amputação"
+                                                        class="img-small"></th>
+                                                <td class="small">Queimadura 3° grau</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="mt-5" id="burnTitle">Queimaduras</h3>
-                <div class=" table-responsive burnTable">
-                    <table class="table table-sm table-hover table-light table-striped text-center" id="burnDescTable">
-                        <thead>
-                            <tr>
-                                <th scope="col">Tipo</th>
-                                <th scope="col">Local</th>
-                                <!-- <th scope="col">Ações</th> -->
-                            </tr>
-                        </thead>
-                        <tbody class="table-group-divider">
-                            <!-- Table rows created dynamically -->
-                        </tbody>
-                    </table>
+                <!-- Trauma desc -->
+                <div id="traumaDesc">
+                    <h3 class="mt-5" id="traumaDescTitle">Descrição dos Traumas</h3>
+                    <!-- Tabela igual traumaDesc.html -->
+                    <div class=" table-responsive traumaTable">
+                        <table class="table table-sm table-hover table-light table-striped text-center"
+                            id="traumaDescTable">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Local</th>
+                                    <th scope="col">Lado</th>
+                                    <th scope="col">Face</th>
+                                    <th scope="col">Tipo</th>
+                                    <!-- <th scope="col">Ações</th> -->
+                                </tr>
+                            </thead>
+                            <tbody class="table-group-divider">
+                                <!-- Table rows created dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <h3 class="mt-5" id="burnTitle">Queimaduras</h3>
+                    <div class=" table-responsive burnTable">
+                        <table class="table table-sm table-hover table-light table-striped text-center"
+                            id="burnDescTable">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Tipo</th>
+                                    <th scope="col">Local</th>
+                                    <!-- <th scope="col">Ações</th> -->
+                                </tr>
+                            </thead>
+                            <tbody class="table-group-divider">
+                                <!-- Table rows created dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
                 <!-- Glasgow -->
                 <div id="GlasgowContainer">
-                    <h3 class="mt-5" id="glasgowForm">GLASGOW</h3>
-                    <h5 id="below">Menor de 5 anos</h5>
-                    <h6 id="belowOcular">Abertura Ocular</h6>
-                    <p id="espontanea_2">Espontânea</p>
-                    <p id="comando_verbal_2">Comando Verbal</p>
-                    <p id="estimulo_doloroso_2">Estímulo doloroso</p>
-                    <p id="nenhuma">Nenhuma</p>
+                    <div id="glasgowBelow">
+                        <h3 class="mt-5" id="glasgowForm">GLASGOW</h3>
+                        <h5 id="below">Menor de 5 anos</h5>
+                        <h6 id="belowOcular">Abertura Ocular</h6>
+                        <p id="espontanea_2">Espontânea</p>
+                        <p id="comando_verbal_2">Comando Verbal</p>
+                        <p id="estimulo_doloroso_2">Estímulo doloroso</p>
+                        <p id="nenhuma">Nenhuma</p>
 
-                    <h6 id="belowVerbal">Resposta Verbal</h6>
-                    <p id="palavras_e_frase_apropriadas">Palavras e Frases Apropriadas</p>
-                    <p id="palavras_inapropriadas">Palavras Inapropriadas</p>
-                    <p id="choro_persistete_ou_gritos">Choro Persistente ou Gritos</p>
-                    <p id="sons_incompreensiveis">Sons Incompreensíveis</p>
-                    <p id="nenhuma_resposta_verbal">Nenhuma Resposta Verbal</p>
+                        <h6 id="belowVerbal">Resposta Verbal</h6>
+                        <p id="palavras_e_frase_apropriadas">Palavras e Frases Apropriadas</p>
+                        <p id="palavras_inapropriadas">Palavras Inapropriadas</p>
+                        <p id="choro_persistete_ou_gritos">Choro Persistente ou Gritos</p>
+                        <p id="sons_incompreensiveis">Sons Incompreensíveis</p>
+                        <p id="nenhuma_resposta_verbal">Nenhuma Resposta Verbal</p>
 
-                    <h6 id="belowMotor">Resposta Motora</h6>
-                    <p id="obdece_prontamente">Obedece Prontamente</p>
-                    <p id="localiza_dor_ou_estimulo_tatil">Localiza Dor ou Estímulo Tátil</p>
-                    <p id="retirada_do_segmento_estimulado">Retirada do Segmento Estimulado</p>
-                    <p id="flexao_anormal_decorticacao">Flexão Anormal (Decorticação)</p>
-                    <p id="extensao_anormal_decerebracao">Extensão Anormal (Descerebração)</p>
-                    <p id="ausencia_paralisia_flacida_hipotonia">Ausência (Paralisia Flácida, Hipotônia)</p>
+                        <h6 id="belowMotor">Resposta Motora</h6>
+                        <p id="obdece_prontamente">Obedece Prontamente</p>
+                        <p id="localiza_dor_ou_estimulo_tatil">Localiza Dor ou Estímulo Tátil</p>
+                        <p id="retirada_do_segmento_estimulado">Retirada do Segmento Estimulado</p>
+                        <p id="flexao_anormal_decorticacao">Flexão Anormal (Decorticação)</p>
+                        <p id="extensao_anormal_decerebracao">Extensão Anormal (Descerebração)</p>
+                        <p id="ausencia_paralisia_flacida_hipotonia">Ausência (Paralisia Flácida, Hipotônia)</p>
+                    </div>
+                    <div id="glasgowAbove">
+                        <h5 id="above">Maior de 5 anos</h5>
+                        <h6 id="aboveOcular">Abertura Ocular</h6>
+                        <p id="espontanea_1">Espontânea</p>
+                        <p id="comando_verbal_1">Comando Verbal</p>
+                        <p id="estimulo_doloroso_1">Estímulo doloroso</p>
+                        <p id="nenhuma_ocular_1">Nenhuma</p>
 
-                    <h5 id="above">Maior de 5 anos</h5>
-                    <h6 id="aboveOcular">Abertura Ocular</h6>
-                    <p id="espontanea_1">Espontânea</p>
-                    <p id="comando_verbal_1">Comando Verbal</p>
-                    <p id="estimulo_doloroso_1">Estímulo doloroso</p>
-                    <p id="nenhuma_ocular_1">Nenhuma</p>
+                        <h6 id="aboveVerbal">Resposta Verbal</h6>
+                        <p id="orientado_1">Orientado</p>
+                        <p id="confuso_1">Confuso</p>
+                        <p id="palavras_inapropriadas_1">Palavras Inapropriadas</p>
+                        <p id="palavras_incompreensiveis_1">Palavras Incompreensíveis</p>
+                        <p id="nenhuma_verbal_1">Nenhuma</p>
 
-                    <h6 id="aboveVerbal">Resposta Verbal</h6>
-                    <p id="orientado_1">Orientado</p>
-                    <p id="confuso_1">Confuso</p>
-                    <p id="palavras_inapropriadas_1">Palavras Inapropriadas</p>
-                    <p id="palavras_incompreensiveis_1">Palavras Incompreensíveis</p>
-                    <p id="nenhuma_verbal_1">Nenhuma</p>
-
-                    <h6 id="aboveMotor">Resposta Motora</h6>
-                    <p id="obdece_comandos_1">Obedece Comandos</p>
-                    <p id="localiza_dor_1">Localiza Dor</p>
-                    <p id="movimento_retirada_1">Movimento Retirada</p>
-                    <p id="flexao_anormal_1">Flexão Anormal</p>
-                    <p id="extensao_anormal_1">Extensão Anormal</p>
-                    <p id="nenhuma_motora_1">Nenhuma</p>
-
+                        <h6 id="aboveMotor">Resposta Motora</h6>
+                        <p id="obdece_comandos_1">Obedece Comandos</p>
+                        <p id="localiza_dor_1">Localiza Dor</p>
+                        <p id="movimento_retirada_1">Movimento Retirada</p>
+                        <p id="flexao_anormal_1">Flexão Anormal</p>
+                        <p id="extensao_anormal_1">Extensão Anormal</p>
+                        <p id="nenhuma_motora_1">Nenhuma</p>
+                    </div>
                     <p id="totalSum">Total</p>
                 </div>
 
 
                 <!-- vitalSignsForm -->
-                <h3 class="mt-5" id="vitalSignsForm">Sinais Vitais</h3>
-                <p id="bloodPressure">Pressão Arterial</p>
-                <p id="pulse">Pulso (b.c.p.m)</p>
-                <p id="breathing">Respiração (m.r.m)</p>
-                <p id="saturation">Saturação (%)</p>
-                <p id="hgt">HGT</p>
-                <p id="temperature">Temperatura (C°)</p>
-                <p id="perfusion">Perfusão</p>
-                <p id="perfusao_maior">Perfusão > 2 seg.</p>
-                <p id="perfusao_menor">Perfusão &lt; 2 seg.</p>
-                <p id="normal/anormal">Normal</p>
-                <p id="normal">Normal</p>
-                <p id="anormal">Anormal</p>
+                <div id="vitalSigns">
+                    <h3 class="mt-5" id="vitalSignsForm">Sinais Vitais</h3>
+                    <p id="bloodPressure">Pressão Arterial</p>
+                    <p id="pulse">Pulso (b.c.p.m)</p>
+                    <p id="breathing">Respiração (m.r.m)</p>
+                    <p id="saturation">Saturação (%)</p>
+                    <p id="hgt">HGT</p>
+                    <p id="temperature">Temperatura (C°)</p>
+                    <p id="perfusion">Perfusão</p>
+                    <p id="perfusao_maior">Perfusão > 2 seg.</p>
+                    <p id="perfusao_menor">Perfusão &lt; 2 seg.</p>
+                    <p id="normal/anormal">Normal</p>
+                    <p id="normal">Normal</p>
+                    <p id="anormal">Anormal</p>
+                </div>
 
                 <!-- patientSituationForm -->
-                <h3 class="mt-5" id="patientSituationForm">Situação do Paciente</h3>
-                <p id="lay">Deitada</p>
-                <p id="semiLay">Semi-deitada</p>
-                <p id="sitting">Sentada</p>
-                <p id="critical">Crítico</p>
-                <p id="unstable">Instável</p>
-                <p id="potentiallyUnstable">Potencialmente instável</p>
-                <p id="stable">Estável</p>
-                <p id="cyclist">Ciclista</p>
-                <p id="bicycle">Condutor moto</p>
-                <p id="pregnant">Gestante</p>
-                <p id="frontSeatPassenger">Pass. banco frente</p>
-                <p id="motorbikePassenger">Pass. moto</p>
-                <p id="carDriver">Condutor carro</p>
-                <p id="clinical">Clínico</p>
-                <p id="trauma">Trauma</p>
-                <p id="backSeatPassenger">Pass. banco trás</p>
-                <p id="pedestrian">Pedestre</p>
+                <div id="patientSituation">
+                    <h3 class="mt-5" id="patientSituationForm">Situação do Paciente</h3>
+                    <p id="lay">Deitada</p>
+                    <p id="semiLay">Semi-deitada</p>
+                    <p id="sitting">Sentada</p>
+                    <p id="critical">Crítico</p>
+                    <p id="unstable">Instável</p>
+                    <p id="potentiallyUnstable">Potencialmente instável</p>
+                    <p id="stable">Estável</p>
+                    <p id="cyclist">Ciclista</p>
+                    <p id="bicycle">Condutor moto</p>
+                    <p id="pregnant">Gestante</p>
+                    <p id="frontSeatPassenger">Pass. banco frente</p>
+                    <p id="motorbikePassenger">Pass. moto</p>
+                    <p id="carDriver">Condutor carro</p>
+                    <p id="clinical">Clínico</p>
+                    <p id="trauma">Trauma</p>
+                    <p id="backSeatPassenger">Pass. banco trás</p>
+                    <p id="pedestrian">Pedestre</p>
+                </div>
 
                 <!-- proceduresForm -->
-                <h3 class="mt-5" id="proceduresForm">Procedimentos Efetuados</h3>
-                <p id="aspiration">Aspiração</p>
-                <p id="initialValuation">Avaliação inicial</p>
-                <p id="directedValuation">Avaliação dirigida</p>
-                <p id="continuedValuation">Avaliação continuada</p>
-                <p id="rautek">Chave de Rautek</p>
-                <p id="guedel">Cânula de Guedel</p>
-                <p id="unclogRespiratory">Desobstrução de V.A.</p>
-                <p id="dea">Emprego do D.E.A.</p>
-                <p id="riskManagement">Gerenciamento de riscos</p>
-                <p id="injuryCleaning">Limpeza de ferimento</p>
-                <p id="dressings">Curativos</p>
-                <p id="compressive">Compressivo</p>
-                <p id="jam">Encravamento</p>
-                <p id="ocular">Ocular</p>
-                <p id="burn">Queimadura</p>
-                <p id="simple">Simples</p>
-                <p id="3Point">3 pontas</p>
-                <p id="immobilization">Imobilizações</p>
-                <p id="rightBottomLimb">Membro inf. dir.</p>
-                <p id="leftBottomLimb">Membro inf. esq.</p>
-                <p id="rightUpperLimb">Membro sup. dir.</p>
-                <p id="leftUpperLimb">Membro sup. esq.</p>
-                <p id="hip">Quadril</p>
-                <p id="cervical">Cervical</p>
-                <p id="wheelStretcher">Maca sobre rodas</p>
-                <p id="stretcher">Maca rígida</p>
-                <p id="bridge">Ponte</p>
-                <p id="helmetRemoval">Retirado capacete</p>
-                <p id="cpr">R.C.P.</p>
-                <p id="90DegreeRoll">Rolamento 90°</p>
-                <p id="180DegreeRoll">Rolamento 180°</p>
-                <p id="decisionTake">Tomada decisão</p>
-                <p id="shockTreatment">Tratado choque</p>
-                <p id="cannula">Uso de cânula</p>
-                <p id="colar">Uso colar</p>
-                <p id="colarInput">Uso colar</p>
-                <p id="ked">Uso KED</p>
-                <p id="ttf">Uso TTF</p>
-                <p id="ventilationSup">Ventilação suporte</p>
-                <p id="oxigenInput">Oxigenioterapia</p>
-                <p id="resuscitationInput">Reanimador</p>
-                <p id="auxiliary">Meios auxiliares</p>
-                <p id="celesc">CELESC</p>
-                <p id="defesaCivil">Defesa Civil</p>
-                <p id="igpPC">IGP/PC</p>
-                <p id="samuUsa">SAMU USA</p>
-                <p id="samuUsb">SAMU USB</p>
-                <p id="cit">CIT</p>
-                <p id="policiaCivil">Polícia Civil</p>
-                <p id="policiaMilitar">Polícia Militar</p>
-                <p id="pre">Polícia Rodoviária Estadual</p>
-                <p id="prf">Polícia Rodoviária Federal</p>
-                <p id="otherInput procedures">Outros</p>
+                <div id="procedures">
+                    <h3 class="mt-5" id="proceduresForm">Procedimentos Efetuados</h3>
+                    <p id="aspiration">Aspiração</p>
+                    <p id="initialValuation">Avaliação inicial</p>
+                    <p id="directedValuation">Avaliação dirigida</p>
+                    <p id="continuedValuation">Avaliação continuada</p>
+                    <p id="rautek">Chave de Rautek</p>
+                    <p id="guedel">Cânula de Guedel</p>
+                    <p id="unclogRespiratory">Desobstrução de V.A.</p>
+                    <p id="dea">Emprego do D.E.A.</p>
+                    <p id="riskManagement">Gerenciamento de riscos</p>
+                    <p id="injuryCleaning">Limpeza de ferimento</p>
+                    <p id="dressings">Curativos</p>
+                    <p id="compressive">Compressivo</p>
+                    <p id="jam">Encravamento</p>
+                    <p id="ocular">Ocular</p>
+                    <p id="burn">Queimadura</p>
+                    <p id="simple">Simples</p>
+                    <p id="3Point">3 pontas</p>
+                    <p id="immobilization">Imobilizações</p>
+                    <p id="rightBottomLimb">Membro inf. dir.</p>
+                    <p id="leftBottomLimb">Membro inf. esq.</p>
+                    <p id="rightUpperLimb">Membro sup. dir.</p>
+                    <p id="leftUpperLimb">Membro sup. esq.</p>
+                    <p id="hip">Quadril</p>
+                    <p id="cervical">Cervical</p>
+                    <p id="wheelStretcher">Maca sobre rodas</p>
+                    <p id="stretcher">Maca rígida</p>
+                    <p id="bridge">Ponte</p>
+                    <p id="helmetRemoval">Retirado capacete</p>
+                    <p id="cpr">R.C.P.</p>
+                    <p id="90DegreeRoll">Rolamento 90°</p>
+                    <p id="180DegreeRoll">Rolamento 180°</p>
+                    <p id="decisionTake">Tomada decisão</p>
+                    <p id="shockTreatment">Tratado choque</p>
+                    <p id="cannula">Uso de cânula</p>
+                    <p id="colar">Uso colar</p>
+                    <p id="colarInput">Uso colar</p>
+                    <p id="ked">Uso KED</p>
+                    <p id="ttf">Uso TTF</p>
+                    <p id="ventilationSup">Ventilação suporte</p>
+                    <p id="oxigenInput">Oxigenioterapia</p>
+                    <p id="resuscitationInput">Reanimador</p>
+                    <p id="auxiliary">Meios auxiliares</p>
+                    <p id="celesc">CELESC</p>
+                    <p id="defesaCivil">Defesa Civil</p>
+                    <p id="igpPC">IGP/PC</p>
+                    <p id="samuUsa">SAMU USA</p>
+                    <p id="samuUsb">SAMU USB</p>
+                    <p id="cit">CIT</p>
+                    <p id="policiaCivil">Polícia Civil</p>
+                    <p id="policiaMilitar">Polícia Militar</p>
+                    <p id="pre">Polícia Rodoviária Estadual</p>
+                    <p id="prf">Polícia Rodoviária Federal</p>
+                    <p id="otherInput procedures">Outros</p>
+                </div>
 
                 <!-- medicalAnamnesisForm -->
-                <h3 class="mt-5" id="medicalAnamnesisForm">Anamnese de Emergência Médica</h3>
-                <p id="whatHappened">O que aconteceu</p>
-                <p id="happenedBefore">Aconteceu outras vezes</p>
-                <p id="howLong">Há quanto tempo</p>
-                <p id="healthProblem">Possui problema de saúde</p>
-                <p id="whichHealth">Quais problemas de saúde</p>
-                <p id="medication">Faz uso de medicação</p>
-                <p id="medicationTime">Horário da última medicação</p>
-                <p id="medicationName">Nome da medicação</p>
-                <p id="allergy">Possui alergia</p>
-                <p id="whichAllergy">Qual alergia</p>
-                <p id="eat">Ingeriu alimento ou líquido ≥ 6 horas</p>
-                <p id="eatTime">Quando ingeriu</p>
+                <div id="medicalAnamnesis">
+                    <h3 class="mt-5" id="medicalAnamnesisForm">Anamnese de Emergência Médica</h3>
+                    <p id="whatHappened">O que aconteceu</p>
+                    <p id="happenedBefore">Aconteceu outras vezes</p>
+                    <p id="howLong">Há quanto tempo</p>
+                    <p id="healthProblem">Possui problema de saúde</p>
+                    <p id="whichHealth">Quais problemas de saúde</p>
+                    <p id="medication">Faz uso de medicação</p>
+                    <p id="medicationTime">Horário da última medicação</p>
+                    <p id="medicationName">Nome da medicação</p>
+                    <p id="allergy">Possui alergia</p>
+                    <p id="whichAllergy">Qual alergia</p>
+                    <p id="eat">Ingeriu alimento ou líquido ≥ 6 horas</p>
+                    <p id="eatTime">Quando ingeriu</p>
+                </div>
 
                 <!-- birthAnamnesisForm -->
-                <p id="period">Período de gestação</p>
-                <p id="pre-natal">Fez pré-natal</p>
-                <p id="docName">Nome do médico</p>
-                <p id="complication">Há possibilidade de complicação</p>
-                <p id="firstSon">Não é o primeiro filho</p>
-                <p id="numberSons">Número de filhos</p>
-                <p id="contractionHour">Que horas iniciaram as contrações</p>
-                <p id="contractionDuration">Duração das contrações</p>
-                <p id="contractionGap">Intervalo das contrações</p>
-                <p id="hipTension">Sente pressão na região do quadril ou vontade de evacuar</p>
-                <p id="bagBreak">Houve ruptura da bolsa</p>
-                <p id="visualInpection">Feita inspeção visual</p>
-                <p id="birthComplete">Parto realizado</p>
-                <p id="masc">Sexo masc</p>
-                <p id="fem">Sexo fem</p>
-                <p id="babyName">Nome do bebê</p>
+                <div id="birthAnamnesis">
+                    <h3 class="mt-5" id="birthAnamnesisForm">Anamnese Gestacional</h3>
+                    <p id="period">Período de gestação</p>
+                    <p id="pre-natal">Fez pré-natal</p>
+                    <p id="docName">Nome do médico</p>
+                    <p id="complication">Há possibilidade de complicação</p>
+                    <p id="firstSon">Não é o primeiro filho</p>
+                    <p id="numberSons">Número de filhos</p>
+                    <p id="contractionHour">Que horas iniciaram as contrações</p>
+                    <p id="contractionDuration">Duração das contrações</p>
+                    <p id="contractionGap">Intervalo das contrações</p>
+                    <p id="hipTension">Sente pressão na região do quadril ou vontade de evacuar</p>
+                    <p id="bagBreak">Houve ruptura da bolsa</p>
+                    <p id="visualInpection">Feita inspeção visual</p>
+                    <p id="birthComplete">Parto realizado</p>
+                    <p id="masc">Sexo masc</p>
+                    <p id="fem">Sexo fem</p>
+                    <p id="babyName">Nome do bebê</p>
+                </div>
 
                 <!-- Materiais Deixados no Hospital -->
-                <h3 class="mt-5" id="hospitalMaterialForm">Materiais Deixados no Hospital</h3>
-                <p id="baseEstabilizador">Base do estabilizador</p>
-                <p id="baseEstabilizadorQuantity">Quantidade da base</p>
-                <p id="colar">Colar</p>
-                <p id="colarSize">Tamanho colar</p>
-                <p id="colarQuantity">Quantidade colar</p>
-                <p id="coximEstabilizador">Coxins do estabilizador</p>
-                <p id="coximEstabilizadorQuantity">Quantidade coxins</p>
-                <p id="KED">KED</p>
-                <p id="KEDSize">Tamanho KED</p>
-                <p id="KEDQuantity">Quantidade KED</p>
-                <p id="macaRigida">Maca rígida</p>
-                <p id="macaRigidaQuantity">Quantidade maca</p>
-                <p id="TTF">TTF</p>
-                <p id="TTFSize">Tamanho TTF</p>
-                <p id="TTFQuantity">Quantidade TTF</p>
-                <p id="tiranteAranha">Tirante aranha</p>
-                <p id="tiranteAranhaQuantity">Quantidade aranha</p>
-                <p id="tiranteCabeca">Tirante cabeça</p>
-                <p id="tiranteCabecaQuantity">Quantidade cabeça</p>
-                <p id="canula">Cânula</p>
-                <p id="canulaQuantity">Quantidade cânula</p>
-                <p id="otherName hospital">Outro</p>
-                <p id="otherQuantity hospital">Quantidade outro</p>
+                <div id="hospitalMaterial">
+                    <h3 class="mt-5" id="hospitalMaterialForm">Materiais Deixados no Hospital</h3>
+                    <p id="baseEstabilizador">Base do estabilizador</p>
+                    <p id="baseEstabilizadorQuantity">Quantidade da base</p>
+                    <p id="colar">Colar</p>
+                    <p id="colarSize">Tamanho colar</p>
+                    <p id="colarQuantity">Quantidade colar</p>
+                    <p id="coximEstabilizador">Coxins do estabilizador</p>
+                    <p id="coximEstabilizadorQuantity">Quantidade coxins</p>
+                    <p id="KED">KED</p>
+                    <p id="KEDSize">Tamanho KED</p>
+                    <p id="KEDQuantity">Quantidade KED</p>
+                    <p id="macaRigida">Maca rígida</p>
+                    <p id="macaRigidaQuantity">Quantidade maca</p>
+                    <p id="TTF">TTF</p>
+                    <p id="TTFSize">Tamanho TTF</p>
+                    <p id="TTFQuantity">Quantidade TTF</p>
+                    <p id="tiranteAranha">Tirante aranha</p>
+                    <p id="tiranteAranhaQuantity">Quantidade aranha</p>
+                    <p id="tiranteCabeca">Tirante cabeça</p>
+                    <p id="tiranteCabecaQuantity">Quantidade cabeça</p>
+                    <p id="canula">Cânula</p>
+                    <p id="canulaQuantity">Quantidade cânula</p>
+                    <p id="otherName hospital">Outro</p>
+                    <p id="otherQuantity hospital">Quantidade outro</p>
+                </div>
 
                 <!-- Materiais descartáveis utilizados -->
-                <h3 class="mt-5" id="oneWayMaterialForm">Materiais Descartáveis Utilizados</h3>
-                <p id="ataduras">Ataduras</p>
-                <p id="atadurasSize">Tamanho Ataduras</p>
-                <p id="atadurasQuantity">Quantidade Ataduras</p>
-                <p id="cateter">Catéter TP. óculos</p>
-                <p id="cateterQuantity">Quantidade Catéter TP. óculos</p>
-                <p id="compressaComum">Compressa comum</p>
-                <p id="compressaComumQuantity">Quantidade Compressa comum</p>
-                <p id="kits">KITs</p>
-                <p id="kitsSize">Tamanho KITs</p>
-                <p id="kitsQuantity">Quantidade KITs</p>
-                <p id="luvas">Luvas (pares)</p>
-                <p id="luvasQuantity">Quantidade Luvas (pares)</p>
-                <p id="mascara">Máscara</p>
-                <p id="mascaraQuantity">Quantidade Máscara</p>
-                <p id="mantaAluminizada">Manta aluminizada</p>
-                <p id="mantaAluminizadaQuantity">Quantidade Manta aluminizada</p>
-                <p id="pasDEA">Pás do DEA</p>
-                <p id="pasDEAQuantity">Quantidade Pás do DEA</p>
-                <p id="sondaAsp">Sonda de aspiração</p>
-                <p id="sondaAspQuantity">Quantidade Sonda de aspiração</p>
-                <p id="soro">Soro fisiológico</p>
-                <p id="soroQuantity">Quantidade Soro fisiológico</p>
-                <p id="talas">Talas PAP</p>
-                <p id="talasSize">Tamanho Talas PAP</p>
-                <p id="talasQuantity">Quantidade Talas PAP</p>
-                <p id="otherName">Outro</p>
-                <p id="otherQuantity">Quantidade outro</p>
+                <div id="oneWayMaterial">
+                    <h3 class="mt-5" id="oneWayMaterialForm">Materiais Descartáveis Utilizados</h3>
+                    <p id="ataduras">Ataduras</p>
+                    <p id="atadurasSize">Tamanho Ataduras</p>
+                    <p id="atadurasQuantity">Quantidade Ataduras</p>
+                    <p id="cateter">Catéter TP. óculos</p>
+                    <p id="cateterQuantity">Quantidade Catéter TP. óculos</p>
+                    <p id="compressaComum">Compressa comum</p>
+                    <p id="compressaComumQuantity">Quantidade Compressa comum</p>
+                    <p id="kits">KITs</p>
+                    <p id="kitsSize">Tamanho KITs</p>
+                    <p id="kitsQuantity">Quantidade KITs</p>
+                    <p id="luvas">Luvas (pares)</p>
+                    <p id="luvasQuantity">Quantidade Luvas (pares)</p>
+                    <p id="mascara">Máscara</p>
+                    <p id="mascaraQuantity">Quantidade Máscara</p>
+                    <p id="mantaAluminizada">Manta aluminizada</p>
+                    <p id="mantaAluminizadaQuantity">Quantidade Manta aluminizada</p>
+                    <p id="pasDEA">Pás do DEA</p>
+                    <p id="pasDEAQuantity">Quantidade Pás do DEA</p>
+                    <p id="sondaAsp">Sonda de aspiração</p>
+                    <p id="sondaAspQuantity">Quantidade Sonda de aspiração</p>
+                    <p id="soro">Soro fisiológico</p>
+                    <p id="soroQuantity">Quantidade Soro fisiológico</p>
+                    <p id="talas">Talas PAP</p>
+                    <p id="talasSize">Tamanho Talas PAP</p>
+                    <p id="talasQuantity">Quantidade Talas PAP</p>
+                    <p id="otherName">Outro</p>
+                    <p id="otherQuantity">Quantidade outro</p>
+                </div>
 
                 <!-- Observações e Objetos recolhidos -->
-                <h3 class="mt-5" id="obsForm">Observações e Objetos Recolhidos</h3>
-                <p id="obs">Observações</p>
-                <p id="objects">Objetos recolhidos</p>
+                <div id="obsAndObjects">
+                    <h3 class="mt-5" id="obsForm">Observações e Objetos Recolhidos</h3>
+                    <p id="obs">Observações</p>
+                    <p id="objects">Objetos recolhidos</p>
+                </div>
 
                 <!-- Denial Term -->
-                <h3 class="mt-5" id="denialForm">Termo de Recusa</h3>
-                <div id="buttonContainer">
-                    <a class="btn btn-primary" id="downloadBtn" onclick="downloadBtn()">Baixar</a>
+                <div id="denialTerm" <h3 class="mt-5" id="denialForm">Termo de Recusa</h3>
+                    <div id="buttonContainer">
+                        <a class="btn btn-primary" id="downloadBtn" onclick="downloadBtn()">Baixar</a>
+                    </div>
                 </div>
 
                 <!-- Avaliação da cinemática -->
-                <h3 class="mt-5" id="cinematicForm">Avaliação da Cinemática</h3>
-                <p id="behavior">Distúrbio de comportamento</p>
-                <p id="helmet">Encontrado de capacete</p>
-                <p id="seatbelt">Encontrado de cinto</p>
-                <p id="windshield">Para-brisas avariado</p>
-                <p id="walking">Caminhando na cena</p>
-                <p id="pannel">Painel avariado</p>
-                <p id="steeringWheel">Volante torcido</p>
+                <div id="cinematic">
+                    <h3 class="mt-5" id="cinematicForm">Avaliação da Cinemática</h3>
+                    <p id="behavior">Distúrbio de comportamento</p>
+                    <p id="helmet">Encontrado de capacete</p>
+                    <p id="seatbelt">Encontrado de cinto</p>
+                    <p id="windshield">Para-brisas avariado</p>
+                    <p id="walking">Caminhando na cena</p>
+                    <p id="pannel">Painel avariado</p>
+                    <p id="steeringWheel">Volante torcido</p>
+                </div>
             </div>
         </div>
     </div>
@@ -538,8 +647,21 @@
                     // Verifica se existe no objeto JSON
                     if (data.GlasgowForm != null && data.GlasgowForm != undefined) {
                         const GlasgowForm = data.GlasgowForm;
+                        const GlasgowContainer = document.getElementById('GlasgowContainer');
+                        const GlasgowTitle = document.getElementById('glasgowForm');
+                        const GlasgowBelow = document.getElementById('glasgowBelow');
+                        const GlasgowAbove = document.getElementById('glasgowAbove');
 
                         console.log(GlasgowForm);
+
+                        // Verifica se o paciente é menor de 5 anos
+                        if (data.info_paciente.patientAge < 5) {
+                            // Se for, remove a div GlasgowAbove
+                            GlasgowAbove.remove();
+                        } else {
+                            // Se não for, remove a div GlasgowBelow
+                            GlasgowBelow.remove();
+                        }
 
                         // Pega os valores do objeto e preenche os campos <p> com mesmo ID do nome dos itens no objeto
                         for (let key in GlasgowForm) {
@@ -550,6 +672,12 @@
                                 element.innerText += `: ${value}`;
                             }
                         }
+                    } else {
+                        // Se não existir, remove o título e a div
+                        const GlasgowForm = document.getElementById('GlasgowContainer');
+                        const GlasgowTitle = document.getElementById('glasgowForm');
+                        GlasgowForm.remove();
+                        GlasgowTitle.remove();
                     }
                 })
         }
@@ -703,8 +831,9 @@
                 .then(response => response.text())
                 .then(data => {
                     const img = document.querySelector('#traumaImage'); // Selecione o elemento de imagem
+                    const imgContainer = document.querySelector('#traumaLocation');
                     if (!data) {
-                        img.remove();
+                        imgContainer.remove();
                         return;
                     }
                     img.src = data; // Defina o src para a imagem base64
@@ -735,35 +864,9 @@
                     elements[i].innerText = textContent.replace(': true', ': Sim');
                 }
             }
-            // Verificar se existe algum <p> abaixo dos <h3> antes do próximo <h3>
-            // Se não existir, deletar o <h3> dentro de 'occurrenceData'
-            var h3 = document.querySelectorAll('.occurrenceData h3');
-            for (var i = h3.length - 1; i >= 0; i--) {
-                var nextElement = h3[i].nextElementSibling;
-                if (nextElement == null || nextElement.tagName == 'H3') {
-                    h3[i].remove();
-                }
+           
             }
-
-            // Verificar se existe algum <p> abaixo dos <h6> antes do próximo <h6> ou <p id="totalSum">
-            // Se não existir, deletar o <h6> dentro de 'glasgowContainer'
-            var h6 = document.querySelectorAll('#GlasgowContainer h6');
-            for (var i = h6.length - 1; i >= 0; i--) {
-                var nextElement = h6[i].nextElementSibling;
-                if (nextElement == null || nextElement.tagName == 'H6' || nextElement.tagName == 'P') {
-                    h6[i].remove();
-                }
-            }
-
-            // Verificar se existe algum <h6> abaixo dos <h5> antes do próximo <h5> ou <p id="totalSum">
-            // Se não existir, deletar o <h6> dentro de 'glasgowContainer'
-            var h5 = document.querySelectorAll('#GlasgowContainer h5');
-            for (var i = h5.length - 1; i >= 0; i--) {
-                var nextElement = h5[i].nextElementSibling;
-                if (nextElement == null || nextElement.tagName == 'H5' || nextElement.tagName == 'P') {
-                    h5[i].remove();
-                }
-            }
+            
 
             // Adicionar classe 'mb-5' para o último elemento da página (caso não seja o botão de download)
             var lastElement = document.querySelector('.occurrenceData').lastElementChild;

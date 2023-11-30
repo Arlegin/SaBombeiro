@@ -64,6 +64,7 @@ app.post('/login', (req, res) => {
       req.session.loggedin = true;
       req.session.cpf = cpf;
       req.session.name = user.nome;
+      req.session.admin = user.administrador;
       if (user.administrador === true) {
         res.redirect('/menuAdmin.html');
       } else {
@@ -118,6 +119,7 @@ let currentDay = new Date().getDate();
 app.post('/form', (req, res) => {
   // Verifique se o dia atual mudou
   const today = new Date().getDate();
+  console.log(today);
   if (today !== currentDay) {
     // Se o dia mudou, reinicie o dailyId e atualize o currentDay
     dailyId = 0;
@@ -166,11 +168,19 @@ app.get('/api/usuarios', (req, res) => {
   });
 });
 
-app.get('/occurrenceHistory', async (req, res) => {
+app.get('/occurrenceHistory/', async (req, res) => {
   try {
-    const ocorrencias = await Ocorrencia.find({}, '_id dailyId info_paciente.dateInput');
-    res.json(ocorrencias);
-    console.log(ocorrencias);
+    const cpf = req.session.cpf;
+    const admin = req.session.admin;
+    if (admin === true) {
+      const ocorrenciasAdm = await Ocorrencia.find({}, '_id dailyId info_paciente.dateInput');
+      res.json(ocorrenciasAdm);
+      console.log(ocorrenciasAdm);
+    } else {
+      const ocorrencias = await Ocorrencia.find({ 'cpfUser': cpf }, '_id dailyId info_paciente.dateInput');
+      res.json(ocorrencias);
+      console.log(ocorrencias);
+    }
   } catch (err) {
     res.status(500).send(err);
   }
@@ -181,7 +191,7 @@ app.get('/occurrence/:id', async (req, res) => {
   try {
     const id = req.params.id;
     const ocorrencia = await Ocorrencia.findById(id);
-    
+
     if (!ocorrencia) {
       res.status(404).json({ error: 'Ocorrência não encontrada' });
       return;
@@ -198,7 +208,7 @@ app.get('/getImage/:id', async (req, res) => {
   try {
     const id = req.params.id;
     const ocorrencia = await Ocorrencia.findById(id);
-    
+
     if (!ocorrencia) {
       res.status(404).json({ error: 'Ocorrência não encontrada' });
       return;

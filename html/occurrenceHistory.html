@@ -143,11 +143,9 @@
                             window.location.href = `/occurrence.html?id=${item._id}`;
                         });
                         // Formata a data para o formato brasileiro
-                        const date = new Date(item.info_paciente.dateInput);
-                        const day = date.getDate().toString().padStart(2, '0');
-                        const month = (date.getMonth() + 1).toString().padStart(2, '0');
-                        const year = date.getFullYear();
-                        item.info_paciente.dateInput = `${day}/${month}/${year}`;
+                        const date = item.info_paciente.dateInput;
+                        const dateSplit = date.split('-');
+                        const dateFormatted = `${dateSplit[2]}/${dateSplit[1]}/${dateSplit[0]}`;
 
                         tr.innerHTML = `
                         <td>
@@ -155,7 +153,7 @@
                             ${item._id.substring(12)}
                         </td>
                         <td class="align-middle">${item.dailyId}</td>
-                        <td class="align-middle">${item.info_paciente.dateInput}</td>
+                        <td class="align-middle">${dateFormatted}</td>
                 `;
                         tbody.appendChild(tr);
                     });
