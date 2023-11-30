@@ -2,7 +2,7 @@
   "_id": {
     "$oid": "655f8b058ffe623d145a602e"
   },
-  "cpf": "13910810993",
+  "cpf": "00000000000",
   "nome": "João Paulo Ersching",
   "senha": "morango",
   "administrador": true
@@ -13,15 +13,6 @@
   },
   "cpf": "02346783169",
   "nome": "Cazé Misto",
-  "senha": "vasgoDaGrama",
+  "senha": "vascoDaGrama",
   "administrador": false
-},
-{
-  "_id": {
-    "$oid": "65667b5567b2eca5c026e8a5"
-  },
-  "cpf": "42042042069",
-  "nome": "Administrador Tomaz Rodrigues",
-  "senha": "broxaCalvo123",
-  "administrador": true
 }]

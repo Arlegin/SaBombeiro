@@ -1,0 +1,104 @@
+[{
+  "_id": {
+    "$oid": "6568c31a899e4fa6374da023"
+  },
+  "occurrenceInfoForm": {
+    "usbNumber": "",
+    "desp": "",
+    "arrivalTime": "",
+    "kmFinal": "",
+    "siaSUS": "",
+    "codIR": false,
+    "codPS": false
+  },
+  "info_paciente": {
+    "dateInput": "2023-11-30",
+    "hospitalInput": "",
+    "mascInput": false,
+    "femInput": false,
+    "patientName": "",
+    "patientAge": "",
+    "patientCPF": "",
+    "companionName": "",
+    "companionAge": "",
+    "occurencyLocation": "",
+    "responsibleInput": "João Paulo Ersching"
+  },
+  "cinematicForm": {
+    "behavior": false,
+    "helmet": false,
+    "seatbelt": false,
+    "windshield": true,
+    "walking": false,
+    "pannel": false,
+    "steeringWheel": false
+  },
+  "dailyId": 1,
+  "cpfUser": "13910810993",
+  "nomeUser": "João Paulo Ersching",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6568c35a899e4fa6374da034"
+  },
+  "occurrenceInfoForm": {
+    "usbNumber": "",
+    "desp": "",
+    "arrivalTime": "",
+    "kmFinal": "",
+    "siaSUS": "",
+    "codIR": false,
+    "codPS": false
+  },
+  "info_paciente": {
+    "dateInput": "2023-11-30",
+    "hospitalInput": "",
+    "mascInput": false,
+    "femInput": false,
+    "patientName": "",
+    "patientAge": "",
+    "patientCPF": "",
+    "companionName": "",
+    "companionAge": "",
+    "occurencyLocation": "",
+    "responsibleInput": "Cazé Misto"
+  },
+  "occurrenceForm": {
+    "animals": true,
+    "transportation": false,
+    "landslide": false,
+    "medicalEmergency": false,
+    "fall2m": false,
+    "suicideAttempt": false,
+    "fall": false,
+    "drown": false,
+    "attack": false,
+    "runOver": false,
+    "shock": false,
+    "collapse": false,
+    "domestic": false,
+    "sport": false,
+    "toxic": false,
+    "bicicle": false,
+    "motorcycle": false,
+    "fallLevel": false,
+    "job": false,
+    "transfer": false,
+    "other": false,
+    "otherInput": ""
+  },
+  "cinematicForm": {
+    "behavior": false,
+    "helmet": false,
+    "seatbelt": false,
+    "windshield": false,
+    "walking": false,
+    "pannel": false,
+    "steeringWheel": false
+  },
+  "dailyId": 2,
+  "cpfUser": "02346783169",
+  "nomeUser": "Cazé Misto",
+  "__v": 0
+}]
